@@ -1,0 +1,10 @@
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+
+# Power BI
+*.pbix
+*.pbit
+*.tmp
+*.cache
+*.mds
+Update.readme

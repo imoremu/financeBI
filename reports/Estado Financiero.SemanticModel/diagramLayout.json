@@ -1,0 +1,203 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 1456.6812813656359,
+        "y": 103.65855395187424
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 294.93299555268413,
+            "y": 661.98921649722342
+          },
+          "nodeIndex": "Movimientos",
+          "nodeLineageTag": "d4a0e9fb-69d2-47ed-b104-d7bf44c733ad",
+          "size": {
+            "height": 332.70101536509787,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 1338.4597259072875,
+            "y": 5.7650010377889487
+          },
+          "nodeIndex": "Productos",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 15
+        },
+        {
+          "location": {
+            "x": 1480.845053460685,
+            "y": 649.86123857704467
+          },
+          "nodeIndex": "Saldo",
+          "nodeLineageTag": "ead767c0-2b14-4c09-a56f-681fb4332782",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 1060.3685909972696,
+            "y": 4.3810870016429995
+          },
+          "nodeIndex": "Calendario",
+          "nodeLineageTag": "587011a5-84bf-4545-a193-39fd0de29998",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 351.81992836345495,
+            "y": 0
+          },
+          "nodeIndex": "Tipo Movimiento",
+          "nodeLineageTag": "79a691e9-e5d7-43f9-a51f-2164edd3cd31",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 1740.2676090115008,
+            "y": 7.3018116694049979
+          },
+          "nodeIndex": "Medidas Saldo",
+          "nodeLineageTag": "d5a0786a-7d7e-410d-9408-bba78857846b",
+          "size": {
+            "height": 283.38709826249641,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 2164.2043634326733,
+            "y": 410.36181582056088
+          },
+          "nodeIndex": "Año Referencia",
+          "nodeLineageTag": "f4913a55-8049-44ba-a3dc-dc5a7f69a427",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 2022.901789034519,
+            "y": 0
+          },
+          "nodeIndex": "Medidas Movimientos",
+          "nodeLineageTag": "30bd2545-c205-453b-a2f3-858bc695c399",
+          "size": {
+            "height": 283.38709826249641,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 1166.1369705093298,
+            "y": 648.32442794542885
+          },
+          "nodeIndex": "Dividendos",
+          "nodeLineageTag": "71d662a6-d45e-4164-ac31-d301ddfcca99",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 14
+        },
+        {
+          "location": {
+            "x": 2735.2989284244586,
+            "y": 103.65855395187424
+          },
+          "nodeIndex": "Medidas Transacciones",
+          "nodeLineageTag": "1119b22a-9d0a-4769-8f0c-4498053d07e1",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 1817.5481217422619,
+            "y": 652.17834319339511
+          },
+          "nodeIndex": "IRPF Ahorro",
+          "nodeLineageTag": "04ca00c9-56eb-421e-94ea-73a2539081f8",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 2553.5707380182857,
+            "y": 438.77348542869618
+          },
+          "nodeIndex": "Medidas IRPF",
+          "nodeLineageTag": "8f3a51e4-9a1c-4933-885d-ca3ccd2b595f",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 790.9134010239195,
+            "y": 656.211749546992
+          },
+          "nodeIndex": "Transacciones",
+          "nodeLineageTag": "c1c9e7c5-0686-4cc6-aa8e-71faa3fa78dc",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 13
+        },
+        {
+          "location": {
+            "x": 752.85443002100681,
+            "y": 8.7621740032859954
+          },
+          "nodeIndex": "Años Fiscales",
+          "nodeLineageTag": "bdca8db4-4a09-4b1b-afb2-e18d359bbc3f",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 12
+        }
+      ],
+      "name": "Todas las tablas",
+      "zoomValue": 86.075949367088654,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas las tablas",
+  "defaultDiagram": "Todas las tablas"
+}

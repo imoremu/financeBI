@@ -1,0 +1,22 @@
+{
+  "name": "Colorblind Safe",
+  "dataColors": [
+    "#074650",
+    "#009292",
+    "#fe6db6",
+    "#feb5da",
+    "#D59DFD",
+    "#A578CA",
+    "#b5dafe",
+    "#6db6ff"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#070f25",
+  "tableAccent": "#0F1934",
+  "bad": "#F87F7F",
+  "neutral": "#FBF399",
+  "good": "#9EF89C",
+  "minimum": "#ADEEF4",
+  "center": "#F8EC83",
+  "maximum": "#71B6FB"
+}
