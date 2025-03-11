@@ -11535,7 +11535,7 @@
                 "value": "{\"currencyCulture\":\"es-ES\"}"
               }
             ],
-            "dataType": "double",
+            "dataType": "decimal",
             "formatString": "#,0.###############\\ \"€\";-#,0.###############\\ \"€\";#,0.###############\\ \"€\"",
             "lineageTag": "96f79b53-1c49-4143-812f-5645a3625f70",
             "sourceColumn": "Valor liquidativo",
@@ -11583,7 +11583,7 @@
                 "value": "{\"isGeneralNumber\":true}"
               }
             ],
-            "dataType": "double",
+            "dataType": "decimal",
             "lineageTag": "9f3125ac-2f24-4852-b31f-2131b59074f4",
             "sourceColumn": "Importe",
             "summarizeBy": "sum"
@@ -11628,7 +11628,11 @@
                 "    T_Saldo_Table = Origen{[Item=\"T_Saldo\",Kind=\"Table\"]}[Data],",
                 "    #\"Tipo cambiado\" = Table.TransformColumnTypes(T_Saldo_Table,{{\"Fecha\", type date}, {\"Producto\", type text}, {\"Saldo\", Currency.Type}, {\"Participaciones\", type number}, {\"Valor liquidativo\", Currency.Type}}),",
                 "    #\"Consulta anexada\" = Table.Combine({#\"Tipo cambiado\", #\"Transacciones Agrupadas\"}),",
-                "    #\"[Remove] Duplicados Fecha / Producto\" = Table.Distinct(#\"Consulta anexada\", {\"Fecha\", \"Producto\"}),",
+                "    // Remove rows without Cash Balance. ",
+                "    // These rows are those transactions without cash information because we don't have sotcks and price.",
+                "    // The cash balance is calculated then in a measure as Last Cash Balance + all transactions value",
+                "    #\"Filas filtradas\" = Table.SelectRows(#\"Consulta anexada\", each [Saldo] <> null and [Saldo] <> \"\"),",
+                "    #\"[Remove] Duplicados Fecha / Producto\" = Table.Distinct(#\"Filas filtradas\", {\"Fecha\", \"Producto\"}),",
                 "    #\"Año insertado\" = Table.AddColumn(#\"[Remove] Duplicados Fecha / Producto\", \"Año\", each Date.Year([Fecha]), Int64.Type),",
                 "    #\"Agregar columna personalizada\" = Table.AddColumn(#\"Año insertado\", \"Mes / Año\", each Date.Year([Fecha]) * 100 + Date.Month([Fecha]), Int64.Type),",
                 "    #\"[Order] Fecha\" = Table.Sort(#\"Agregar columna personalizada\",{{\"Fecha\", Order.Ascending}}),",
@@ -12315,27 +12319,7 @@
               }
             ],
             "displayFolder": "Beneficio",
-            "expression": [
-              "",
-              "    ",
-              "    [Saldo Último] - [Saldo Mes Anterior]",
-              "    /*SUMX(",
-              "        VALUES(Saldo[Fecha]),",
-              "        VAR __prev_month = ",
-              "\t\t    CALCULATE(",
-              "\t\t        [Saldo Último]                 ",
-              "                -- El saldo tiene fecha de último de mes. Basta con                                                                              -- restar un valor al día actual para coger la fecha anterior",
-              "\t\t        , Saldo[Fecha] < SELECTEDVALUE(Saldo[Fecha]) - 1       ",
-              "                , All(Calendario)          ",
-              "\t\t    )",
-              "",
-              "        VAR __current_month = [Saldo Último]",
-              "",
-              "\t    RETURN\t",
-              "           IF (ISBLANK(__current_month), BLANK(), __current_month - __prev_month)",
-              "    )*/",
-              ""
-            ],
+            "expression": "[Saldo Último] - [Saldo Mes Anterior]",
             "extendedProperties": [
               {
                 "name": "MeasureTemplate",
@@ -12370,33 +12354,35 @@
           },
           {
             "name": "Saldo Último",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
             "displayFolder": "Saldo",
             "expression": [
               "",
               "",
-              "SUMX(",
-              "    CALCULATETABLE(",
-              "        VALUES(Saldo[Producto])",
-              "        , REMOVEFILTERS(Calendario)",
-              "    )",
-              "    ,",
-              "    VAR Prod = Saldo[Producto]",
-              "    VAR UltimaFechaParaEsteProd =",
-              "        CALCULATE(",
-              "            MAX(Saldo[Fecha]),",
-              "            Calendario[Date] <= MAX(Calendario[Date])",
-              "        )",
+              "CALCULATE(",
+              "    SUMX(",
+              "        VALUES(Productos[Producto]),",
+              "        VAR UltimaFechaSaldoParaEsteProd = CALCULATE(MAX(Saldo[Fecha]), NOT(ISBLANK(Saldo[Saldo])))",
               "",
-              "    RETURN",
-              "        CALCULATE(",
-              "            SUM(Saldo[Saldo]),            ",
-              "            ALL(Saldo),",
-              "            Saldo[Producto] = Prod,",
-              "            Saldo[Fecha] = UltimaFechaParaEsteProd            ",
-              "        )",
+              "        RETURN",
+              "            CALCULATE(",
+              "                    SUM(Saldo[Saldo]),       ",
+              "                    Saldo[Fecha] = UltimaFechaSaldoParaEsteProd            ",
+              "            )",
+              "            +",
+              "            CALCULATE(",
+              "                    SUM(Transacciones[Importe]),       ",
+              "                    Transacciones[Fecha] > UltimaFechaSaldoParaEsteProd            ",
+              "            )",
+              "    )",
+              "    , Calendario[Date] <= MAX(Calendario[Date])",
               ")"
             ],
-            "formatString": "#,0.00\\ \"€\";-#,0.00\\ \"€\";#,0.00\\ \"€\"",
             "lineageTag": "a39857b5-e2b6-4745-9850-1058b0c0f5f6"
           },
           {
@@ -12796,12 +12782,10 @@
               "VAR fecha_actual = SELECTEDVALUE(Calendario[Date])",
               "",
               "RETURN ",
-              "CALCULATE(  ",
-              "    CALCULATE(",
-              "        [Beneficio Periodo]",
-              "        , Calendario[Date] <= fecha_actual",
-              "    )",
-              "    , ALLSELECTED(Calendario)",
+              "CALCULATE(",
+              "    [Beneficio Periodo],",
+              "    Calendario[Date] <= fecha_actual,",
+              "    ALLSELECTED(Calendario)",
               ")",
               "    "
             ],
@@ -12874,38 +12858,26 @@
           },
           {
             "name": "Participaciones Actuales",
-            "annotations": [
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
             "displayFolder": "Saldo",
             "expression": [
               "",
               "",
-              "VAR ultima_fecha = MIN(MAX(Calendario[Date]),MAX(Transacciones[Fecha]))",
-              "VAR products = CALCULATETABLE(VALUES(Transacciones[Producto]), Calendario[Date] <= ultima_fecha)",
+              "VAR ultima_fecha = MAX ( Calendario[Date] )",
               "",
               "RETURN",
-              "CALCULATE(",
-              "    IF(",
-              "        HASONEVALUE(Transacciones[Producto]),",
-              "        // Redondeo para evitar valores muy cercanos a 0 por errores de redondeo",
-              "        ROUND(         ",
-              "            CALCULATE(",
-              "                        SUM(Transacciones[Participaciones])",
-              "                        , ALL(Transacciones)",
-              "                        , products",
-              "                        , Transacciones[Tipo Transacción] <> \"Dividendos\"",
-              "                        , Calendario[Date] <= ultima_fecha",
-              "            )                                ",
-              "            , 3",
-              "        )",
+              "IF (",
+              "    ISFILTERED ( Productos[Producto] ),",
+              "    ROUND (",
+              "        CALCULATE (",
+              "            SUM ( Transacciones[Participaciones] ),",
+              "            Transacciones[Tipo Transacción] <> \"Dividendos\",",
+              "            Calendario[Date] <= ultima_fecha",
+              "        ),",
+              "        3",
               "    )",
-              "    , Calendario[Date] <= ultima_fecha",
               ")"
             ],
+            "formatString": "#,0.00",
             "lineageTag": "42d391dd-ae26-42fc-823a-bcf679760487"
           },
           {
@@ -13006,6 +12978,36 @@
             "expression": "DATEDIFF(MIN(Saldo[Fecha]),MAX(Saldo[Fecha]),DAY)",
             "formatString": "0",
             "lineageTag": "92557d77-fa48-4bd0-bc27-06b0b0508207"
+          },
+          {
+            "name": "Participaciones Acumuladas",
+            "displayFolder": "Saldo",
+            "expression": [
+              "",
+              "",
+              "VAR ultima_fecha = MAX ( Transacciones[Fecha])",
+              "",
+              "RETURN",
+              "IF (",
+              "    HASONEVALUE ( Transacciones[Producto] ),",
+              "    ROUND (",
+              "        CALCULATE (",
+              "            SUM ( Transacciones[Participaciones] ),",
+              "            REMOVEFILTERS ( Transacciones ),",
+              "            FILTER (",
+              "                ALL ( Transacciones ),",
+              "                Transacciones[Tipo Transacción] <> \"Dividendos\"",
+              "                    && Transacciones[Producto] IN VALUES ( Transacciones[Producto] )",
+              "                    && Transacciones[Fecha] <= ultima_fecha",
+              "            )",
+              "        ),",
+              "        3",
+              "    )",
+              ")",
+              ""
+            ],
+            "formatString": "#,0.00",
+            "lineageTag": "3ee8e587-8667-4318-aadc-6d41644e629a"
           }
         ],
         "partitions": [
@@ -13347,7 +13349,7 @@
                 "value": "{\"isGeneralNumber\":true}"
               }
             ],
-            "dataType": "double",
+            "dataType": "decimal",
             "lineageTag": "ba043788-029b-4fd5-b9cb-179388d7cf1f",
             "sourceColumn": "Participaciones",
             "summarizeBy": "sum"
@@ -13360,7 +13362,7 @@
                 "value": "Automatic"
               }
             ],
-            "dataType": "int64",
+            "dataType": "decimal",
             "formatString": "0",
             "lineageTag": "0219d315-fc08-4f55-8d78-8e5c51f4fe7c",
             "sourceColumn": "Comisión",
@@ -13391,7 +13393,7 @@
                 "value": "{\"isGeneralNumber\":true}"
               }
             ],
-            "dataType": "double",
+            "dataType": "decimal",
             "lineageTag": "180a1777-6806-403d-ba4a-e9686b349eea",
             "sourceColumn": "Retenido",
             "summarizeBy": "sum"
@@ -13470,7 +13472,7 @@
                 "value": "{\"isGeneralNumber\":true}"
               }
             ],
-            "dataType": "double",
+            "dataType": "decimal",
             "lineageTag": "e0088e02-bb43-474d-8266-621b384472cb",
             "sourceColumn": "Precio Participación",
             "summarizeBy": "sum"
@@ -13481,12 +13483,17 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"es-ES\"}"
               }
             ],
-            "dataType": "string",
+            "dataType": "decimal",
+            "formatString": "#,0.###############\\ \"€\";-#,0.###############\\ \"€\";#,0.###############\\ \"€\"",
             "lineageTag": "28388f29-d062-469e-8217-1d05cbd905d1",
             "sourceColumn": "Precio (Moneda Extranjera)",
-            "summarizeBy": "none"
+            "summarizeBy": "sum"
           },
           {
             "name": "Cambio",
@@ -13494,12 +13501,17 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"es-ES\"}"
               }
             ],
-            "dataType": "string",
+            "dataType": "decimal",
+            "formatString": "#,0.###############\\ \"€\";-#,0.###############\\ \"€\";#,0.###############\\ \"€\"",
             "lineageTag": "8b10b847-0934-49e1-899d-183ff3c64a95",
             "sourceColumn": "Cambio",
-            "summarizeBy": "none"
+            "summarizeBy": "sum"
           },
           {
             "name": "Comisión (Moneda Extranjera)",
@@ -13507,12 +13519,17 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"es-ES\"}"
               }
             ],
-            "dataType": "string",
+            "dataType": "decimal",
+            "formatString": "#,0.###############\\ \"€\";-#,0.###############\\ \"€\";#,0.###############\\ \"€\"",
             "lineageTag": "9627c69f-6560-41d5-a45b-c61e6d003035",
             "sourceColumn": "Comisión (Moneda Extranjera)",
-            "summarizeBy": "none"
+            "summarizeBy": "sum"
           },
           {
             "name": "Retenido (Moneda Extranjera)",
@@ -13520,12 +13537,17 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"es-ES\"}"
               }
             ],
-            "dataType": "string",
+            "dataType": "decimal",
+            "formatString": "#,0.###############\\ \"€\";-#,0.###############\\ \"€\";#,0.###############\\ \"€\"",
             "lineageTag": "6f9eb39d-c3ab-4b73-881d-3c7794db0a73",
             "sourceColumn": "Retenido (Moneda Extranjera)",
-            "summarizeBy": "none"
+            "summarizeBy": "sum"
           },
           {
             "name": "Total Bruto",
@@ -13567,12 +13589,17 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"es-ES\"}"
               }
             ],
-            "dataType": "string",
+            "dataType": "decimal",
+            "formatString": "#,0.###############\\ \"€\";-#,0.###############\\ \"€\";#,0.###############\\ \"€\"",
             "lineageTag": "6a2c36f7-fcd5-4843-85f6-1e7e028b6431",
             "sourceColumn": "Importe Bruto (Moneda Extranjera)",
-            "summarizeBy": "none"
+            "summarizeBy": "sum"
           },
           {
             "name": "Cuenta Contraparte",
@@ -13625,7 +13652,7 @@
                 "value": "{\"isGeneralNumber\":true}"
               }
             ],
-            "dataType": "double",
+            "dataType": "decimal",
             "lineageTag": "e05662d3-b138-4b1a-be78-21ee3bd619e8",
             "sourceColumn": "Importe",
             "summarizeBy": "sum"
@@ -13652,10 +13679,11 @@
                 "value": "Automatic"
               }
             ],
-            "dataType": "string",
+            "dataType": "int64",
+            "formatString": "0",
             "lineageTag": "916b8fc8-e1ba-4a3f-a19f-948f3d096851",
             "sourceColumn": "Orden",
-            "summarizeBy": "none"
+            "summarizeBy": "sum"
           }
         ],
         "lineageTag": "71d662a6-d45e-4164-ac31-d301ddfcca99",
@@ -14325,7 +14353,7 @@
                 "value": "{\"isGeneralNumber\":true}"
               }
             ],
-            "dataType": "double",
+            "dataType": "decimal",
             "lineageTag": "e5ac0577-247e-44ad-a7ce-6f80512e541c",
             "sourceColumn": "Participaciones",
             "summarizeBy": "sum"
@@ -14342,7 +14370,7 @@
                 "value": "{\"isGeneralNumber\":true}"
               }
             ],
-            "dataType": "double",
+            "dataType": "decimal",
             "lineageTag": "3b71121f-fe73-4dc0-851c-c0a3c5e68f58",
             "sourceColumn": "Retenido",
             "summarizeBy": "sum"
@@ -14355,8 +14383,8 @@
                 "value": "Automatic"
               }
             ],
-            "dataType": "int64",
-            "formatString": "0",
+            "dataType": "decimal",
+            "formatString": "#,0\\ \"€\";-#,0\\ \"€\";#,0\\ \"€\"",
             "lineageTag": "d231549f-35c6-4457-b10f-a52470732cde",
             "sourceColumn": "Comisión",
             "summarizeBy": "sum"
@@ -14448,7 +14476,7 @@
                 "value": "{\"isGeneralNumber\":true}"
               }
             ],
-            "dataType": "double",
+            "dataType": "decimal",
             "lineageTag": "273f3931-a232-4208-8462-b8ac7216281e",
             "sourceColumn": "Precio Participación",
             "summarizeBy": "sum"
@@ -14459,12 +14487,17 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"es-ES\"}"
               }
             ],
-            "dataType": "string",
+            "dataType": "decimal",
+            "formatString": "#,0.###############\\ \"€\";-#,0.###############\\ \"€\";#,0.###############\\ \"€\"",
             "lineageTag": "015aa532-3ae8-4e73-8101-09e409f75f26",
             "sourceColumn": "Precio (Moneda Extranjera)",
-            "summarizeBy": "none"
+            "summarizeBy": "sum"
           },
           {
             "name": "Cambio",
@@ -14472,12 +14505,17 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"es-ES\"}"
               }
             ],
-            "dataType": "string",
+            "dataType": "decimal",
+            "formatString": "#,0.###############\\ \"€\";-#,0.###############\\ \"€\";#,0.###############\\ \"€\"",
             "lineageTag": "8ff5e451-e1fd-49a6-8135-191d51e763bb",
             "sourceColumn": "Cambio",
-            "summarizeBy": "none"
+            "summarizeBy": "sum"
           },
           {
             "name": "Comisión (Moneda Extranjera)",
@@ -14485,12 +14523,17 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"es-ES\"}"
               }
             ],
-            "dataType": "string",
+            "dataType": "decimal",
+            "formatString": "#,0.###############\\ \"€\";-#,0.###############\\ \"€\";#,0.###############\\ \"€\"",
             "lineageTag": "f624fedf-72bf-4ba9-93d0-43afe56ad039",
             "sourceColumn": "Comisión (Moneda Extranjera)",
-            "summarizeBy": "none"
+            "summarizeBy": "sum"
           },
           {
             "name": "Retenido (Moneda Extranjera)",
@@ -14498,12 +14541,17 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"es-ES\"}"
               }
             ],
-            "dataType": "string",
+            "dataType": "decimal",
+            "formatString": "#,0.###############\\ \"€\";-#,0.###############\\ \"€\";#,0.###############\\ \"€\"",
             "lineageTag": "329a54a6-10b9-4e67-b14a-524b8e24d858",
             "sourceColumn": "Retenido (Moneda Extranjera)",
-            "summarizeBy": "none"
+            "summarizeBy": "sum"
           },
           {
             "name": "Total Bruto",
@@ -14545,12 +14593,17 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"es-ES\"}"
               }
             ],
-            "dataType": "string",
+            "dataType": "decimal",
+            "formatString": "#,0.###############\\ \"€\";-#,0.###############\\ \"€\";#,0.###############\\ \"€\"",
             "lineageTag": "91d7d52d-956e-4122-a095-4fa88c323c56",
             "sourceColumn": "Importe Bruto (Moneda Extranjera)",
-            "summarizeBy": "none"
+            "summarizeBy": "sum"
           },
           {
             "name": "Cuenta Contraparte",
@@ -14597,13 +14650,10 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
               }
             ],
-            "dataType": "double",
+            "dataType": "decimal",
+            "formatString": "#,0.00\\ \"€\";-#,0.00\\ \"€\";#,0.00\\ \"€\"",
             "lineageTag": "fddc9665-9fe2-41e5-b05d-54b46bac98b9",
             "sourceColumn": "Importe",
             "summarizeBy": "sum"
@@ -14630,10 +14680,11 @@
                 "value": "Automatic"
               }
             ],
-            "dataType": "string",
+            "dataType": "int64",
+            "formatString": "0",
             "lineageTag": "bffd955e-a8f9-4097-9d0b-00167930128e",
             "sourceColumn": "Orden",
-            "summarizeBy": "none"
+            "summarizeBy": "sum"
           }
         ],
         "lineageTag": "c1c9e7c5-0686-4cc6-aa8e-71faa3fa78dc",
@@ -14734,7 +14785,7 @@
                 "    T_Saldo_Table = Origen{[Item=\"T_Inversion\",Kind=\"Table\"]}[Data],",
                 "    #\"[Update] Comision - Null to 0\" = Table.ReplaceValue(T_Saldo_Table,null,0,Replacer.ReplaceValue,{\"Comisión\"}),",
                 "    #\"Columnas con nombre cambiado1\" = Table.RenameColumns(#\"[Update] Comision - Null to 0\",{{\"Importe Bruto\", \"Importe\"}}),",
-                "    #\"[Tipos][Update]\" = Table.TransformColumnTypes(#\"Columnas con nombre cambiado1\",{{\"Producto\", type text}, {\"Participaciones\", type number}, {\"Precio Participación\", type number}, {\"Importe\", type number}, {\"Fecha\", type date}, {\"Comisión\", type number}, {\"Retenido\", type number}, {\"Cuenta Producto\", type text}, {\"Año IRPF\", Int64.Type}, {\"Tipo Transacción\", type text}, {\"Producto Contraparte\", type text}, {\"Cuenta Contraparte\", type text}}),",
+                "    #\"[Tipos][Update]\" = Table.TransformColumnTypes(#\"Columnas con nombre cambiado1\",{{\"Producto\", type text}, {\"Participaciones\", Currency.Type}, {\"Precio Participación\", Currency.Type}, {\"Importe\", Currency.Type}, {\"Fecha\", type date}, {\"Comisión\", Currency.Type}, {\"Retenido\", Currency.Type}, {\"Cuenta Producto\", type text}, {\"Año IRPF\", Int64.Type}, {\"Tipo Transacción\", type text}, {\"Producto Contraparte\", type text}, {\"Cuenta Contraparte\", type text}, {\"Orden\", Int64.Type}, {\"Transacción ID\", type text}, {\"Precio (Moneda Extranjera)\", Currency.Type}, {\"Cambio\", Currency.Type}, {\"Importe Bruto (Moneda Extranjera)\", Currency.Type}, {\"Retenido (Moneda Extranjera)\", Currency.Type}, {\"Comisión (Moneda Extranjera)\", Currency.Type}}),",
                 "    #\"Transaccion Espejo\" = Table.RenameColumns(",
                 "        #\"[Tipos][Update]\",",
                 "        {",
@@ -14825,7 +14876,7 @@
                 "",
                 "    // Convertir de nuevo a tabla",
                 "    TablaResultado = Table.FromRecords(ResultadoRegistros),",
-                "    #\"[Tipos][Update] Refresh\" = Table.TransformColumnTypes(TablaResultado,{{\"Fecha\", type date}, {\"Producto\", type text}, {\"Cuenta Producto\", type text}, {\"Tipo Transacción\", type text}, {\"Participaciones\", type number}, {\"Precio Participación\", type number}, {\"Total Bruto\", type number}, {\"Retenido\", type number}, {\"Año IRPF\", Int64.Type}, {\"Comisión\", Int64.Type}, {\"Transacción ID\", type text}, {\"Año IRPF Fijado\", type logical}, {\"ParticipacionesAcum\", type number}, {\"PrecioMedio\", type number}, {\"Importe\", type number}, {\"Producto Contraparte\", type text}, {\"Cuenta Contraparte\", type text}, {\"ID\", Int64.Type}}),",
+                "    #\"[Tipos][Update] Refresh\" = Table.TransformColumnTypes(TablaResultado,{{\"Fecha\", type date}, {\"Producto\", type text}, {\"Cuenta Producto\", type text}, {\"Tipo Transacción\", type text}, {\"Participaciones\", Currency.Type}, {\"Precio Participación\", Currency.Type}, {\"Total Bruto\", type number}, {\"Retenido\", Currency.Type}, {\"Año IRPF\", Int64.Type}, {\"Comisión\", Currency.Type}, {\"Transacción ID\", type text}, {\"Año IRPF Fijado\", type logical}, {\"ParticipacionesAcum\", type number}, {\"PrecioMedio\", type number}, {\"Importe\", Currency.Type}, {\"Producto Contraparte\", type text}, {\"Cuenta Contraparte\", type text}, {\"ID\", Int64.Type}, {\"Comisión (Moneda Extranjera)\", Currency.Type}, {\"Retenido (Moneda Extranjera)\", Currency.Type}, {\"Importe Bruto (Moneda Extranjera)\", Currency.Type}, {\"Cambio\", Currency.Type}, {\"Precio (Moneda Extranjera)\", Currency.Type}, {\"Orden\", Int64.Type}}),",
                 "    #\"Columnas con nombre cambiado\" = Table.RenameColumns(#\"[Tipos][Update] Refresh\",{{\"ParticipacionesAcum\", \"Participaciones Acumuladas\"}, {\"PrecioMedio\", \"Precio Medio Hasta Transacción\"}}),",
                 "    #\"[Columna][Add] Renta Obtenida\" = Table.AddColumn(#\"Columnas con nombre cambiado\", \"Renta Bruta Obtenida\", each if List.Contains({\"Compra\",\"Venta\"},[Tipo Transacción]) then -1*[Total Bruto] else [Total Bruto], type number)",
                 "in",
