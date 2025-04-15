@@ -8,7 +8,7 @@
       },
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"Saldo\",\"Movimientos\",\"Productos\",\"Tipo Movimiento\",\"Path\",\"Medidas Movimientos\",\"Especie\",\"Años\",\"Meses\",\"Meses con Datos\",\"Pagos Especie - Origen\",\"Cobros Especie - Origen\",\"Tipo Pago Especie\",\"Tipo Cobro Especie\",\"Pagos Especie\",\"Cobros Especie\",\"Movimientos Origen\",\"Transacciones\",\"Transacciones Agrupadas\",\"Dividendos\",\"Medidas Transacciones\",\"Medidas Saldo\",\"IRPF Ahorro\",\"Medidas IRPF\",\"CalcularFIFO\",\"ConsumoFIFO\",\"Pruebas\",\"Path (Prod)\",\"Path (Test)\"]"
+        "value": "[\"Saldo\",\"Movimientos\",\"Productos\",\"Tipo Movimiento\",\"Path\",\"Medidas Movimientos\",\"Especie\",\"Años\",\"Meses\",\"Meses con Datos\",\"Pagos Especie - Origen\",\"Cobros Especie - Origen\",\"Tipo Pago Especie\",\"Tipo Cobro Especie\",\"Pagos Especie\",\"Cobros Especie\",\"Movimientos Origen\",\"Transacciones\",\"Transacciones Agrupadas\",\"Dividendos\",\"Medidas Transacciones\",\"Medidas Saldo\",\"IRPF Ahorro\",\"Medidas IRPF\",\"CalcularFIFO\",\"ConsumoFIFO\",\"Pruebas\",\"Path (Prod)\",\"Path (Test)\",\"Path (Dev)\"]"
       },
       {
         "name": "__PBI_TimeIntelligenceEnabled",
@@ -524,7 +524,6 @@
                     "ConceptualProperty": "ID"
                   }
                 },
-                "NameType": "Identifier",
                 "State": "Generated",
                 "Terms": [
                   {
@@ -628,6 +627,28 @@
                   }
                 ]
               },
+              "dividendo.comisión_moneda_transacción": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Dividendos",
+                    "ConceptualProperty": "Comisión (Moneda Transacción)"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "comisión (moneda transacción)": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "comisión": {
+                      "State": "Generated",
+                      "Weight": 0.75
+                    }
+                  }
+                ]
+              },
               "dividendo.cuenta_contraparte": {
                 "Definition": {
                   "Binding": {
@@ -722,6 +743,44 @@
                   }
                 ]
               },
+              "dividendo.importe_bruto_moneda_transacción": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Dividendos",
+                    "ConceptualProperty": "Importe Bruto (Moneda Transacción)"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "importe bruto (moneda transacción)": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "importe bruto": {
+                      "State": "Generated",
+                      "Weight": 0.75
+                    }
+                  }
+                ]
+              },
+              "dividendo.moneda": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Dividendos",
+                    "ConceptualProperty": "Moneda"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "moneda": {
+                      "State": "Generated"
+                    }
+                  }
+                ]
+              },
               "dividendo.orden": {
                 "Definition": {
                   "Binding": {
@@ -789,6 +848,28 @@
                   {
                     "precio medio hasta transacción": {
                       "State": "Generated"
+                    }
+                  }
+                ]
+              },
+              "dividendo.precio_moneda_transacción": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Dividendos",
+                    "ConceptualProperty": "Precio (Moneda Transacción)"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "precio (moneda transacción)": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "precio": {
+                      "State": "Generated",
+                      "Weight": 0.75
                     }
                   }
                 ]
@@ -872,6 +953,28 @@
                   {
                     "retenido": {
                       "State": "Generated"
+                    }
+                  }
+                ]
+              },
+              "dividendo.retenido_moneda_transacción": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Dividendos",
+                    "ConceptualProperty": "Retenido (Moneda Transacción)"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "retenido (moneda transacción)": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "retenido": {
+                      "State": "Generated",
+                      "Weight": 0.75
                     }
                   }
                 ]
@@ -1474,32 +1577,6 @@
                   }
                 ]
               },
-              "medidas_saldo.beneficio_inversión_anual": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "Medidas Saldo",
-                    "ConceptualProperty": "Beneficio Inversión Anual"
-                  }
-                },
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "beneficio inversión anual": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "Beneficio Inversión": {
-                      "Source": {
-                        "Agent": "PowerBI.VisualColumnRename",
-                        "Type": "External"
-                      },
-                      "State": "Suggested",
-                      "Weight": 0.9
-                    }
-                  }
-                ]
-              },
               "medidas_saldo.capital_invertido_medio": {
                 "Definition": {
                   "Binding": {
@@ -1687,48 +1764,22 @@
                   }
                 ]
               },
-              "medidas_saldo.gastos_no_computados": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "Medidas Saldo",
-                    "ConceptualProperty": "Gastos no Computados Mensual"
-                  }
-                },
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "gastos no computados mensual": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "gasto number computado mensual": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.599
-                    }
-                  }
-                ]
-              },
               "medidas_saldo.gastos_no_computados_anual": {
                 "Definition": {
                   "Binding": {
                     "ConceptualEntity": "Medidas Saldo",
-                    "ConceptualProperty": "Gastos no Computados Anual"
+                    "ConceptualProperty": "Gastos no Computados Periodo"
                   }
                 },
                 "State": "Generated",
                 "Terms": [
                   {
-                    "gastos no computados anual": {
+                    "gastos no computados periodo": {
                       "State": "Generated"
                     }
                   },
                   {
-                    "gasto number computado anual": {
+                    "gasto number computado periodo": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -1753,18 +1804,18 @@
                 "Definition": {
                   "Binding": {
                     "ConceptualEntity": "Medidas Saldo",
-                    "ConceptualProperty": "Incremento % Año"
+                    "ConceptualProperty": "Incremento % Periodo"
                   }
                 },
                 "State": "Generated",
                 "Terms": [
                   {
-                    "incremento % año": {
+                    "incremento % periodo": {
                       "State": "Generated"
                     }
                   },
                   {
-                    "incremento percentage año": {
+                    "incremento percentage periodo": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -1774,7 +1825,7 @@
                     }
                   },
                   {
-                    "incremento pct año": {
+                    "incremento pct periodo": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -1861,42 +1912,17 @@
                   "%"
                 ]
               },
-              "medidas_saldo.incremento_saldo": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "Medidas Saldo",
-                    "ConceptualProperty": "Incremento Saldo Mensual (%)"
-                  }
-                },
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "incremento saldo mensual": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "incremento saldo mensual (%)": {
-                      "State": "Generated"
-                    }
-                  }
-                ],
-                "Units": [
-                  "percentage",
-                  "%"
-                ]
-              },
               "medidas_saldo.incremento_saldo_anual": {
                 "Definition": {
                   "Binding": {
                     "ConceptualEntity": "Medidas Saldo",
-                    "ConceptualProperty": "Incremento Saldo Anual"
+                    "ConceptualProperty": "Incremento Saldo Periodo"
                   }
                 },
                 "State": "Generated",
                 "Terms": [
                   {
-                    "incremento saldo anual": {
+                    "incremento saldo periodo": {
                       "State": "Generated"
                     }
                   },
@@ -1967,14 +1993,114 @@
                 "Definition": {
                   "Binding": {
                     "ConceptualEntity": "Medidas Saldo",
-                    "ConceptualProperty": "Ingresos"
+                    "ConceptualProperty": "Ingresos Inversion"
                   }
                 },
                 "State": "Generated",
                 "Terms": [
                   {
-                    "ingresos": {
+                    "ingresos inversion": {
                       "State": "Generated"
+                    }
+                  },
+                  {
+                    "ingreso transposal": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "ingreso downturn": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "ingreso capsizal": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "ingreso reversal": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "ingreso transposition": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "ingreso overturn": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "ingreso upturn": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "ingreso antithesis": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.475
+                    }
+                  },
+                  {
+                    "ingreso reverse": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.461
+                    }
+                  },
+                  {
+                    "ingreso contrary": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.461
                     }
                   },
                   {
@@ -2053,6 +2179,22 @@
                       },
                       "State": "Suggested",
                       "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "medidas_saldo.movimientos_totales_periodo": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Medidas Saldo",
+                    "ConceptualProperty": "Movimientos Totales Periodo"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "movimientos totales periodo": {
+                      "State": "Generated"
                     }
                   }
                 ]
@@ -2270,6 +2412,156 @@
                     "date": {
                       "State": "Generated",
                       "Weight": 0.7
+                    }
+                  }
+                ]
+              },
+              "medidas_saldo.testgastos_gastos_no_computados__actual": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Medidas Saldo",
+                    "ConceptualProperty": "[Test][Gastos] Gastos No Computados - Actual"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "[test][gastos] gastos no computados - actual": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "[test][gastos] gastos no computados actual": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "Actual": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "medidas_saldo.testgastos_gastos_no_computados__check": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Medidas Saldo",
+                    "ConceptualProperty": "[Test][Gastos] Gastos No Computados - Check"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "[test][gastos] gastos no computados - check": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "[test][gastos] gastos no computados check": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  }
+                ]
+              },
+              "medidas_saldo.testgastos_gastos_no_computados__esperado": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Medidas Saldo",
+                    "ConceptualProperty": "[Test][Gastos] Gastos No Computados - Esperado"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "[test][gastos] gastos no computados - esperado": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "[test][gastos] gastos no computados esperado": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "Esperado": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "medidas_saldo.testsaldo_saldo_fecha_inicio__actual": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Medidas Saldo",
+                    "ConceptualProperty": "[Test][Saldo] Saldo Fecha Inicio - Actual"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "[test][saldo] saldo fecha inicio - actual": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "[test][saldo] saldo fecha inicio actual": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "Actual": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "medidas_saldo.testsaldo_saldo_fecha_inicio__esperado": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Medidas Saldo",
+                    "ConceptualProperty": "[Test][Saldo] Saldo Fecha Inicio - Esperado"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "[test][saldo] saldo fecha inicio - esperado": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "[test][saldo] saldo fecha inicio esperado": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "Esperado": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
                     }
                   }
                 ]
@@ -3300,33 +3592,17 @@
                   }
                 ]
               },
-              "saldo.beneficio_inversión_mensual": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "Medidas Saldo",
-                    "ConceptualProperty": "Beneficio Inversión Mensual"
-                  }
-                },
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "beneficio inversión mensual": {
-                      "State": "Generated"
-                    }
-                  }
-                ]
-              },
-              "saldo.dividendo": {
+              "saldo.cambio": {
                 "Definition": {
                   "Binding": {
                     "ConceptualEntity": "Saldo",
-                    "ConceptualProperty": "Dividendos"
+                    "ConceptualProperty": "Cambio"
                   }
                 },
                 "State": "Generated",
                 "Terms": [
                   {
-                    "dividendo": {
+                    "cambio": {
                       "State": "Generated"
                     }
                   }
@@ -3366,48 +3642,6 @@
                 "Terms": [
                   {
                     "importe": {
-                      "State": "Generated"
-                    }
-                  }
-                ]
-              },
-              "saldo.incremento_mensual_saldo_actual": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "Medidas Saldo",
-                    "ConceptualProperty": "Incremento Saldo Mensual"
-                  }
-                },
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "incremento saldo mensual": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "Ahorro Total": {
-                      "Source": {
-                        "Agent": "PowerBI.VisualColumnRename",
-                        "Type": "External"
-                      },
-                      "State": "Suggested",
-                      "Weight": 0.9
-                    }
-                  }
-                ]
-              },
-              "saldo.ingreso": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "Saldo",
-                    "ConceptualProperty": "Ingreso"
-                  }
-                },
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "ingreso": {
                       "State": "Generated"
                     }
                   }
@@ -3646,6 +3880,28 @@
                   {
                     "valor liquidativo": {
                       "State": "Generated"
+                    }
+                  }
+                ]
+              },
+              "saldo.valor_liquidativo_moneda_extranjera": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Saldo",
+                    "ConceptualProperty": "Valor liquidativo (Moneda Extranjera)"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "valor liquidativo (moneda extranjera)": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "valor liquidativo": {
+                      "State": "Generated",
+                      "Weight": 0.75
                     }
                   }
                 ]
@@ -3942,6 +4198,28 @@
                   }
                 ]
               },
+              "transaccione.comisión_moneda_transacción": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Transacciones",
+                    "ConceptualProperty": "Comisión (Moneda Transacción)"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "comisión (moneda transacción)": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "comisión": {
+                      "State": "Generated",
+                      "Weight": 0.75
+                    }
+                  }
+                ]
+              },
               "transaccione.cuenta_contraparte": {
                 "Definition": {
                   "Binding": {
@@ -4036,6 +4314,44 @@
                   }
                 ]
               },
+              "transaccione.importe_bruto_moneda_transacción": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Transacciones",
+                    "ConceptualProperty": "Importe Bruto (Moneda Transacción)"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "importe bruto (moneda transacción)": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "importe bruto": {
+                      "State": "Generated",
+                      "Weight": 0.75
+                    }
+                  }
+                ]
+              },
+              "transaccione.moneda": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Transacciones",
+                    "ConceptualProperty": "Moneda"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "moneda": {
+                      "State": "Generated"
+                    }
+                  }
+                ]
+              },
               "transaccione.orden": {
                 "Definition": {
                   "Binding": {
@@ -4103,6 +4419,28 @@
                   {
                     "precio medio hasta transacción": {
                       "State": "Generated"
+                    }
+                  }
+                ]
+              },
+              "transaccione.precio_moneda_transacción": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Transacciones",
+                    "ConceptualProperty": "Precio (Moneda Transacción)"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "precio (moneda transacción)": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "precio": {
+                      "State": "Generated",
+                      "Weight": 0.75
                     }
                   }
                 ]
@@ -4196,6 +4534,28 @@
                   {
                     "retenido": {
                       "State": "Generated"
+                    }
+                  }
+                ]
+              },
+              "transaccione.retenido_moneda_transacción": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Transacciones",
+                    "ConceptualProperty": "Retenido (Moneda Transacción)"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "retenido (moneda transacción)": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "retenido": {
+                      "State": "Generated",
+                      "Weight": 0.75
                     }
                   }
                 ]
@@ -5154,19 +5514,6 @@
                     "ID": "dividendos_have_ID",
                     "State": "Generated",
                     "Weight": 0.99
-                  },
-                  {
-                    "ID": "ID_are_names_IDs_of_dividendos",
-                    "Name": {
-                      "Name": {
-                        "Role": "dividendo.ID"
-                      },
-                      "Subject": {
-                        "Role": "dividendo"
-                      }
-                    },
-                    "State": "Generated",
-                    "Weight": 0.99
                   }
                 ],
                 "Roles": {
@@ -5388,7 +5735,7 @@
                 },
                 "State": "Generated"
               },
-              "dividendo_has_comisión_moneda_extranjera": {
+              "dividendo_has_comisión_moneda_transacción": {
                 "Binding": {
                   "ConceptualEntity": "Dividendos"
                 },
@@ -5396,13 +5743,13 @@
                   {
                     "Attribute": {
                       "Object": {
-                        "Role": "dividendo.comisión_moneda_extranjera"
+                        "Role": "dividendo.comisión_moneda_transacción"
                       },
                       "Subject": {
                         "Role": "dividendo"
                       }
                     },
-                    "ID": "dividendos_have_comisión_moneda_extranjera",
+                    "ID": "dividendos_have_comisión_moneda_transacción",
                     "State": "Generated",
                     "Weight": 0.99
                   },
@@ -5423,13 +5770,13 @@
                         }
                       ],
                       "Measurement": {
-                        "Role": "dividendo.comisión_moneda_extranjera"
+                        "Role": "dividendo.comisión_moneda_transacción"
                       },
                       "Subject": {
                         "Role": "dividendo"
                       }
                     },
-                    "ID": "comisión_moneda_extranjera_indicates_how_expensive_dividendos_are",
+                    "ID": "comisión_moneda_transacción_indicates_how_expensive_dividendos_are",
                     "State": "Generated",
                     "Weight": 0.99
                   }
@@ -5440,9 +5787,9 @@
                       "Entity": "dividendo"
                     }
                   },
-                  "dividendo.comisión_moneda_extranjera": {
+                  "dividendo.comisión_moneda_transacción": {
                     "Target": {
-                      "Entity": "dividendo.comisión_moneda_extranjera"
+                      "Entity": "dividendo.comisión_moneda_transacción"
                     }
                   }
                 },
@@ -5613,7 +5960,7 @@
                 },
                 "State": "Generated"
               },
-              "dividendo_has_importe_bruto_moneda_extranjera": {
+              "dividendo_has_importe_bruto_moneda_transacción": {
                 "Binding": {
                   "ConceptualEntity": "Dividendos"
                 },
@@ -5621,13 +5968,13 @@
                   {
                     "Attribute": {
                       "Object": {
-                        "Role": "dividendo.importe_bruto_moneda_extranjera"
+                        "Role": "dividendo.importe_bruto_moneda_transacción"
                       },
                       "Subject": {
                         "Role": "dividendo"
                       }
                     },
-                    "ID": "dividendos_have_importe_bruto_moneda_extranjera",
+                    "ID": "dividendos_have_importe_bruto_moneda_transacción",
                     "State": "Generated",
                     "Weight": 0.99
                   },
@@ -5648,13 +5995,13 @@
                         }
                       ],
                       "Measurement": {
-                        "Role": "dividendo.importe_bruto_moneda_extranjera"
+                        "Role": "dividendo.importe_bruto_moneda_transacción"
                       },
                       "Subject": {
                         "Role": "dividendo"
                       }
                     },
-                    "ID": "importe_bruto_moneda_extranjera_indicates_how_expensive_dividendos_are",
+                    "ID": "importe_bruto_moneda_transacción_indicates_how_expensive_dividendos_are",
                     "State": "Generated",
                     "Weight": 0.99
                   }
@@ -5665,9 +6012,9 @@
                       "Entity": "dividendo"
                     }
                   },
-                  "dividendo.importe_bruto_moneda_extranjera": {
+                  "dividendo.importe_bruto_moneda_transacción": {
                     "Target": {
-                      "Entity": "dividendo.importe_bruto_moneda_extranjera"
+                      "Entity": "dividendo.importe_bruto_moneda_transacción"
                     }
                   }
                 },
@@ -5701,6 +6048,39 @@
                   "medidas_saldo.dividendos_total": {
                     "Target": {
                       "Entity": "medidas_saldo.dividendos_total"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "dividendo_has_moneda": {
+                "Binding": {
+                  "ConceptualEntity": "Dividendos"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "dividendo.moneda"
+                      },
+                      "Subject": {
+                        "Role": "dividendo"
+                      }
+                    },
+                    "ID": "dividendos_have_monedas",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "dividendo": {
+                    "Target": {
+                      "Entity": "dividendo"
+                    }
+                  },
+                  "dividendo.moneda": {
+                    "Target": {
+                      "Entity": "dividendo.moneda"
                     }
                   }
                 },
@@ -5838,7 +6218,7 @@
                 },
                 "State": "Generated"
               },
-              "dividendo_has_precio_moneda_extranjera": {
+              "dividendo_has_precio_moneda_transacción": {
                 "Binding": {
                   "ConceptualEntity": "Dividendos"
                 },
@@ -5846,13 +6226,13 @@
                   {
                     "Attribute": {
                       "Object": {
-                        "Role": "dividendo.precio_moneda_extranjera"
+                        "Role": "dividendo.precio_moneda_transacción"
                       },
                       "Subject": {
                         "Role": "dividendo"
                       }
                     },
-                    "ID": "dividendos_have_precio_moneda_extranjera",
+                    "ID": "dividendos_have_precio_moneda_transacción",
                     "State": "Generated",
                     "Weight": 0.99
                   },
@@ -5873,13 +6253,13 @@
                         }
                       ],
                       "Measurement": {
-                        "Role": "dividendo.precio_moneda_extranjera"
+                        "Role": "dividendo.precio_moneda_transacción"
                       },
                       "Subject": {
                         "Role": "dividendo"
                       }
                     },
-                    "ID": "precio_moneda_extranjera_indicates_how_expensive_dividendos_are",
+                    "ID": "precio_moneda_transacción_indicates_how_expensive_dividendos_are",
                     "State": "Generated",
                     "Weight": 0.99
                   }
@@ -5890,9 +6270,9 @@
                       "Entity": "dividendo"
                     }
                   },
-                  "dividendo.precio_moneda_extranjera": {
+                  "dividendo.precio_moneda_transacción": {
                     "Target": {
-                      "Entity": "dividendo.precio_moneda_extranjera"
+                      "Entity": "dividendo.precio_moneda_transacción"
                     }
                   }
                 },
@@ -6076,7 +6456,7 @@
                 },
                 "State": "Generated"
               },
-              "dividendo_has_retenido_moneda_extranjera": {
+              "dividendo_has_retenido_moneda_transacción": {
                 "Binding": {
                   "ConceptualEntity": "Dividendos"
                 },
@@ -6084,13 +6464,13 @@
                   {
                     "Attribute": {
                       "Object": {
-                        "Role": "dividendo.retenido_moneda_extranjera"
+                        "Role": "dividendo.retenido_moneda_transacción"
                       },
                       "Subject": {
                         "Role": "dividendo"
                       }
                     },
-                    "ID": "dividendos_have_retenido_moneda_extranjera",
+                    "ID": "dividendos_have_retenido_moneda_transacción",
                     "State": "Generated",
                     "Weight": 0.99
                   },
@@ -6111,13 +6491,13 @@
                         }
                       ],
                       "Measurement": {
-                        "Role": "dividendo.retenido_moneda_extranjera"
+                        "Role": "dividendo.retenido_moneda_transacción"
                       },
                       "Subject": {
                         "Role": "dividendo"
                       }
                     },
-                    "ID": "retenido_moneda_extranjera_indicates_how_expensive_dividendos_are",
+                    "ID": "retenido_moneda_transacción_indicates_how_expensive_dividendos_are",
                     "State": "Generated",
                     "Weight": 0.99
                   }
@@ -6128,9 +6508,9 @@
                       "Entity": "dividendo"
                     }
                   },
-                  "dividendo.retenido_moneda_extranjera": {
+                  "dividendo.retenido_moneda_transacción": {
                     "Target": {
-                      "Entity": "dividendo.retenido_moneda_extranjera"
+                      "Entity": "dividendo.retenido_moneda_transacción"
                     }
                   }
                 },
@@ -6565,39 +6945,6 @@
                 },
                 "State": "Generated"
               },
-              "medidas_saldo_has_beneficio_inversión_anual": {
-                "Binding": {
-                  "ConceptualEntity": "Medidas Saldo"
-                },
-                "Phrasings": [
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "medidas_saldo.beneficio_inversión_anual"
-                      },
-                      "Subject": {
-                        "Role": "medidas_saldo"
-                      }
-                    },
-                    "ID": "medidas_saldos_have_beneficio_inversión_anual",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "medidas_saldo": {
-                    "Target": {
-                      "Entity": "medidas_saldo"
-                    }
-                  },
-                  "medidas_saldo.beneficio_inversión_anual": {
-                    "Target": {
-                      "Entity": "medidas_saldo.beneficio_inversión_anual"
-                    }
-                  }
-                },
-                "State": "Generated"
-              },
               "medidas_saldo_has_capital_invertido_medio": {
                 "Binding": {
                   "ConceptualEntity": "Medidas Saldo"
@@ -6697,105 +7044,6 @@
                 },
                 "State": "Generated"
               },
-              "medidas_saldo_has_gastos_no_computados": {
-                "Binding": {
-                  "ConceptualEntity": "Medidas Saldo"
-                },
-                "Phrasings": [
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "medidas_saldo.gastos_no_computados"
-                      },
-                      "Subject": {
-                        "Role": "medidas_saldo"
-                      }
-                    },
-                    "ID": "medidas_saldos_have_gastos_no_computados_mensual",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "medidas_saldo": {
-                    "Target": {
-                      "Entity": "medidas_saldo"
-                    }
-                  },
-                  "medidas_saldo.gastos_no_computados": {
-                    "Target": {
-                      "Entity": "medidas_saldo.gastos_no_computados"
-                    }
-                  }
-                },
-                "State": "Generated"
-              },
-              "medidas_saldo_has_gastos_no_computados_anual": {
-                "Binding": {
-                  "ConceptualEntity": "Medidas Saldo"
-                },
-                "Phrasings": [
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "medidas_saldo.gastos_no_computados_anual"
-                      },
-                      "Subject": {
-                        "Role": "medidas_saldo"
-                      }
-                    },
-                    "ID": "medidas_saldos_have_gastos_no_computados_anual",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "medidas_saldo": {
-                    "Target": {
-                      "Entity": "medidas_saldo"
-                    }
-                  },
-                  "medidas_saldo.gastos_no_computados_anual": {
-                    "Target": {
-                      "Entity": "medidas_saldo.gastos_no_computados_anual"
-                    }
-                  }
-                },
-                "State": "Generated"
-              },
-              "medidas_saldo_has_incremento__año": {
-                "Binding": {
-                  "ConceptualEntity": "Medidas Saldo"
-                },
-                "Phrasings": [
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "medidas_saldo.incremento__año"
-                      },
-                      "Subject": {
-                        "Role": "medidas_saldo"
-                      }
-                    },
-                    "ID": "medidas_saldos_have_incremento__año",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "medidas_saldo": {
-                    "Target": {
-                      "Entity": "medidas_saldo"
-                    }
-                  },
-                  "medidas_saldo.incremento__año": {
-                    "Target": {
-                      "Entity": "medidas_saldo.incremento__año"
-                    }
-                  }
-                },
-                "State": "Generated"
-              },
               "medidas_saldo_has_incremento_normalizado_anual": {
                 "Binding": {
                   "ConceptualEntity": "Medidas Saldo"
@@ -6890,39 +7138,6 @@
                   "medidas_saldo.incremento_normalizado_saldo_periodo": {
                     "Target": {
                       "Entity": "medidas_saldo.incremento_normalizado_saldo_periodo"
-                    }
-                  }
-                },
-                "State": "Generated"
-              },
-              "medidas_saldo_has_incremento_saldo_anual": {
-                "Binding": {
-                  "ConceptualEntity": "Medidas Saldo"
-                },
-                "Phrasings": [
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "medidas_saldo.incremento_saldo_anual"
-                      },
-                      "Subject": {
-                        "Role": "medidas_saldo"
-                      }
-                    },
-                    "ID": "medidas_saldos_have_incremento_saldo_anual",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "medidas_saldo": {
-                    "Target": {
-                      "Entity": "medidas_saldo"
-                    }
-                  },
-                  "medidas_saldo.incremento_saldo_anual": {
-                    "Target": {
-                      "Entity": "medidas_saldo.incremento_saldo_anual"
                     }
                   }
                 },
@@ -7060,39 +7275,6 @@
                 },
                 "State": "Generated"
               },
-              "medidas_saldo_has_saldo_beneficio_inversión_mensual": {
-                "Binding": {
-                  "ConceptualEntity": "Medidas Saldo"
-                },
-                "Phrasings": [
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "saldo.beneficio_inversión_mensual"
-                      },
-                      "Subject": {
-                        "Role": "medidas_saldo"
-                      }
-                    },
-                    "ID": "medidas_saldos_have_beneficio_inversión_mensual",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "medidas_saldo": {
-                    "Target": {
-                      "Entity": "medidas_saldo"
-                    }
-                  },
-                  "saldo.beneficio_inversión_mensual": {
-                    "Target": {
-                      "Entity": "saldo.beneficio_inversión_mensual"
-                    }
-                  }
-                },
-                "State": "Generated"
-              },
               "medidas_saldo_has_saldo_esperado_sin_beneficios": {
                 "Binding": {
                   "ConceptualEntity": "Medidas Saldo"
@@ -7121,39 +7303,6 @@
                   "medidas_saldo.saldo_esperado_sin_beneficios": {
                     "Target": {
                       "Entity": "medidas_saldo.saldo_esperado_sin_beneficios"
-                    }
-                  }
-                },
-                "State": "Generated"
-              },
-              "medidas_saldo_has_saldo_incremento_mensual_saldo_actual": {
-                "Binding": {
-                  "ConceptualEntity": "Medidas Saldo"
-                },
-                "Phrasings": [
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "saldo.incremento_mensual_saldo_actual"
-                      },
-                      "Subject": {
-                        "Role": "medidas_saldo"
-                      }
-                    },
-                    "ID": "medidas_saldos_have_incremento_saldo_mensual",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "medidas_saldo": {
-                    "Target": {
-                      "Entity": "medidas_saldo"
-                    }
-                  },
-                  "saldo.incremento_mensual_saldo_actual": {
-                    "Target": {
-                      "Entity": "saldo.incremento_mensual_saldo_actual"
                     }
                   }
                 },
@@ -7253,6 +7402,105 @@
                   "medidas_saldo.sv": {
                     "Target": {
                       "Entity": "medidas_saldo.sv"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "medidas_saldo_has_testgastos_gastos_no_computados__check": {
+                "Binding": {
+                  "ConceptualEntity": "Medidas Saldo"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "medidas_saldo.testgastos_gastos_no_computados__check"
+                      },
+                      "Subject": {
+                        "Role": "medidas_saldo"
+                      }
+                    },
+                    "ID": "medidas_saldos_have_testgastos_gastos_no_computados__check",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "medidas_saldo": {
+                    "Target": {
+                      "Entity": "medidas_saldo"
+                    }
+                  },
+                  "medidas_saldo.testgastos_gastos_no_computados__check": {
+                    "Target": {
+                      "Entity": "medidas_saldo.testgastos_gastos_no_computados__check"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "medidas_saldo_has_testgastos_gastos_no_computados__esperado": {
+                "Binding": {
+                  "ConceptualEntity": "Medidas Saldo"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "medidas_saldo.testgastos_gastos_no_computados__esperado"
+                      },
+                      "Subject": {
+                        "Role": "medidas_saldo"
+                      }
+                    },
+                    "ID": "medidas_saldos_have_testgastos_gastos_no_computados__esperado",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "medidas_saldo": {
+                    "Target": {
+                      "Entity": "medidas_saldo"
+                    }
+                  },
+                  "medidas_saldo.testgastos_gastos_no_computados__esperado": {
+                    "Target": {
+                      "Entity": "medidas_saldo.testgastos_gastos_no_computados__esperado"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "medidas_saldo_has_testsaldo_saldo_fecha_inicio__esperado": {
+                "Binding": {
+                  "ConceptualEntity": "Medidas Saldo"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "medidas_saldo.testsaldo_saldo_fecha_inicio__esperado"
+                      },
+                      "Subject": {
+                        "Role": "medidas_saldo"
+                      }
+                    },
+                    "ID": "medidas_saldos_have_testsaldo_saldo_fecha_inicio__esperado",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "medidas_saldo": {
+                    "Target": {
+                      "Entity": "medidas_saldo"
+                    }
+                  },
+                  "medidas_saldo.testsaldo_saldo_fecha_inicio__esperado": {
+                    "Target": {
+                      "Entity": "medidas_saldo.testsaldo_saldo_fecha_inicio__esperado"
                     }
                   }
                 },
@@ -8282,6 +8530,105 @@
                 },
                 "State": "Generated"
               },
+              "movimiento_has_medidas_saldo_gastos_no_computados_anual": {
+                "Binding": {
+                  "ConceptualEntity": "Movimientos"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "medidas_saldo.gastos_no_computados_anual"
+                      },
+                      "Subject": {
+                        "Role": "movimiento"
+                      }
+                    },
+                    "ID": "movimientos_have_gastos_no_computados_periodo",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "medidas_saldo.gastos_no_computados_anual": {
+                    "Target": {
+                      "Entity": "medidas_saldo.gastos_no_computados_anual"
+                    }
+                  },
+                  "movimiento": {
+                    "Target": {
+                      "Entity": "movimiento"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "movimiento_has_medidas_saldo_movimientos_totales_periodo": {
+                "Binding": {
+                  "ConceptualEntity": "Movimientos"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "medidas_saldo.movimientos_totales_periodo"
+                      },
+                      "Subject": {
+                        "Role": "movimiento"
+                      }
+                    },
+                    "ID": "movimientos_have_movimientos_totales_periodo",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "medidas_saldo.movimientos_totales_periodo": {
+                    "Target": {
+                      "Entity": "medidas_saldo.movimientos_totales_periodo"
+                    }
+                  },
+                  "movimiento": {
+                    "Target": {
+                      "Entity": "movimiento"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "movimiento_has_medidas_saldo_testgastos_gastos_no_computados__actual": {
+                "Binding": {
+                  "ConceptualEntity": "Movimientos"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "medidas_saldo.testgastos_gastos_no_computados__actual"
+                      },
+                      "Subject": {
+                        "Role": "movimiento"
+                      }
+                    },
+                    "ID": "movimientos_have_testgastos_gastos_no_computados__actual",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "medidas_saldo.testgastos_gastos_no_computados__actual": {
+                    "Target": {
+                      "Entity": "medidas_saldo.testgastos_gastos_no_computados__actual"
+                    }
+                  },
+                  "movimiento": {
+                    "Target": {
+                      "Entity": "movimiento"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
               "movimiento_has_mes___año": {
                 "Binding": {
                   "ConceptualEntity": "Movimientos"
@@ -8394,7 +8741,7 @@
                 },
                 "State": "Generated"
               },
-              "producto_has_medidas_saldo_incremento_saldo": {
+              "producto_has_medidas_saldo_gastos_no_computados_anual": {
                 "Binding": {
                   "ConceptualEntity": "Productos"
                 },
@@ -8402,21 +8749,87 @@
                   {
                     "Attribute": {
                       "Object": {
-                        "Role": "medidas_saldo.incremento_saldo"
+                        "Role": "medidas_saldo.gastos_no_computados_anual"
                       },
                       "Subject": {
                         "Role": "producto"
                       }
                     },
-                    "ID": "productos_have_incremento_saldo_mensual",
+                    "ID": "productos_have_gastos_no_computados_periodo",
                     "State": "Generated",
                     "Weight": 0.99
                   }
                 ],
                 "Roles": {
-                  "medidas_saldo.incremento_saldo": {
+                  "medidas_saldo.gastos_no_computados_anual": {
                     "Target": {
-                      "Entity": "medidas_saldo.incremento_saldo"
+                      "Entity": "medidas_saldo.gastos_no_computados_anual"
+                    }
+                  },
+                  "producto": {
+                    "Target": {
+                      "Entity": "producto"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "producto_has_medidas_saldo_incremento__año": {
+                "Binding": {
+                  "ConceptualEntity": "Productos"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "medidas_saldo.incremento__año"
+                      },
+                      "Subject": {
+                        "Role": "producto"
+                      }
+                    },
+                    "ID": "productos_have_incremento__periodo",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "medidas_saldo.incremento__año": {
+                    "Target": {
+                      "Entity": "medidas_saldo.incremento__año"
+                    }
+                  },
+                  "producto": {
+                    "Target": {
+                      "Entity": "producto"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "producto_has_medidas_saldo_incremento_saldo_anual": {
+                "Binding": {
+                  "ConceptualEntity": "Productos"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "medidas_saldo.incremento_saldo_anual"
+                      },
+                      "Subject": {
+                        "Role": "producto"
+                      }
+                    },
+                    "ID": "productos_have_incremento_saldo_periodo",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "medidas_saldo.incremento_saldo_anual": {
+                    "Target": {
+                      "Entity": "medidas_saldo.incremento_saldo_anual"
                     }
                   },
                   "producto": {
@@ -8549,6 +8962,39 @@
                   "medidas_saldo.saldo_inicial": {
                     "Target": {
                       "Entity": "medidas_saldo.saldo_inicial"
+                    }
+                  },
+                  "producto": {
+                    "Target": {
+                      "Entity": "producto"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "producto_has_medidas_saldo_testgastos_gastos_no_computados__actual": {
+                "Binding": {
+                  "ConceptualEntity": "Productos"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "medidas_saldo.testgastos_gastos_no_computados__actual"
+                      },
+                      "Subject": {
+                        "Role": "producto"
+                      }
+                    },
+                    "ID": "productos_have_testgastos_gastos_no_computados__actual",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "medidas_saldo.testgastos_gastos_no_computados__actual": {
+                    "Target": {
+                      "Entity": "medidas_saldo.testgastos_gastos_no_computados__actual"
                     }
                   },
                   "producto": {
@@ -9047,7 +9493,7 @@
                 },
                 "State": "Generated"
               },
-              "saldo_has_dividendo": {
+              "saldo_has_cambio": {
                 "Binding": {
                   "ConceptualEntity": "Saldo"
                 },
@@ -9055,13 +9501,13 @@
                   {
                     "Attribute": {
                       "Object": {
-                        "Role": "saldo.dividendo"
+                        "Role": "saldo.cambio"
                       },
                       "Subject": {
                         "Role": "saldo"
                       }
                     },
-                    "ID": "saldos_have_dividendos",
+                    "ID": "saldos_have_cambios",
                     "State": "Generated",
                     "Weight": 0.99
                   }
@@ -9072,9 +9518,9 @@
                       "Entity": "saldo"
                     }
                   },
-                  "saldo.dividendo": {
+                  "saldo.cambio": {
                     "Target": {
-                      "Entity": "saldo.dividendo"
+                      "Entity": "saldo.cambio"
                     }
                   }
                 },
@@ -9146,39 +9592,6 @@
                 },
                 "State": "Generated"
               },
-              "saldo_has_ingreso": {
-                "Binding": {
-                  "ConceptualEntity": "Saldo"
-                },
-                "Phrasings": [
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "saldo.ingreso"
-                      },
-                      "Subject": {
-                        "Role": "saldo"
-                      }
-                    },
-                    "ID": "saldos_have_ingresos",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "saldo": {
-                    "Target": {
-                      "Entity": "saldo"
-                    }
-                  },
-                  "saldo.ingreso": {
-                    "Target": {
-                      "Entity": "saldo.ingreso"
-                    }
-                  }
-                },
-                "State": "Generated"
-              },
               "saldo_has_medidas_saldo_beneficio_inversion": {
                 "Binding": {
                   "ConceptualEntity": "Saldo"
@@ -9245,7 +9658,7 @@
                 },
                 "State": "Generated"
               },
-              "saldo_has_medidas_saldo_incremento_saldo": {
+              "saldo_has_medidas_saldo_gastos_no_computados_anual": {
                 "Binding": {
                   "ConceptualEntity": "Saldo"
                 },
@@ -9253,21 +9666,87 @@
                   {
                     "Attribute": {
                       "Object": {
-                        "Role": "medidas_saldo.incremento_saldo"
+                        "Role": "medidas_saldo.gastos_no_computados_anual"
                       },
                       "Subject": {
                         "Role": "saldo"
                       }
                     },
-                    "ID": "saldos_have_incremento_saldo_mensual",
+                    "ID": "saldos_have_gastos_no_computados_periodo",
                     "State": "Generated",
                     "Weight": 0.99
                   }
                 ],
                 "Roles": {
-                  "medidas_saldo.incremento_saldo": {
+                  "medidas_saldo.gastos_no_computados_anual": {
                     "Target": {
-                      "Entity": "medidas_saldo.incremento_saldo"
+                      "Entity": "medidas_saldo.gastos_no_computados_anual"
+                    }
+                  },
+                  "saldo": {
+                    "Target": {
+                      "Entity": "saldo"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "saldo_has_medidas_saldo_incremento__año": {
+                "Binding": {
+                  "ConceptualEntity": "Saldo"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "medidas_saldo.incremento__año"
+                      },
+                      "Subject": {
+                        "Role": "saldo"
+                      }
+                    },
+                    "ID": "saldos_have_incremento__periodo",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "medidas_saldo.incremento__año": {
+                    "Target": {
+                      "Entity": "medidas_saldo.incremento__año"
+                    }
+                  },
+                  "saldo": {
+                    "Target": {
+                      "Entity": "saldo"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "saldo_has_medidas_saldo_incremento_saldo_anual": {
+                "Binding": {
+                  "ConceptualEntity": "Saldo"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "medidas_saldo.incremento_saldo_anual"
+                      },
+                      "Subject": {
+                        "Role": "saldo"
+                      }
+                    },
+                    "ID": "saldos_have_incremento_saldo_periodo",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "medidas_saldo.incremento_saldo_anual": {
+                    "Target": {
+                      "Entity": "medidas_saldo.incremento_saldo_anual"
                     }
                   },
                   "saldo": {
@@ -9367,6 +9846,72 @@
                   "medidas_saldo.saldo_fecha_inicio": {
                     "Target": {
                       "Entity": "medidas_saldo.saldo_fecha_inicio"
+                    }
+                  },
+                  "saldo": {
+                    "Target": {
+                      "Entity": "saldo"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "saldo_has_medidas_saldo_testgastos_gastos_no_computados__actual": {
+                "Binding": {
+                  "ConceptualEntity": "Saldo"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "medidas_saldo.testgastos_gastos_no_computados__actual"
+                      },
+                      "Subject": {
+                        "Role": "saldo"
+                      }
+                    },
+                    "ID": "saldos_have_testgastos_gastos_no_computados__actual",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "medidas_saldo.testgastos_gastos_no_computados__actual": {
+                    "Target": {
+                      "Entity": "medidas_saldo.testgastos_gastos_no_computados__actual"
+                    }
+                  },
+                  "saldo": {
+                    "Target": {
+                      "Entity": "saldo"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "saldo_has_medidas_saldo_testsaldo_saldo_fecha_inicio__actual": {
+                "Binding": {
+                  "ConceptualEntity": "Saldo"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "medidas_saldo.testsaldo_saldo_fecha_inicio__actual"
+                      },
+                      "Subject": {
+                        "Role": "saldo"
+                      }
+                    },
+                    "ID": "saldos_have_testsaldo_saldo_fecha_inicio__actual",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "medidas_saldo.testsaldo_saldo_fecha_inicio__actual": {
+                    "Target": {
+                      "Entity": "medidas_saldo.testsaldo_saldo_fecha_inicio__actual"
                     }
                   },
                   "saldo": {
@@ -9736,6 +10281,39 @@
                   "saldo.valor_liquidativo": {
                     "Target": {
                       "Entity": "saldo.valor_liquidativo"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "saldo_has_valor_liquidativo_moneda_extranjera": {
+                "Binding": {
+                  "ConceptualEntity": "Saldo"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "saldo.valor_liquidativo_moneda_extranjera"
+                      },
+                      "Subject": {
+                        "Role": "saldo"
+                      }
+                    },
+                    "ID": "saldos_have_valor_liquidativo_moneda_extranjera",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "saldo": {
+                    "Target": {
+                      "Entity": "saldo"
+                    }
+                  },
+                  "saldo.valor_liquidativo_moneda_extranjera": {
+                    "Target": {
+                      "Entity": "saldo.valor_liquidativo_moneda_extranjera"
                     }
                   }
                 },
@@ -10296,7 +10874,7 @@
                 },
                 "State": "Generated"
               },
-              "transaccione_has_comisión_moneda_extranjera": {
+              "transaccione_has_comisión_moneda_transacción": {
                 "Binding": {
                   "ConceptualEntity": "Transacciones"
                 },
@@ -10304,13 +10882,13 @@
                   {
                     "Attribute": {
                       "Object": {
-                        "Role": "transaccione.comisión_moneda_extranjera"
+                        "Role": "transaccione.comisión_moneda_transacción"
                       },
                       "Subject": {
                         "Role": "transaccione"
                       }
                     },
-                    "ID": "transacciones_have_comisión_moneda_extranjera",
+                    "ID": "transacciones_have_comisión_moneda_transacción",
                     "State": "Generated",
                     "Weight": 0.99
                   },
@@ -10331,13 +10909,13 @@
                         }
                       ],
                       "Measurement": {
-                        "Role": "transaccione.comisión_moneda_extranjera"
+                        "Role": "transaccione.comisión_moneda_transacción"
                       },
                       "Subject": {
                         "Role": "transaccione"
                       }
                     },
-                    "ID": "comisión_moneda_extranjera_indicates_how_expensive_transacciones_are",
+                    "ID": "comisión_moneda_transacción_indicates_how_expensive_transacciones_are",
                     "State": "Generated",
                     "Weight": 0.99
                   }
@@ -10348,9 +10926,9 @@
                       "Entity": "transaccione"
                     }
                   },
-                  "transaccione.comisión_moneda_extranjera": {
+                  "transaccione.comisión_moneda_transacción": {
                     "Target": {
-                      "Entity": "transaccione.comisión_moneda_extranjera"
+                      "Entity": "transaccione.comisión_moneda_transacción"
                     }
                   }
                 },
@@ -10548,7 +11126,7 @@
                 },
                 "State": "Generated"
               },
-              "transaccione_has_importe_bruto_moneda_extranjera": {
+              "transaccione_has_importe_bruto_moneda_transacción": {
                 "Binding": {
                   "ConceptualEntity": "Transacciones"
                 },
@@ -10556,13 +11134,13 @@
                   {
                     "Attribute": {
                       "Object": {
-                        "Role": "transaccione.importe_bruto_moneda_extranjera"
+                        "Role": "transaccione.importe_bruto_moneda_transacción"
                       },
                       "Subject": {
                         "Role": "transaccione"
                       }
                     },
-                    "ID": "transacciones_have_importe_bruto_moneda_extranjera",
+                    "ID": "transacciones_have_importe_bruto_moneda_transacción",
                     "State": "Generated",
                     "Weight": 0.99
                   },
@@ -10583,13 +11161,13 @@
                         }
                       ],
                       "Measurement": {
-                        "Role": "transaccione.importe_bruto_moneda_extranjera"
+                        "Role": "transaccione.importe_bruto_moneda_transacción"
                       },
                       "Subject": {
                         "Role": "transaccione"
                       }
                     },
-                    "ID": "importe_bruto_moneda_extranjera_indicates_how_expensive_transacciones_are",
+                    "ID": "importe_bruto_moneda_transacción_indicates_how_expensive_transacciones_are",
                     "State": "Generated",
                     "Weight": 0.99
                   }
@@ -10600,9 +11178,9 @@
                       "Entity": "transaccione"
                     }
                   },
-                  "transaccione.importe_bruto_moneda_extranjera": {
+                  "transaccione.importe_bruto_moneda_transacción": {
                     "Target": {
-                      "Entity": "transaccione.importe_bruto_moneda_extranjera"
+                      "Entity": "transaccione.importe_bruto_moneda_transacción"
                     }
                   }
                 },
@@ -10641,7 +11219,7 @@
                 },
                 "State": "Generated"
               },
-              "transaccione_has_medidas_saldo_incremento_saldo": {
+              "transaccione_has_medidas_saldo_gastos_no_computados_anual": {
                 "Binding": {
                   "ConceptualEntity": "Transacciones"
                 },
@@ -10649,21 +11227,87 @@
                   {
                     "Attribute": {
                       "Object": {
-                        "Role": "medidas_saldo.incremento_saldo"
+                        "Role": "medidas_saldo.gastos_no_computados_anual"
                       },
                       "Subject": {
                         "Role": "transaccione"
                       }
                     },
-                    "ID": "transacciones_have_incremento_saldo_mensual",
+                    "ID": "transacciones_have_gastos_no_computados_periodo",
                     "State": "Generated",
                     "Weight": 0.99
                   }
                 ],
                 "Roles": {
-                  "medidas_saldo.incremento_saldo": {
+                  "medidas_saldo.gastos_no_computados_anual": {
                     "Target": {
-                      "Entity": "medidas_saldo.incremento_saldo"
+                      "Entity": "medidas_saldo.gastos_no_computados_anual"
+                    }
+                  },
+                  "transaccione": {
+                    "Target": {
+                      "Entity": "transaccione"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "transaccione_has_medidas_saldo_incremento__año": {
+                "Binding": {
+                  "ConceptualEntity": "Transacciones"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "medidas_saldo.incremento__año"
+                      },
+                      "Subject": {
+                        "Role": "transaccione"
+                      }
+                    },
+                    "ID": "transacciones_have_incremento__periodo",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "medidas_saldo.incremento__año": {
+                    "Target": {
+                      "Entity": "medidas_saldo.incremento__año"
+                    }
+                  },
+                  "transaccione": {
+                    "Target": {
+                      "Entity": "transaccione"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "transaccione_has_medidas_saldo_incremento_saldo_anual": {
+                "Binding": {
+                  "ConceptualEntity": "Transacciones"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "medidas_saldo.incremento_saldo_anual"
+                      },
+                      "Subject": {
+                        "Role": "transaccione"
+                      }
+                    },
+                    "ID": "transacciones_have_incremento_saldo_periodo",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "medidas_saldo.incremento_saldo_anual": {
+                    "Target": {
+                      "Entity": "medidas_saldo.incremento_saldo_anual"
                     }
                   },
                   "transaccione": {
@@ -10721,7 +11365,7 @@
                         "Role": "transaccione"
                       }
                     },
-                    "ID": "transacciones_have_ingresos",
+                    "ID": "transacciones_have_ingresos_inversion",
                     "State": "Generated",
                     "Weight": 0.99
                   }
@@ -10872,6 +11516,39 @@
                 },
                 "State": "Generated"
               },
+              "transaccione_has_medidas_saldo_testgastos_gastos_no_computados__actual": {
+                "Binding": {
+                  "ConceptualEntity": "Transacciones"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "medidas_saldo.testgastos_gastos_no_computados__actual"
+                      },
+                      "Subject": {
+                        "Role": "transaccione"
+                      }
+                    },
+                    "ID": "transacciones_have_testgastos_gastos_no_computados__actual",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "medidas_saldo.testgastos_gastos_no_computados__actual": {
+                    "Target": {
+                      "Entity": "medidas_saldo.testgastos_gastos_no_computados__actual"
+                    }
+                  },
+                  "transaccione": {
+                    "Target": {
+                      "Entity": "transaccione"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
               "transaccione_has_medidas_transaccione_GENERAL__beneficio_dividendo": {
                 "Binding": {
                   "ConceptualEntity": "Transacciones"
@@ -10966,6 +11643,39 @@
                   "transaccione": {
                     "Target": {
                       "Entity": "transaccione"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "transaccione_has_moneda": {
+                "Binding": {
+                  "ConceptualEntity": "Transacciones"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "transaccione.moneda"
+                      },
+                      "Subject": {
+                        "Role": "transaccione"
+                      }
+                    },
+                    "ID": "transacciones_have_monedas",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "transaccione": {
+                    "Target": {
+                      "Entity": "transaccione"
+                    }
+                  },
+                  "transaccione.moneda": {
+                    "Target": {
+                      "Entity": "transaccione.moneda"
                     }
                   }
                 },
@@ -11103,7 +11813,7 @@
                 },
                 "State": "Generated"
               },
-              "transaccione_has_precio_moneda_extranjera": {
+              "transaccione_has_precio_moneda_transacción": {
                 "Binding": {
                   "ConceptualEntity": "Transacciones"
                 },
@@ -11111,13 +11821,13 @@
                   {
                     "Attribute": {
                       "Object": {
-                        "Role": "transaccione.precio_moneda_extranjera"
+                        "Role": "transaccione.precio_moneda_transacción"
                       },
                       "Subject": {
                         "Role": "transaccione"
                       }
                     },
-                    "ID": "transacciones_have_precio_moneda_extranjera",
+                    "ID": "transacciones_have_precio_moneda_transacción",
                     "State": "Generated",
                     "Weight": 0.99
                   },
@@ -11138,13 +11848,13 @@
                         }
                       ],
                       "Measurement": {
-                        "Role": "transaccione.precio_moneda_extranjera"
+                        "Role": "transaccione.precio_moneda_transacción"
                       },
                       "Subject": {
                         "Role": "transaccione"
                       }
                     },
-                    "ID": "precio_moneda_extranjera_indicates_how_expensive_transacciones_are",
+                    "ID": "precio_moneda_transacción_indicates_how_expensive_transacciones_are",
                     "State": "Generated",
                     "Weight": 0.99
                   }
@@ -11155,9 +11865,9 @@
                       "Entity": "transaccione"
                     }
                   },
-                  "transaccione.precio_moneda_extranjera": {
+                  "transaccione.precio_moneda_transacción": {
                     "Target": {
-                      "Entity": "transaccione.precio_moneda_extranjera"
+                      "Entity": "transaccione.precio_moneda_transacción"
                     }
                   }
                 },
@@ -11341,7 +12051,7 @@
                 },
                 "State": "Generated"
               },
-              "transaccione_has_retenido_moneda_extranjera": {
+              "transaccione_has_retenido_moneda_transacción": {
                 "Binding": {
                   "ConceptualEntity": "Transacciones"
                 },
@@ -11349,13 +12059,13 @@
                   {
                     "Attribute": {
                       "Object": {
-                        "Role": "transaccione.retenido_moneda_extranjera"
+                        "Role": "transaccione.retenido_moneda_transacción"
                       },
                       "Subject": {
                         "Role": "transaccione"
                       }
                     },
-                    "ID": "transacciones_have_retenido_moneda_extranjera",
+                    "ID": "transacciones_have_retenido_moneda_transacción",
                     "State": "Generated",
                     "Weight": 0.99
                   },
@@ -11376,13 +12086,13 @@
                         }
                       ],
                       "Measurement": {
-                        "Role": "transaccione.retenido_moneda_extranjera"
+                        "Role": "transaccione.retenido_moneda_transacción"
                       },
                       "Subject": {
                         "Role": "transaccione"
                       }
                     },
-                    "ID": "retenido_moneda_extranjera_indicates_how_expensive_transacciones_are",
+                    "ID": "retenido_moneda_transacción_indicates_how_expensive_transacciones_are",
                     "State": "Generated",
                     "Weight": 0.99
                   }
@@ -11393,9 +12103,9 @@
                       "Entity": "transaccione"
                     }
                   },
-                  "transaccione.retenido_moneda_extranjera": {
+                  "transaccione.retenido_moneda_transacción": {
                     "Target": {
-                      "Entity": "transaccione.retenido_moneda_extranjera"
+                      "Entity": "transaccione.retenido_moneda_transacción"
                     }
                   }
                 },
@@ -11591,7 +12301,7 @@
             "value": "Navegación"
           }
         ],
-        "expression": "\"H:\\Gastos-Ingresos.xlsx\" meta [IsParameterQuery=true, Type=\"Any\", IsParameterQueryRequired=true]",
+        "expression": "\"C:\\Users\\imore\\SW\\Finance\\FinanceBI\\data\\dev\\data.xlsx\" meta [IsParameterQuery=true, Type=\"Any\", IsParameterQueryRequired=true]",
         "kind": "m",
         "lineageTag": "a2aa19e7-94ab-40b4-b77d-780b67c32947"
       },
@@ -11608,25 +12318,25 @@
           }
         ],
         "expression": [
-          "let",
-          "    Origen = Excel.Workbook(File.Contents(Path), null, true),",
-          "    #\"Filas filtradas1\" = Table.SelectRows(Origen, each ([Name] = \"T_Pagos_Especie\")),",
-          "    #\"Otras columnas quitadas\" = Table.SelectColumns(#\"Filas filtradas1\",{\"Data\"}),",
-          "    #\"Se expandió Data\" = Table.ExpandTableColumn(#\"Otras columnas quitadas\", \"Data\", {\"Concepto\", \"Año\", \"Mes\", \"CLASIFICACION COBRO\", \"CLASIFICACION PAGO\", \"IMPORTE (€)\"}, {\"Concepto\", \"Año / Concepto\", \"Mes / Concepto\", \"CLASIFICACION COBRO\", \"CLASIFICACION PAGO\", \"IMPORTE (€)\"}),",
-          "    #\"Consultas combinadas\" = Table.NestedJoin(#\"Se expandió Data\", {\"Año / Concepto\"}, Años, {\"*\"}, \"Años\", JoinKind.LeftOuter),",
-          "    #\"Se expandió Años\" = Table.ExpandTableColumn(#\"Consultas combinadas\", \"Años\", {\"FECHA\"}, {\"Años.FECHA\"}),",
-          "    #\"Agregar columna personalizada\" = Table.AddColumn(#\"Se expandió Años\", \"Año\", each if [Años.FECHA]= null then [#\"Año / Concepto\"] else [Años.FECHA], type text),",
-          "    #\"Consultas combinadas1\" = Table.NestedJoin(#\"Agregar columna personalizada\", {\"Año\", \"Mes / Concepto\"}, Meses, {\"Año\", \"*\"}, \"Meses\", JoinKind.LeftOuter),",
-          "    #\"Tipo cambiado\" = Table.TransformColumnTypes(#\"Consultas combinadas1\",{{\"Mes / Concepto\", type text}}),",
-          "    #\"Se expandió Meses\" = Table.ExpandTableColumn(#\"Tipo cambiado\", \"Meses\", {\"Mes\"}, {\"Meses.Mes\"}),",
-          "    #\"[Columna] Meses]\" = Table.AddColumn(#\"Se expandió Meses\", \"Mes\", each if [Meses.Mes]= null then [#\"Mes / Concepto\"] else [Meses.Mes], type text),",
-          "    #\"Otras columnas quitadas1\" = Table.SelectColumns(#\"[Columna] Meses]\",{\"IMPORTE (€)\", \"Año\", \"Mes\", \"CLASIFICACION COBRO\", \"CLASIFICACION PAGO\", \"Concepto\"}),",
-          "    #\"Personalizada agregada\" = Table.AddColumn(#\"Otras columnas quitadas1\", \"CATEGORÍA\", each \"Especie\"),",
-          "    #\"Consultas combinadas2\" = Table.NestedJoin(#\"Personalizada agregada\", {\"Mes\", \"Año\"}, Meses, {\"Mes\", \"Año\"}, \"Meses\", JoinKind.Inner),",
-          "    #\"Se expandió Meses1\" = Table.ExpandTableColumn(#\"Consultas combinadas2\", \"Meses\", {\"Índice\"}, {\"Meses.Índice\"}),",
-          "    #\"Columna combinada insertada\" = Table.AddColumn(#\"Se expandió Meses1\", \"FECHA\", each Text.Combine({\"1/\", Text.From([Meses.Índice], \"es-ES\"), \"/\", Text.From([Año], \"es-ES\")}), type text),",
-          "    #\"Tipo cambiado1\" = Table.TransformColumnTypes(#\"Columna combinada insertada\",{{\"FECHA\", type date}})",
-          "in",
+          "let\r",
+          "    Origen = Excel.Workbook(File.Contents(Path), null, true),\r",
+          "    #\"Filas filtradas1\" = Table.SelectRows(Origen, each ([Name] = \"T_Pagos_Especie\")),\r",
+          "    #\"Otras columnas quitadas\" = Table.SelectColumns(#\"Filas filtradas1\",{\"Data\"}),\r",
+          "    #\"Se expandió Data\" = Table.ExpandTableColumn(#\"Otras columnas quitadas\", \"Data\", {\"Concepto\", \"Año\", \"Mes\", \"CLASIFICACION COBRO\", \"CLASIFICACION PAGO\", \"IMPORTE (€)\"}, {\"Concepto\", \"Año / Concepto\", \"Mes / Concepto\", \"CLASIFICACION COBRO\", \"CLASIFICACION PAGO\", \"IMPORTE (€)\"}),\r",
+          "    #\"Consultas combinadas\" = Table.NestedJoin(#\"Se expandió Data\", {\"Año / Concepto\"}, Años, {\"*\"}, \"Años\", JoinKind.LeftOuter),\r",
+          "    #\"Se expandió Años\" = Table.ExpandTableColumn(#\"Consultas combinadas\", \"Años\", {\"FECHA\"}, {\"Años.FECHA\"}),\r",
+          "    #\"Agregar columna personalizada\" = Table.AddColumn(#\"Se expandió Años\", \"Año\", each if [Años.FECHA]= null then [#\"Año / Concepto\"] else [Años.FECHA], type text),\r",
+          "    #\"Consultas combinadas1\" = Table.NestedJoin(#\"Agregar columna personalizada\", {\"Año\", \"Mes / Concepto\"}, Meses, {\"Año\", \"*\"}, \"Meses\", JoinKind.LeftOuter),\r",
+          "    #\"Tipo cambiado\" = Table.TransformColumnTypes(#\"Consultas combinadas1\",{{\"Mes / Concepto\", type text}}),\r",
+          "    #\"Se expandió Meses\" = Table.ExpandTableColumn(#\"Tipo cambiado\", \"Meses\", {\"Mes\"}, {\"Meses.Mes\"}),\r",
+          "    #\"[Columna] Meses]\" = Table.AddColumn(#\"Se expandió Meses\", \"Mes\", each if [Meses.Mes]= null then [#\"Mes / Concepto\"] else [Meses.Mes], type text),\r",
+          "    #\"Otras columnas quitadas1\" = Table.SelectColumns(#\"[Columna] Meses]\",{\"IMPORTE (€)\", \"Año\", \"Mes\", \"CLASIFICACION COBRO\", \"CLASIFICACION PAGO\", \"Concepto\"}),\r",
+          "    #\"Personalizada agregada\" = Table.AddColumn(#\"Otras columnas quitadas1\", \"CATEGORÍA\", each \"Especie\"),\r",
+          "    #\"Consultas combinadas2\" = Table.NestedJoin(#\"Personalizada agregada\", {\"Mes\", \"Año\"}, Meses, {\"Mes\", \"Año\"}, \"Meses\", JoinKind.Inner),\r",
+          "    #\"Se expandió Meses1\" = Table.ExpandTableColumn(#\"Consultas combinadas2\", \"Meses\", {\"Índice\"}, {\"Meses.Índice\"}),\r",
+          "    #\"Columna combinada insertada\" = Table.AddColumn(#\"Se expandió Meses1\", \"FECHA\", each Text.Combine({\"1/\", Text.From([Meses.Índice], \"es-ES\"), \"/\", Text.From([Año], \"es-ES\")}), type text),\r",
+          "    #\"Tipo cambiado1\" = Table.TransformColumnTypes(#\"Columna combinada insertada\",{{\"FECHA\", type date}})\r",
+          "in\r",
           "    #\"Tipo cambiado1\""
         ],
         "kind": "m",
@@ -11895,10 +12605,10 @@
           }
         ],
         "expression": [
-          "let",
-          "    Origen = Excel.Workbook(File.Contents(Path), null, true),",
-          "    T_Movimientos_Table = Origen{[Item=\"T_Movimientos\",Kind=\"Table\"]}[Data]",
-          "in",
+          "let\r",
+          "    Origen = Excel.Workbook(File.Contents(Path), null, true),\r",
+          "    T_Movimientos_Table = Origen{[Item=\"T_Movimientos\",Kind=\"Table\"]}[Data]\r",
+          "in\r",
           "    T_Movimientos_Table"
         ],
         "kind": "m",
@@ -12217,6 +12927,22 @@
         "kind": "m",
         "lineageTag": "01c2a73d-f2d5-4d85-9e73-4b818a36bdfc",
         "queryGroup": "Saldo"
+      },
+      {
+        "name": "Path (Dev)",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navegación"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Text"
+          }
+        ],
+        "expression": "\"C:\\Users\\imore\\SW\\Finance\\FinanceBI\\data\\dev\\data.xlsx\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]",
+        "kind": "m",
+        "lineageTag": "729f91fe-dd33-4afe-9afa-c7c19df53d2e"
       }
     ],
     "queryGroups": [
@@ -12487,32 +13213,6 @@
             "lineageTag": "9f3125ac-2f24-4852-b31f-2131b59074f4",
             "sourceColumn": "Importe",
             "summarizeBy": "sum"
-          },
-          {
-            "name": "Ingreso",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "1060e348-6314-42fa-9e86-8dc8bd32c668",
-            "sourceColumn": "Ingreso",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "Dividendos",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "98bb3f57-a64b-48be-bd34-5b7dac826118",
-            "sourceColumn": "Dividendos",
-            "summarizeBy": "none"
           },
           {
             "name": "Beneficio Acumulado",
@@ -13256,48 +13956,6 @@
         "lineageTag": "d5a0786a-7d7e-410d-9408-bba78857846b",
         "measures": [
           {
-            "name": "Incremento Saldo Mensual",
-            "annotations": [
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"currencyCulture\":\"en-US\"}"
-              }
-            ],
-            "displayFolder": "Beneficio",
-            "expression": "[Saldo Último] - [Saldo Mes Anterior]",
-            "extendedProperties": [
-              {
-                "name": "MeasureTemplate",
-                "type": "json",
-                "value": {
-                  "daxTemplateName": "MonthOverMonth",
-                  "version": 0
-                }
-              }
-            ],
-            "formatString": "#,0.00\\ \"€\";-#,0.00\\ \"€\";#,0.00\\ \"€\"",
-            "lineageTag": "932e1ff2-d3ca-4e57-8ded-9b51134d4e1e"
-          },
-          {
-            "name": "Beneficio Inversión Mensual",
-            "annotations": [
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"currencyCulture\":\"es-ES\"}"
-              }
-            ],
-            "displayFolder": "Beneficio",
-            "expression": [
-              "",
-              "CALCULATE(",
-              "    [Incremento Saldo Mensual] - [Ingresos]",
-              "    , FILTER(Productos, CONTAINSSTRING(Productos[Tipo], \"Renta\"))",
-              ")"
-            ],
-            "formatString": "#,0.00\\ \"€\";-#,0.00\\ \"€\";#,0.00\\ \"€\"",
-            "lineageTag": "33069aed-f9ae-46ac-9650-aa246a222256"
-          },
-          {
             "name": "Saldo Último",
             "annotations": [
               {
@@ -13350,57 +14008,12 @@
             "lineageTag": "71727381-c02e-47cb-98b6-5a234aaf57e4"
           },
           {
-            "name": "Gastos no Computados Mensual",
-            "annotations": [
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"currencyCulture\":\"en-US\"}"
-              }
-            ],
-            "displayFolder": "Gastos",
-            "expression": [
-              "",
-              "CALCULATE(",
-              "    [Incremento Saldo Mensual] - [Beneficio Inversión Mensual] - SUM(Movimientos[IMPORTE (€)])",
-              "    , REMOVEFILTERS('Tipo Movimiento')",
-              ")"
-            ],
-            "formatString": "#,0.00\\ \"€\";-#,0.00\\ \"€\";#,0.00\\ \"€\"",
-            "lineageTag": "cabcae04-153b-4a8a-a091-7b098ccacf31"
-          },
-          {
-            "name": "Incremento Saldo Mensual (%)",
-            "displayFolder": "Beneficio",
-            "expression": [
-              "",
-              "",
-              "    SUMX(",
-              "        VALUES(Saldo[Fecha]),",
-              "        VAR __prev_month = ",
-              "\t\t    CALCULATE(",
-              "\t\t        [Saldo Último]                 ",
-              "\t\t        , DATEADD(Saldo[Fecha], -1, MONTH)",
-              "                , ALL(Calendario)",
-              "\t\t    )",
-              "        VAR __current_month = [Saldo Último]",
-              "",
-              "        Var __increment = CALCULATE(SUM(Saldo[Ingreso]))",
-              "",
-              "\t    RETURN\t",
-              "            IF (OR(ISBLANK(__current_month), ISBLANK(__prev_month)) , BLANK(), (__current_month - __prev_month - __increment) / (__prev_month))",
-              "    )",
-              ""
-            ],
-            "formatString": "0.00\\ %;-0.00\\ %;0.00\\ %",
-            "lineageTag": "3d75b502-c07a-434c-acce-f54be644058e"
-          },
-          {
             "name": "Incremeto Saldo Desde Referencia (%)",
             "displayFolder": "Beneficio",
             "expression": [
               "",
               "CALCULATE(",
-              "    'Medidas Saldo'[Incremento Saldo Mensual (%)]",
+              "    'Medidas Saldo'[Incremento % Periodo]",
               "    , FILTER(",
               "        Calendario",
               "        ,Calendario[Año] >= [Valor Año Referencia]",
@@ -13425,7 +14038,7 @@
               "SUMX(",
               "    VALUES(Productos[Producto])",
               "    , CALCULATE(        ",
-              "        [Ingresos]",
+              "        [Ingresos Inversion]",
               "        , ",
               "        Calendario[Date] < MIN(Calendario[Date])",
               "    )",
@@ -13456,7 +14069,7 @@
             "lineageTag": "3b69a7c0-385d-48d7-bffc-d4e6174fdc67"
           },
           {
-            "name": "Ingresos",
+            "name": "Ingresos Inversion",
             "displayFolder": "Inversión",
             "expression": [
               "",
@@ -13573,7 +14186,7 @@
             "lineageTag": "ad4fce47-f6de-4494-a9be-3eb81478ea57"
           },
           {
-            "name": "Incremento Saldo Anual",
+            "name": "Incremento Saldo Periodo",
             "annotations": [
               {
                 "name": "PBI_FormatHint",
@@ -13581,46 +14194,26 @@
               }
             ],
             "displayFolder": "Beneficio",
-            "expression": "[Saldo Último] - [Saldo Año Anterior]",
+            "expression": "[Saldo Último] - [Saldo Fecha Inicio]",
             "formatString": "#,0.00\\ \"€\";-#,0.00\\ \"€\";#,0.00\\ \"€\"",
             "lineageTag": "ed294a56-6b4a-4e40-8955-134eb22448b7"
           },
           {
-            "name": "Beneficio Inversión Anual",
+            "name": "Gastos no Computados Periodo",
             "annotations": [
               {
                 "name": "PBI_FormatHint",
                 "value": "{\"isGeneralNumber\":true}"
               }
             ],
-            "displayFolder": "Beneficio",
-            "expression": [
-              "",
-              "CALCULATE(",
-              "    [Incremento Saldo Anual] - [Ingresos]",
-              "    , FILTER(Productos, CONTAINSSTRING(Productos[Tipo], \"Renta\"))",
-              ")"
-            ],
-            "lineageTag": "e4706f6e-dd9b-4ff1-a434-db9c58e67e2d"
-          },
-          {
-            "name": "Gastos no Computados Anual",
-            "annotations": [
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"currencyCulture\":\"en-US\"}"
-              }
-            ],
             "displayFolder": "Gastos",
             "expression": [
               "",
               "CALCULATE(",
-              "    [Incremento Saldo Anual] - [Beneficio Inversión Anual] - SUM(Movimientos[IMPORTE (€)])",
+              "    [Incremento Saldo Periodo] - [Beneficio Inversion] - [Movimientos Totales Periodo]",
               "    , REMOVEFILTERS('Tipo Movimiento')",
-              ")",
-              ""
+              ")"
             ],
-            "formatString": "#,0.00\\ \"€\";-#,0.00\\ \"€\";#,0.00\\ \"€\"",
             "lineageTag": "7179a8be-9929-4647-ae17-d26b36074a74"
           },
           {
@@ -13648,7 +14241,7 @@
               "            Calendario[Date] < MIN(Calendario[Date])",
               "        )",
               "",
-              "    RETURN",
+              "    RETURN ",
               "        CALCULATE(",
               "            SUM(Saldo[Saldo]),            ",
               "            ALL(Saldo),",
@@ -13669,7 +14262,7 @@
             "name": "Ingresos Relevantes Entre Fechas (Sin Saldo de Inicio)",
             "displayFolder": "Inversión",
             "expression": [
-              "[Ingresos]",
+              "[Ingresos Inversion]",
               ""
             ],
             "formatString": "#,0.00\\ \"€\";-#,0.00\\ \"€\";#,0.00\\ \"€\"",
@@ -13771,7 +14364,7 @@
               }
             ],
             "displayFolder": "Saldo",
-            "expression": "[Saldo Mes Anterior] + [Ingresos]",
+            "expression": "[Saldo Mes Anterior] + [Ingresos Inversion]",
             "lineageTag": "6b181c5d-622e-4789-aff1-5841a5918035"
           },
           {
@@ -13779,7 +14372,7 @@
             "displayFolder": "Saldo",
             "expression": [
               "",
-              "IF([Ingresos] = 0, BLANK(), ABS((SUM(Saldo[Saldo]) - [Saldo Mes Anterior]) / [Ingresos]))"
+              "IF([Ingresos Inversion] = 0, BLANK(), ABS((SUM(Saldo[Saldo]) - [Saldo Mes Anterior]) / [Ingresos Inversion]))"
             ],
             "formatString": "0.00\\ %;-0.00\\ %;0.00\\ %",
             "lineageTag": "8fe86df5-e0e2-4461-af39-90b5759b2bdd"
@@ -13796,7 +14389,10 @@
             "displayFolder": "Beneficio",
             "expression": [
               "",
-              "[Saldo Último] - [Ingresos Relevantes Entre Fechas (Sin Saldo de Inicio)] - [Saldo Fecha Inicio]"
+              "CALCULATE( ",
+              "    [Saldo Último] - [Ingresos Relevantes Entre Fechas (Sin Saldo de Inicio)] - [Saldo Fecha Inicio] ",
+              "    , FILTER(Productos, CONTAINSSTRING(Productos[Tipo], \"Renta\"))",
+              ")"
             ],
             "formatString": "\"€\"\\ #,0.00;-\"€\"\\ #,0.00;\"€\"\\ #,0.00",
             "lineageTag": "56ea0509-eec2-4483-9b9a-dd3dc5420fb9"
@@ -13875,7 +14471,7 @@
             "expression": [
               "",
               "SUMX(",
-              "    CALCULATETABLE(VALUES('Transacciones'[Transacción ID]), ALLEXCEPT('Transacciones', Productos)), CALCULATE([Valor Liq. Compra], Calendario[Date] <= SELECTEDVALUE('Transacciones'[Fecha])))"
+              "    CALCULATETABLE(VALUES('Transacciones'[ID]), ALLEXCEPT('Transacciones', Productos)), CALCULATE([Valor Liq. Compra], Calendario[Date] <= SELECTEDVALUE('Transacciones'[Fecha])))"
             ],
             "lineageTag": "ce2867f4-5590-4b39-aebe-b5be07c9c2e4"
           },
@@ -13955,11 +14551,102 @@
             "lineageTag": "3ee8e587-8667-4318-aadc-6d41644e629a"
           },
           {
-            "name": "Incremento % Año",
+            "name": "Incremento % Periodo",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
             "displayFolder": "Beneficio",
-            "expression": "TOTALYTD([Beneficio Inversión Anual] / 'Medidas Saldo'[Saldo Fecha Inicio], Calendario[Date])",
-            "formatString": "0.00\\ %;-0.00\\ %;0.00\\ %",
+            "expression": "DIVIDE([Incremento Saldo Periodo], [Saldo Fecha Inicio])",
             "lineageTag": "c8aaff31-7dba-45cf-b78b-9fa583e7fb88"
+          },
+          {
+            "name": "Movimientos Totales Periodo",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"es-ES\"}"
+              }
+            ],
+            "displayFolder": "Saldo",
+            "expression": "SUM(Movimientos[IMPORTE (€)])",
+            "formatString": "#,0.###############\\ \"€\";-#,0.###############\\ \"€\";#,0.###############\\ \"€\"",
+            "lineageTag": "3f8cc06e-462b-4dc7-94ac-1ef6fde8f585"
+          },
+          {
+            "name": "[Test][Gastos] Gastos No Computados - Check",
+            "displayFolder": "Test",
+            "expression": "IF([[Test]][Gastos]] Gastos No Computados - Actual] = [[Test]][Gastos]] Gastos No Computados - Esperado],1,0)",
+            "formatString": "0",
+            "lineageTag": "a39b8799-51f6-429c-8efc-49d30427958f"
+          },
+          {
+            "name": "[Test][Gastos] Gastos No Computados - Esperado",
+            "displayFolder": "Test",
+            "expression": [
+              "",
+              "",
+              "// Incremento de Saldo: 3500",
+              "// Ingresos: 2000",
+              "// Gastos: 500",
+              "// Beneficios: 2500",
+              "",
+              "// Gastos No Computados:",
+              "-500"
+            ],
+            "formatString": "0",
+            "lineageTag": "744edb49-070e-463f-9155-a7a48b5f4381"
+          },
+          {
+            "name": "[Test][Gastos] Gastos No Computados - Actual",
+            "displayFolder": "Test",
+            "expression": [
+              "",
+              "",
+              "// Medida: Mes de Febrero de 2000",
+              "CALCULATE(",
+              "    [Gastos no Computados Periodo]",
+              "    , Calendario[Mes / Año] = 200002",
+              ")"
+            ],
+            "formatString": "0",
+            "lineageTag": "2d1725dd-f08a-4962-9fc8-ac8cfc65a482"
+          },
+          {
+            "name": "[Test][Saldo] Saldo Fecha Inicio - Actual",
+            "displayFolder": "Test",
+            "expression": [
+              "",
+              "",
+              "// Medida: Mes de Febrero de 2000",
+              "CALCULATE(",
+              "    [Saldo Fecha Inicio]",
+              "    , Calendario[Mes / Año] = 200002",
+              ")"
+            ],
+            "formatString": "#,0\\ \"€\";-#,0\\ \"€\";#,0\\ \"€\"",
+            "lineageTag": "3dfbb34a-4a44-439b-97db-8242b8265cff"
+          },
+          {
+            "name": "[Test][Saldo] Saldo Fecha Inicio - Esperado",
+            "displayFolder": "Test",
+            "expression": [
+              "",
+              "",
+              "// Medida: Mes de Febrero de 2000",
+              "15000"
+            ],
+            "formatString": "#,0\\ \"€\";-#,0\\ \"€\";#,0\\ \"€\"",
+            "lineageTag": "b9408908-d11a-4213-8c2c-738b28e6b312"
+          },
+          {
+            "name": "[Test][Saldo] Saldo Fecha Inicio - Check",
+            "displayFolder": "Test",
+            "expression": "IF([[Test]][Saldo]] Saldo Fecha Inicio - Actual] = [[Test]][Saldo]] Saldo Fecha Inicio - Esperado],1,0)",
+            "formatString": "0",
+            "lineageTag": "846dc582-3640-433c-977d-925a52d70656"
           }
         ],
         "partitions": [
@@ -14321,19 +15008,6 @@
             "summarizeBy": "sum"
           },
           {
-            "name": "Transacción ID",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "1bfec01a-457b-4fa2-8df2-7a0656d00115",
-            "sourceColumn": "Transacción ID",
-            "summarizeBy": "none"
-          },
-          {
             "name": "Retenido",
             "annotations": [
               {
@@ -14552,20 +15226,6 @@
             "summarizeBy": "count"
           },
           {
-            "name": "Orden",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "916b8fc8-e1ba-4a3f-a19f-948f3d096851",
-            "sourceColumn": "Orden",
-            "summarizeBy": "sum"
-          },
-          {
             "name": "Hora",
             "annotations": [
               {
@@ -14600,19 +15260,6 @@
             "lineageTag": "7d48878b-0226-407a-80d3-792d77d23487",
             "sourceColumn": "Precio (Moneda Transacción)",
             "summarizeBy": "sum"
-          },
-          {
-            "name": "Moneda",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "780d5186-2496-46d5-bbec-66d8eb937dbc",
-            "sourceColumn": "Moneda",
-            "summarizeBy": "none"
           },
           {
             "name": "Importe Bruto (Moneda Transacción)",
@@ -14667,6 +15314,45 @@
             "lineageTag": "e6dda79a-6cd5-46a3-b94a-d649d1542b26",
             "sourceColumn": "Comisión (Moneda Transacción)",
             "summarizeBy": "sum"
+          },
+          {
+            "name": "Orden",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "9bb3e1f3-1c29-4589-b161-597aeed39b12",
+            "sourceColumn": "Orden",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Transacción ID",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "c19f6556-865e-4ce5-b185-1cf50d29e859",
+            "sourceColumn": "Transacción ID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Moneda",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "e07a56cf-4149-4ba0-a7b7-094fdbe54841",
+            "sourceColumn": "Moneda",
+            "summarizeBy": "none"
           }
         ],
         "lineageTag": "71d662a6-d45e-4164-ac31-d301ddfcca99",
@@ -15367,19 +16053,6 @@
             "summarizeBy": "sum"
           },
           {
-            "name": "Transacción ID",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "6df28702-45fc-48c4-a7b5-5b70740ab9a9",
-            "sourceColumn": "Transacción ID",
-            "summarizeBy": "none"
-          },
-          {
             "name": "Año IRPF",
             "annotations": [
               {
@@ -15578,20 +16251,6 @@
             "summarizeBy": "count"
           },
           {
-            "name": "Orden",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "bffd955e-a8f9-4097-9d0b-00167930128e",
-            "sourceColumn": "Orden",
-            "summarizeBy": "sum"
-          },
-          {
             "name": "IRPF Calculado",
             "annotations": [
               {
@@ -15657,19 +16316,6 @@
             "summarizeBy": "sum"
           },
           {
-            "name": "Moneda",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "39b0415f-5b70-4b55-8142-6a938e960fd3",
-            "sourceColumn": "Moneda",
-            "summarizeBy": "none"
-          },
-          {
             "name": "Importe Bruto (Moneda Transacción)",
             "annotations": [
               {
@@ -15722,6 +16368,45 @@
             "lineageTag": "bc9edcbc-6ddd-4c8d-8dbf-60352407e1e4",
             "sourceColumn": "Comisión (Moneda Transacción)",
             "summarizeBy": "sum"
+          },
+          {
+            "name": "Orden",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "e5d70a60-c81b-4a49-b60b-4f3828bfb36a",
+            "sourceColumn": "Orden",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Transacción ID",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "876fb9d1-56f9-43f4-aebb-982086178c25",
+            "sourceColumn": "Transacción ID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Moneda",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "1f2b702f-c0c1-4b42-9fb1-ddf4f7310cb8",
+            "sourceColumn": "Moneda",
+            "summarizeBy": "none"
           }
         ],
         "lineageTag": "c1c9e7c5-0686-4cc6-aa8e-71faa3fa78dc",
@@ -15819,10 +16504,10 @@
                 "",
                 "let",
                 "    Origen = Excel.Workbook(File.Contents(Path), null, true),",
-                "    T_Saldo_Table = Origen{[Item=\"T_Inversion\",Kind=\"Table\"]}[Data],",
+                "    T_Saldo_Table = Origen{[Item=\"T_Transacciones\",Kind=\"Table\"]}[Data],",
                 "    #\"[Update] Comision - Null to 0\" = Table.ReplaceValue(T_Saldo_Table,null,0,Replacer.ReplaceValue,{\"Comisión\"}),",
                 "    #\"Columnas con nombre cambiado1\" = Table.RenameColumns(#\"[Update] Comision - Null to 0\",{{\"Importe Bruto\", \"Importe\"}}),",
-                "    #\"[Tipos][Update]\" = Table.TransformColumnTypes(#\"Columnas con nombre cambiado1\",{{\"Producto\", type text}, {\"Participaciones\", Currency.Type}, {\"Precio Participación\", Currency.Type}, {\"Importe\", Currency.Type}, {\"Fecha\", type date}, {\"Comisión\", Currency.Type}, {\"Retenido\", Currency.Type}, {\"Cuenta Producto\", type text}, {\"Año IRPF\", Int64.Type}, {\"Tipo Transacción\", type text}, {\"Producto Contraparte\", type text}, {\"Cuenta Contraparte\", type text}, {\"Orden\", Int64.Type}, {\"Transacción ID\", type text}, {\"Precio (Moneda Transacción)\", Currency.Type}, {\"Cambio\", Currency.Type}, {\"Importe Bruto (Moneda Transacción)\", Currency.Type}, {\"Retenido (Moneda Transacción)\", Currency.Type}, {\"Comisión (Moneda Transacción)\", Currency.Type}}),",
+                "    #\"[Tipos][Update]\" = Table.TransformColumnTypes(#\"Columnas con nombre cambiado1\",{{\"Producto\", type text}, {\"Participaciones\", Currency.Type}, {\"Precio Participación\", Currency.Type}, {\"Importe\", Currency.Type}, {\"Fecha\", type date}, {\"Comisión\", Currency.Type}, {\"Retenido\", Currency.Type}, {\"Cuenta Producto\", type text}, {\"Año IRPF\", Int64.Type}, {\"Tipo Transacción\", type text}, {\"Producto Contraparte\", type text}, {\"Cuenta Contraparte\", type text}, {\"Precio (Moneda Transacción)\", Currency.Type}, {\"Cambio\", Currency.Type}, {\"Importe Bruto (Moneda Transacción)\", Currency.Type}, {\"Retenido (Moneda Transacción)\", Currency.Type}, {\"Comisión (Moneda Transacción)\", Currency.Type}}),",
                 "    #\"Transaccion Espejo\" = Table.RenameColumns(",
                 "        #\"[Tipos][Update]\",",
                 "        {",
@@ -15852,7 +16537,7 @@
                 "    }",
                 "),",
                 "    #\"[Anexion] Espejo\" = Table.Combine({#\"[Tipos][Update]\", #\"[Limpiar] Transacción Espejo\"}),",
-                "    #\"Duplicados quitados\" = Table.Distinct(#\"[Anexion] Espejo\", {\"Transacción ID\", \"Producto\", \"Fecha\", \"Orden\", \"Producto Contraparte\", \"Importe\"}),",
+                "    #\"Duplicados quitados\" = Table.Distinct(#\"[Anexion] Espejo\", {\"Producto\", \"Fecha\", \"Hora\", \"Producto Contraparte\", \"Importe\"}),",
                 "    #\"[Columna][Add] Total\" = Table.AddColumn(#\"Duplicados quitados\", \"Total Bruto\", each [Importe] + [Comisión], type number),",
                 "    #\"[Columna][Add] Año IRPF Fijado\" = Table.AddColumn(#\"[Columna][Add] Total\", \"Año IRPF Fijado\", each if [Año IRPF] = null then false else true, type logical),",
                 "    #\"[Modify] Año IRPF\" = Table.ReplaceValue(#\"[Columna][Add] Año IRPF Fijado\",null, each if [Tipo Transacción] = \"Compra\" then null else List.Max({Date.Year([Fecha]), Date.Year(DateTime.LocalNow()) - 1}),Replacer.ReplaceValue,{\"Año IRPF\"}),",
@@ -15913,7 +16598,7 @@
                 "",
                 "    // Convertir de nuevo a tabla",
                 "    TablaResultado = Table.FromRecords(ResultadoRegistros),",
-                "    #\"[Tipos][Update] Refresh\" = Table.TransformColumnTypes(TablaResultado,{{\"Fecha\", type date}, {\"Producto\", type text}, {\"Cuenta Producto\", type text}, {\"Tipo Transacción\", type text}, {\"Participaciones\", Currency.Type}, {\"Precio Participación\", Currency.Type}, {\"Total Bruto\", type number}, {\"Retenido\", Currency.Type}, {\"Año IRPF\", Int64.Type}, {\"Comisión\", Currency.Type}, {\"Transacción ID\", type text}, {\"Año IRPF Fijado\", type logical}, {\"ParticipacionesAcum\", type number}, {\"PrecioMedio\", type number}, {\"Importe\", Currency.Type}, {\"Producto Contraparte\", type text}, {\"Cuenta Contraparte\", type text}, {\"ID\", Int64.Type}, {\"Comisión (Moneda Transacción)\", Currency.Type}, {\"Retenido (Moneda Transacción)\", Currency.Type}, {\"Importe Bruto (Moneda Transacción)\", Currency.Type}, {\"Cambio\", Currency.Type}, {\"Precio (Moneda Transacción)\", Currency.Type}, {\"Orden\", Int64.Type}, {\"Hora\", type time}}),",
+                "    #\"[Tipos][Update] Refresh\" = Table.TransformColumnTypes(TablaResultado,{{\"Fecha\", type date}, {\"Producto\", type text}, {\"Cuenta Producto\", type text}, {\"Tipo Transacción\", type text}, {\"Participaciones\", Currency.Type}, {\"Precio Participación\", Currency.Type}, {\"Total Bruto\", type number}, {\"Retenido\", Currency.Type}, {\"Año IRPF\", Int64.Type}, {\"Comisión\", Currency.Type}, {\"Año IRPF Fijado\", type logical}, {\"ParticipacionesAcum\", type number}, {\"PrecioMedio\", type number}, {\"Importe\", Currency.Type}, {\"Producto Contraparte\", type text}, {\"Cuenta Contraparte\", type text}, {\"ID\", Int64.Type}, {\"Comisión (Moneda Transacción)\", Currency.Type}, {\"Retenido (Moneda Transacción)\", Currency.Type}, {\"Importe Bruto (Moneda Transacción)\", Currency.Type}, {\"Cambio\", Currency.Type}, {\"Precio (Moneda Transacción)\", Currency.Type}, {\"Hora\", type time}}),",
                 "    #\"Columnas con nombre cambiado\" = Table.RenameColumns(#\"[Tipos][Update] Refresh\",{{\"ParticipacionesAcum\", \"Participaciones Acumuladas\"}, {\"PrecioMedio\", \"Precio Medio Hasta Transacción\"}}),",
                 "    #\"[Columna][Add] Renta Obtenida\" = Table.AddColumn(#\"Columnas con nombre cambiado\", \"Renta Bruta Obtenida\", each if List.Contains({\"Compra\",\"Venta\"},[Tipo Transacción]) then -1*[Total Bruto] else [Total Bruto], type number)",
                 "in",
