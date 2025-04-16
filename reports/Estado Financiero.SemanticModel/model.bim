@@ -8,7 +8,7 @@
       },
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"Saldo\",\"Movimientos\",\"Productos\",\"Tipo Movimiento\",\"Path\",\"Medidas Movimientos\",\"Especie\",\"Años\",\"Meses\",\"Meses con Datos\",\"Pagos Especie - Origen\",\"Cobros Especie - Origen\",\"Tipo Pago Especie\",\"Tipo Cobro Especie\",\"Pagos Especie\",\"Cobros Especie\",\"Movimientos Origen\",\"Transacciones\",\"Transacciones Agrupadas\",\"Dividendos\",\"Medidas Transacciones\",\"Medidas Saldo\",\"IRPF Ahorro\",\"Medidas IRPF\",\"CalcularFIFO\",\"ConsumoFIFO\",\"Pruebas\",\"Path (Prod)\",\"Path (Test)\",\"Path (Dev)\"]"
+        "value": "[\"Saldo\",\"Movimientos\",\"Productos\",\"Tipo Movimiento\",\"Path\",\"Medidas Movimientos\",\"Especie\",\"Años\",\"Meses\",\"Meses con Datos\",\"Pagos Especie - Origen\",\"Cobros Especie - Origen\",\"Tipo Pago Especie\",\"Tipo Cobro Especie\",\"Pagos Especie\",\"Cobros Especie\",\"Movimientos Origen\",\"Transacciones\",\"Transacciones Agrupadas\",\"Dividendos\",\"Medidas Transacciones\",\"Medidas Saldo\",\"IRPF Ahorro\",\"Medidas IRPF\",\"CalcularFIFO\",\"ConsumoFIFO\",\"Pruebas\",\"Path (Prod)\",\"Path (Test)\",\"Path (Dev)\",\"Origen Data File\",\"Test Data\"]"
       },
       {
         "name": "__PBI_TimeIntelligenceEnabled",
@@ -16,7 +16,7 @@
       },
       {
         "name": "PBI_ProTooling",
-        "value": "[\"DaxQueryView_Desktop\",\"DevMode\"]"
+        "value": "[\"DaxQueryView_Desktop\",\"DevMode\",\"CalcGroup\"]"
       }
     ],
     "culture": "es-ES",
@@ -1465,7 +1465,7 @@
                 "Definition": {
                   "Binding": {
                     "ConceptualEntity": "Medidas Saldo",
-                    "ConceptualProperty": "Beneficio Inversion"
+                    "ConceptualProperty": "Beneficio Inversión"
                   }
                 },
                 "State": "Generated",
@@ -2412,156 +2412,6 @@
                     "date": {
                       "State": "Generated",
                       "Weight": 0.7
-                    }
-                  }
-                ]
-              },
-              "medidas_saldo.testgastos_gastos_no_computados__actual": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "Medidas Saldo",
-                    "ConceptualProperty": "[Test][Gastos] Gastos No Computados - Actual"
-                  }
-                },
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "[test][gastos] gastos no computados - actual": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "[test][gastos] gastos no computados actual": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
-                    "Actual": {
-                      "Source": {
-                        "Agent": "PowerBI.VisualColumnRename",
-                        "Type": "External"
-                      },
-                      "State": "Suggested",
-                      "Weight": 0.9
-                    }
-                  }
-                ]
-              },
-              "medidas_saldo.testgastos_gastos_no_computados__check": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "Medidas Saldo",
-                    "ConceptualProperty": "[Test][Gastos] Gastos No Computados - Check"
-                  }
-                },
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "[test][gastos] gastos no computados - check": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "[test][gastos] gastos no computados check": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  }
-                ]
-              },
-              "medidas_saldo.testgastos_gastos_no_computados__esperado": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "Medidas Saldo",
-                    "ConceptualProperty": "[Test][Gastos] Gastos No Computados - Esperado"
-                  }
-                },
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "[test][gastos] gastos no computados - esperado": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "[test][gastos] gastos no computados esperado": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
-                    "Esperado": {
-                      "Source": {
-                        "Agent": "PowerBI.VisualColumnRename",
-                        "Type": "External"
-                      },
-                      "State": "Suggested",
-                      "Weight": 0.9
-                    }
-                  }
-                ]
-              },
-              "medidas_saldo.testsaldo_saldo_fecha_inicio__actual": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "Medidas Saldo",
-                    "ConceptualProperty": "[Test][Saldo] Saldo Fecha Inicio - Actual"
-                  }
-                },
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "[test][saldo] saldo fecha inicio - actual": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "[test][saldo] saldo fecha inicio actual": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
-                    "Actual": {
-                      "Source": {
-                        "Agent": "PowerBI.VisualColumnRename",
-                        "Type": "External"
-                      },
-                      "State": "Suggested",
-                      "Weight": 0.9
-                    }
-                  }
-                ]
-              },
-              "medidas_saldo.testsaldo_saldo_fecha_inicio__esperado": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "Medidas Saldo",
-                    "ConceptualProperty": "[Test][Saldo] Saldo Fecha Inicio - Esperado"
-                  }
-                },
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "[test][saldo] saldo fecha inicio - esperado": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "[test][saldo] saldo fecha inicio esperado": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
-                    "Esperado": {
-                      "Source": {
-                        "Agent": "PowerBI.VisualColumnRename",
-                        "Type": "External"
-                      },
-                      "State": "Suggested",
-                      "Weight": 0.9
                     }
                   }
                 ]
@@ -12288,6 +12138,7 @@
       "returnErrorValuesAsNull": true
     },
     "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "discourageImplicitMeasures": true,
     "expressions": [
       {
         "name": "Path",
@@ -12301,7 +12152,7 @@
             "value": "Navegación"
           }
         ],
-        "expression": "\"C:\\Users\\imore\\SW\\Finance\\FinanceBI\\data\\dev\\data.xlsx\" meta [IsParameterQuery=true, Type=\"Any\", IsParameterQueryRequired=true]",
+        "expression": "\"https://github.com/imoremu/financeBI/raw/refs/heads/imoremu/issue9/data/dev/data.xlsx\" meta [IsParameterQuery=true, Type=\"Any\", IsParameterQueryRequired=true]",
         "kind": "m",
         "lineageTag": "a2aa19e7-94ab-40b4-b77d-780b67c32947"
       },
@@ -12318,25 +12169,25 @@
           }
         ],
         "expression": [
-          "let\r",
-          "    Origen = Excel.Workbook(File.Contents(Path), null, true),\r",
-          "    #\"Filas filtradas1\" = Table.SelectRows(Origen, each ([Name] = \"T_Pagos_Especie\")),\r",
-          "    #\"Otras columnas quitadas\" = Table.SelectColumns(#\"Filas filtradas1\",{\"Data\"}),\r",
-          "    #\"Se expandió Data\" = Table.ExpandTableColumn(#\"Otras columnas quitadas\", \"Data\", {\"Concepto\", \"Año\", \"Mes\", \"CLASIFICACION COBRO\", \"CLASIFICACION PAGO\", \"IMPORTE (€)\"}, {\"Concepto\", \"Año / Concepto\", \"Mes / Concepto\", \"CLASIFICACION COBRO\", \"CLASIFICACION PAGO\", \"IMPORTE (€)\"}),\r",
-          "    #\"Consultas combinadas\" = Table.NestedJoin(#\"Se expandió Data\", {\"Año / Concepto\"}, Años, {\"*\"}, \"Años\", JoinKind.LeftOuter),\r",
-          "    #\"Se expandió Años\" = Table.ExpandTableColumn(#\"Consultas combinadas\", \"Años\", {\"FECHA\"}, {\"Años.FECHA\"}),\r",
-          "    #\"Agregar columna personalizada\" = Table.AddColumn(#\"Se expandió Años\", \"Año\", each if [Años.FECHA]= null then [#\"Año / Concepto\"] else [Años.FECHA], type text),\r",
-          "    #\"Consultas combinadas1\" = Table.NestedJoin(#\"Agregar columna personalizada\", {\"Año\", \"Mes / Concepto\"}, Meses, {\"Año\", \"*\"}, \"Meses\", JoinKind.LeftOuter),\r",
-          "    #\"Tipo cambiado\" = Table.TransformColumnTypes(#\"Consultas combinadas1\",{{\"Mes / Concepto\", type text}}),\r",
-          "    #\"Se expandió Meses\" = Table.ExpandTableColumn(#\"Tipo cambiado\", \"Meses\", {\"Mes\"}, {\"Meses.Mes\"}),\r",
-          "    #\"[Columna] Meses]\" = Table.AddColumn(#\"Se expandió Meses\", \"Mes\", each if [Meses.Mes]= null then [#\"Mes / Concepto\"] else [Meses.Mes], type text),\r",
-          "    #\"Otras columnas quitadas1\" = Table.SelectColumns(#\"[Columna] Meses]\",{\"IMPORTE (€)\", \"Año\", \"Mes\", \"CLASIFICACION COBRO\", \"CLASIFICACION PAGO\", \"Concepto\"}),\r",
-          "    #\"Personalizada agregada\" = Table.AddColumn(#\"Otras columnas quitadas1\", \"CATEGORÍA\", each \"Especie\"),\r",
-          "    #\"Consultas combinadas2\" = Table.NestedJoin(#\"Personalizada agregada\", {\"Mes\", \"Año\"}, Meses, {\"Mes\", \"Año\"}, \"Meses\", JoinKind.Inner),\r",
-          "    #\"Se expandió Meses1\" = Table.ExpandTableColumn(#\"Consultas combinadas2\", \"Meses\", {\"Índice\"}, {\"Meses.Índice\"}),\r",
-          "    #\"Columna combinada insertada\" = Table.AddColumn(#\"Se expandió Meses1\", \"FECHA\", each Text.Combine({\"1/\", Text.From([Meses.Índice], \"es-ES\"), \"/\", Text.From([Año], \"es-ES\")}), type text),\r",
-          "    #\"Tipo cambiado1\" = Table.TransformColumnTypes(#\"Columna combinada insertada\",{{\"FECHA\", type date}})\r",
-          "in\r",
+          "let",
+          "    Origen = #\"Origen Data File\",",
+          "    #\"Filas filtradas1\" = Table.SelectRows(Origen, each ([Name] = \"T_Pagos_Especie\")),",
+          "    #\"Otras columnas quitadas\" = Table.SelectColumns(#\"Filas filtradas1\",{\"Data\"}),",
+          "    #\"Se expandió Data\" = Table.ExpandTableColumn(#\"Otras columnas quitadas\", \"Data\", {\"Concepto\", \"Año\", \"Mes\", \"CLASIFICACION COBRO\", \"CLASIFICACION PAGO\", \"IMPORTE (€)\"}, {\"Concepto\", \"Año / Concepto\", \"Mes / Concepto\", \"CLASIFICACION COBRO\", \"CLASIFICACION PAGO\", \"IMPORTE (€)\"}),",
+          "    #\"Consultas combinadas\" = Table.NestedJoin(#\"Se expandió Data\", {\"Año / Concepto\"}, Años, {\"*\"}, \"Años\", JoinKind.LeftOuter),",
+          "    #\"Se expandió Años\" = Table.ExpandTableColumn(#\"Consultas combinadas\", \"Años\", {\"FECHA\"}, {\"Años.FECHA\"}),",
+          "    #\"Agregar columna personalizada\" = Table.AddColumn(#\"Se expandió Años\", \"Año\", each if [Años.FECHA]= null then [#\"Año / Concepto\"] else [Años.FECHA], type text),",
+          "    #\"Consultas combinadas1\" = Table.NestedJoin(#\"Agregar columna personalizada\", {\"Año\", \"Mes / Concepto\"}, Meses, {\"Año\", \"*\"}, \"Meses\", JoinKind.LeftOuter),",
+          "    #\"Tipo cambiado\" = Table.TransformColumnTypes(#\"Consultas combinadas1\",{{\"Mes / Concepto\", type text}}),",
+          "    #\"Se expandió Meses\" = Table.ExpandTableColumn(#\"Tipo cambiado\", \"Meses\", {\"Mes\"}, {\"Meses.Mes\"}),",
+          "    #\"[Columna] Meses]\" = Table.AddColumn(#\"Se expandió Meses\", \"Mes\", each if [Meses.Mes]= null then [#\"Mes / Concepto\"] else [Meses.Mes], type text),",
+          "    #\"Otras columnas quitadas1\" = Table.SelectColumns(#\"[Columna] Meses]\",{\"IMPORTE (€)\", \"Año\", \"Mes\", \"CLASIFICACION COBRO\", \"CLASIFICACION PAGO\", \"Concepto\"}),",
+          "    #\"Personalizada agregada\" = Table.AddColumn(#\"Otras columnas quitadas1\", \"CATEGORÍA\", each \"Especie\"),",
+          "    #\"Consultas combinadas2\" = Table.NestedJoin(#\"Personalizada agregada\", {\"Mes\", \"Año\"}, Meses, {\"Mes\", \"Año\"}, \"Meses\", JoinKind.Inner),",
+          "    #\"Se expandió Meses1\" = Table.ExpandTableColumn(#\"Consultas combinadas2\", \"Meses\", {\"Índice\"}, {\"Meses.Índice\"}),",
+          "    #\"Columna combinada insertada\" = Table.AddColumn(#\"Se expandió Meses1\", \"FECHA\", each Text.Combine({\"1/\", Text.From([Meses.Índice], \"es-ES\"), \"/\", Text.From([Año], \"es-ES\")}), type text),",
+          "    #\"Tipo cambiado1\" = Table.TransformColumnTypes(#\"Columna combinada insertada\",{{\"FECHA\", type date}})",
+          "in",
           "    #\"Tipo cambiado1\""
         ],
         "kind": "m",
@@ -12605,10 +12456,10 @@
           }
         ],
         "expression": [
-          "let\r",
-          "    Origen = Excel.Workbook(File.Contents(Path), null, true),\r",
-          "    T_Movimientos_Table = Origen{[Item=\"T_Movimientos\",Kind=\"Table\"]}[Data]\r",
-          "in\r",
+          "let",
+          "    Origen = #\"Origen Data File\",",
+          "    T_Movimientos_Table = Origen{[Item=\"T_Movimientos\",Kind=\"Table\"]}[Data]",
+          "in",
           "    T_Movimientos_Table"
         ],
         "kind": "m",
@@ -12894,7 +12745,7 @@
             "value": "Text"
           }
         ],
-        "expression": "\"C:\\Users\\imore\\SW\\Finance\\FinanceBI\\dataset\\data.xlsx\" meta [IsParameterQuery=true, Type=\"Any\", IsParameterQueryRequired=true]",
+        "expression": "\"https://github.com/imoremu/financeBI/raw/refs/heads/main/data/test/data.xlsx\" meta [IsParameterQuery=true, Type=\"Any\", IsParameterQueryRequired=true]",
         "kind": "m",
         "lineageTag": "f737d9c4-c6ff-4d17-87cb-57bd2af5ee83"
       },
@@ -12940,9 +12791,30 @@
             "value": "Text"
           }
         ],
-        "expression": "\"C:\\Users\\imore\\SW\\Finance\\FinanceBI\\data\\dev\\data.xlsx\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]",
+        "expression": "\"https://github.com/imoremu/financeBI/raw/refs/heads/main/data/dev/data.xlsx\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]",
         "kind": "m",
         "lineageTag": "729f91fe-dd33-4afe-9afa-c7c19df53d2e"
+      },
+      {
+        "name": "Origen Data File",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navegación"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "expression": [
+          "let",
+          "    Origen = if Text.Contains(Path, \"http\") then Excel.Workbook(Web.Contents(Path), null, true) else Excel.Workbook(File.Contents(Path), null, true)",
+          "in",
+          "    Origen"
+        ],
+        "kind": "m",
+        "lineageTag": "d912bd64-0484-42bd-be55-fe72a89c8d06"
       }
     ],
     "queryGroups": [
@@ -12981,6 +12853,15 @@
           }
         ],
         "folder": "Saldo"
+      },
+      {
+        "annotations": [
+          {
+            "name": "PBI_QueryGroupOrder",
+            "value": "4"
+          }
+        ],
+        "folder": "Test"
       }
     ],
     "relationships": [
@@ -13269,7 +13150,7 @@
             "source": {
               "expression": [
                 "let",
-                "    Origen = Excel.Workbook(File.Contents(Path), null, true),",
+                "    Origen = #\"Origen Data File\",",
                 "    T_Saldo_Table = Origen{[Item=\"T_Saldo\",Kind=\"Table\"]}[Data],",
                 "    #\"Tipo cambiado\" = Table.TransformColumnTypes(T_Saldo_Table,{{\"Fecha\", type date}, {\"Producto\", type text}, {\"Saldo\", Currency.Type}, {\"Participaciones\", type number}, {\"Valor liquidativo\", Currency.Type}}),",
                 "    #\"Consulta anexada\" = Table.Combine({#\"Tipo cambiado\", #\"Transacciones Agrupadas\"}),",
@@ -13563,7 +13444,7 @@
             "source": {
               "expression": [
                 "let",
-                "    Origen = Excel.Workbook(File.Contents(Path), null, true),",
+                "    Origen = #\"Origen Data File\",",
                 "    T_Saldo_Table = Origen{[Item=\"T_Elementos\",Kind=\"Table\"]}[Data],",
                 "    #\"Tipo cambiado\" = Table.TransformColumnTypes(T_Saldo_Table,{{\"Producto\", type text}, {\"Tipo\", type text}, {\"Subtipo\", type text}, {\"Detalle\", type text}}),",
                 "    #\"Otras columnas quitadas\" = Table.SelectColumns(#\"Tipo cambiado\",{\"Subtipo\", \"Tipo\", \"Producto\"}),",
@@ -13924,7 +13805,7 @@
             "source": {
               "expression": [
                 "let",
-                "    Origen = Excel.Workbook(File.Contents(Path), null, true),",
+                "    Origen = #\"Origen Data File\",",
                 "    T_Movimientos_Table = Origen{[Item=\"T_Movimientos\",Kind=\"Table\"]}[Data],",
                 "    #\"Tipo cambiado\" = Table.TransformColumnTypes(T_Movimientos_Table,{{\"FECHA\", type date}, {\"CLASIFICACIÓN\", type text}, {\"IMPORTE (€)\", Currency.Type}, {\"CATEGORÍA\", type text}, {\"SUBCATEGORÍA\", type text}, {\"DESCRIPCIÓN\", type text}}),",
                 "    #\"Filas filtradas\" = Table.SelectRows(#\"Tipo cambiado\", each ([#\"IMPORTE (€)\"] <> 0)),",
@@ -14053,7 +13934,7 @@
             "expression": [
               "",
               "",
-              "[Beneficio Inversion] + [Dividendos Netos]"
+              "[Beneficio Inversión] + [Dividendos Netos]"
             ],
             "formatString": "#,0.00\\ \"€\";-#,0.00\\ \"€\";#,0.00\\ \"€\"",
             "lineageTag": "9e7830f5-83ce-449d-8c56-3caea8888d31"
@@ -14210,7 +14091,7 @@
             "expression": [
               "",
               "CALCULATE(",
-              "    [Incremento Saldo Periodo] - [Beneficio Inversion] - [Movimientos Totales Periodo]",
+              "    [Incremento Saldo Periodo] - [Beneficio Inversión] - [Movimientos Totales Periodo]",
               "    , REMOVEFILTERS('Tipo Movimiento')",
               ")"
             ],
@@ -14385,7 +14266,7 @@
             "lineageTag": "8c6f3656-cf65-44f3-85c6-8d000bb44e47"
           },
           {
-            "name": "Beneficio Inversion",
+            "name": "Beneficio Inversión",
             "displayFolder": "Beneficio",
             "expression": [
               "",
@@ -14574,79 +14455,6 @@
             "expression": "SUM(Movimientos[IMPORTE (€)])",
             "formatString": "#,0.###############\\ \"€\";-#,0.###############\\ \"€\";#,0.###############\\ \"€\"",
             "lineageTag": "3f8cc06e-462b-4dc7-94ac-1ef6fde8f585"
-          },
-          {
-            "name": "[Test][Gastos] Gastos No Computados - Check",
-            "displayFolder": "Test",
-            "expression": "IF([[Test]][Gastos]] Gastos No Computados - Actual] = [[Test]][Gastos]] Gastos No Computados - Esperado],1,0)",
-            "formatString": "0",
-            "lineageTag": "a39b8799-51f6-429c-8efc-49d30427958f"
-          },
-          {
-            "name": "[Test][Gastos] Gastos No Computados - Esperado",
-            "displayFolder": "Test",
-            "expression": [
-              "",
-              "",
-              "// Incremento de Saldo: 3500",
-              "// Ingresos: 2000",
-              "// Gastos: 500",
-              "// Beneficios: 2500",
-              "",
-              "// Gastos No Computados:",
-              "-500"
-            ],
-            "formatString": "0",
-            "lineageTag": "744edb49-070e-463f-9155-a7a48b5f4381"
-          },
-          {
-            "name": "[Test][Gastos] Gastos No Computados - Actual",
-            "displayFolder": "Test",
-            "expression": [
-              "",
-              "",
-              "// Medida: Mes de Febrero de 2000",
-              "CALCULATE(",
-              "    [Gastos no Computados Periodo]",
-              "    , Calendario[Mes / Año] = 200002",
-              ")"
-            ],
-            "formatString": "0",
-            "lineageTag": "2d1725dd-f08a-4962-9fc8-ac8cfc65a482"
-          },
-          {
-            "name": "[Test][Saldo] Saldo Fecha Inicio - Actual",
-            "displayFolder": "Test",
-            "expression": [
-              "",
-              "",
-              "// Medida: Mes de Febrero de 2000",
-              "CALCULATE(",
-              "    [Saldo Fecha Inicio]",
-              "    , Calendario[Mes / Año] = 200002",
-              ")"
-            ],
-            "formatString": "#,0\\ \"€\";-#,0\\ \"€\";#,0\\ \"€\"",
-            "lineageTag": "3dfbb34a-4a44-439b-97db-8242b8265cff"
-          },
-          {
-            "name": "[Test][Saldo] Saldo Fecha Inicio - Esperado",
-            "displayFolder": "Test",
-            "expression": [
-              "",
-              "",
-              "// Medida: Mes de Febrero de 2000",
-              "15000"
-            ],
-            "formatString": "#,0\\ \"€\";-#,0\\ \"€\";#,0\\ \"€\"",
-            "lineageTag": "b9408908-d11a-4213-8c2c-738b28e6b312"
-          },
-          {
-            "name": "[Test][Saldo] Saldo Fecha Inicio - Check",
-            "displayFolder": "Test",
-            "expression": "IF([[Test]][Saldo]] Saldo Fecha Inicio - Actual] = [[Test]][Saldo]] Saldo Fecha Inicio - Esperado],1,0)",
-            "formatString": "0",
-            "lineageTag": "846dc582-3640-433c-977d-925a52d70656"
           }
         ],
         "partitions": [
@@ -15781,7 +15589,7 @@
             "source": {
               "expression": [
                 "let",
-                "    Origen = Excel.Workbook(File.Contents(Path), null, true),",
+                "    Origen = #\"Origen Data File\",",
                 "    T_Saldo_Table = Origen{[Item=\"T_IRPF_Ahorro\",Kind=\"Table\"]}[Data],",
                 "    #\"Tipo cambiado\" = Table.TransformColumnTypes(T_Saldo_Table,{{\"Año\", Int64.Type}, {\"Año Final\", Int64.Type}, {\"Mínimo\", type number}, {\"Máximo\", type number}, {\"Tipo\", Percentage.Type}}),",
                 "    #\"Columnas con nombre cambiado\" = Table.RenameColumns(#\"Tipo cambiado\",{{\"Año\", \"Año Actual\"}}),",
@@ -16503,7 +16311,7 @@
                 "    #\"[Columna][Add] Renta Obtenida\"*/",
                 "",
                 "let",
-                "    Origen = Excel.Workbook(File.Contents(Path), null, true),",
+                "    Origen = #\"Origen Data File\",",
                 "    T_Saldo_Table = Origen{[Item=\"T_Transacciones\",Kind=\"Table\"]}[Data],",
                 "    #\"[Update] Comision - Null to 0\" = Table.ReplaceValue(T_Saldo_Table,null,0,Replacer.ReplaceValue,{\"Comisión\"}),",
                 "    #\"Columnas con nombre cambiado1\" = Table.RenameColumns(#\"[Update] Comision - Null to 0\",{{\"Importe Bruto\", \"Importe\"}}),",
@@ -16644,6 +16452,274 @@
             "source": {
               "expression": "VALUES('IRPF Ahorro'[Año])",
               "type": "calculated"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Test Saldo / Inversión - Básico",
+        "calculationGroup": {
+          "calculationItems": [
+            {
+              "name": "Actual",
+              "expression": [
+                "",
+                "",
+                "// Medida: Mes de Febrero de 2000",
+                "CALCULATE(",
+                "    SELECTEDMEASURE()",
+                "    , Calendario[Mes (Num.)] = VALUE(SELECTEDVALUE('Test Data'[mes])) && Calendario[Año] = VALUE(SELECTEDVALUE('Test Data'[año]))",
+                ")"
+              ]
+            },
+            {
+              "name": "Esperado",
+              "expression": "IFERROR(VALUE(SELECTEDVALUE('Test Data'[Valor Esperado])), SELECTEDVALUE('Test Data'[Valor Esperado]))"
+            },
+            {
+              "name": "Error",
+              "expression": "IF (CALCULATE(SELECTEDMEASURE(), 'Test Saldo / Inversión - Básico'[Test Saldo / Inversión - Básico] = \"Actual\") = CALCULATE(SELECTEDMEASURE(), 'Test Saldo / Inversión - Básico'[Test Saldo / Inversión - Básico] = \"Esperado\"),0, 1)"
+            }
+          ]
+        },
+        "columns": [
+          {
+            "name": "Test Saldo / Inversión - Básico",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "c6df3cd6-0c31-4c66-9d25-ba416b937e0b",
+            "sortByColumn": "Ordinal",
+            "sourceColumn": "Name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Ordinal",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "57efed6d-0d1c-4c7e-abe4-56b49cf6b7a0",
+            "sourceColumn": "Ordinal",
+            "summarizeBy": "sum"
+          }
+        ],
+        "description": [
+          "Test Saldo / Inversiones básico.",
+          "",
+          "Contexto prueba: Febrero 2000 "
+        ],
+        "lineageTag": "6752251f-d3de-4780-aa6e-ba71f6a8d2f1",
+        "partitions": [
+          {
+            "name": "Test Saldo / Inversión - Básico",
+            "mode": "import",
+            "source": {
+              "type": "calculationGroup"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Test",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "8da5445724bc4ea5aed1d160fc5f002a"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Value",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "4424ad8e-526d-4d32-9602-573283ca39a1",
+            "sourceColumn": "[Value]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "21f1dadb-4d7a-4526-b93d-83e230fcb845",
+        "measures": [
+          {
+            "name": "Errores",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": "SUM('Test Saldo / Inversión - Básico'[Test Saldo / Inversión - Básico])",
+            "lineageTag": "ccb88d17-86d7-479c-a155-46a73b40754e"
+          },
+          {
+            "name": "Medida Seleccionada",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "",
+              "SWITCH(",
+              "    SELECTEDVALUE('Test Data'[Medida])",
+              "    , \"Saldo Fecha Inicio\", [Saldo Fecha Inicio]",
+              "    , \"Saldo Último\", [Saldo Último]",
+              "    , \"Gastos no Computados Periodo\", [Gastos no Computados Periodo]",
+              "    , \"Beneficio Inversión\", [Beneficio Inversión]",
+              "    , \"Movimientos Totales Periodo\", [Movimientos Totales Periodo]",
+              "    , BLANK()",
+              ")",
+              ""
+            ],
+            "lineageTag": "fd9278ab-02ea-4140-9799-f46f3b6af606"
+          },
+          {
+            "name": "Test Errores",
+            "expression": "SUMX(SUMMARIZE('Test Data', 'Test Data'[Medida],'Test Data'[Prueba]), CALCULATE([Medida Seleccionada], 'Test Saldo / Inversión - Básico'[Test Saldo / Inversión - Básico] = \"Error\"))",
+            "formatString": "0",
+            "lineageTag": "897aa625-ca38-44b6-9c3a-38cbf0a8d2d7"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Test",
+            "mode": "import",
+            "source": {
+              "expression": "{\"\"}",
+              "type": "calculated"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Test Data",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navegación"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Medida",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "694aec4f-37fd-4427-9f82-8125c2b6fb08",
+            "sourceColumn": "Medida",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Prueba",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "1d5eb345-5107-4464-b609-72e84fb1c70a",
+            "sourceColumn": "Prueba",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Descripción",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "bee5421c-c220-43a5-a775-d79387c072db",
+            "sourceColumn": "Descripción",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Valor Esperado",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "ee313f72-97fd-4ade-a7af-6c5edf5a9034",
+            "sourceColumn": "Valor Esperado",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "año",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a36052fa-c322-481c-af09-72f1a99ffb98",
+            "sourceColumn": "año",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "mes",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f71ff437-844e-4a4b-92e4-4af6e8642558",
+            "sourceColumn": "mes",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "425c9a3b-2fc1-4486-ad5e-164d7f6164b1",
+        "partitions": [
+          {
+            "name": "Test Data",
+            "mode": "import",
+            "queryGroup": "Test",
+            "source": {
+              "expression": [
+                "let",
+                "    Origen = #\"Origen Data File\",",
+                "    T_Saldo_Table = Origen{[Item=\"T_TestData\",Kind=\"Table\"]}[Data],",
+                "    #\"Tipo cambiado\" = Table.TransformColumnTypes(T_Saldo_Table,{{\"Medida\", type text}, {\"Prueba\", type text}, {\"Descripción\", type text}}),",
+                "    #\"JSON analizado\" = Table.TransformColumns(#\"Tipo cambiado\",{{\"Parámetros\", Json.Document}}),",
+                "    #\"Se expandió Parámetros\" = Table.ExpandRecordColumn(#\"JSON analizado\", \"Parámetros\", {\"año\", \"mes\"}, {\"año\", \"mes\"})",
+                "in",
+                "    #\"Se expandió Parámetros\""
+              ],
+              "type": "m"
             }
           }
         ]

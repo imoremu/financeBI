@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 744.69117647058783,
+        "x": 1244.2499999999993,
         "y": 0
       },
       "nodes": [
@@ -19,7 +19,7 @@
             "height": 332.70101536509787,
             "width": 234
           },
-          "zIndex": 7
+          "zIndex": 9
         },
         {
           "location": {
@@ -31,7 +31,7 @@
             "height": 176,
             "width": 234
           },
-          "zIndex": 15
+          "zIndex": 17
         },
         {
           "location": {
@@ -44,7 +44,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 10
+          "zIndex": 12
         },
         {
           "location": {
@@ -57,7 +57,7 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 9
+          "zIndex": 11
         },
         {
           "location": {
@@ -70,7 +70,7 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 5
+          "zIndex": 7
         },
         {
           "location": {
@@ -83,12 +83,12 @@
             "height": 283.38709826249641,
             "width": 234
           },
-          "zIndex": 6
+          "zIndex": 8
         },
         {
           "location": {
-            "x": 2164.2043634326733,
-            "y": 410.36181582056088
+            "x": 2632.3955399032611,
+            "y": 273.27358052644308
           },
           "nodeIndex": "Año Referencia",
           "nodeLineageTag": "f4913a55-8049-44ba-a3dc-dc5a7f69a427",
@@ -96,7 +96,7 @@
             "height": 224,
             "width": 234
           },
-          "zIndex": 8
+          "zIndex": 10
         },
         {
           "location": {
@@ -109,7 +109,7 @@
             "height": 283.38709826249641,
             "width": 234
           },
-          "zIndex": 4
+          "zIndex": 6
         },
         {
           "location": {
@@ -122,12 +122,12 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 14
+          "zIndex": 16
         },
         {
           "location": {
-            "x": 2735.2989284244586,
-            "y": 103.65855395187424
+            "x": 2635.3871637185762,
+            "y": 128.05561277540363
           },
           "nodeIndex": "Medidas Transacciones",
           "nodeLineageTag": "1119b22a-9d0a-4769-8f0c-4498053d07e1",
@@ -135,7 +135,7 @@
             "height": 104,
             "width": 234
           },
-          "zIndex": 11
+          "zIndex": 13
         },
         {
           "location": {
@@ -148,12 +148,12 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 2
+          "zIndex": 4
         },
         {
           "location": {
-            "x": 2553.5707380182857,
-            "y": 438.77348542869618
+            "x": 2624.4383850771092,
+            "y": 0
           },
           "nodeIndex": "Medidas IRPF",
           "nodeLineageTag": "8f3a51e4-9a1c-4933-885d-ca3ccd2b595f",
@@ -161,7 +161,7 @@
             "height": 104,
             "width": 234
           },
-          "zIndex": 3
+          "zIndex": 5
         },
         {
           "location": {
@@ -174,7 +174,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 13
+          "zIndex": 15
         },
         {
           "location": {
@@ -187,7 +187,46 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 12
+          "zIndex": 14
+        },
+        {
+          "location": {
+            "x": 2339.821815224715,
+            "y": 388.03629240174882
+          },
+          "nodeIndex": "Test Saldo / Inversión - Básico",
+          "nodeLineageTag": "6752251f-d3de-4780-aa6e-ba71f6a8d2f1",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 2342.1453446364803,
+            "y": 181.25688063704314
+          },
+          "nodeIndex": "Test",
+          "nodeLineageTag": "21f1dadb-4d7a-4526-b93d-83e230fcb845",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 2343.3071093423628,
+            "y": 0
+          },
+          "nodeIndex": "Test Data",
+          "nodeLineageTag": "425c9a3b-2fc1-4486-ad5e-164d7f6164b1",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 3
         }
       ],
       "name": "Todas las tablas",
