@@ -12152,7 +12152,7 @@
             "value": "Navegación"
           }
         ],
-        "expression": "\"https://github.com/imoremu/financeBI/raw/refs/heads/imoremu/issue9/data/dev/data.xlsx\" meta [IsParameterQuery=true, Type=\"Any\", IsParameterQueryRequired=true]",
+        "expression": "\"https://github.com/imoremu/financeBI/raw/refs/heads/imoremu/issue10/data/dev/data.xlsx\" meta [IsParameterQuery=true, Type=\"Any\", IsParameterQueryRequired=true]",
         "kind": "m",
         "lineageTag": "a2aa19e7-94ab-40b4-b77d-780b67c32947"
       },
@@ -13648,7 +13648,7 @@
         "annotations": [
           {
             "name": "PBI_ResultType",
-            "value": "Table"
+            "value": "Exception"
           },
           {
             "name": "PBI_NavigationStepName",
@@ -16468,7 +16468,11 @@
                 "// Medida: Mes de Febrero de 2000",
                 "CALCULATE(",
                 "    SELECTEDMEASURE()",
-                "    , Calendario[Mes (Num.)] = VALUE(SELECTEDVALUE('Test Data'[mes])) && Calendario[Año] = VALUE(SELECTEDVALUE('Test Data'[año]))",
+                "    , FILTER(Calendario, ",
+                "        IF(ISBLANK(SELECTEDVALUE('Test Data'[mes])), TRUE(), Calendario[Mes (Num.)] = VALUE(SELECTEDVALUE('Test Data'[mes]))) ",
+                "        && ",
+                "         IF(ISBLANK(SELECTEDVALUE('Test Data'[año])), TRUE(), Calendario[Año] = VALUE(SELECTEDVALUE('Test Data'[año])))",
+                "    )",
                 ")"
               ]
             },
@@ -16478,7 +16482,25 @@
             },
             {
               "name": "Error",
-              "expression": "IF (CALCULATE(SELECTEDMEASURE(), 'Test Saldo / Inversión - Básico'[Test Saldo / Inversión - Básico] = \"Actual\") = CALCULATE(SELECTEDMEASURE(), 'Test Saldo / Inversión - Básico'[Test Saldo / Inversión - Básico] = \"Esperado\"),0, 1)"
+              "expression": [
+                "",
+                "",
+                "VAR actual = CALCULATE(",
+                "        SELECTEDMEASURE()",
+                "        , 'Test Saldo / Inversión - Básico'[Test Saldo / Inversión - Básico] = \"Actual\"",
+                "    ) ",
+                "",
+                "VAR esperado = CALCULATE(",
+                "        SELECTEDMEASURE()",
+                "        , 'Test Saldo / Inversión - Básico'[Test Saldo / Inversión - Básico] = \"Esperado\")",
+                "",
+                "RETURN ",
+                "IF (",
+                "    OR(actual = esperado, AND(ISBLANK(actual), ISBLANK(esperado)))",
+                "    ,0",
+                "    ,1",
+                ")"
+              ]
             }
           ]
         },
@@ -16557,17 +16579,6 @@
         ],
         "lineageTag": "21f1dadb-4d7a-4526-b93d-83e230fcb845",
         "measures": [
-          {
-            "name": "Errores",
-            "annotations": [
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
-            "expression": "SUM('Test Saldo / Inversión - Básico'[Test Saldo / Inversión - Básico])",
-            "lineageTag": "ccb88d17-86d7-479c-a155-46a73b40754e"
-          },
           {
             "name": "Medida Seleccionada",
             "annotations": [
