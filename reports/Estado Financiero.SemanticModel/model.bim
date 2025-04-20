@@ -1,5 +1,5 @@
 {
-  "compatibilityLevel": 1567,
+  "compatibilityLevel": 1601,
   "model": {
     "annotations": [
       {
@@ -781,22 +781,6 @@
                   }
                 ]
               },
-              "dividendo.orden": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "Dividendos",
-                    "ConceptualProperty": "Orden"
-                  }
-                },
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "orden": {
-                      "State": "Generated"
-                    }
-                  }
-                ]
-              },
               "dividendo.participacione": {
                 "Definition": {
                   "Binding": {
@@ -1027,62 +1011,6 @@
                       "State": "Suggested",
                       "Type": "Noun",
                       "Weight": 0.582
-                    }
-                  }
-                ]
-              },
-              "dividendo.transacción_ID": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "Dividendos",
-                    "ConceptualProperty": "Transacción ID"
-                  }
-                },
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "transacción ID": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "transacción identification": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.75
-                    }
-                  },
-                  {
-                    "transacción identity": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.75
-                    }
-                  },
-                  {
-                    "transacción identifier": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.75
-                    }
-                  },
-                  {
-                    "transacción credential": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.727
                     }
                   }
                 ]
@@ -4202,22 +4130,6 @@
                   }
                 ]
               },
-              "transaccione.orden": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "Transacciones",
-                    "ConceptualProperty": "Orden"
-                  }
-                },
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "orden": {
-                      "State": "Generated"
-                    }
-                  }
-                ]
-              },
               "transaccione.participacione": {
                 "Definition": {
                   "Binding": {
@@ -4458,62 +4370,6 @@
                       "State": "Suggested",
                       "Type": "Noun",
                       "Weight": 0.582
-                    }
-                  }
-                ]
-              },
-              "transaccione.transacción_ID": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "Transacciones",
-                    "ConceptualProperty": "Transacción ID"
-                  }
-                },
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "transacción ID": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "transacción identification": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.75
-                    }
-                  },
-                  {
-                    "transacción identity": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.75
-                    }
-                  },
-                  {
-                    "transacción identifier": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.75
-                    }
-                  },
-                  {
-                    "transacción credential": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.727
                     }
                   }
                 ]
@@ -12152,7 +12008,7 @@
             "value": "Navegación"
           }
         ],
-        "expression": "\"https://github.com/imoremu/financeBI/raw/refs/heads/imoremu/issue10/data/dev/data.xlsx\" meta [IsParameterQuery=true, Type=\"Any\", IsParameterQueryRequired=true]",
+        "expression": "\"C:\\Users\\imore\\SW\\Finance\\FinanceBI\\data\\dev\\data.xlsx\" meta [IsParameterQuery=true, Type=\"Any\", IsParameterQueryRequired=true]",
         "kind": "m",
         "lineageTag": "a2aa19e7-94ab-40b4-b77d-780b67c32947"
       },
@@ -12934,6 +12790,30 @@
         "fromTable": "Dividendos",
         "toColumn": "Producto",
         "toTable": "Productos"
+      },
+      {
+        "name": "b28aaacc-9435-22a1-5319-602cfcb329c4",
+        "fromColumn": "Detalle",
+        "fromTable": "Saldo",
+        "toCardinality": "many",
+        "toColumn": "Prueba",
+        "toTable": "Test Data"
+      },
+      {
+        "name": "0762153c-aea5-a0f3-b007-d4367f44322e",
+        "fromColumn": "Detalle",
+        "fromTable": "Transacciones",
+        "toCardinality": "many",
+        "toColumn": "Prueba",
+        "toTable": "Test Data"
+      },
+      {
+        "name": "cd4ad6c9-aec2-458c-d302-9069df1abaa9",
+        "fromColumn": "Detalle",
+        "fromTable": "Movimientos",
+        "toCardinality": "many",
+        "toColumn": "Prueba",
+        "toTable": "Test Data"
       }
     ],
     "sourceQueryCulture": "es-ES",
@@ -13120,12 +13000,16 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
               }
             ],
-            "dataType": "string",
+            "dataType": "double",
             "lineageTag": "7b0b18b9-99f9-49f4-873c-acdd5ccea043",
             "sourceColumn": "Valor liquidativo (Moneda Extranjera)",
-            "summarizeBy": "none"
+            "summarizeBy": "sum"
           },
           {
             "name": "Cambio",
@@ -13133,11 +13017,28 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "5c6d83b6-8f57-42dd-afcf-c8adc12901dc",
+            "sourceColumn": "Cambio",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Detalle",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
               }
             ],
             "dataType": "string",
-            "lineageTag": "5c6d83b6-8f57-42dd-afcf-c8adc12901dc",
-            "sourceColumn": "Cambio",
+            "lineageTag": "c0b47d24-a148-4d57-845b-cc82671b812a",
+            "sourceColumn": "Detalle",
             "summarizeBy": "none"
           }
         ],
@@ -13152,7 +13053,7 @@
                 "let",
                 "    Origen = #\"Origen Data File\",",
                 "    T_Saldo_Table = Origen{[Item=\"T_Saldo\",Kind=\"Table\"]}[Data],",
-                "    #\"Tipo cambiado\" = Table.TransformColumnTypes(T_Saldo_Table,{{\"Fecha\", type date}, {\"Producto\", type text}, {\"Saldo\", Currency.Type}, {\"Participaciones\", type number}, {\"Valor liquidativo\", Currency.Type}}),",
+                "    #\"Tipo cambiado\" = Table.TransformColumnTypes(T_Saldo_Table,{{\"Fecha\", type date}, {\"Producto\", type text}, {\"Saldo\", Currency.Type}, {\"Participaciones\", type number}, {\"Valor liquidativo\", Currency.Type}, {\"Detalle\", type text}, {\"Valor liquidativo (Moneda Extranjera)\", type number}, {\"Cambio\", type number}}),",
                 "    #\"Consulta anexada\" = Table.Combine({#\"Tipo cambiado\", #\"Transacciones Agrupadas\"}),",
                 "    // Remove rows without Cash Balance. ",
                 "    // These rows are those transactions without cash information because we don't have sotcks and price.",
@@ -15124,32 +15025,6 @@
             "summarizeBy": "sum"
           },
           {
-            "name": "Orden",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "9bb3e1f3-1c29-4589-b161-597aeed39b12",
-            "sourceColumn": "Orden",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "Transacción ID",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "c19f6556-865e-4ce5-b185-1cf50d29e859",
-            "sourceColumn": "Transacción ID",
-            "summarizeBy": "none"
-          },
-          {
             "name": "Moneda",
             "annotations": [
               {
@@ -15160,6 +15035,19 @@
             "dataType": "string",
             "lineageTag": "e07a56cf-4149-4ba0-a7b7-094fdbe54841",
             "sourceColumn": "Moneda",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Detalle",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "b3e20918-45a6-4ef7-9ef6-09c4641debc4",
+            "sourceColumn": "Detalle",
             "summarizeBy": "none"
           }
         ],
@@ -16178,32 +16066,6 @@
             "summarizeBy": "sum"
           },
           {
-            "name": "Orden",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "e5d70a60-c81b-4a49-b60b-4f3828bfb36a",
-            "sourceColumn": "Orden",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "Transacción ID",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "876fb9d1-56f9-43f4-aebb-982086178c25",
-            "sourceColumn": "Transacción ID",
-            "summarizeBy": "none"
-          },
-          {
             "name": "Moneda",
             "annotations": [
               {
@@ -16214,6 +16076,19 @@
             "dataType": "string",
             "lineageTag": "1f2b702f-c0c1-4b42-9fb1-ddf4f7310cb8",
             "sourceColumn": "Moneda",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Detalle",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "0ef2e46e-de36-4a1d-bfbc-d24c91609dd4",
+            "sourceColumn": "Detalle",
             "summarizeBy": "none"
           }
         ],
@@ -16315,7 +16190,7 @@
                 "    T_Saldo_Table = Origen{[Item=\"T_Transacciones\",Kind=\"Table\"]}[Data],",
                 "    #\"[Update] Comision - Null to 0\" = Table.ReplaceValue(T_Saldo_Table,null,0,Replacer.ReplaceValue,{\"Comisión\"}),",
                 "    #\"Columnas con nombre cambiado1\" = Table.RenameColumns(#\"[Update] Comision - Null to 0\",{{\"Importe Bruto\", \"Importe\"}}),",
-                "    #\"[Tipos][Update]\" = Table.TransformColumnTypes(#\"Columnas con nombre cambiado1\",{{\"Producto\", type text}, {\"Participaciones\", Currency.Type}, {\"Precio Participación\", Currency.Type}, {\"Importe\", Currency.Type}, {\"Fecha\", type date}, {\"Comisión\", Currency.Type}, {\"Retenido\", Currency.Type}, {\"Cuenta Producto\", type text}, {\"Año IRPF\", Int64.Type}, {\"Tipo Transacción\", type text}, {\"Producto Contraparte\", type text}, {\"Cuenta Contraparte\", type text}, {\"Precio (Moneda Transacción)\", Currency.Type}, {\"Cambio\", Currency.Type}, {\"Importe Bruto (Moneda Transacción)\", Currency.Type}, {\"Retenido (Moneda Transacción)\", Currency.Type}, {\"Comisión (Moneda Transacción)\", Currency.Type}}),",
+                "    #\"[Tipos][Update]\" = Table.TransformColumnTypes(#\"Columnas con nombre cambiado1\",{{\"Producto\", type text}, {\"Participaciones\", Currency.Type}, {\"Precio Participación\", Currency.Type}, {\"Importe\", Currency.Type}, {\"Fecha\", type date}, {\"Comisión\", Currency.Type}, {\"Retenido\", Currency.Type}, {\"Cuenta Producto\", type text}, {\"Año IRPF\", Int64.Type}, {\"Tipo Transacción\", type text}, {\"Producto Contraparte\", type text}, {\"Cuenta Contraparte\", type text}, {\"Precio (Moneda Transacción)\", Currency.Type}, {\"Cambio\", Currency.Type}, {\"Importe Bruto (Moneda Transacción)\", Currency.Type}, {\"Retenido (Moneda Transacción)\", Currency.Type}, {\"Comisión (Moneda Transacción)\", Currency.Type}, {\"Detalle\", type text}, {\"Hora\", type time}}),",
                 "    #\"Transaccion Espejo\" = Table.RenameColumns(",
                 "        #\"[Tipos][Update]\",",
                 "        {",
@@ -16474,7 +16349,10 @@
                 "         IF(ISBLANK(SELECTEDVALUE('Test Data'[año])), TRUE(), Calendario[Año] = VALUE(SELECTEDVALUE('Test Data'[año])))",
                 "    )",
                 ")"
-              ]
+              ],
+              "formatStringDefinition": {
+                "expression": "\"\""
+              }
             },
             {
               "name": "Esperado",
