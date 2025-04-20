@@ -2506,7 +2506,7 @@
                 "Definition": {
                   "Binding": {
                     "ConceptualEntity": "Medidas Transacciones",
-                    "ConceptualProperty": "GENERAL - Beneficio Antes Transacción"
+                    "ConceptualProperty": "Beneficio Antes Transacción"
                   }
                 },
                 "State": "Generated",
@@ -2528,7 +2528,7 @@
                 "Definition": {
                   "Binding": {
                     "ConceptualEntity": "Medidas Transacciones",
-                    "ConceptualProperty": "GENERAL - Beneficio Bruto Dividendo"
+                    "ConceptualProperty": "Beneficio Bruto Dividendo"
                   }
                 },
                 "State": "Generated",
@@ -2550,7 +2550,7 @@
                 "Definition": {
                   "Binding": {
                     "ConceptualEntity": "Medidas Transacciones",
-                    "ConceptualProperty": "GENERAL - Beneficio Neto"
+                    "ConceptualProperty": "Beneficio Neto"
                   }
                 },
                 "State": "Generated",
@@ -2582,7 +2582,7 @@
                 "Definition": {
                   "Binding": {
                     "ConceptualEntity": "Medidas Transacciones",
-                    "ConceptualProperty": "GENERAL - Beneficio Bruto Venta Total"
+                    "ConceptualProperty": "Beneficio Bruto Venta Total"
                   }
                 },
                 "State": "Generated",
@@ -2624,7 +2624,7 @@
                 "Definition": {
                   "Binding": {
                     "ConceptualEntity": "Medidas Transacciones",
-                    "ConceptualProperty": "GENERAL - Beneficio Tras Transacción"
+                    "ConceptualProperty": "Beneficio Tras Transacción"
                   }
                 },
                 "State": "Generated",
@@ -2646,7 +2646,7 @@
                 "Definition": {
                   "Binding": {
                     "ConceptualEntity": "Medidas Transacciones",
-                    "ConceptualProperty": "GENERAL - Beneficio Bruto Venta Transaccion"
+                    "ConceptualProperty": "Beneficio Bruto Venta Transaccion"
                   }
                 },
                 "State": "Generated",
@@ -2678,7 +2678,7 @@
                 "Definition": {
                   "Binding": {
                     "ConceptualEntity": "Medidas Transacciones",
-                    "ConceptualProperty": "GENERAL - Beneficio Bruto Total Periodo"
+                    "ConceptualProperty": "Beneficio Bruto Total Periodo"
                   }
                 },
                 "State": "Generated",
@@ -2720,7 +2720,7 @@
                 "Definition": {
                   "Binding": {
                     "ConceptualEntity": "Medidas Transacciones",
-                    "ConceptualProperty": "GENERAL - Coste Participaciones Vendidas Total"
+                    "ConceptualProperty": "Coste Participaciones Vendidas Total"
                   }
                 },
                 "State": "Generated",
@@ -2762,7 +2762,7 @@
                 "Definition": {
                   "Binding": {
                     "ConceptualEntity": "Medidas Transacciones",
-                    "ConceptualProperty": "GENERAL - Coste Participaciones Vendidas Transaccion"
+                    "ConceptualProperty": "Coste Participaciones Vendidas Transaccion"
                   }
                 },
                 "State": "Generated",
@@ -2784,7 +2784,7 @@
                 "Definition": {
                   "Binding": {
                     "ConceptualEntity": "Medidas Transacciones",
-                    "ConceptualProperty": "GENERAL - Participaciones Compradas Hasta Última Transacción"
+                    "ConceptualProperty": "Participaciones Compradas Hasta Última Transacción"
                   }
                 },
                 "State": "Generated",
@@ -2806,7 +2806,7 @@
                 "Definition": {
                   "Binding": {
                     "ConceptualEntity": "Medidas Transacciones",
-                    "ConceptualProperty": "GENERAL - Participaciones Vendidas de Transacción De Compra"
+                    "ConceptualProperty": "Participaciones Vendidas de Transacción De Compra"
                   }
                 },
                 "State": "Generated",
@@ -2828,7 +2828,7 @@
                 "Definition": {
                   "Binding": {
                     "ConceptualEntity": "Medidas Transacciones",
-                    "ConceptualProperty": "GENERAL - Participaciones Vendidas Total"
+                    "ConceptualProperty": "Participaciones Vendidas Total"
                   }
                 },
                 "State": "Generated",
@@ -2890,7 +2890,7 @@
                 "Definition": {
                   "Binding": {
                     "ConceptualEntity": "Medidas Transacciones",
-                    "ConceptualProperty": "GENERAL - Precio de Venta Total"
+                    "ConceptualProperty": "Precio de Venta Total"
                   }
                 },
                 "State": "Generated",
@@ -2932,7 +2932,7 @@
                 "Definition": {
                   "Binding": {
                     "ConceptualEntity": "Medidas Transacciones",
-                    "ConceptualProperty": "GENERAL - Retenciones Pendientes"
+                    "ConceptualProperty": "Retenciones Pendientes"
                   }
                 },
                 "State": "Generated",
@@ -12792,25 +12792,25 @@
         "toTable": "Productos"
       },
       {
-        "name": "b28aaacc-9435-22a1-5319-602cfcb329c4",
-        "fromColumn": "Detalle",
-        "fromTable": "Saldo",
+        "name": "d55f2142-5839-8043-2a53-e4a841a93ca3",
+        "fromColumn": "Test",
+        "fromTable": "Movimientos",
         "toCardinality": "many",
         "toColumn": "Prueba",
         "toTable": "Test Data"
       },
       {
-        "name": "0762153c-aea5-a0f3-b007-d4367f44322e",
-        "fromColumn": "Detalle",
+        "name": "11d1c58f-6150-b4ca-d37b-3932974fc1c7",
+        "fromColumn": "Test",
         "fromTable": "Transacciones",
         "toCardinality": "many",
         "toColumn": "Prueba",
         "toTable": "Test Data"
       },
       {
-        "name": "cd4ad6c9-aec2-458c-d302-9069df1abaa9",
-        "fromColumn": "Detalle",
-        "fromTable": "Movimientos",
+        "name": "df5c156d-7933-702c-7590-92f330eaaadf",
+        "fromColumn": "Test",
+        "fromTable": "Saldo",
         "toCardinality": "many",
         "toColumn": "Prueba",
         "toTable": "Test Data"
@@ -13040,6 +13040,25 @@
             "lineageTag": "c0b47d24-a148-4d57-845b-cc82671b812a",
             "sourceColumn": "Detalle",
             "summarizeBy": "none"
+          },
+          {
+            "name": "Test",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "string",
+            "isHidden": true,
+            "lineageTag": "91f3a4c0-a337-4bd2-9215-e8dfc326cae0",
+            "sourceColumn": "Test",
+            "summarizeBy": "none"
           }
         ],
         "lineageTag": "ead767c0-2b14-4c09-a56f-681fb4332782",
@@ -13053,7 +13072,7 @@
                 "let",
                 "    Origen = #\"Origen Data File\",",
                 "    T_Saldo_Table = Origen{[Item=\"T_Saldo\",Kind=\"Table\"]}[Data],",
-                "    #\"Tipo cambiado\" = Table.TransformColumnTypes(T_Saldo_Table,{{\"Fecha\", type date}, {\"Producto\", type text}, {\"Saldo\", Currency.Type}, {\"Participaciones\", type number}, {\"Valor liquidativo\", Currency.Type}, {\"Detalle\", type text}, {\"Valor liquidativo (Moneda Extranjera)\", type number}, {\"Cambio\", type number}}),",
+                "    #\"Tipo cambiado\" = Table.TransformColumnTypes(T_Saldo_Table,{{\"Fecha\", type date}, {\"Producto\", type text}, {\"Saldo\", Currency.Type}, {\"Participaciones\", type number}, {\"Valor liquidativo\", Currency.Type}, {\"Detalle\", type text}, {\"Valor liquidativo (Moneda Extranjera)\", type number}, {\"Cambio\", type number}, {\"Test\", type text}}),",
                 "    #\"Consulta anexada\" = Table.Combine({#\"Tipo cambiado\", #\"Transacciones Agrupadas\"}),",
                 "    // Remove rows without Cash Balance. ",
                 "    // These rows are those transactions without cash information because we don't have sotcks and price.",
@@ -13197,6 +13216,25 @@
             "lineageTag": "9e528b7a-5561-4fa5-894a-c0416c8441d4",
             "sourceColumn": "Detalle",
             "summarizeBy": "none"
+          },
+          {
+            "name": "Test",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "string",
+            "isHidden": true,
+            "lineageTag": "1520449c-7194-404a-85a2-aa3b02f80fc8",
+            "sourceColumn": "Test",
+            "summarizeBy": "none"
           }
         ],
         "lineageTag": "d4a0e9fb-69d2-47ed-b104-d7bf44c733ad",
@@ -13223,7 +13261,7 @@
               "expression": [
                 "let",
                 "    Origen = #\"Movimientos Origen\",",
-                "    #\"Tipo cambiado\" = Table.TransformColumnTypes(Origen,{{\"FECHA\", type date}, {\"CLASIFICACIÓN\", type text}, {\"IMPORTE (€)\", Currency.Type}, {\"CATEGORÍA\", type text}, {\"SUBCATEGORÍA\", type text}, {\"DESCRIPCIÓN\", type text}}),",
+                "    #\"Tipo cambiado\" = Table.TransformColumnTypes(Origen,{{\"FECHA\", type date}, {\"CLASIFICACIÓN\", type text}, {\"IMPORTE (€)\", Currency.Type}, {\"CATEGORÍA\", type text}, {\"SUBCATEGORÍA\", type text}, {\"DESCRIPCIÓN\", type text}, {\"Test\", type text}}),",
                 "    #\"Filas filtradas\" = Table.SelectRows(#\"Tipo cambiado\", each ([#\"IMPORTE (€)\"] <> 0)),",
                 "    #\"[Type] Gasto to $\" = Table.TransformColumnTypes(#\"Filas filtradas\",{{\"IMPORTE (€)\", Currency.Type}}),",
                 "    #\"[Column] New Valor (ABS)\" = Table.AddColumn(#\"[Type] Gasto to $\", \"Cantidad (€)\", each Number.Abs([#\"IMPORTE (€)\"])),",
@@ -13231,7 +13269,7 @@
                 "    #\"[Type] Importe To $\" = Table.TransformColumnTypes(#\"[Update] Importe de movimientos a 0\",{{\"IMPORTE (€)\", Currency.Type}, {\"Cantidad (€)\", Currency.Type}}),",
                 "    #\"Consultas combinadas\" = Table.NestedJoin(#\"[Type] Importe To $\", {\"CLASIFICACIÓN\", \"CATEGORÍA\", \"SUBCATEGORÍA\", \"DESCRIPCIÓN\", \"TIPO\"}, #\"Tipo Movimiento\", {\"CLASIFICACIÓN\", \"CATEGORÍA\", \"SUBCATEGORÍA\", \"DESCRIPCIÓN\", \"TIPO\"}, \"Tipo Movimiento\", JoinKind.LeftOuter),",
                 "    #\"Se expandió Tipo Movimiento\" = Table.ExpandTableColumn(#\"Consultas combinadas\", \"Tipo Movimiento\", {\"Índice\"}, {\"Tipo Movimiento.Índice\"}),",
-                "    #\"Otras columnas quitadas\" = Table.SelectColumns(#\"Se expandió Tipo Movimiento\",{\"FECHA\", \"IMPORTE (€)\", \"Detalle\", \"Cantidad (€)\", \"Tipo Movimiento.Índice\"}),",
+                "    #\"Otras columnas quitadas\" = Table.SelectColumns(#\"Se expandió Tipo Movimiento\",{\"FECHA\", \"IMPORTE (€)\", \"Detalle\", \"Test\", \"Cantidad (€)\", \"Tipo Movimiento.Índice\"}),",
                 "    #\"Consulta anexada\" = Table.Combine({#\"Otras columnas quitadas\", #\"Pagos Especie\", #\"Cobros Especie\"}),",
                 "    #\"Agregar columna personalizada\" = Table.AddColumn(#\"Consulta anexada\", \"Mes / Año\", each Text.Combine({Date.ToText([FECHA], \"MM\"), \"-\", Date.ToText([FECHA], \"yyyy\")}), type text),",
                 "    #\"Año insertado\" = Table.AddColumn(#\"Agregar columna personalizada\", \"Año\", each Date.Year([FECHA]), Int64.Type)",
@@ -14162,7 +14200,7 @@
           {
             "name": "Dividendos Netos",
             "displayFolder": "Inversión",
-            "expression": "[GENERAL - Beneficio Bruto Dividendo]*(1-[Tipo IRPF Ahorro Venta Por Beneficio])",
+            "expression": "[Beneficio Bruto Dividendo]*(1-[Tipo IRPF Ahorro Venta Por Beneficio])",
             "formatString": "\"€\"\\ #,0.00;-\"€\"\\ #,0.00;\"€\"\\ #,0.00",
             "lineageTag": "8c6f3656-cf65-44f3-85c6-8d000bb44e47"
           },
@@ -15049,6 +15087,19 @@
             "lineageTag": "b3e20918-45a6-4ef7-9ef6-09c4641debc4",
             "sourceColumn": "Detalle",
             "summarizeBy": "none"
+          },
+          {
+            "name": "Test",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "e2bc3094-e9bc-49b7-a66f-5f96e27e5764",
+            "sourceColumn": "Test",
+            "summarizeBy": "none"
           }
         ],
         "lineageTag": "71d662a6-d45e-4164-ac31-d301ddfcca99",
@@ -15085,7 +15136,7 @@
         "lineageTag": "1119b22a-9d0a-4769-8f0c-4498053d07e1",
         "measures": [
           {
-            "name": "GENERAL - Participaciones Vendidas Total",
+            "name": "Participaciones Vendidas Total",
             "annotations": [
               {
                 "name": "PBI_FormatHint",
@@ -15112,7 +15163,7 @@
             "lineageTag": "91842e8e-345f-4571-8084-fb58f28df508"
           },
           {
-            "name": "GENERAL - Participaciones Vendidas de Transacción De Compra",
+            "name": "Participaciones Vendidas de Transacción De Compra",
             "annotations": [
               {
                 "name": "PBI_FormatHint",
@@ -15131,7 +15182,7 @@
               "VAR participaciones_vendidas = ",
               "MAX(",
               "    MIN(",
-              "        MAX(BLANK(), [GENERAL - Participaciones Vendidas Total] - ([GENERAL - Participaciones Compradas Hasta Última Transacción] - participaciones_totales_compradas))",
+              "        MAX(BLANK(), [Participaciones Vendidas Total] - ([Participaciones Compradas Hasta Última Transacción] - participaciones_totales_compradas))",
               "        , participaciones_totales_compradas",
               "    )",
               "    ,BLANK()",
@@ -15143,7 +15194,7 @@
             "lineageTag": "c5d21235-30ce-4183-819f-7620c7599e88"
           },
           {
-            "name": "GENERAL - Participaciones Compradas Hasta Última Transacción",
+            "name": "Participaciones Compradas Hasta Última Transacción",
             "annotations": [
               {
                 "name": "PBI_FormatHint",
@@ -15168,7 +15219,7 @@
             "lineageTag": "8b3509c2-e185-4171-b8ce-1cd0ecb2e9fa"
           },
           {
-            "name": "GENERAL - Coste Participaciones Vendidas Transaccion",
+            "name": "Coste Participaciones Vendidas Transaccion",
             "annotations": [
               {
                 "name": "PBI_FormatHint",
@@ -15187,7 +15238,7 @@
               "            , products",
               "            , Transacciones[Tipo Transacción] = \"Compra\"",
               "        )",
-              "        , [GENERAL - Participaciones Vendidas de Transacción De Compra] * 'Transacciones'[Precio participación]",
+              "        , [Participaciones Vendidas de Transacción De Compra] * 'Transacciones'[Precio participación]",
               "    )    ",
               "",
               "RETURN if (coste = 0, BLANK(), coste)"
@@ -15195,7 +15246,7 @@
             "lineageTag": "abd9c660-e158-4d5d-9677-b14b4021723a"
           },
           {
-            "name": "GENERAL - Precio de Venta Total",
+            "name": "Precio de Venta Total",
             "expression": [
               "",
               "",
@@ -15223,7 +15274,7 @@
             "lineageTag": "b3f2b7f3-08c5-4e9f-800c-76e110564481"
           },
           {
-            "name": "GENERAL - Beneficio Tras Transacción",
+            "name": "Beneficio Tras Transacción",
             "expression": [
               "",
               "",
@@ -15233,7 +15284,7 @@
               "RETURN ",
               "",
               "CALCULATE(",
-              "    [GENERAL - Beneficio Bruto Venta Total]",
+              "    [Beneficio Bruto Venta Total]",
               "    , Calendario[Date] <= last_date",
               "    , products",
               ")"
@@ -15242,7 +15293,7 @@
             "lineageTag": "9e21d318-b805-404f-a7f6-aacdf17dc99c"
           },
           {
-            "name": "GENERAL - Coste Participaciones Vendidas Total",
+            "name": "Coste Participaciones Vendidas Total",
             "annotations": [
               {
                 "name": "PBI_FormatHint",
@@ -15258,7 +15309,7 @@
               "",
               "RETURN ",
               "CALCULATE(",
-              "    [GENERAL - Coste Participaciones Vendidas Transaccion]",
+              "    [Coste Participaciones Vendidas Transaccion]",
               "    , ALL(Transacciones)",
               "    , products ",
               "    , dates",
@@ -15267,11 +15318,11 @@
             "lineageTag": "ede80459-583f-40cd-b03b-4052532aa1a9"
           },
           {
-            "name": "GENERAL - Beneficio Bruto Venta Total",
+            "name": "Beneficio Bruto Venta Total",
             "expression": [
               "",
               "",
-              "VAR beneficio = [GENERAL - Precio de Venta Total] - [GENERAL - Coste Participaciones Vendidas Total]",
+              "VAR beneficio = [Precio de Venta Total] - [Coste Participaciones Vendidas Total]",
               "",
               "RETURN IF(beneficio=0,BLANK(),beneficio)"
             ],
@@ -15279,7 +15330,7 @@
             "lineageTag": "f0b3c4c7-5b2e-4a2f-a77c-6b72a1000659"
           },
           {
-            "name": "GENERAL - Beneficio Antes Transacción",
+            "name": "Beneficio Antes Transacción",
             "annotations": [
               {
                 "name": "PBI_FormatHint",
@@ -15295,7 +15346,7 @@
               "RETURN ",
               "",
               "CALCULATE(",
-              "    [GENERAL - Beneficio Bruto Venta Total]",
+              "    [Beneficio Bruto Venta Total]",
               "    , Calendario[Date] < last_date",
               "    , Transacciones[Tipo Transacción] IN {\"Compra\",\"Venta\"}",
               "    , REMOVEFILTERS('Transacciones')",
@@ -15305,7 +15356,7 @@
             "lineageTag": "bac6c5aa-b7fc-40f6-9113-4603a049cd86"
           },
           {
-            "name": "GENERAL - Beneficio Bruto Venta Transaccion",
+            "name": "Beneficio Bruto Venta Transaccion",
             "annotations": [
               {
                 "name": "PBI_FormatHint",
@@ -15315,14 +15366,14 @@
             "expression": [
               "",
               "",
-              "VAR beneficio = [GENERAL - Beneficio Tras Transacción] - [GENERAL - Beneficio Antes Transacción]",
+              "VAR beneficio = [Beneficio Tras Transacción] - [Beneficio Antes Transacción]",
               "",
               "RETURN IF(beneficio=0,BLANK(),beneficio)"
             ],
             "lineageTag": "48dab9c0-036f-4d25-a7d7-5c8c198b23d0"
           },
           {
-            "name": "GENERAL - Retenciones Pendientes",
+            "name": "Retenciones Pendientes",
             "expression": [
               "",
               "",
@@ -15332,7 +15383,7 @@
             "lineageTag": "71a0dc06-6a5a-4456-8064-ac9596e940d2"
           },
           {
-            "name": "GENERAL - Beneficio Bruto Total Periodo",
+            "name": "Beneficio Bruto Total Periodo",
             "annotations": [
               {
                 "name": "PBI_FormatHint",
@@ -15342,25 +15393,25 @@
             "expression": [
               "",
               "",
-              "[GENERAL - Beneficio Bruto Venta Transaccion] + [GENERAL - Beneficio Bruto Dividendo]"
+              "[Beneficio Bruto Venta Transaccion] + [Beneficio Bruto Dividendo]"
             ],
             "lineageTag": "b76497b5-f9e1-4a59-b69a-115c0b296afc"
           },
           {
-            "name": "GENERAL - Beneficio Bruto Dividendo",
+            "name": "Beneficio Bruto Dividendo",
             "expression": "CALCULATE(SUM(Transacciones[Total Bruto]), Transacciones[Tipo Transacción] = \"Dividendos\")",
             "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
             "lineageTag": "4703907e-48ca-4364-b13a-cf1cfed29a0a"
           },
           {
-            "name": "GENERAL - Beneficio Neto",
+            "name": "Beneficio Neto",
             "annotations": [
               {
                 "name": "PBI_FormatHint",
                 "value": "{\"isGeneralNumber\":true}"
               }
             ],
-            "expression": "[GENERAL - Beneficio Bruto Total Periodo] - 'Medidas IRPF'[IRPF Calculado por Transacción]",
+            "expression": "[Beneficio Bruto Total Periodo] - 'Medidas IRPF'[IRPF Calculado por Transacción]",
             "lineageTag": "8384ecd4-5ca6-41d1-9547-8008279249e2"
           },
           {
@@ -15513,7 +15564,7 @@
             "expression": [
               "",
               "",
-              "DIVIDE('Medidas IRPF'[IRPF Calculado Por Beneficio], [GENERAL - Beneficio Bruto Total Periodo])"
+              "DIVIDE('Medidas IRPF'[IRPF Calculado Por Beneficio], [Beneficio Bruto Total Periodo])"
             ],
             "formatString": "0.00\\ %;-0.00\\ %;0.00\\ %",
             "lineageTag": "cacca1ea-2735-4260-8904-3a23d075ff5f"
@@ -15529,7 +15580,7 @@
             "expression": [
               "",
               "",
-              "    VAR beneficio = [GENERAL - Beneficio Bruto Total Periodo]",
+              "    VAR beneficio = [Beneficio Bruto Total Periodo]",
               "",
               "    VAR tramos_ultimo_periodo = CALCULATETABLE(",
               "        SELECTCOLUMNS('IRPF Ahorro', 'IRPF Ahorro'[Mínimo], 'IRPF Ahorro'[Máximo], 'IRPF Ahorro'[Tipo])",
@@ -15569,7 +15620,7 @@
               "",
               "    VAR beneficio = ",
               "        CALCULATE(",
-              "            [GENERAL - Beneficio Bruto Total Periodo]",
+              "            [Beneficio Bruto Total Periodo]",
               "            , KEEPFILTERS(Transacciones[Año IRPF] = IRPF_year)",
               "        )",
               "",
@@ -15604,7 +15655,7 @@
               "        IF(",
               "            SELECTEDVALUE(Transacciones[Tipo Transacción]) = \"Compra\", ",
               "            BLANK(), ",
-              "            DIVIDE('Medidas IRPF'[IRPF Calculado Por Beneficio], [GENERAL - Beneficio Bruto Total Periodo]))",
+              "            DIVIDE('Medidas IRPF'[IRPF Calculado Por Beneficio], [Beneficio Bruto Total Periodo]))",
               "        , ALLSELECTED()        ",
               "        , Transacciones[Año IRPF] = fiscal_year",
               "    )"
@@ -15620,7 +15671,7 @@
                 "value": "{\"isGeneralNumber\":true}"
               }
             ],
-            "expression": "[GENERAL - Beneficio Bruto Total Periodo] * [Tipo IRPF Anual]",
+            "expression": "[Beneficio Bruto Total Periodo] * [Tipo IRPF Anual]",
             "lineageTag": "58609b66-bb57-45e9-b603-f4f38f602aee"
           }
         ],
@@ -16090,6 +16141,25 @@
             "lineageTag": "0ef2e46e-de36-4a1d-bfbc-d24c91609dd4",
             "sourceColumn": "Detalle",
             "summarizeBy": "none"
+          },
+          {
+            "name": "Test",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "string",
+            "isHidden": true,
+            "lineageTag": "c6b0f786-3c31-4f6a-98a1-c3d7bc195c39",
+            "sourceColumn": "Test",
+            "summarizeBy": "none"
           }
         ],
         "lineageTag": "c1c9e7c5-0686-4cc6-aa8e-71faa3fa78dc",
@@ -16190,7 +16260,7 @@
                 "    T_Saldo_Table = Origen{[Item=\"T_Transacciones\",Kind=\"Table\"]}[Data],",
                 "    #\"[Update] Comision - Null to 0\" = Table.ReplaceValue(T_Saldo_Table,null,0,Replacer.ReplaceValue,{\"Comisión\"}),",
                 "    #\"Columnas con nombre cambiado1\" = Table.RenameColumns(#\"[Update] Comision - Null to 0\",{{\"Importe Bruto\", \"Importe\"}}),",
-                "    #\"[Tipos][Update]\" = Table.TransformColumnTypes(#\"Columnas con nombre cambiado1\",{{\"Producto\", type text}, {\"Participaciones\", Currency.Type}, {\"Precio Participación\", Currency.Type}, {\"Importe\", Currency.Type}, {\"Fecha\", type date}, {\"Comisión\", Currency.Type}, {\"Retenido\", Currency.Type}, {\"Cuenta Producto\", type text}, {\"Año IRPF\", Int64.Type}, {\"Tipo Transacción\", type text}, {\"Producto Contraparte\", type text}, {\"Cuenta Contraparte\", type text}, {\"Precio (Moneda Transacción)\", Currency.Type}, {\"Cambio\", Currency.Type}, {\"Importe Bruto (Moneda Transacción)\", Currency.Type}, {\"Retenido (Moneda Transacción)\", Currency.Type}, {\"Comisión (Moneda Transacción)\", Currency.Type}, {\"Detalle\", type text}, {\"Hora\", type time}}),",
+                "    #\"[Tipos][Update]\" = Table.TransformColumnTypes(#\"Columnas con nombre cambiado1\",{{\"Producto\", type text}, {\"Participaciones\", Currency.Type}, {\"Precio Participación\", Currency.Type}, {\"Importe\", Currency.Type}, {\"Fecha\", type date}, {\"Comisión\", Currency.Type}, {\"Retenido\", Currency.Type}, {\"Cuenta Producto\", type text}, {\"Año IRPF\", Int64.Type}, {\"Tipo Transacción\", type text}, {\"Producto Contraparte\", type text}, {\"Cuenta Contraparte\", type text}, {\"Precio (Moneda Transacción)\", Currency.Type}, {\"Cambio\", Currency.Type}, {\"Importe Bruto (Moneda Transacción)\", Currency.Type}, {\"Retenido (Moneda Transacción)\", Currency.Type}, {\"Comisión (Moneda Transacción)\", Currency.Type}, {\"Detalle\", type text}, {\"Hora\", type time}, {\"Test\", type text}}),",
                 "    #\"Transaccion Espejo\" = Table.RenameColumns(",
                 "        #\"[Tipos][Update]\",",
                 "        {",
@@ -16281,7 +16351,7 @@
                 "",
                 "    // Convertir de nuevo a tabla",
                 "    TablaResultado = Table.FromRecords(ResultadoRegistros),",
-                "    #\"[Tipos][Update] Refresh\" = Table.TransformColumnTypes(TablaResultado,{{\"Fecha\", type date}, {\"Producto\", type text}, {\"Cuenta Producto\", type text}, {\"Tipo Transacción\", type text}, {\"Participaciones\", Currency.Type}, {\"Precio Participación\", Currency.Type}, {\"Total Bruto\", type number}, {\"Retenido\", Currency.Type}, {\"Año IRPF\", Int64.Type}, {\"Comisión\", Currency.Type}, {\"Año IRPF Fijado\", type logical}, {\"ParticipacionesAcum\", type number}, {\"PrecioMedio\", type number}, {\"Importe\", Currency.Type}, {\"Producto Contraparte\", type text}, {\"Cuenta Contraparte\", type text}, {\"ID\", Int64.Type}, {\"Comisión (Moneda Transacción)\", Currency.Type}, {\"Retenido (Moneda Transacción)\", Currency.Type}, {\"Importe Bruto (Moneda Transacción)\", Currency.Type}, {\"Cambio\", Currency.Type}, {\"Precio (Moneda Transacción)\", Currency.Type}, {\"Hora\", type time}}),",
+                "    #\"[Tipos][Update] Refresh\" = Table.TransformColumnTypes(TablaResultado,{{\"Fecha\", type date}, {\"Producto\", type text}, {\"Cuenta Producto\", type text}, {\"Tipo Transacción\", type text}, {\"Participaciones\", Currency.Type}, {\"Precio Participación\", Currency.Type}, {\"Total Bruto\", type number}, {\"Retenido\", Currency.Type}, {\"Año IRPF\", Int64.Type}, {\"Comisión\", Currency.Type}, {\"Año IRPF Fijado\", type logical}, {\"ParticipacionesAcum\", type number}, {\"PrecioMedio\", type number}, {\"Importe\", Currency.Type}, {\"Producto Contraparte\", type text}, {\"Cuenta Contraparte\", type text}, {\"ID\", Int64.Type}, {\"Comisión (Moneda Transacción)\", Currency.Type}, {\"Retenido (Moneda Transacción)\", Currency.Type}, {\"Importe Bruto (Moneda Transacción)\", Currency.Type}, {\"Cambio\", Currency.Type}, {\"Precio (Moneda Transacción)\", Currency.Type}, {\"Hora\", type time}, {\"Test\", type text}}),",
                 "    #\"Columnas con nombre cambiado\" = Table.RenameColumns(#\"[Tipos][Update] Refresh\",{{\"ParticipacionesAcum\", \"Participaciones Acumuladas\"}, {\"PrecioMedio\", \"Precio Medio Hasta Transacción\"}}),",
                 "    #\"[Columna][Add] Renta Obtenida\" = Table.AddColumn(#\"Columnas con nombre cambiado\", \"Renta Bruta Obtenida\", each if List.Contains({\"Compra\",\"Venta\"},[Tipo Transacción]) then -1*[Total Bruto] else [Total Bruto], type number)",
                 "in",
@@ -16340,7 +16410,6 @@
               "expression": [
                 "",
                 "",
-                "// Medida: Mes de Febrero de 2000",
                 "CALCULATE(",
                 "    SELECTEDMEASURE()",
                 "    , FILTER(Calendario, ",
@@ -16356,25 +16425,36 @@
             },
             {
               "name": "Esperado",
-              "expression": "IFERROR(VALUE(SELECTEDVALUE('Test Data'[Valor Esperado])), SELECTEDVALUE('Test Data'[Valor Esperado]))"
+              "expression": [
+                "",
+                "",
+                "IF(",
+                "    SELECTEDMEASURENAME() = \"Test Errores\", ",
+                "    CALCULATE(SELECTEDMEASURE(), REMOVEFILTERS('Test Saldo / Inversión - Básico'), 'Test Saldo / Inversión - Básico'[Test Saldo / Inversión - Básico] = \"Error\"), ",
+                "    IFERROR(VALUE(SELECTEDVALUE('Test Data'[Valor Esperado])), SELECTEDVALUE('Test Data'[Valor Esperado]))",
+                ")"
+              ]
             },
             {
               "name": "Error",
               "expression": [
                 "",
                 "",
-                "VAR actual = CALCULATE(",
-                "        SELECTEDMEASURE()",
-                "        , 'Test Saldo / Inversión - Básico'[Test Saldo / Inversión - Básico] = \"Actual\"",
-                "    ) ",
+                "VAR actual = ",
+                "CALCULATE(",
+                "    SELECTEDMEASURE()",
+                "    , FILTER(Calendario, ",
+                "        IF(ISBLANK(SELECTEDVALUE('Test Data'[mes])), TRUE(), Calendario[Mes (Num.)] = VALUE(SELECTEDVALUE('Test Data'[mes]))) ",
+                "        && ",
+                "         IF(ISBLANK(SELECTEDVALUE('Test Data'[año])), TRUE(), Calendario[Año] = VALUE(SELECTEDVALUE('Test Data'[año])))",
+                "    )",
+                ")",
                 "",
-                "VAR esperado = CALCULATE(",
-                "        SELECTEDMEASURE()",
-                "        , 'Test Saldo / Inversión - Básico'[Test Saldo / Inversión - Básico] = \"Esperado\")",
+                "VAR esperado = IFERROR(VALUE(SELECTEDVALUE('Test Data'[Valor Esperado])), SELECTEDVALUE('Test Data'[Valor Esperado]))",
                 "",
                 "RETURN ",
                 "IF (",
-                "    OR(actual = esperado, AND(ISBLANK(actual), ISBLANK(esperado)))",
+                "    OR(AND(actual = esperado, NOT(OR(ISBLANK(actual), ISBLANK(esperado)))) , AND(ISBLANK(actual), ISBLANK(esperado)))",
                 "    ,0",
                 "    ,1",
                 ")"
@@ -16475,7 +16555,10 @@
               "    , \"Gastos no Computados Periodo\", [Gastos no Computados Periodo]",
               "    , \"Beneficio Inversión\", [Beneficio Inversión]",
               "    , \"Movimientos Totales Periodo\", [Movimientos Totales Periodo]",
-              "    , BLANK()",
+              "    , \"Beneficio Bruto Total Periodo\", [Beneficio Bruto Total Periodo]",
+              "    , \"IRPF Tramo Anual\", [IRPF Tramo Anual]   ",
+              "    , \"Tipo IRPF Anual\", [Tipo IRPF Anual]",
+              "    , \"CONFIGURAR MEDIDA\"",
               ")",
               ""
             ],
@@ -16483,8 +16566,23 @@
           },
           {
             "name": "Test Errores",
-            "expression": "SUMX(SUMMARIZE('Test Data', 'Test Data'[Medida],'Test Data'[Prueba]), CALCULATE([Medida Seleccionada], 'Test Saldo / Inversión - Básico'[Test Saldo / Inversión - Básico] = \"Error\"))",
-            "formatString": "0",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "",
+              "SUMX(",
+              "    SUMMARIZE('Test Data', 'Test Data'[Medida],'Test Data'[Prueba]), ",
+              "    CALCULATE(",
+              "        [Medida Seleccionada]",
+              "        , 'Test Saldo / Inversión - Básico'[Test Saldo / Inversión - Básico] = \"Error\"",
+              "    )",
+              ")"
+            ],
             "lineageTag": "897aa625-ca38-44b6-9c3a-38cbf0a8d2d7"
           }
         ],
@@ -16588,6 +16686,19 @@
             "dataType": "string",
             "lineageTag": "f71ff437-844e-4a4b-92e4-4af6e8642558",
             "sourceColumn": "mes",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Test",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "bcbdcdcd-05ed-4a9c-9876-b839e19a1567",
+            "sourceColumn": "Test",
             "summarizeBy": "none"
           }
         ],
