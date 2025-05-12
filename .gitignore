@@ -1,10 +1,14 @@
-**/.pbi/localSettings.json
-**/.pbi/cache.abf
+# Environment
+.venv/ # Python virtual environment
 .vscode/
 
 # Power BI
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
 *.pbix
 *.pbit
+
+
 *.tmp
 *.cache
 *.mds

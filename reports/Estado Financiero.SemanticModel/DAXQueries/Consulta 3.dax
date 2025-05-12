@@ -1,0 +1,1 @@
+EVALUATE FILTER(Productos, CONTAINSSTRING(Productos[Tipo], "Renta"))

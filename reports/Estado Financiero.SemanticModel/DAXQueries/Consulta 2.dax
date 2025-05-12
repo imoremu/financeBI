@@ -1,0 +1,107 @@
+DEFINE
+	VAR __DS0FilterTable = 
+		TREATAS({"Beneficio Inversión"}, 'Test Data'[Medida])
+
+	VAR __DS0FilterTable2 = 
+		TREATAS(
+			{"Esperado",
+				"Actual"},
+			'Test Saldo / Inversión - Básico'[Test Saldo / Inversión - Básico]
+		)
+
+	VAR __DM3FilterTable = 
+		TREATAS({"Saldo / Inversión Anual - Con transacciones"}, 'Test Data'[Prueba])
+
+	VAR __DS0Core = 
+		SUMMARIZECOLUMNS(
+			ROLLUPADDISSUBTOTAL(
+				'Test Data'[Prueba], "IsGrandTotalRowTotal",
+				'Test Data'[Descripción], "IsDM1Total", NONVISUAL(__DM3FilterTable)
+			),
+			'Test Data'[Medida],
+			__DS0FilterTable,
+			__DS0FilterTable2,
+			"Medida_Seleccionada", 'Test'[Medida Seleccionada],
+			"v_Medida_Seleccionada_FormatString", IGNORE('Test'[_Medida Seleccionada FormatString]),
+			"Test_Errores", IGNORE('Test'[Test Errores]),
+			"v_Test_Errores_FormatString", IGNORE('Test'[_Test Errores FormatString])
+		)
+
+	VAR __DS0PrimaryShowAll = 
+		ADDMISSINGITEMS(
+			'Test Data'[Prueba],
+			'Test Data'[Descripción],
+			SUMMARIZE(
+				__DS0Core,
+				'Test Data'[Prueba],
+				[IsGrandTotalRowTotal],
+				'Test Data'[Descripción],
+				[IsDM1Total]
+			),
+			ROLLUPISSUBTOTAL(
+				'Test Data'[Prueba],
+				[IsGrandTotalRowTotal],
+				'Test Data'[Descripción],
+				[IsDM1Total],
+				NONVISUAL(__DM3FilterTable)
+			),
+			__DS0FilterTable,
+			__DS0FilterTable2
+		)
+
+	VAR __DS0PrimaryWindowed = 
+		TOPN(
+			102,
+			__DS0PrimaryShowAll,
+			[IsGrandTotalRowTotal],
+			0,
+			'Test Data'[Prueba],
+			1,
+			[IsDM1Total],
+			0,
+			'Test Data'[Descripción],
+			1
+		)
+
+	VAR __DS0SecondaryBase = 
+		SUMMARIZE(__DS0Core, 'Test Data'[Medida])
+
+	VAR __DS0SecondaryShowAll = 
+		ADDMISSINGITEMS(
+			'Test Data'[Medida],
+			__DS0SecondaryBase,
+			'Test Data'[Medida],
+			__DS0FilterTable,
+			__DS0FilterTable2
+		)
+
+	VAR __DS0Secondary = 
+		TOPN(102, __DS0SecondaryShowAll, 'Test Data'[Medida], 1)
+
+	VAR __DS0BodyLimited = 
+		NATURALLEFTOUTERJOIN(
+			__DS0PrimaryWindowed,
+			SUBSTITUTEWITHINDEX(
+				__DS0Core,
+				"ColumnIndex",
+				__DS0Secondary,
+				'Test Data'[Medida],
+				ASC
+			)
+		)
+
+EVALUATE
+	__DS0Secondary
+
+ORDER BY
+	'Test Data'[Medida]
+
+EVALUATE
+	__DS0BodyLimited
+
+ORDER BY
+	[IsGrandTotalRowTotal] DESC,
+	'Test Data'[Prueba],
+	[IsDM1Total] DESC,
+	'Test Data'[Descripción],
+	[ColumnIndex]
