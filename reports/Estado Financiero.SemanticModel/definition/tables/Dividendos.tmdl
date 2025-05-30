@@ -1,0 +1,319 @@
+table Dividendos
+	lineageTag: 71d662a6-d45e-4164-ac31-d301ddfcca99
+
+	column Fecha
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7dcc79d3-a7bc-471f-b176-470c31f02efd
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Producto
+		dataType: string
+		lineageTag: ab2b8ccc-4afa-4cd8-a28e-bd3b2ef63f00
+		summarizeBy: none
+		sourceColumn: Producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo Transacción'
+		dataType: string
+		lineageTag: fb677d99-bd46-437d-8407-69a1578e4c17
+		summarizeBy: none
+		sourceColumn: Tipo Transacción
+
+		annotation SummarizationSetBy = Automatic
+
+	column Participaciones
+		dataType: double
+		lineageTag: ba043788-029b-4fd5-b9cb-179388d7cf1f
+		summarizeBy: sum
+		sourceColumn: Participaciones
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Comisión
+		dataType: decimal
+		formatString: 0
+		lineageTag: 0219d315-fc08-4f55-8d78-8e5c51f4fe7c
+		summarizeBy: sum
+		sourceColumn: Comisión
+
+		annotation SummarizationSetBy = Automatic
+
+	column Retenido
+		dataType: decimal
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: 180a1777-6806-403d-ba4a-e9686b349eea
+		summarizeBy: sum
+		sourceColumn: Retenido
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	column 'Año IRPF'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4d223b0a-23c6-45c0-8c4b-904a821f9493
+		summarizeBy: sum
+		sourceColumn: Año IRPF
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Año IRPF Fijado'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 689f7cdd-01f4-4eaa-bbd5-4f2a280ac2c7
+		summarizeBy: none
+		sourceColumn: Año IRPF Fijado
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Precio Participación'
+		dataType: decimal
+		lineageTag: e0088e02-bb43-474d-8266-621b384472cb
+		summarizeBy: sum
+		sourceColumn: Precio Participación
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Cambio
+		dataType: double
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: 8b10b847-0934-49e1-899d-183ff3c64a95
+		summarizeBy: sum
+		sourceColumn: Cambio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	column 'Total Bruto'
+		dataType: decimal
+		lineageTag: 7028c846-bf67-4fcb-986b-75d7871d0df4
+		summarizeBy: sum
+		sourceColumn: Total Bruto
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Renta Bruta Obtenida'
+		dataType: decimal
+		lineageTag: 4bc6e92f-7575-454f-ba6f-eaaca15f0704
+		summarizeBy: sum
+		sourceColumn: Renta Bruta Obtenida
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Cuenta Producto'
+		dataType: string
+		lineageTag: f91cfd13-202a-41f2-9a77-291fc4f4bbd9
+		summarizeBy: none
+		sourceColumn: Cuenta Producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Producto Contraparte'
+		dataType: string
+		lineageTag: 913012c0-cfc4-476b-a750-65b8a6fe6025
+		summarizeBy: none
+		sourceColumn: Producto Contraparte
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cuenta Contraparte'
+		dataType: string
+		lineageTag: 173efb79-7d7e-4405-849c-c0c103d496e1
+		summarizeBy: none
+		sourceColumn: Cuenta Contraparte
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 73da1f3b-0e64-4580-a3b0-4ba944e3dbab
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hora
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 0d05635e-db06-457a-8e54-a63a4f43dd3f
+		summarizeBy: none
+		sourceColumn: Hora
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column 'Precio (Moneda Transacción)'
+		dataType: decimal
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: 7d48878b-0226-407a-80d3-792d77d23487
+		summarizeBy: sum
+		sourceColumn: Precio (Moneda Transacción)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	column 'Importe Bruto (Moneda Transacción)'
+		dataType: decimal
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: 2e0484f1-32be-4930-b43a-cbd68b16d5b2
+		summarizeBy: sum
+		sourceColumn: Importe Bruto (Moneda Transacción)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	column 'Retenido (Moneda Transacción)'
+		dataType: decimal
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: a99e4420-efc5-411a-bd3c-d12747451349
+		summarizeBy: sum
+		sourceColumn: Retenido (Moneda Transacción)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	column 'Comisión (Moneda Transacción)'
+		dataType: decimal
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: e6dda79a-6cd5-46a3-b94a-d649d1542b26
+		summarizeBy: sum
+		sourceColumn: Comisión (Moneda Transacción)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	column Moneda
+		dataType: string
+		lineageTag: e07a56cf-4149-4ba0-a7b7-094fdbe54841
+		summarizeBy: none
+		sourceColumn: Moneda
+
+		annotation SummarizationSetBy = Automatic
+
+	column Detalle
+		dataType: string
+		lineageTag: b3e20918-45a6-4ef7-9ef6-09c4641debc4
+		summarizeBy: none
+		sourceColumn: Detalle
+
+		annotation SummarizationSetBy = Automatic
+
+	column Test
+		dataType: string
+		lineageTag: e2bc3094-e9bc-49b7-a66f-5f96e27e5764
+		summarizeBy: none
+		sourceColumn: Test
+
+		annotation SummarizationSetBy = Automatic
+
+	column Importe
+		dataType: decimal
+		formatString: 0
+		lineageTag: 6a0938ed-1289-4bb1-86da-aabcefba700c
+		summarizeBy: sum
+		sourceColumn: Importe
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Participaciones Acumuladas'
+		dataType: double
+		formatString: 0
+		lineageTag: b85cd9ea-bf6a-4070-bdf1-e9936dbcf720
+		summarizeBy: sum
+		sourceColumn: Participaciones Acumuladas
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Precio Medio Hasta Transacción'
+		dataType: double
+		formatString: 0
+		lineageTag: 44d95f1d-8dd9-4d74-b2e9-4e7f719465d6
+		summarizeBy: sum
+		sourceColumn: Precio Medio Hasta Transacción
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FIFO Beneficio / Pérdida'
+		dataType: decimal
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: 4d493ba9-9611-464e-a485-26e10332e7e9
+		summarizeBy: sum
+		sourceColumn: FIFO Beneficio / Pérdida
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	column 'IRPF - Ganancia / Pérdida Imputable'
+		dataType: decimal
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: a37df76f-f6d6-40e1-8995-5d7a9d5dbe18
+		summarizeBy: sum
+		sourceColumn: IRPF - Ganancia / Pérdida Imputable
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	column 'IRPF - Ajuste Diferido'
+		dataType: decimal
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: 4534ac08-05c3-4cbd-b691-5d59f76e8a74
+		summarizeBy: sum
+		sourceColumn: IRPF - Ajuste Diferido
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	column Fecha/Hora
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: cc131b02-35d0-43a3-9aee-d87d22a985ec
+		summarizeBy: none
+		sourceColumn: Fecha/Hora
+
+		variation Variación
+			isDefault
+			relationship: 3a5f943a-4678-40ea-b351-5487beb493ac
+			defaultHierarchy: LocalDateTable_b9da2914-fd53-4f32-b21c-39fa4c9bbfb1.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dividendos = m
+		mode: import
+		queryGroup: Saldo
+		source =
+				let
+				    Origen = Transacciones,
+				    #"Filas filtradas" = Table.SelectRows(Origen, each ([Tipo Transacción] = "Dividendos"))
+				in
+				    #"Filas filtradas"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

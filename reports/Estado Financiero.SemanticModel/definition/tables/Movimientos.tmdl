@@ -1,0 +1,114 @@
+table Movimientos
+	lineageTag: d4a0e9fb-69d2-47ed-b104-d7bf44c733ad
+
+	measure 'Media Importe' = AVERAGE(Movimientos[IMPORTE (€)])
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: 5660d254-b4b0-4155-8b14-1bb31109e467
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	column FECHA
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: a09a56bc-aa99-46a9-91e6-a542be291175
+		summarizeBy: none
+		sourceColumn: FECHA
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Tipo Movimiento.Índice'
+		dataType: int64
+		formatString: 0
+		lineageTag: 370c035f-5b02-4f13-b0ed-cc8f9778dc3b
+		summarizeBy: none
+		sourceColumn: Tipo Movimiento.Índice
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IMPORTE (€)'
+		dataType: decimal
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: ea1bfd0f-afe2-41ed-bbfc-16cf98afefbe
+		summarizeBy: sum
+		sourceColumn: IMPORTE (€)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Cantidad (€)'
+		dataType: decimal
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: f900df2c-1db4-43fb-9df6-2b3a1d30f65d
+		summarizeBy: none
+		sourceColumn: Cantidad (€)
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Mes / Año'
+		dataType: string
+		lineageTag: 992d2225-3926-41e0-9ea4-b1049b30f931
+		summarizeBy: none
+		sourceColumn: Mes / Año
+
+		annotation SummarizationSetBy = Automatic
+
+	column Año
+		dataType: int64
+		formatString: 0
+		lineageTag: 26ee2ef1-bb13-4594-9032-91ea663875c2
+		summarizeBy: sum
+		sourceColumn: Año
+
+		annotation SummarizationSetBy = Automatic
+
+	column Detalle
+		dataType: string
+		lineageTag: 9e528b7a-5561-4fa5-894a-c0416c8441d4
+		summarizeBy: none
+		sourceColumn: Detalle
+
+		annotation SummarizationSetBy = Automatic
+
+	column Test
+		dataType: string
+		isHidden
+		lineageTag: 1520449c-7194-404a-85a2-aa3b02f80fc8
+		summarizeBy: none
+		sourceColumn: Test
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Movimientos-b861a020-f47d-455f-8c0e-68d4cbdfb9bc = m
+		mode: import
+		queryGroup: Movimientos
+		source =
+				let
+				    Origen = #"Movimientos Origen",
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"FECHA", type date}, {"CLASIFICACIÓN", type text}, {"IMPORTE (€)", Currency.Type}, {"CATEGORÍA", type text}, {"SUBCATEGORÍA", type text}, {"DESCRIPCIÓN", type text}, {"Test", type text}}),
+				    #"Filas filtradas" = Table.SelectRows(#"Tipo cambiado", each ([#"IMPORTE (€)"] <> 0)),
+				    #"[Type] Gasto to $" = Table.TransformColumnTypes(#"Filas filtradas",{{"IMPORTE (€)", Currency.Type}}),
+				    #"[Column] New Valor (ABS)" = Table.AddColumn(#"[Type] Gasto to $", "Cantidad (€)", each Number.Abs([#"IMPORTE (€)"])),
+				    #"[Update] Importe de movimientos a 0" = Table.ReplaceValue(#"[Column] New Valor (ABS)",each [#"IMPORTE (€)"], each if [TIPO] = "Movimiento" then 0 else [#"IMPORTE (€)"],Replacer.ReplaceValue,{"IMPORTE (€)"}),
+				    #"[Type] Importe To $" = Table.TransformColumnTypes(#"[Update] Importe de movimientos a 0",{{"IMPORTE (€)", Currency.Type}, {"Cantidad (€)", Currency.Type}}),
+				    #"Consultas combinadas" = Table.NestedJoin(#"[Type] Importe To $", {"CLASIFICACIÓN", "CATEGORÍA", "SUBCATEGORÍA", "DESCRIPCIÓN", "TIPO"}, #"Tipo Movimiento", {"CLASIFICACIÓN", "CATEGORÍA", "SUBCATEGORÍA", "DESCRIPCIÓN", "TIPO"}, "Tipo Movimiento", JoinKind.LeftOuter),
+				    #"Se expandió Tipo Movimiento" = Table.ExpandTableColumn(#"Consultas combinadas", "Tipo Movimiento", {"Índice"}, {"Tipo Movimiento.Índice"}),
+				    #"Otras columnas quitadas" = Table.SelectColumns(#"Se expandió Tipo Movimiento",{"FECHA", "IMPORTE (€)", "Detalle", "Test", "Cantidad (€)", "Tipo Movimiento.Índice"}),
+				    #"Consulta anexada" = Table.Combine({#"Otras columnas quitadas", #"Pagos Especie", #"Cobros Especie"}),
+				    #"Agregar columna personalizada" = Table.AddColumn(#"Consulta anexada", "Mes / Año", each Text.Combine({Date.ToText([FECHA], "MM"), "-", Date.ToText([FECHA], "yyyy")}), type text),
+				    #"Año insertado" = Table.AddColumn(#"Agregar columna personalizada", "Año", each Date.Year([FECHA]), Int64.Type)
+				in
+				    #"Año insertado"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

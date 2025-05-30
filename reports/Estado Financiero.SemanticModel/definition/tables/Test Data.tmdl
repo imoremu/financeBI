@@ -1,0 +1,100 @@
+table 'Test Data'
+	lineageTag: b4022ae7-63a8-4ebd-a1c0-0f326d7e47b7
+
+	column Medida
+		dataType: string
+		lineageTag: ba75b998-921b-4a1e-8036-e580edf6dfb7
+		summarizeBy: none
+		sourceColumn: Medida
+
+		annotation SummarizationSetBy = Automatic
+
+	column Test
+		dataType: string
+		lineageTag: fabe67b9-393c-4698-8721-7fbd57689f08
+		summarizeBy: none
+		sourceColumn: Test
+
+		annotation SummarizationSetBy = Automatic
+
+	column Prueba
+		dataType: string
+		lineageTag: 92934524-46f0-4dae-81c9-93ec1a38c24d
+		summarizeBy: none
+		sourceColumn: Prueba
+
+		annotation SummarizationSetBy = Automatic
+
+	column Descripción
+		dataType: string
+		lineageTag: 979c04f1-b76c-4eea-b3ae-5d98e555b6a8
+		summarizeBy: none
+		sourceColumn: Descripción
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Valor Esperado'
+		dataType: string
+		lineageTag: 1af90a23-7bd1-40c5-949f-15dad93c6281
+		summarizeBy: none
+		sourceColumn: Valor Esperado
+
+		annotation SummarizationSetBy = Automatic
+
+	column año
+		dataType: int64
+		formatString: 0
+		lineageTag: 8010e92c-f0fe-42dd-bec3-ef15a9be8a59
+		summarizeBy: sum
+		sourceColumn: año
+
+		annotation SummarizationSetBy = Automatic
+
+	column mes
+		dataType: int64
+		formatString: 0
+		lineageTag: 2ba33964-6d1f-4a10-ae8c-332e6f68f60d
+		summarizeBy: sum
+		sourceColumn: mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'año IRPF'
+		dataType: int64
+		formatString: 0
+		lineageTag: dcf5ee49-aa58-4d1d-8de6-8b086a512e1b
+		summarizeBy: sum
+		sourceColumn: año IRPF
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Test Data' = m
+		mode: import
+		queryGroup: Test
+		source = ```
+				let
+				    Origen = #"Origen Data File",    
+				    T_Saldo_Table = Origen{[Item="T_TestData",Kind="Table"]}[Data],
+				
+				    resultado = if List.Contains(List.Transform(Origen[Name], Text.Lower), "t_testdata") then 
+				
+				        let        
+				            #"Tipo cambiado" = Table.TransformColumnTypes(T_Saldo_Table,{{"Medida", type text}, {"Prueba", type text}, {"Descripción", type text}}),
+				            #"JSON analizado" = Table.TransformColumns(#"Tipo cambiado",{{"Parámetros", Json.Document}}),
+				            #"Se expandió Parámetros" = Table.ExpandRecordColumn(#"JSON analizado", "Parámetros", {"año", "mes", "año IRPF"}, {"año", "mes", "año IRPF"}),
+				            #"test_data" = Table.TransformColumnTypes(#"Se expandió Parámetros",{{"año", Int64.Type}, {"mes", Int64.Type}, {"año IRPF", Int64.Type}, {"Valor Esperado", type text}, {"Test", type text}})
+				
+				        in 
+				            #"test_data"
+				
+				    else
+				        #table({"Medida","Test", "Prueba","Descripción","Valor Esperado","Parámetros"}, {}),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(resultado,{{"Medida", type text}, {"Test", type text}, {"Prueba", type text}, {"Descripción", type text}, {"Valor Esperado", type text}})
+				in
+				    #"Tipo cambiado"
+				```
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

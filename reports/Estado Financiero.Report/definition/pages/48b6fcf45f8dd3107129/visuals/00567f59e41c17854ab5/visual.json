@@ -1,0 +1,1059 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "00567f59e41c17854ab5",
+  "position": {
+    "x": 250,
+    "y": 110.14925373134328,
+    "z": 2000,
+    "height": 600,
+    "width": 1020,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Transacciones"
+                    }
+                  },
+                  "Property": "Producto"
+                }
+              },
+              "queryRef": "Transacciones.Producto1",
+              "nativeQueryRef": "Producto1"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Transacciones"
+                    }
+                  },
+                  "Property": "Producto Contraparte"
+                }
+              },
+              "queryRef": "Transacciones.Producto",
+              "nativeQueryRef": "Producto"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Transacciones"
+                    }
+                  },
+                  "Property": "Año IRPF"
+                }
+              },
+              "queryRef": "Sum(Transacciones.Año IRPF)",
+              "nativeQueryRef": "Año IRPF1"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Transacciones"
+                    }
+                  },
+                  "Property": "Fecha"
+                }
+              },
+              "queryRef": "Transacciones.Fecha",
+              "nativeQueryRef": "Fecha1"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Transacciones"
+                    }
+                  },
+                  "Property": "Tipo Transacción"
+                }
+              },
+              "queryRef": "Transacciones.Tipo Transacción",
+              "nativeQueryRef": "Tipo Transacción1"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Transacciones"
+                        }
+                      },
+                      "Property": "Participaciones"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Transacciones.Participaciones)",
+              "nativeQueryRef": "Participaciones"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Transacciones"
+                        }
+                      },
+                      "Property": "Precio Participación"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Transacciones.Precio Participación)",
+              "nativeQueryRef": "Precio Participación"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Transacciones"
+                        }
+                      },
+                      "Property": "Importe"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Transacciones.Importe)",
+              "nativeQueryRef": "Importe"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas Transacciones"
+                    }
+                  },
+                  "Property": "Beneficio Bruto Venta Transaccion"
+                }
+              },
+              "queryRef": "Medidas Transacciones.GENERAL - Beneficio Bruto Venta Transaccion",
+              "nativeQueryRef": "Beneficio Bruto",
+              "displayName": "Beneficio Bruto"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas Transacciones"
+                    }
+                  },
+                  "Property": "Beneficio Neto"
+                }
+              },
+              "queryRef": "Medidas Transacciones.GENERAL - Beneficio Neto",
+              "nativeQueryRef": "GENERAL - Beneficio Neto",
+              "displayName": "Beneficio Neto"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Transacciones"
+                        }
+                      },
+                      "Property": "Retenido"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Transacciones.Retenido)",
+              "nativeQueryRef": "Retenido"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Transacciones"
+                        }
+                      },
+                      "Property": "IRPF Calculado"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Transacciones.IRPF Calculado)",
+              "nativeQueryRef": "IRPF Calculado"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas Transacciones"
+                    }
+                  },
+                  "Property": "Retenciones Pendientes"
+                }
+              },
+              "queryRef": "Medidas Transacciones.GENERAL - Retenciones Pendientes",
+              "nativeQueryRef": "GENERAL - Retenciones Pendientes",
+              "displayName": "Retenciones Pendientes"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Transacciones"
+                  }
+                },
+                "Property": "Producto Contraparte"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "132.11495745357914D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Tipo Movimiento.CLASIFICACIÓN"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "195.89911819573229D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Tipo Movimiento.TIPO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "111.64077669902913D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(Movimientos.IMPORTE (€))"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "117.62858877472921D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Medidas Movimientos.Media Mismo Período Otros Años"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "101.4851299110647D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Medidas Movimientos.Media Mensual Período (€)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "103.22438197794891D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Tipo Movimiento"
+                          }
+                        },
+                        "Property": "TIPO"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Crédito'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "94.8942637666304D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Tipo Movimiento"
+                          }
+                        },
+                        "Property": "TIPO"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Gasto'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "101.77144406847007D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Tipo Movimiento"
+                          }
+                        },
+                        "Property": "TIPO"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Ingreso'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "108.39798247093532D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Tipo Movimiento"
+                          }
+                        },
+                        "Property": "TIPO"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Movimiento'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "75.36690647482014D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Calendario.Date Jerarquía.Mes"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "70.99909110800273D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Transacciones.Fecha"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "46.89103470850236D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(Transacciones.Año IRPF)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "95.67577579888837D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(Transacciones.Precio Participación)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "76.292248956847D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Transacciones.Tipo Transacción"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "78.95520957278183D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Medidas Transacciones.GENERAL - Retenciones Pendientes"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "82.45828928378286D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Transacciones.Producto"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "81.54296459022225D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Medidas Transacciones.GENERAL - Beneficio Bruto Venta Transaccion"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "97.62334744555625D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(Transacciones.Importe)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "67.47909697348099D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(Transacciones.IRPF Calculado)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "73.6025992117664D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Medidas Transacciones.GENERAL - Beneficio Neto"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "66.26789819747202D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(Transacciones.Retenido)"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI Bold'', wf_segoe-ui_bold, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 8,
+                      "Percent": -0.5
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontColorPrimary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "backColorPrimary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 8,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            },
+            "fontColorSecondary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "backColorSecondary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 8,
+                      "Percent": 0.4
+                    }
+                  }
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "7D"
+                }
+              }
+            },
+            "outlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 8,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            },
+            "outlineWeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridVerticalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 8,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            },
+            "gridVerticalWeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 8,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            },
+            "gridHorizontalWeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "imageHeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "75D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 8,
+                      "Percent": -0.5
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 8,
+                      "Percent": 0.2
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#3a3a3a'"
+                    }
+                  }
+                }
+              }
+            },
+            "border": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#3a3a3a'"
+                    }
+                  }
+                }
+              }
+            },
+            "foreground": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 8,
+                      "Percent": -0.5
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "preset": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Custom'"
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Outer'"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 8,
+                      "Percent": -0.5
+                    }
+                  }
+                }
+              }
+            },
+            "shadowSpread": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "shadowDistance": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

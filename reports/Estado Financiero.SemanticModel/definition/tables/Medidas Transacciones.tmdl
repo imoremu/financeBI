@@ -1,0 +1,237 @@
+table 'Medidas Transacciones'
+	lineageTag: 1119b22a-9d0a-4769-8f0c-4498053d07e1
+
+	measure 'Participaciones Vendidas Total' = ```
+			
+			
+			VAR products = VALUES('Transacciones'[Producto])
+			Var dates = VALUES(Calendario[Date])
+			
+			RETURN SUMX(
+			    CALCULATETABLE(
+			        SELECTCOLUMNS('Transacciones', 'Transacciones'[Producto], 'Transacciones'[Participaciones])                
+			        , ALL('Transacciones')
+			        , products
+			        , dates
+			        , 'Transacciones'[Tipo Transacción] = "Venta"                
+			    )
+			    , 'Transacciones'[Participaciones] * -1    
+			)
+			```
+		lineageTag: 91842e8e-345f-4571-8084-fb58f28df508
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Participaciones Vendidas de Transacción De Compra' = ```
+			
+			
+			VAR participaciones_totales_compradas = 
+			    CALCULATE(
+			        SELECTEDVALUE('Transacciones'[Participaciones]),
+			        Transacciones[Tipo Transacción] = "Compra"
+			    )
+			
+			VAR participaciones_vendidas = 
+			MAX(
+			    MIN(
+			        MAX(BLANK(), [Participaciones Vendidas Total] - ([Participaciones Compradas Hasta Última Transacción] - participaciones_totales_compradas))
+			        , participaciones_totales_compradas
+			    )
+			    ,BLANK()
+			)
+			
+			RETURN  participaciones_vendidas
+			
+			```
+		lineageTag: c5d21235-30ce-4183-819f-7620c7599e88
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Participaciones Compradas Hasta Última Transacción' = ```
+			
+			
+			VAR productos = VALUES(Transacciones[Producto])
+			VAR fecha_transaccion = MAX('Transacciones'[Fecha])
+			
+			RETURN CALCULATE(
+			    SUM('Transacciones'[Participaciones])
+			    , Calendario[Date] <= fecha_transaccion
+			    , ALL(Transacciones)
+			    , productos
+			    , 'Transacciones'[Tipo Transacción] = "Compra"
+			)
+			
+			```
+		lineageTag: 8b3509c2-e185-4171-b8ce-1cd0ecb2e9fa
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Coste Participaciones Vendidas Transaccion' = ```
+			
+			
+			VAR products = VALUES('Transacciones'[Producto])
+			
+			VAR coste = 
+			    SUMX(
+			        CALCULATETABLE(
+			            SELECTCOLUMNS('Transacciones', 'Transacciones'[Producto], 'Transacciones'[Participaciones], 'Transacciones'[Precio participación], Transacciones[Tipo Transacción])                       
+			            , products
+			            , Transacciones[Tipo Transacción] = "Compra"
+			        )
+			        , [Participaciones Vendidas de Transacción De Compra] * 'Transacciones'[Precio participación]
+			    )    
+			
+			RETURN if (coste = 0, BLANK(), coste)
+			```
+		lineageTag: abd9c660-e158-4d5d-9677-b14b4021723a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Precio de Venta Total' = ```
+			
+			
+			VAR products = VALUES('Transacciones'[Producto])
+			VAR dates = VALUES(Calendario[Date])
+			
+			VAR revenue = 
+			CALCULATE(
+			    SUMX(
+			        CALCULATETABLE(
+			            SELECTCOLUMNS('Transacciones', 'Transacciones'[Producto], 'Transacciones'[Total Bruto])                       
+			            , products
+			            , dates            
+			        )
+			        , 'Transacciones'[Total Bruto] * -1 
+			    )    
+			    , REMOVEFILTERS('Transacciones')
+			    , 'Transacciones'[Tipo Transacción] = "Venta"
+			)
+			
+			RETURN revenue
+			
+			```
+		formatString: 0.00
+		lineageTag: b3f2b7f3-08c5-4e9f-800c-76e110564481
+
+	measure 'Beneficio Tras Transacción' = ```
+			
+			
+			VAR last_date = MAX('Transacciones'[Fecha])
+			VAR products = VALUES('Transacciones'[Producto])
+			
+			RETURN 
+			
+			CALCULATE(
+			    [Beneficio Bruto Venta Total]
+			    , Calendario[Date] <= last_date
+			    , products
+			)
+			```
+		formatString: 0.00
+		lineageTag: 9e21d318-b805-404f-a7f6-aacdf17dc99c
+
+	measure 'Coste Participaciones Vendidas Total' = ```
+			
+			
+			VAR products = VALUES('Transacciones'[Producto])
+			VAR dates = VALUES(Calendario[Date])
+			
+			
+			RETURN 
+			CALCULATE(
+			    [Coste Participaciones Vendidas Transaccion]
+			    , ALL(Transacciones)
+			    , products 
+			    , dates
+			)
+			```
+		lineageTag: ede80459-583f-40cd-b03b-4052532aa1a9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Beneficio Bruto Venta Total' =
+			
+			
+			VAR beneficio = [Precio de Venta Total] - [Coste Participaciones Vendidas Total]
+			
+			RETURN IF(beneficio=0,BLANK(),beneficio)
+		formatString: 0.00
+		lineageTag: f0b3c4c7-5b2e-4a2f-a77c-6b72a1000659
+
+	measure 'Beneficio Antes Transacción' = ```
+			
+			
+			VAR products = VALUES('Transacciones'[Producto])
+			VAR last_date = MIN('Transacciones'[Fecha])
+			
+			RETURN 
+			
+			CALCULATE(
+			    [Beneficio Bruto Venta Total]
+			    , Calendario[Date] < last_date
+			    , Transacciones[Tipo Transacción] IN {"Compra","Venta"}
+			    , REMOVEFILTERS('Transacciones')
+			    , products
+			)
+			```
+		lineageTag: bac6c5aa-b7fc-40f6-9113-4603a049cd86
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Beneficio Bruto Venta Transaccion' = SUM(Transacciones[FIFO Beneficio / Pérdida])
+		lineageTag: 48dab9c0-036f-4d25-a7d7-5c8c198b23d0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Retenciones Pendientes' =
+			
+			
+			SUM('Transacciones'[IRPF Calculado]) - SUM('Transacciones'[Retenido])
+		formatString: 0.00
+		lineageTag: 71a0dc06-6a5a-4456-8064-ac9596e940d2
+
+	measure 'Beneficio Bruto Total Periodo' =
+			
+			
+			[Beneficio Bruto Venta Transaccion] + [Beneficio Bruto Dividendo]
+		lineageTag: b76497b5-f9e1-4a59-b69a-115c0b296afc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Beneficio Bruto Dividendo' = CALCULATE(SUM(Transacciones[Total Bruto]), Transacciones[Tipo Transacción] = "Dividendos")
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 4703907e-48ca-4364-b13a-cf1cfed29a0a
+
+	measure 'Beneficio Neto' = [Beneficio Bruto Total Periodo] - 'Medidas IRPF'[IRPF Anual]
+		lineageTag: 8384ecd4-5ca6-41d1-9547-8008279249e2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Precio Último Transacción' = ```
+			
+			IF(HASONEVALUE(Transacciones[Producto]) ,
+			    CALCULATE(
+			        SELECTEDVALUE(Transacciones[Precio Participación]), 
+			        Transacciones[Fecha] = MAX(Transacciones[Fecha]), 
+			        Transacciones[Hora] = MAX(Transacciones[Hora])    
+			    )
+			)
+			```
+		formatString: 0.00
+		lineageTag: 942a95b2-d35a-428a-9836-54a93ae1c685
+
+	partition 'Medidas Transacciones' = m
+		mode: import
+		queryGroup: Saldo
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Columna1 = _t]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"Columna1", type text}}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Tipo cambiado",{"Columna1"})
+				in
+				    #"Columnas quitadas"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,604 @@
+expression Path = "https://github.com/imoremu/financeBI/raw/refs/heads/imoremu/issue6/data/dev/data.xlsx" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+	lineageTag: a2aa19e7-94ab-40b4-b77d-780b67c32947
+
+	annotation PBI_ResultType = Text
+
+	annotation PBI_NavigationStepName = Navegación
+
+expression Especie =
+		let
+		    Origen = #"Origen Data File",
+		    #"Filas filtradas1" = Table.SelectRows(Origen, each ([Name] = "T_Pagos_Especie")),
+		    #"Otras columnas quitadas" = Table.SelectColumns(#"Filas filtradas1",{"Data"}),
+		    #"Se expandió Data" = Table.ExpandTableColumn(#"Otras columnas quitadas", "Data", {"Concepto", "Año", "Mes", "CLASIFICACION COBRO", "CLASIFICACION PAGO", "IMPORTE (€)"}, {"Concepto", "Año / Concepto", "Mes / Concepto", "CLASIFICACION COBRO", "CLASIFICACION PAGO", "IMPORTE (€)"}),
+		    #"Consultas combinadas" = Table.NestedJoin(#"Se expandió Data", {"Año / Concepto"}, Años, {"*"}, "Años", JoinKind.LeftOuter),
+		    #"Se expandió Años" = Table.ExpandTableColumn(#"Consultas combinadas", "Años", {"FECHA"}, {"Años.FECHA"}),
+		    #"Agregar columna personalizada" = Table.AddColumn(#"Se expandió Años", "Año", each if [Años.FECHA]= null then [#"Año / Concepto"] else [Años.FECHA], type text),
+		    #"Consultas combinadas1" = Table.NestedJoin(#"Agregar columna personalizada", {"Año", "Mes / Concepto"}, Meses, {"Año", "*"}, "Meses", JoinKind.LeftOuter),
+		    #"Tipo cambiado" = Table.TransformColumnTypes(#"Consultas combinadas1",{{"Mes / Concepto", type text}}),
+		    #"Se expandió Meses" = Table.ExpandTableColumn(#"Tipo cambiado", "Meses", {"Mes"}, {"Meses.Mes"}),
+		    #"[Columna] Meses]" = Table.AddColumn(#"Se expandió Meses", "Mes", each if [Meses.Mes]= null then [#"Mes / Concepto"] else [Meses.Mes], type text),
+		    #"Otras columnas quitadas1" = Table.SelectColumns(#"[Columna] Meses]",{"IMPORTE (€)", "Año", "Mes", "CLASIFICACION COBRO", "CLASIFICACION PAGO", "Concepto"}),
+		    #"Personalizada agregada" = Table.AddColumn(#"Otras columnas quitadas1", "CATEGORÍA", each "Especie"),
+		    #"Consultas combinadas2" = Table.NestedJoin(#"Personalizada agregada", {"Mes", "Año"}, Meses, {"Mes", "Año"}, "Meses", JoinKind.Inner),
+		    #"Se expandió Meses1" = Table.ExpandTableColumn(#"Consultas combinadas2", "Meses", {"Índice"}, {"Meses.Índice"}),
+		    #"Columna combinada insertada" = Table.AddColumn(#"Se expandió Meses1", "FECHA", each Text.Combine({"1/", Text.From([Meses.Índice], "es-ES"), "/", Text.From([Año], "es-ES")}), type text),
+		    #"Tipo cambiado1" = Table.TransformColumnTypes(#"Columna combinada insertada",{{"FECHA", type date}})
+		in
+		    #"Tipo cambiado1"
+	lineageTag: 6df10bda-7c31-4f86-8cfa-cf0faa72dbfa
+	queryGroup: Movimientos
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression Años =
+		let
+		    Origen = #"Movimientos Origen",
+		    #"Otras columnas quitadas" = Table.SelectColumns(Origen,{"FECHA"}),
+		    #"Año extraído" = Table.TransformColumns(#"Otras columnas quitadas",{{"FECHA", Date.Year, Int64.Type}}),
+		    #"Duplicados quitados" = Table.Distinct(#"Año extraído"),
+		    #"Personalizada agregada" = Table.AddColumn(#"Duplicados quitados", "Personalizado", each "*"),
+		    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Personalizada agregada",{{"Personalizado", "*"}})
+		in
+		    #"Columnas con nombre cambiado"
+	lineageTag: b608a801-da5d-4734-af75-03e171a22723
+	queryGroup: Movimientos
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression Meses =
+		let
+		    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45Wcs1LLcpXitWJVnJLTSqCsX0Ti6ogLMekoswcqFglRMirNC8TxsqBshzT84tLIMzg1IKSzNRcoGFgrn9ySSmM7ZdfhiTjkpkM48UCAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Mes = _t]),
+		    #"Índice agregado" = Table.AddIndexColumn(Origen, "Índice", 1, 1, Int64.Type),
+		    #"Personalizada agregada" = Table.AddColumn(#"Índice agregado", "*", each "*"),
+		    #"Tipo cambiado" = Table.TransformColumnTypes(#"Personalizada agregada",{{"Mes", type text}}),
+		    #"Consultas combinadas" = Table.NestedJoin(#"Tipo cambiado", {"*"}, Años, {"*"}, "Años", JoinKind.LeftOuter),
+		    #"Se expandió Años" = Table.ExpandTableColumn(#"Consultas combinadas", "Años", {"FECHA"}, {"Año"}),
+		    #"Consultas combinadas1" = Table.NestedJoin(#"Se expandió Años", {"Índice", "Año"}, #"Meses con Datos", {"Mes", "Año"}, "Meses con Datos", JoinKind.RightOuter),
+		    #"Se expandió Meses con Datos" = Table.ExpandTableColumn(#"Consultas combinadas1", "Meses con Datos", {"Mes", "Año"}, {"Meses con Datos.Mes", "Meses con Datos.Año"}),
+		    #"Otras columnas quitadas" = Table.SelectColumns(#"Se expandió Meses con Datos",{"Mes", "Índice", "*", "Año"}),
+		    #"Columna combinada insertada" = Table.AddColumn(#"Otras columnas quitadas", "FECHA", each Text.Combine({"01/", Text.From([Índice], "es-ES"), "/", Text.From([Año], "es-ES")}), type text),
+		    #"Tipo cambiado1" = Table.TransformColumnTypes(#"Columna combinada insertada",{{"FECHA", type date}}),
+		    #"Filas ordenadas" = Table.Sort(#"Tipo cambiado1",{{"Año", Order.Ascending}})
+		in
+		    #"Filas ordenadas"
+	lineageTag: bcb08a50-39a7-4e62-8cdd-7ea8d37bb2ae
+	queryGroup: Movimientos
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression 'Meses con Datos' =
+		let
+		    Origen = #"Movimientos Origen",
+		    #"Otras columnas quitadas" = Table.SelectColumns(Origen,{"FECHA"}),
+		    #"Mes insertado" = Table.AddColumn(#"Otras columnas quitadas", "Mes", each Date.Month([FECHA]), Int64.Type),
+		    #"Año insertado" = Table.AddColumn(#"Mes insertado", "Año", each Date.Year([FECHA]), Int64.Type),
+		    #"Filas ordenadas1" = Table.Sort(#"Año insertado",{{"Año", Order.Ascending}}),
+		    #"Columnas quitadas1" = Table.RemoveColumns(#"Filas ordenadas1",{"FECHA"}),
+		    #"Duplicados quitados" = Table.Distinct(#"Columnas quitadas1"),
+		    #"Filas ordenadas" = Table.Sort(#"Duplicados quitados",{{"Año", Order.Ascending}})
+		in
+		    #"Filas ordenadas"
+	lineageTag: 55f7a003-e362-4407-93a1-840c3d1b305b
+	queryGroup: Movimientos
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression 'Pagos Especie - Origen' =
+		let
+		    Origen = Especie,
+		    #"Columnas quitadas" = Table.RemoveColumns(Origen,{"CLASIFICACION COBRO"}),
+		    #"[Columna] Cantidad" = Table.AddColumn(#"Columnas quitadas", "Cantidad (€)", each [#"IMPORTE (€)"], type number),
+		    #"Valor reemplazado" = Table.ReplaceValue(#"[Columna] Cantidad",each [#"IMPORTE (€)"], each [#"IMPORTE (€)"] * -1,Replacer.ReplaceValue,{"IMPORTE (€)"}),
+		    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Valor reemplazado",{{"CLASIFICACION PAGO", "CLASIFICACIÓN"}})
+		in
+		    #"Columnas con nombre cambiado"
+	lineageTag: ba794d35-a267-47a1-bbed-6997ebcfb890
+	queryGroup: Movimientos
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression 'Cobros Especie - Origen' =
+		let
+		    Origen = Especie,
+		    #"Columnas quitadas" = Table.RemoveColumns(Origen,{"CLASIFICACION PAGO"}),
+		    #"Columna duplicada" = Table.AddColumn(#"Columnas quitadas", "Cantidad (€)", each [#"IMPORTE (€)"], type any),
+		    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Columna duplicada",{{"CLASIFICACION COBRO", "CLASIFICACIÓN"}}),
+		    #"Filas ordenadas" = Table.Sort(#"Columnas con nombre cambiado",{{"Año", Order.Ascending}})
+		in
+		    #"Filas ordenadas"
+	lineageTag: 4172a8a8-adb9-4f9e-ace5-82abb153fe48
+	queryGroup: Movimientos
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression 'Tipo Pago Especie' =
+		let
+		    Origen = #"Pagos Especie - Origen",
+		    #"Otras columnas quitadas" = Table.SelectColumns(Origen,{"CLASIFICACIÓN", "CATEGORÍA"}),
+		    #"Duplicados quitados" = Table.Distinct(#"Otras columnas quitadas"),
+		    #"Columna duplicada" = Table.DuplicateColumn(#"Duplicados quitados", "CATEGORÍA", "SUBCATEGORÍA"),
+		    #"Columna duplicada1" = Table.DuplicateColumn(#"Columna duplicada", "SUBCATEGORÍA", "DESCRIPCIÓN"),
+		    #"Personalizada agregada1" = Table.AddColumn(#"Columna duplicada1", "TIPO", each "Gasto")
+		in
+		    #"Personalizada agregada1"
+	lineageTag: ee3edbea-59a5-438e-84ce-dc06896643b6
+	queryGroup: Movimientos
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression 'Tipo Cobro Especie' =
+		let
+		    Origen = #"Cobros Especie - Origen",
+		    #"Otras columnas quitadas" = Table.SelectColumns(Origen,{"CLASIFICACIÓN", "CATEGORÍA"}),
+		    #"Duplicados quitados" = Table.Distinct(#"Otras columnas quitadas"),
+		    #"Columna duplicada" = Table.DuplicateColumn(#"Duplicados quitados", "CATEGORÍA", "SUBCATEGORÍA"),
+		    #"Columna duplicada1" = Table.DuplicateColumn(#"Columna duplicada", "SUBCATEGORÍA", "DESCRIPCIÓN"),
+		    #"Personalizada agregada1" = Table.AddColumn(#"Columna duplicada1", "TIPO", each "Ingreso")
+		in
+		    #"Personalizada agregada1"
+	lineageTag: 96992fc9-0882-4bef-9aca-518d20b4a236
+	queryGroup: Movimientos
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression 'Pagos Especie' =
+		let
+		    Origen = #"Pagos Especie - Origen",
+		    #"Consultas combinadas" = Table.NestedJoin(Origen, {"CLASIFICACIÓN", "CATEGORÍA"}, #"Tipo Movimiento", {"CLASIFICACIÓN", "CATEGORÍA"}, "Tipo Movimiento", JoinKind.LeftOuter),
+		    #"Se expandió Tipo Movimiento" = Table.ExpandTableColumn(#"Consultas combinadas", "Tipo Movimiento", {"Índice"}, {"Tipo Movimiento.Índice"}),
+		    #"Otras columnas quitadas" = Table.SelectColumns(#"Se expandió Tipo Movimiento",{"IMPORTE (€)", "Cantidad (€)", "Tipo Movimiento.Índice", "FECHA"}),
+		    #"Columnas reordenadas" = Table.ReorderColumns(#"Otras columnas quitadas",{"FECHA", "IMPORTE (€)", "Cantidad (€)", "Tipo Movimiento.Índice"}),
+		    #"Tipo cambiado" = Table.TransformColumnTypes(#"Columnas reordenadas",{{"IMPORTE (€)", Currency.Type}, {"Cantidad (€)", Currency.Type}})
+		in
+		    #"Tipo cambiado"
+	lineageTag: 68238d80-9f94-44d8-96ab-5b669201d1a8
+	queryGroup: Movimientos
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression 'Cobros Especie' =
+		let
+		    Origen = #"Cobros Especie - Origen",
+		    #"Consultas combinadas" = Table.NestedJoin(Origen, {"CLASIFICACIÓN", "CATEGORÍA"}, #"Tipo Movimiento", {"CLASIFICACIÓN", "CATEGORÍA"}, "Tipo Movimiento", JoinKind.LeftOuter),
+		    #"Se expandió Tipo Movimiento" = Table.ExpandTableColumn(#"Consultas combinadas", "Tipo Movimiento", {"Índice"}, {"Tipo Movimiento.Índice"}),
+		    #"Otras columnas quitadas" = Table.SelectColumns(#"Se expandió Tipo Movimiento",{"IMPORTE (€)", "Cantidad (€)", "Tipo Movimiento.Índice", "FECHA"}),
+		    #"Columnas reordenadas" = Table.ReorderColumns(#"Otras columnas quitadas",{"FECHA", "IMPORTE (€)", "Cantidad (€)", "Tipo Movimiento.Índice"}),
+		    #"Tipo cambiado" = Table.TransformColumnTypes(#"Columnas reordenadas",{{"IMPORTE (€)", Currency.Type}, {"Cantidad (€)", Currency.Type}})
+		in
+		    #"Tipo cambiado"
+	lineageTag: 99f11e60-4bff-4cbb-b8f6-501d7955d0b6
+	queryGroup: Movimientos
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression 'Movimientos Origen' =
+		let
+		    Origen = #"Origen Data File",
+		    T_Movimientos_Table = Origen{[Item="T_Movimientos",Kind="Table"]}[Data],
+		    #"[Column][Add] Test" = if Table.HasColumns(T_Movimientos_Table, "Test") then T_Movimientos_Table else Table.AddColumn(T_Movimientos_Table, "Test", each "Producción")
+		in
+		    #"[Column][Add] Test"
+	lineageTag: d278a3d9-9f0c-400a-933c-08efa0a36b69
+	queryGroup: Movimientos
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression CalcularFIFO = ```
+		(acumulador as record, ticker as text, cantVenta as number, precioVenta as number) as record =>
+		let
+		    // Obtener el stock actual para el ticker, o una lista vacía si no existe
+		    stockTickerAnterior = Record.FieldOrDefault(acumulador[Stock], ticker, {}),
+		    
+		    // Consumir el stock según FIFO
+		    consumoRealizado = ConsumoFIFO(stockTickerAnterior, cantVenta),
+		    nuevoStockTicker = consumoRealizado[StockRestante],
+		
+		    // Actualizar el stock en el acumulador
+		    // Aquí reemplazamos o añadimos el ticker utilizando Record.Combine
+		    nuevoStock = Record.Combine({ 
+		        acumulador[Stock], 
+		        Record.FromList({ nuevoStockTicker }, { ticker }) 
+		    }),
+		
+		    // Calcular el costo total de la venta y la ganancia
+		    costoTotalVenta  = consumoRealizado[CostoAcumulado],
+		    gananciaVenta    = (precioVenta * cantVenta) - costoTotalVenta,
+		    gananciaAcumulada= acumulador[Ganancia] + gananciaVenta
+		in
+		    [
+		        Stock    = nuevoStock, 
+		        Ganancia = gananciaAcumulada
+		    ]
+		```
+	lineageTag: b9870c52-bffc-40ad-be25-a10da4a5e187
+	queryGroup: IRPF
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Function
+
+expression ConsumoFIFO = ```
+		let
+		    Origen = (listaStock as list, cantidadRestante as number) as record =>
+		        if cantidadRestante = 0 or List.IsEmpty(listaStock) then
+		            [ StockRestante = listaStock, CostoAcumulado = 0 ]
+		        else
+		            let
+		                primerLote = List.First(listaStock),
+		                loteCantidad = primerLote[Cantidad],
+		                lotePrecio   = primerLote[Precio],
+		                resultado =
+		                    if loteCantidad <= cantidadRestante then
+		                        let
+		                            // Consumir todo el lote y continuar
+		                            siguiente         = @ConsumoFIFO(List.Skip(listaStock, 1), cantidadRestante - loteCantidad),
+		                            costoLote         = loteCantidad * lotePrecio,
+		                            costoAcumulado    = costoLote + siguiente[CostoAcumulado]
+		                        in
+		                            [ 
+		                                StockRestante   = siguiente[StockRestante],
+		                                CostoAcumulado = costoAcumulado
+		                            ]
+		                    else
+		                        let
+		                            // Consumir parte del lote y actualizar el lote
+		                            nuevoPrimerLote   = [ Cantidad = loteCantidad - cantidadRestante, Precio = lotePrecio ],
+		                            costoParcial      = cantidadRestante * lotePrecio,
+		                            stockRestante     = List.Combine({ { nuevoPrimerLote }, List.Skip(listaStock, 1) })
+		                        in
+		                            [ 
+		                                StockRestante   = stockRestante,
+		                                CostoAcumulado = costoParcial
+		                            ]
+		            in
+		                resultado
+		in
+		    Origen
+		```
+	lineageTag: 353c8b9e-bc7a-41c4-b99c-0e09b803869c
+	queryGroup: IRPF
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Function
+
+expression Pruebas = ```
+		// Suponiendo que tienes una tabla llamada Transacciones
+		let
+		    // Paso 1: Definir la tabla de transacciones
+		    Transacciones = Table.FromRecords({
+		        [Acción="DE", Tipo="Compra", Cantidad=1000, Precio=100],
+		        [Acción="DE", Tipo="Compra", Cantidad=500, Precio=125],
+		        [Acción="DE", Tipo="Venta", Cantidad=750, Precio=150],
+		        [Acción="DE", Tipo="Compra", Cantidad=400, Precio=140],
+		        [Acción="DE", Tipo="Venta", Cantidad=1000, Precio=200],
+		        [Acción="AAPL", Tipo="Compra", Cantidad=300, Precio=250],
+		        [Acción="AAPL", Tipo="Venta", Cantidad=150, Precio=300]
+		    }),
+		    #"Multiplicación insertada" = Table.AddColumn(Transacciones, "Multiplicación", each [Cantidad] * [Precio], type number),
+		    
+		    // Paso 2: Agregar una columna de índice para mantener el orden
+		    TransaccionesConIndice = Table.AddIndexColumn(#"Multiplicación insertada", "Índice", 1, 1, Int64.Type),
+		    
+		    // Paso 3: Definir la función CalcularFIFO
+		    CalcularFIFO = (acumulador as record, ticker as text, cantVenta as number, precioVenta as number) as record =>
+		    let
+		        // Obtener el stock actual para el ticker, o una lista vacía si no existe
+		        stockTickerAnterior = Record.FieldOrDefault(acumulador[Stock], ticker, {}),
+		        
+		        // Función recursiva para consumir el stock según FIFO
+		        ConsumoFIFO = (listaStock as list, cantidadRestante as number) as record =>
+		            if cantidadRestante = 0 or List.IsEmpty(listaStock) then
+		                [ StockRestante = listaStock, CostoAcumulado = 0 ]
+		            else
+		                let
+		                    primerLote = List.First(listaStock),
+		                    loteCantidad = primerLote[Cantidad],
+		                    lotePrecio   = primerLote[Precio],
+		                    resultado =
+		                        if loteCantidad <= cantidadRestante then
+		                            let
+		                                siguiente         = @ConsumoFIFO(List.Skip(listaStock, 1), cantidadRestante - loteCantidad),
+		                                costoLote         = loteCantidad * lotePrecio,
+		                                costoAcumulado    = costoLote + siguiente[CostoAcumulado]
+		                            in
+		                                [ 
+		                                    StockRestante   = siguiente[StockRestante],
+		                                    CostoAcumulado = costoAcumulado
+		                                ]
+		                        else
+		                            let
+		                                nuevoPrimerLote   = [ Cantidad = loteCantidad - cantidadRestante, Precio = lotePrecio ],
+		                                costoParcial      = cantidadRestante * lotePrecio,
+		                                stockRestante     = List.Combine({ { nuevoPrimerLote }, List.Skip(listaStock, 1) })
+		                            in
+		                                [ 
+		                                    StockRestante   = stockRestante,
+		                                    CostoAcumulado = costoParcial
+		                                ]
+		                in
+		                    resultado,
+		        
+		        // Consumir el stock según FIFO
+		        consumoRealizado = ConsumoFIFO(stockTickerAnterior, cantVenta),
+		        nuevoStockTicker = consumoRealizado[StockRestante],
+		        
+		        // Actualizar el stock en el acumulador usando Record.Combine
+		        nuevoStock = Record.Combine({ 
+		            acumulador[Stock], 
+		            Record.FromList({ nuevoStockTicker }, { ticker }) 
+		        }),
+		        
+		        // Calcular el costo total de la venta y la ganancia
+		        costoTotalVenta  = consumoRealizado[CostoAcumulado],
+		        gananciaVenta    = (precioVenta * cantVenta) - costoTotalVenta,
+		        gananciaAcumulada= acumulador[Ganancia] + gananciaVenta
+		    in
+		        [
+		            Stock    = nuevoStock, 
+		            Ganancia = gananciaAcumulada
+		        ],
+		    
+		    // Paso 4: Procesar las transacciones con List.Accumulate
+		    Resultado = List.Accumulate(
+		        Table.ToRecords(TransaccionesConIndice),
+		        [ Stock = [], Ganancia = 0, GananciasPorVenta = {} ],
+		        (acumulador, transaccion) =>
+		            let
+		                tipo = transaccion[Tipo],
+		                ticker = transaccion[Acción],
+		                cant = transaccion[Cantidad],
+		                precio = transaccion[Precio],
+		                // Verificar si es una compra o venta
+		                nuevoEstado =
+		                    if tipo = "Compra" then
+		                        // Agregar al stock del ticker correspondiente
+		                        let
+		                            stockActual = Record.FieldOrDefault(acumulador[Stock], ticker, {}),
+		                            nuevoStock = List.Combine({ stockActual, { [ Cantidad = cant, Precio = precio ] } }),
+		                            // Usar Record.Combine para agregar o actualizar el ticker
+		                            stockActualizado = Record.Combine({ 
+		                                acumulador[Stock], 
+		                                Record.FromList({ nuevoStock }, { ticker }) 
+		                            }),
+		                            // No hay ganancia en una compra
+		                            gananciaPorVenta = List.Combine({ acumulador[GananciasPorVenta], { null } })
+		                        in
+		                            [
+		                                Stock = stockActualizado,
+		                                Ganancia = acumulador[Ganancia],
+		                                GananciasPorVenta = gananciaPorVenta
+		                            ]
+		                    else
+		                        // Procesar la venta con FIFO
+		                        let
+		                            resultadoFIFO = CalcularFIFO(acumulador, ticker, cant, precio),
+		                            // Calcular la ganancia de esta venta
+		                            gananciaActual = resultadoFIFO[Ganancia] - acumulador[Ganancia],
+		                            // Añadir la ganancia de esta venta a la lista
+		                            gananciaPorVenta = List.Combine({ acumulador[GananciasPorVenta], { gananciaActual } })
+		                        in
+		                            [
+		                                Stock = resultadoFIFO[Stock],
+		                                Ganancia = resultadoFIFO[Ganancia],
+		                                GananciasPorVenta = gananciaPorVenta
+		                            ]
+		            in
+		                nuevoEstado
+		    ),
+		    
+		    // Paso 5: Añadir la columna de Ganancias a la tabla original
+		    // Primero, crear una lista de ganancias por fila
+		    ListaGanancias = Resultado[GananciasPorVenta],
+		    
+		    // Agregar la lista como una nueva columna a la tabla original
+		    TransaccionesConGanancia = Table.AddColumn(
+		    TransaccionesConIndice,
+		    "Ganancia",
+		    each List.Skip(ListaGanancias, [Índice] - 1){0}
+		)
+		in
+		    TransaccionesConGanancia
+		```
+	lineageTag: 6c27150f-0f49-4ac9-9908-8520cd364d50
+	queryGroup: Pruebas
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression 'Path (Prod)' = "H:/Gastos-Ingresos.xlsx" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+	lineageTag: ed311670-0039-42b3-8c51-44f01d93b7f5
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Text
+
+expression 'Path (Test)' = "https://github.com/imoremu/financeBI/raw/refs/heads/main/data/test/data.xlsx" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+	lineageTag: f737d9c4-c6ff-4d17-87cb-57bd2af5ee83
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Text
+
+expression 'Transacciones Agrupadas' =
+		let
+		    Origen = Transacciones,
+		    #"Filas filtradas" = Table.SelectRows(Origen, each (List.Contains({"Compra","Venta"}, [Tipo Transacción]))),
+		    #"Filas ordenadas" = Table.Sort(#"Filas filtradas",{{"ID", Order.Descending}}),
+		    Buffer = Table.Buffer(#"Filas ordenadas"),
+		    #"Otras columnas quitadas" = Table.SelectColumns(Buffer,{"Fecha", "Producto", "Precio Participación", "Importe", "Participaciones Acumuladas"}),
+		    #"Duplicados quitados" = Table.Distinct(#"Otras columnas quitadas", {"Fecha", "Producto"}),
+		    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Duplicados quitados",{{"Participaciones Acumuladas", "Participaciones"}, {"Precio Participación", "Valor liquidativo"}}),
+		    #"Personalizada agregada" = Table.AddColumn(#"Columnas con nombre cambiado", "Saldo", each [Participaciones] * [Valor liquidativo]),
+		    #"Tipo cambiado" = Table.TransformColumnTypes(#"Personalizada agregada",{{"Saldo", type number}})
+		in
+		    #"Tipo cambiado"
+	lineageTag: 01c2a73d-f2d5-4d85-9e73-4b818a36bdfc
+	queryGroup: Saldo
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression 'Path (Dev)' = "https://github.com/imoremu/financeBI/raw/refs/heads/main/data/dev/data.xlsx" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 729f91fe-dd33-4afe-9afa-c7c19df53d2e
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Text
+
+expression 'Origen Data File' =
+		let
+		    Origen = if Text.Contains(Path, "http") then Excel.Workbook(Web.Contents(Path), null, true) else Excel.Workbook(File.Contents(Path), null, true)
+		in
+		    Origen
+	lineageTag: d912bd64-0484-42bd-be55-fe72a89c8d06
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression 'Transacciones Power Query' = ```
+		let
+		    Origen = #"Origen Data File",
+		    T_Saldo_Table = Origen{[Item="T_Transacciones",Kind="Table"]}[Data],
+		    #"[Column][Add] Test" = if Table.HasColumns(T_Saldo_Table, "Test") then T_Saldo_Table else Table.AddColumn(T_Saldo_Table, "Test", each "Producción"),
+		    #"Columnas con nombre cambiado1" = Table.RenameColumns(#"[Column][Add] Test",{{"Importe Bruto", "Importe"}}),
+		    #"[Tipos][Update]" = Table.TransformColumnTypes(#"Columnas con nombre cambiado1",{{"Producto", type text}, {"Participaciones", Currency.Type}, {"Precio Participación", Currency.Type}, {"Importe", Currency.Type}, {"Fecha", type date}, {"Comisión", Currency.Type}, {"Retenido", Currency.Type}, {"Cuenta Producto", type text}, {"Año IRPF", Int64.Type}, {"Tipo Transacción", type text}, {"Producto Contraparte", type text}, {"Cuenta Contraparte", type text}, {"Precio (Moneda Transacción)", Currency.Type}, {"Cambio", Currency.Type}, {"Importe Bruto (Moneda Transacción)", Currency.Type}, {"Retenido (Moneda Transacción)", Currency.Type}, {"Comisión (Moneda Transacción)", Currency.Type}, {"Detalle", type text}, {"Hora", type time}, {"Test", type text}}),
+		    #"[Column][Add] Fecha/Hora" = Table.AddColumn(#"[Tipos][Update]", "Fecha/Hora", each Date.ToText([Fecha], "yyyy-MM-dd") & " " & Time.ToText(if [Hora] = null then #time(0,0,0) else [Hora], "HH:mm:ss")),
+		    #"Tipo cambiado" = Table.TransformColumnTypes(#"[Column][Add] Fecha/Hora",{{"Fecha/Hora", type datetime}}),
+		    #"Transaccion Espejo" = Table.RenameColumns(
+		        #"Tipo cambiado",
+		        {
+		            {"Producto", "Producto Contraparte"},  // Renombramos "Producto" temporalmente
+		            {"Producto Contraparte", "Producto"},  // Renombramos "Producto Contraparte" a "Producto"
+		            {"Cuenta Producto", "Cuenta Contraparte"},  // Renombramos "Cuenta Producto" temporalmente
+		            {"Cuenta Contraparte", "Cuenta Producto"}  // Renombramos "Cuenta Contraparte" a "Cuenta Producto"
+		        }),
+		    #"[Update] Importe Con comisión" = Table.AddColumn(#"Transaccion Espejo", "Importe Con Comisión", each [Importe] + [Comisión]),
+		    #"[Update] Eliminado Importe Antiguo" = Table.RemoveColumns(#"[Update] Importe Con comisión",{"Importe"}),
+		    #"[Update] Importe Nuevo" = Table.RenameColumns(#"[Update] Eliminado Importe Antiguo",{{"Importe Con Comisión", "Importe"}}),
+		    #"[Filtro] Eliminar dividendos de Espejo" = Table.SelectRows(#"[Update] Importe Nuevo", each ([Tipo Transacción] <> "Dividendos")),
+		    
+		    #"[Limpiar] Transacción Espejo" = Table.TransformColumns(
+		    #"[Filtro] Eliminar dividendos de Espejo",
+		    {
+		        {"Tipo Transacción", each if _ = "Compra" then "Venta" else "Compra"},  // Invertir Compra/Venta,
+		        {"Importe", each _ * -1},
+		        {"Participaciones", each null},  
+		        {"Precio Participación", each null}, 
+		        {"Precio (Moneda Transacción)", each null},  
+		        {"Retenido", each null},
+		        {"Retenido (Moneda Transacción)", each null},
+		        {"Año IRPF", each null},
+		        {"Comisión", each null},
+		        {"Comisión (Moneda Transacción)", each null}
+		    }
+		),
+		    #"[Anexion] Espejo" = Table.Combine({#"Tipo cambiado", #"[Limpiar] Transacción Espejo"}),
+		    #"Duplicados quitados" = Table.Distinct(#"[Anexion] Espejo", {"Producto", "Fecha", "Hora", "Producto Contraparte", "Importe"}),
+		    #"[Update] Comision - Null to 0" = Table.ReplaceValue(#"Duplicados quitados",null,0,Replacer.ReplaceValue,{"Comisión"}),
+		    #"[Columna][Add] Total" = Table.AddColumn(#"[Update] Comision - Null to 0", "Total Bruto", each [Importe] + [Comisión], type number),
+		    #"[Columna][Add] Año IRPF Fijado" = Table.AddColumn(#"[Columna][Add] Total", "Año IRPF Fijado", each if [Año IRPF] = null then false else true, type logical),
+		    #"[Modify] Año IRPF" = Table.ReplaceValue(#"[Columna][Add] Año IRPF Fijado",null, each if [Tipo Transacción] = "Compra" then null else List.Max({Date.Year([Fecha]), Date.Year(DateTime.LocalNow()) - 1}),Replacer.ReplaceValue,{"Año IRPF"}),
+		    #"[Tipo] Año a Integer" = Table.TransformColumnTypes(#"[Modify] Año IRPF",{{"Año IRPF", Int64.Type}}),
+		    #"Filas ordenadas" = Table.Sort(#"[Tipo] Año a Integer",{{"Producto", Order.Ascending},{"Fecha", Order.Ascending}}),
+		    Buffer = Table.Buffer(#"Filas ordenadas"),
+		    #"Índice agregado" = Table.AddIndexColumn(Buffer, "ID", 1, 1, Int64.Type),
+		    ListaRegistros = Table.ToRecords(#"Índice agregado"),
+		    ListaAcumulada =
+		        List.Accumulate(
+		            ListaRegistros,
+		            // Estado inicial
+		            [
+		                ParticipacionesAcum = 0,
+		                PrecioMedio = 0,
+		                ProductoActual = "",
+		                RegistrosResultado = {}
+		            ],
+		            // Función de acumulación
+		            (estadoAnterior, registroActual) =>
+		            let                
+		                tipo = registroActual[Tipo Transacción],
+		                anteriorProducto = estadoAnterior[ProductoActual],
+		                actualProducto = registroActual[Producto],
+		                anteriorPart = if actualProducto <> anteriorProducto then 0 else estadoAnterior[ParticipacionesAcum],
+		                actualPart = registroActual[Participaciones],
+		                anteriorPrecio = if actualProducto <> anteriorProducto then 0 else estadoAnterior[PrecioMedio],                
+		                actualCoste = registroActual[Total Bruto],
+		                
+		                
+		                // Calculamos los nuevos valores según la transacción actual
+		                nuevasPart = if List.Contains({"Compra", "Venta"},tipo) then anteriorPart + registroActual[Participaciones] else anteriorPart,
+		                nuevoPrecioMedio = if tipo = "Compra" then ((anteriorPart * anteriorPrecio) + actualCoste) / nuevasPart else anteriorPrecio,                
+		
+		                // Generamos un registro que incluye datos originales y los acumulados
+		                registroExtendido = Record.Combine(
+		                    {
+		                        registroActual,
+		                        [
+		                            ParticipacionesAcum = nuevasPart,
+		                            PrecioMedio = nuevoPrecioMedio                     
+		                        ]
+		                    }
+		                ),
+		                // Anexamos ese registro al historial
+		                estadoSiguiente = [
+		                    ParticipacionesAcum = nuevasPart,
+		                    PrecioMedio = nuevoPrecioMedio,
+		                    ProductoActual = actualProducto,
+		                    RegistrosResultado = estadoAnterior[RegistrosResultado] & { registroExtendido }
+		                ]
+		            in
+		                estadoSiguiente
+		        ),
+		
+		    // Extraer la lista final de registros "extendidos"
+		    ResultadoRegistros = ListaAcumulada[RegistrosResultado],
+		
+		    // Convertir de nuevo a tabla
+		    TablaResultado = Table.FromRecords(ResultadoRegistros),
+		    #"[Tipos][Update] Refresh" = Table.TransformColumnTypes(TablaResultado,{{"Fecha", type date}, {"Producto", type text}, {"Cuenta Producto", type text}, {"Tipo Transacción", type text}, {"Participaciones", Currency.Type}, {"Precio Participación", Currency.Type}, {"Total Bruto", type number}, {"Retenido", Currency.Type}, {"Año IRPF", Int64.Type}, {"Comisión", Currency.Type}, {"Año IRPF Fijado", type logical}, {"ParticipacionesAcum", type number}, {"PrecioMedio", type number}, {"Importe", Currency.Type}, {"Producto Contraparte", type text}, {"Cuenta Contraparte", type text}, {"ID", Int64.Type}, {"Comisión (Moneda Transacción)", Currency.Type}, {"Retenido (Moneda Transacción)", Currency.Type}, {"Importe Bruto (Moneda Transacción)", Currency.Type}, {"Cambio", Currency.Type}, {"Precio (Moneda Transacción)", Currency.Type}, {"Hora", type time}, {"Test", type text}, {"Fecha/Hora", type datetime}}),
+		    #"Columnas con nombre cambiado" = Table.RenameColumns(#"[Tipos][Update] Refresh",{{"ParticipacionesAcum", "Participaciones Acumuladas"}, {"PrecioMedio", "Precio Medio Hasta Transacción"}}),
+		    #"[Columna][Add] Renta Obtenida" = Table.AddColumn(#"Columnas con nombre cambiado", "Renta Bruta Obtenida", each if List.Contains({"Compra","Venta"},[Tipo Transacción]) then -1*[Total Bruto] else [Total Bruto], type number)
+		in
+		    #"[Columna][Add] Renta Obtenida"
+		```
+	lineageTag: 25d977a7-b997-48ee-9509-628ffded1735
+	queryGroup: Saldo
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression 'Path (Temp)' = "https://github.com/imoremu/financeBI/raw/refs/heads/imoremu/issue6/data/dev/data.xlsx" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+	lineageTag: 608f19f2-6fbd-4238-8655-3b8afcd2f9a1
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Text
+

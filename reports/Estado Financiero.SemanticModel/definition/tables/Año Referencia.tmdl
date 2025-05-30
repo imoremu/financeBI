@@ -1,0 +1,26 @@
+table 'Año Referencia'
+	lineageTag: f4913a55-8049-44ba-a3dc-dc5a7f69a427
+
+	measure 'Valor Año Referencia' = SELECTEDVALUE('Año Referencia'[Año Referencia], 2020)
+		formatString: 0
+		lineageTag: b32f0955-93c0-4a10-89da-6fc1feb86cf4
+
+	column 'Año Referencia'
+		formatString: 0
+		lineageTag: 06ce6efd-1360-4da8-8e40-445839639b60
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+	partition 'Año Referencia-622cac0f-a92d-4c65-81c7-0525196ca02b' = calculated
+		mode: import
+		source = GENERATESERIES(2005, 2030, 1)
+
+	annotation PBI_Id = 10c52e0b5c144b689f298889175a9205
+

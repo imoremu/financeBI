@@ -1,0 +1,102 @@
+table Calendario
+	lineageTag: 587011a5-84bf-4545-a193-39fd0de29998
+	dataCategory: Time
+
+	column Date
+		isKey
+		formatString: Short Date
+		lineageTag: 0cdf2679-76e3-47e3-9a0e-8ad0f0abf8ad
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mes / Año'
+		formatString: 0
+		lineageTag: 41682a5d-f986-404e-890a-e824ef7a7b45
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Mes / Año]
+
+		annotation SummarizationSetBy = User
+
+	column Año
+		formatString: 0
+		lineageTag: 8eea9fc2-3b80-4ee4-9f81-2fd79a80bb17
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Año]
+
+		annotation SummarizationSetBy = User
+
+	column Mes
+		lineageTag: 8f3a5477-2ad6-408a-9b6d-5ff56ab459e8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Mes]
+		sortByColumn: 'Mes (Num.)'
+
+		annotation SummarizationSetBy = User
+
+	column Día
+		formatString: 0
+		lineageTag: f35f3a2c-a6de-46f4-974f-dc066a65b0d5
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Día]
+
+		annotation SummarizationSetBy = User
+
+	column FinDeMes =
+			
+			IF(
+			    'Calendario'[Date] = EOMONTH('Calendario'[Date], 0) || Calendario[Date] = MAX(Calendario[Date]),
+			    1,
+			    0
+			)
+		formatString: 0
+		lineageTag: 209ce894-8b63-47c0-a7f1-cc480309c462
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mes (Num.)'
+		formatString: 0
+		lineageTag: 5ea1c5c3-d568-487f-ad91-0763c8a59cb9
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Mes (Num.)]
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Date Jerarquía'
+		lineageTag: b6367a7f-cc53-4e49-9183-65993507b3c0
+
+		level Año
+			lineageTag: 5e8d41d0-e83c-4c9a-9c89-eb3b765a243a
+			column: Año
+
+		level Mes
+			lineageTag: 36c8a340-b3e1-415b-ba34-444a58d99276
+			column: Mes
+
+		level Día
+			lineageTag: e419d57d-1ac2-4cfc-8a9a-19c191aa1209
+			column: Día
+
+	partition Calendario-9bab029b-1aa5-4764-a97c-b35e816b1e04 = calculated
+		mode: import
+		source =
+				
+				ADDCOLUMNS(
+				   CALENDAR(MIN(MIN(MIN(Saldo[Fecha]),MIN(Transacciones[Fecha])),MIN(Movimientos[FECHA])),MAX(MAX(MAX(Saldo[Fecha]),MAX(Transacciones[Fecha])),MAX(Movimientos[FECHA])))
+				    , "Mes / Año" , YEAR([Date]) *100 + MONTH([Date])
+				    , "Año", YEAR([Date])
+				    , "Mes", FORMAT([Date],"MMMM")
+				    , "Mes (Num.)", MONTH([Date])
+				    , "Día", DAY([Date])
+				)
+
+	annotation PBI_Id = dcf825e785e74503a96df2b72bd48657
+

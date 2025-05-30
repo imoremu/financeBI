@@ -3,7 +3,6 @@
   "datasetReference": {
     "byPath": {
       "path": "../Estado Financiero.SemanticModel"
-    },
-    "byConnection": null
+    }
   }
 }

@@ -1,0 +1,532 @@
+table 'Medidas Saldo'
+	lineageTag: d5a0786a-7d7e-410d-9408-bba78857846b
+
+	measure 'Saldo Último' = ```
+			
+			
+			CALCULATE(
+			    SUMX(
+			        VALUES(Productos[Producto]),
+			        VAR UltimaFechaSaldoParaEsteProd = CALCULATE(MAX(Saldo[Fecha]), NOT(ISBLANK(Saldo[Saldo])))
+			
+			        RETURN
+			            CALCULATE(
+			                    SUM(Saldo[Saldo]),       
+			                    Saldo[Fecha] = UltimaFechaSaldoParaEsteProd            
+			            )
+			            +
+			            CALCULATE(
+			                    SUM(Transacciones[Total Bruto]),       
+			                    Transacciones[Fecha] > UltimaFechaSaldoParaEsteProd            
+			            )
+			    )
+			    , Calendario[Date] <= MAX(Calendario[Date])
+			)
+			```
+		displayFolder: Saldo
+		lineageTag: a39857b5-e2b6-4745-9850-1058b0c0f5f6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Saldo Inversiones' =
+			
+			CALCULATE(
+			    [Saldo Último]
+			    , FILTER(Productos, CONTAINSSTRING(Productos[Tipo], "Renta"))
+			)
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		displayFolder: Saldo
+		lineageTag: 71727381-c02e-47cb-98b6-5a234aaf57e4
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	measure 'Incremeto Saldo Desde Referencia (%)' =
+			
+			CALCULATE(
+			    'Medidas Saldo'[Incremento % Periodo]
+			    , FILTER(
+			        Calendario
+			        ,Calendario[Año] >= [Valor Año Referencia]
+			    )
+			)
+		formatString: 0
+		displayFolder: Beneficio
+		lineageTag: 39070c3a-9918-450e-8b08-b04019cccc19
+
+	measure 'Inversión Realizada Inicio' = ```
+			
+			
+			SUMX(
+			    VALUES(Productos[Producto])
+			    , CALCULATE(        
+			        [Ingresos Inversion]
+			        , 
+			        Calendario[Date] < MIN(Calendario[Date])
+			    )
+			)
+			```
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		displayFolder: Inversión
+		lineageTag: 991ca7f4-4927-4132-9d17-ce854a1e5cf1
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	measure 'Beneficio Periodo' =
+			
+			
+			[Beneficio Inversión] + [Dividendos Netos]
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		displayFolder: Beneficio
+		lineageTag: 9e7830f5-83ce-449d-8c56-3caea8888d31
+
+	measure 'Incremento Normalizado Saldo Periodo (%)' =
+			
+			DIVIDE([Beneficio Periodo],[Capital Invertido Medio],0)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		displayFolder: Beneficio
+		lineageTag: 3b69a7c0-385d-48d7-bffc-d4e6174fdc67
+
+	measure 'Ingresos Inversion' = ```
+			
+			    CALCULATE(
+			        [Ingresos Relevantes Entre Fechas (Sin Saldo de Inicio)]
+			        , KEEPFILTERS(CONTAINSSTRING(Productos[Tipo], "Renta"))
+			    )
+			```
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		displayFolder: Inversión
+		lineageTag: a0796263-e776-40da-810e-9a2ec6b48e19
+
+	measure 'Capital Invertido Medio' = ```
+			
+			
+			VAR capital_inicial = [Saldo Fecha Inicio]
+			VAR dias_inversion = [Días Inversion]
+			
+			RETURN
+			SUMX(
+			    VALUES(Saldo[Fecha])
+			    ,
+			    VAR fecha_actual = CALCULATE(SELECTEDVALUE(Saldo[Fecha]))
+			    VAR fecha_posterior = 
+			        COALESCE(
+			            CALCULATE(
+			                MIN(Saldo[Fecha]), Saldo[Fecha] > fecha_actual
+			            )
+			        , MIN(MAX(Calendario[Date]), TODAY())
+			        )
+			
+			    RETURN 
+			
+			       DIVIDE(
+			        DATEDIFF(fecha_actual, fecha_posterior, DAY) 
+			        *
+			        (CALCULATE(           
+			            [Ingresos Relevantes Entre Fechas (Sin Saldo de Inicio)]
+			            , KEEPFILTERS(Calendario[Date] <= fecha_actual)
+			            , Saldo[Fecha] <= fecha_actual
+			        )
+			        +
+			        capital_inicial)
+			        , dias_inversion
+			       )
+			)
+			```
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		displayFolder: Inversión
+		lineageTag: 8b55bfd6-0bb6-4178-8516-2c70dc67bc35
+
+	measure 'Tiempo Inversión(Meses)' = MAXX(VALUES(Productos[Producto]), DISTINCTCOUNT(Saldo[Mes / Año]))
+		formatString: 0
+		displayFolder: Inversión
+		lineageTag: 85d4c53f-3931-46b2-89df-2ff90e9382d4
+
+	measure 'Incremento Normalizado Anual (%)' =
+			
+			VAR Base      = 1 + [Incremento Normalizado Saldo Periodo (%)]
+			VAR Exponente = DIVIDE(
+			                    1,
+			                    ([Tiempo Inversión(Meses)] / 12),
+			                    0
+			                )
+			RETURN
+			    IF(
+			        OR(
+			            Base <= 0,           -- Evita raíz de números negativos o cero
+			            Exponente <= 0       -- Evita exponente cero/negativo
+			        ),
+			        BLANK(),                -- O el valor alternativo que prefieras
+			        POWER(Base, Exponente) - 1
+			    )
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		displayFolder: Beneficio
+		lineageTag: 64abfa5d-68a7-472d-a819-ac2f04eb3172
+
+	measure 'Saldo Mes Anterior' =
+			
+			CLOSINGBALANCEMONTH(SUM(Saldo[Saldo]), PARALLELPERIOD(Saldo[Fecha], -1, MONTH), ALL(Calendario))
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		displayFolder: Saldo
+		lineageTag: 761bee12-a2cc-4758-a067-a9ae4b3c6ab7
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Saldo Año Anterior' =
+			
+			CLOSINGBALANCEYEAR(SUM(Saldo[Saldo]), PARALLELPERIOD(Saldo[Fecha], -1, YEAR), ALL(Calendario))
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		displayFolder: Saldo
+		lineageTag: ad4fce47-f6de-4494-a9be-3eb81478ea57
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	measure 'Incremento Saldo Periodo' = [Saldo Último] - [Saldo Fecha Inicio]
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		displayFolder: Beneficio
+		lineageTag: ed294a56-6b4a-4e40-8955-134eb22448b7
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	measure 'Gastos no Computados Periodo' =
+			
+			CALCULATE(
+			    [Incremento Saldo Periodo] - [Beneficio Inversión] - [Movimientos Totales Periodo]
+			    , REMOVEFILTERS('Tipo Movimiento')
+			)
+		displayFolder: Gastos
+		lineageTag: 7179a8be-9929-4647-ae17-d26b36074a74
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Saldo Fecha Inicio' = ```
+			
+			
+			CALCULATE(
+			    SUMX(
+			        VALUES(Productos[Producto]),
+			        VAR UltimaFechaSaldoParaEsteProd = CALCULATE(MAX(Saldo[Fecha]), NOT(ISBLANK(Saldo[Saldo])))
+			
+			        RETURN
+			            CALCULATE(
+			                    SUM(Saldo[Saldo]),       
+			                    Saldo[Fecha] = UltimaFechaSaldoParaEsteProd            
+			            )
+			            +
+			            CALCULATE(
+			                    SUM(Transacciones[Total Bruto]),       
+			                    Transacciones[Fecha] > UltimaFechaSaldoParaEsteProd            
+			            )
+			    )
+			    , Calendario[Date] < MIN(Calendario[Date])
+			)
+			
+			/*CALCULATE(
+			    SUMX(
+			        CALCULATETABLE(
+			            VALUES(Saldo[Producto])
+			            , REMOVEFILTERS(Calendario)
+			        )
+			        ,
+			        VAR Prod = Saldo[Producto]
+			        VAR UltimaFechaParaEsteProd =
+			            CALCULATE(
+			                MAX(Saldo[Fecha]),
+			                Calendario[Date] < MIN(Calendario[Date])
+			            )
+			
+			        RETURN 
+			            CALCULATE(
+			                SUM(Saldo[Saldo]),            
+			                ALL(Saldo),
+			                Saldo[Producto] = Prod,
+			                Saldo[Fecha] = UltimaFechaParaEsteProd            
+			            )
+			    )
+			)*/
+			```
+		displayFolder: Saldo
+		lineageTag: a63ea999-5957-4646-ac5b-90819685d678
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Fecha Inicial' = MIN(Saldo[Fecha])
+		formatString: Short Date
+		lineageTag: 4c15a658-8363-445e-9dc0-7d900cf289c0
+
+	measure 'Ingresos Relevantes Entre Fechas (Sin Saldo de Inicio)' = ```
+			
+			
+			    CALCULATE(
+			        SUM('Transacciones'[Total Bruto])
+			        , Transacciones[Tipo Transacción] IN {"Compra","Venta","Traspaso"}
+			    )
+			```
+		displayFolder: Inversión
+		lineageTag: 06e766eb-4804-4b20-8707-473b7cdc7a6c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Inversion Total Realizada' = [Inversión Realizada Inicio] + [Ingresos Relevantes Entre Fechas (Sin Saldo de Inicio)]
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		displayFolder: Inversión
+		lineageTag: 6641769b-fee3-4f19-96c0-b94a8338b925
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	measure 'Primer Saldo Seleccion' = ```
+			
+			
+			CALCULATE (
+			    CALCULATE(
+			        [Saldo Último]
+			        ,
+			        Calendario[Date] <= MIN(Saldo[Fecha])
+			    ) 
+			    , ALLSELECTED(Calendario[Date])
+			)
+			```
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		displayFolder: Saldo
+		lineageTag: a3493487-9cb3-4010-b392-c6996417cd4b
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	measure 'Beneficio Hasta Fecha' = ```
+			
+			
+			VAR fecha_actual = SELECTEDVALUE(Calendario[Date])
+			
+			RETURN 
+			CALCULATE(
+			    [Beneficio Periodo],
+			    Calendario[Date] <= fecha_actual,
+			    ALLSELECTED(Calendario)
+			)
+			    
+			```
+		displayFolder: Beneficio
+		lineageTag: 09038fab-5a9f-49e2-8577-4f042c2c4d7f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Incremento Normalizado Hasta la Fecha' = ```
+			
+			
+			VAR fecha_actual = MAX(Calendario[Date])
+			
+			RETURN 
+			CALCULATE(
+			   CALCULATE(
+			        [Incremento Normalizado Saldo Periodo (%)]
+			        , KEEPFILTERS(Calendario[Date] <= fecha_actual)
+			    )
+			    , ALLSELECTED(Calendario)
+			)
+			    
+			```
+		displayFolder: Beneficio
+		lineageTag: f3ba3cb7-208e-47d0-b62b-616e98ea5672
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Saldo Esperado Sin Beneficios' = [Saldo Mes Anterior] + [Ingresos Inversion]
+		displayFolder: Saldo
+		lineageTag: 6b181c5d-622e-4789-aff1-5841a5918035
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% Sobre esperado' =
+			
+			IF([Ingresos Inversion] = 0, BLANK(), ABS((SUM(Saldo[Saldo]) - [Saldo Mes Anterior]) / [Ingresos Inversion]))
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		displayFolder: Saldo
+		lineageTag: 8fe86df5-e0e2-4461-af39-90b5759b2bdd
+
+	measure 'Dividendos Netos' = [Dividendos Bruto]*(1-[Tipo IRPF Anual])
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		displayFolder: Inversión
+		lineageTag: 8c6f3656-cf65-44f3-85c6-8d000bb44e47
+
+	measure 'Beneficio Inversión' = ```
+			
+			CALCULATE( 
+			    [Saldo Último] - [Ingresos Inversion] - [Saldo Fecha Inicio] 
+			    , KEEPFILTERS(CONTAINSSTRING(Productos[Tipo], "Renta"))
+			)
+			```
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		displayFolder: Beneficio
+		lineageTag: 56ea0509-eec2-4483-9b9a-dd3dc5420fb9
+
+	measure 'Participaciones Actuales' =
+			
+			
+			VAR ultima_fecha = MAX ( Calendario[Date] )
+			
+			RETURN
+			IF (
+			    ISFILTERED ( Productos[Producto] ),
+			    ROUND (
+			        CALCULATE (
+			            SUM ( Transacciones[Participaciones] ),
+			            Transacciones[Tipo Transacción] <> "Dividendos",
+			            Calendario[Date] <= ultima_fecha
+			        ),
+			        3
+			    )
+			)
+		formatString: #,0.00
+		displayFolder: Saldo
+		lineageTag: 42d391dd-ae26-42fc-823a-bcf679760487
+
+	measure 'Valor Liquidativo Actual' = ```
+			
+			IF(
+			    HASONEVALUE(Transacciones[Producto]) && [Participaciones Actuales] > 0.001, 
+			    DIVIDE([Saldo Último],[Participaciones Actuales],BLANK())
+			)
+			```
+		displayFolder: Saldo
+		lineageTag: 12189525-96a3-4024-9dfc-e646c56ed343
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Valor Liq. Compra' = ```
+			
+			
+			IF(
+			    HASONEVALUE(Productos[Producto]) && [Participaciones Actuales] > 0.001, 
+			    DIVIDE([Inversion Total Realizada], [Participaciones Actuales])
+			)
+			```
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		displayFolder: Saldo
+		lineageTag: 4fba88dd-13ca-46a0-b1c0-1a9738f2e5c4
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	measure 'Valor Liq. Compra Transaccion' =
+			
+			SUMX(
+			    CALCULATETABLE(VALUES('Transacciones'[ID]), ALLEXCEPT('Transacciones', Productos)), CALCULATE([Valor Liq. Compra], Calendario[Date] <= SELECTEDVALUE('Transacciones'[Fecha])))
+		displayFolder: Inversión
+		lineageTag: ce2867f4-5590-4b39-aebe-b5be07c9c2e4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure SV = MINX(VALUES(Calendario[Date]), CALCULATE([Min Date](Calendario[Date]), Calendario[Date] <= SELECTEDVALUE('Transacciones'[Fecha])))
+		formatString: General Date
+		displayFolder: Inversión
+		lineageTag: 65295c28-ab55-4d9e-9f1b-50ebce2cbbef
+
+	measure 'Dividendos Bruto' = SUM(Dividendos[Total Bruto])
+		displayFolder: Inversión
+		lineageTag: 7fffd7a0-0481-4b1a-b92e-e36310649278
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Valor Liquidativo Normalizado Compra Periodo' =
+			
+			
+			// Representa el valor liquidativo medio normalizado de compra de las acciones durante el período
+			// Para calcularlo, se usa el valor actual y el incremento normalizado durante el período
+			// Esto nos lleva a tener en cuenta no solo las compras realizadas, sino cuanto tiempo llevamos invertidos con cada uno de las inversiones realizadas
+			DIVIDE([Valor Liquidativo Actual], (1 + [Incremento Normalizado Saldo Periodo (%)]))
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		displayFolder: Saldo
+		lineageTag: 09390001-c412-4c58-b427-f6be554eec85
+
+	measure 'Días Inversion' = DATEDIFF(MIN(Saldo[Fecha]),MAX(Saldo[Fecha]),DAY)
+		formatString: 0
+		displayFolder: Inversión
+		lineageTag: 92557d77-fa48-4bd0-bc27-06b0b0508207
+
+	measure 'Participaciones Acumuladas' = ```
+			
+			
+			VAR ultima_fecha = MAX ( Transacciones[Fecha])
+			
+			RETURN
+			IF (
+			    HASONEVALUE ( Transacciones[Producto] ),
+			    ROUND (
+			        CALCULATE (
+			            SUM ( Transacciones[Participaciones] ),
+			            REMOVEFILTERS ( Transacciones ),
+			            FILTER (
+			                ALL ( Transacciones ),
+			                Transacciones[Tipo Transacción] <> "Dividendos"
+			                    && Transacciones[Producto] IN VALUES ( Transacciones[Producto] )
+			                    && Transacciones[Fecha] <= ultima_fecha
+			            )
+			        ),
+			        3
+			    )
+			)
+			
+			```
+		formatString: #,0.00
+		displayFolder: Saldo
+		lineageTag: 3ee8e587-8667-4318-aadc-6d41644e629a
+
+	measure 'Incremento % Periodo' = DIVIDE([Incremento Saldo Periodo], [Saldo Fecha Inicio])
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		displayFolder: Beneficio
+		lineageTag: c8aaff31-7dba-45cf-b78b-9fa583e7fb88
+
+	measure 'Movimientos Totales Periodo' = SUM(Movimientos[IMPORTE (€)])
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		displayFolder: Saldo
+		lineageTag: 3f8cc06e-462b-4dc7-94ac-1ef6fde8f585
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	measure 'Beneficio Acumulado' = ```
+			
+			
+			VAR fecha_actual = SELECTEDVALUE(Calendario[Date])
+			VAR fecha_inicial = CALCULATE(MIN(Calendario[Date]), ALLSELECTED(Calendario[Date]))
+			
+			RETURN
+			CALCULATE(
+			    SUMX(
+			        VALUES(Saldo[Producto]), 
+			        VAR FechaUltima =
+			            CALCULATE (
+			                LASTNONBLANK(Saldo[Fecha], SUM(Saldo[Beneficio Acumulado]))
+			            )
+			        
+			        RETURN
+			            CALCULATE (
+			                MAX(Saldo[Beneficio Acumulado]),
+			                Saldo[Fecha] = FechaUltima
+			            )
+			    )
+			    , Calendario[Date] <= fecha_actual
+			)
+			
+			```
+		displayFolder: Beneficio
+		lineageTag: a0d1e788-b548-4cae-9443-bcc70e28feef
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Beneficio Acumulado - Valor Máximo'
+		displayFolder: Beneficio
+		lineageTag: d9afb1f0-8629-4ef4-b747-28578e0853f9
+
+	partition 'Medidas Saldo-33aeef08-3cdc-4fa0-95f6-080e8879d97f' = m
+		mode: import
+		queryGroup: Saldo
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Columna1 = _t]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"Columna1", type text}}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Tipo cambiado",{"Columna1"})
+				in
+				    #"Columnas quitadas"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

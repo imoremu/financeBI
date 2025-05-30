@@ -1,0 +1,162 @@
+table Saldo
+	lineageTag: ead767c0-2b14-4c09-a56f-681fb4332782
+
+	column Fecha
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1ec5e515-964d-4d8f-affd-638428f188d7
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Saldo
+		dataType: double
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: d49d5297-16fb-41eb-8b56-a0e3fed60451
+		summarizeBy: sum
+		sourceColumn: Saldo
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Saldo Mes / Año' = MONTH(Saldo[Fecha]) & "-" & YEAR(Saldo[Fecha])
+		lineageTag: 1b19ff95-91c8-47cc-ac64-f29ad1952f06
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Año
+		dataType: int64
+		formatString: 0
+		lineageTag: 36174405-fe32-460a-84eb-e5d0409104be
+		summarizeBy: sum
+		sourceColumn: Año
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mes / Año'
+		dataType: int64
+		formatString: 0
+		lineageTag: cd967406-667c-4b58-b922-0aec37656178
+		summarizeBy: sum
+		sourceColumn: Mes / Año
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Valor liquidativo'
+		dataType: decimal
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: 96f79b53-1c49-4143-812f-5645a3625f70
+		summarizeBy: none
+		sourceColumn: Valor liquidativo
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	column Participaciones
+		dataType: double
+		lineageTag: 694f704d-7a5a-4a7e-92d9-b4950f52b3c3
+		summarizeBy: sum
+		sourceColumn: Participaciones
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Producto
+		dataType: string
+		lineageTag: 67c082d9-6928-48b1-9c52-8e010a2f28ba
+		summarizeBy: none
+		sourceColumn: Producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column Importe
+		dataType: decimal
+		lineageTag: 9f3125ac-2f24-4852-b31f-2131b59074f4
+		summarizeBy: sum
+		sourceColumn: Importe
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Beneficio Acumulado' = [Beneficio Hasta Fecha]
+		lineageTag: ddf79f79-8ac3-40e0-9951-4b326865030d
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Valor liquidativo (Moneda Extranjera)'
+		dataType: double
+		lineageTag: 7b0b18b9-99f9-49f4-873c-acdd5ccea043
+		summarizeBy: sum
+		sourceColumn: Valor liquidativo (Moneda Extranjera)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Cambio
+		dataType: double
+		lineageTag: 5c6d83b6-8f57-42dd-afcf-c8adc12901dc
+		summarizeBy: sum
+		sourceColumn: Cambio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Detalle
+		dataType: string
+		lineageTag: c0b47d24-a148-4d57-845b-cc82671b812a
+		summarizeBy: none
+		sourceColumn: Detalle
+
+		annotation SummarizationSetBy = Automatic
+
+	column Test
+		dataType: string
+		isHidden
+		lineageTag: 91f3a4c0-a337-4bd2-9215-e8dfc326cae0
+		summarizeBy: none
+		sourceColumn: Test
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Saldo-7024361d-f96d-4192-a9ca-f02665bac21a = m
+		mode: import
+		queryGroup: Saldo
+		source = ```
+				let
+				    Origen = #"Origen Data File",
+				    T_Saldo_Table = Origen{[Item="T_Saldo",Kind="Table"]}[Data],
+				    #"[Column][Add] Test" = if Table.HasColumns(T_Saldo_Table, "Test") then T_Saldo_Table else Table.AddColumn(T_Saldo_Table, "Test", each "Producción"),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"[Column][Add] Test",{{"Fecha", type date}, {"Producto", type text}, {"Saldo", Currency.Type}, {"Participaciones", type number}, {"Valor liquidativo", Currency.Type}, {"Detalle", type text}, {"Valor liquidativo (Moneda Extranjera)", type number}, {"Cambio", type number}, {"Test", type text}}),
+				    #"Consulta anexada" = Table.Combine({#"Tipo cambiado", #"Transacciones Agrupadas"}),
+				    // Remove rows without Cash Balance. 
+				    // These rows are those transactions without cash information because we don't have sotcks and price.
+				    // The cash balance is calculated then in a measure as Last Cash Balance + all transactions value
+				    #"Filas filtradas" = Table.SelectRows(#"Consulta anexada", each [Saldo] <> null and [Saldo] <> ""),
+				    #"[Remove] Duplicados Fecha / Producto" = Table.Distinct(#"Filas filtradas", {"Fecha", "Producto"}),
+				    #"Año insertado" = Table.AddColumn(#"[Remove] Duplicados Fecha / Producto", "Año", each Date.Year([Fecha]), Int64.Type),
+				    #"Agregar columna personalizada" = Table.AddColumn(#"Año insertado", "Mes / Año", each Date.Year([Fecha]) * 100 + Date.Month([Fecha]), Int64.Type),
+				    #"[Order] Fecha" = Table.Sort(#"Agregar columna personalizada",{{"Fecha", Order.Ascending}}),
+				    Buffer = Table.Buffer(#"[Order] Fecha")
+				in
+				    Buffer
+				```
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navegación
+

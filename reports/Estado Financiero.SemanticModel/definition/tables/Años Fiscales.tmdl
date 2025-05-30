@@ -1,0 +1,18 @@
+table 'Años Fiscales'
+	lineageTag: bdca8db4-4a09-4b1b-afb2-e18d359bbc3f
+
+	column Año
+		formatString: 0
+		lineageTag: 575b102f-886d-4a42-9d3a-ae4c1624dfbd
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: IRPF Ahorro[Año]
+
+		annotation SummarizationSetBy = User
+
+	partition 'Años Fiscales' = calculated
+		mode: import
+		source = VALUES('IRPF Ahorro'[Año])
+
+	annotation PBI_Id = f74170c1ada245ad8c8af3a0fbc0acc0
+

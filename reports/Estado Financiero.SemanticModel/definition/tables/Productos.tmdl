@@ -1,0 +1,64 @@
+table Productos
+	lineageTag: 2223fd4a-620e-4df7-821d-57b4570c079a
+
+	column Producto
+		dataType: string
+		lineageTag: cb72cc39-4d34-41f7-89fc-186303c90419
+		summarizeBy: none
+		sourceColumn: Producto
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tipo
+		dataType: string
+		lineageTag: 2c6e60ec-3117-4573-a585-645c823f1525
+		summarizeBy: none
+		sourceColumn: Tipo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subtipo
+		dataType: string
+		lineageTag: f6f732fb-ddc6-4a9d-96b4-4fdcef0d66f6
+		summarizeBy: none
+		sourceColumn: Subtipo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Tipo Producto'
+		lineageTag: 49f49e0a-9cd4-4160-8509-85ca634d0c56
+
+		level Tipo
+			lineageTag: 17fea27c-a04f-4b55-a215-6759a0b5b7d3
+			column: Tipo
+
+		level Subtipo
+			lineageTag: eeb5d34a-4fe3-48a2-a497-c7c6de3a1a67
+			column: Subtipo
+
+	partition Productos-144bfd82-24df-490f-bcd4-fe2beeb5a294 = m
+		mode: import
+		queryGroup: Saldo
+		source =
+				let
+				    Origen = #"Origen Data File",
+				    T_Saldo_Table = Origen{[Item="T_Elementos",Kind="Table"]}[Data],
+				    #"Tipo cambiado" = Table.TransformColumnTypes(T_Saldo_Table,{{"Producto", type text}, {"Tipo", type text}, {"Subtipo", type text}, {"Detalle", type text}}),
+				    #"Otras columnas quitadas" = Table.SelectColumns(#"Tipo cambiado",{"Subtipo", "Tipo", "Producto"}),
+				    #"Duplicados quitados" = Table.Distinct(#"Otras columnas quitadas"),
+				    #"Columnas reordenadas" = Table.ReorderColumns(#"Duplicados quitados",{"Producto", "Tipo", "Subtipo"})
+				in
+				    #"Columnas reordenadas"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

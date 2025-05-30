@@ -1,0 +1,60 @@
+model Model
+	culture: es-ES
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: es-ES
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+queryGroup Movimientos
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup IRPF
+
+	annotation PBI_QueryGroupOrder = 2
+
+queryGroup Pruebas
+
+	annotation PBI_QueryGroupOrder = 2
+
+queryGroup Saldo
+
+	annotation PBI_QueryGroupOrder = 3
+
+queryGroup Test
+
+	annotation PBI_QueryGroupOrder = 4
+
+annotation PBIDesktopVersion = 2.143.1204.0 (25.05)+23c84aace645781dd62b8a26eb0418c7e6a84b72
+
+annotation PBI_QueryOrder = ["Saldo","Movimientos","Productos","Tipo Movimiento","Path","Medidas Movimientos","Especie","Años","Meses","Meses con Datos","Pagos Especie - Origen","Cobros Especie - Origen","Tipo Pago Especie","Tipo Cobro Especie","Pagos Especie","Cobros Especie","Movimientos Origen","Transacciones","Transacciones Agrupadas","Dividendos","Medidas Transacciones","Medidas Saldo","IRPF Ahorro","Medidas IRPF","CalcularFIFO","ConsumoFIFO","Pruebas","Path (Prod)","Path (Test)","Path (Dev)","Origen Data File","Test Data","Transacciones Power Query","Path (Temp)"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DaxQueryView_Desktop","DevMode","CalcGroup"]
+
+ref table Saldo
+ref table Movimientos
+ref table Productos
+ref table Calendario
+ref table 'Tipo Movimiento'
+ref table 'Medidas Saldo'
+ref table 'Año Referencia'
+ref table 'Medidas Movimientos'
+ref table Dividendos
+ref table 'Medidas Transacciones'
+ref table 'IRPF Ahorro'
+ref table 'Medidas IRPF'
+ref table Transacciones
+ref table 'Años Fiscales'
+ref table 'Test Genérico'
+ref table Test
+ref table 'Test Data'
+ref table DateTableTemplate_c89e3af7-f9f4-492b-8e82-a0927b77cae5
+ref table LocalDateTable_93f1543f-944f-4988-9370-48e3eab51efc
+ref table LocalDateTable_b9da2914-fd53-4f32-b21c-39fa4c9bbfb1
+
+ref cultureInfo es-ES
+

@@ -1,0 +1,139 @@
+table 'Medidas Movimientos'
+	lineageTag: 30bd2545-c205-453b-a2f3-858bc695c399
+
+	measure 'Fecha Último Movimiento' = ```
+			
+			CALCULATE(
+			    CALCULATE(
+			        MAX(Movimientos[FECHA])
+			        , ALL(Movimientos)    
+			    )
+			    , ALL(Calendario)    
+			    , ALL('Tipo Movimiento')
+			)          
+			```
+		formatString: General Date
+		lineageTag: cac53a3a-446b-43f2-a2fe-85009b1828b6
+
+	measure 'Media Mensual Último Año (€)' = ```
+			
+			
+			CALCULATE(
+			    DIVIDE(SUM(Movimientos[IMPORTE (€)]), DISTINCTCOUNT(Movimientos[Mes / Año]))               
+			    , DATESINPERIOD(Calendario[Date], ENDOFMONTH(Calendario[Date]), -1, YEAR)
+			)   
+			```
+		formatString: 0.00
+		lineageTag: 63c97ab6-782d-4e44-a120-dfc8ee1f3f14
+
+	measure 'Media Mismo Período Otros Años' = ```
+			
+			
+			VAR yearSelected = SELECTEDVALUE(Calendario[Año])
+			VAR isNeeded = ISBLANK(yearSelected)
+			
+			RETURN 
+			
+			    IF (
+			        isNeeded
+			        , BLANK()
+			        , CALCULATE(
+			            CALCULATE(
+			                DIVIDE(SUM(Movimientos[IMPORTE (€)]), DISTINCTCOUNT(Calendario[Año]))                
+			                , KEEPFILTERS(Calendario[Año] <> yearSelected)
+			            )
+			            , ALLSELECTED(Calendario[Año])
+			        )
+			    )    
+			```
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: 06738dd3-a3e1-4ff8-bf5e-ffcd8be4ba12
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	measure 'Desviación Media Otros Años' = ```
+			
+			IF ( ISBLANK('Medidas Movimientos'[Media Mismo Período Otros Años])
+			    , BLANK()
+			    , DIVIDE(
+			        ABS(SUM(Movimientos[IMPORTE (€)]) - 'Medidas Movimientos'[Media Mismo Período Otros Años]) 
+			        , ABS('Medidas Movimientos'[Media Mismo Período Otros Años])
+			        , 0
+			    )
+			)
+			```
+		formatString: 0\ %;-0\ %;0\ %
+		lineageTag: b729ca55-7db9-40bf-ba4c-56a9e341073b
+
+	measure 'Meses Activos Ultimo Año' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(Movimientos[Mes / Año])
+			    , DATESINPERIOD(Calendario[Date], ENDOFMONTH(Calendario[Date]), -1, YEAR)
+			)
+		formatString: 0
+		lineageTag: 1395d250-1cf8-491a-97dc-5abb98ff635f
+
+	measure 'Importe Ultimo Año' =
+			
+			CALCULATE(
+			    SUM(Movimientos[IMPORTE (€)])
+			    , DATESINPERIOD(Calendario[Date], ENDOFMONTH(Calendario[Date]), -1, YEAR)
+			)
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: d93b79a1-e089-4e2b-8ad3-94d286abb4f6
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	measure 'Min Date' = MIN(Calendario[Date])
+		formatString: General Date
+		lineageTag: 2d399e19-d882-430d-8417-22a6f38102a5
+
+	measure Futuro = ```
+			
+			IF (
+			    OR(
+			        MIN(Calendario[Año]) > YEAR([Fecha Último Movimiento])
+			        , AND(
+			            MIN(Calendario[Año]) = YEAR([Fecha Último Movimiento])
+			            , MIN(Calendario[Mes (Num.)]) > MONTH([Fecha Último Movimiento])      
+			        )
+			    )
+			    , 1
+			    , 0
+			)
+			```
+		formatString: 0
+		lineageTag: a92be042-59b6-4e8c-95f7-8490b90385f9
+
+	measure 'Mes Sin Datos' = IF(AND(ISBLANK(SUM(Movimientos[IMPORTE (€)])),ISBLANK([Media Mismo Período Otros Años])),1,0)
+		formatString: 0
+		lineageTag: b6775187-8c2a-480d-990d-e4844ab973ae
+
+	measure 'Ingresos Tras Impuestos' = CALCULATE(SUM(Movimientos[IMPORTE (€)]), 'Tipo Movimiento'[CLASIFICACIÓN Ingresos - Gastos] = "Ingresos Tras Impuestos")
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: ad460d72-265c-45df-b4e9-de506b958ef7
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	measure 'Gastos (Sin Impuestos)' = CALCULATE(SUM(Movimientos[IMPORTE (€)]), 'Tipo Movimiento'[CLASIFICACIÓN Ingresos - Gastos] = "Gastos (Sin Impuestos)")
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: 99781220-40b6-4b38-adae-b05b9c7aba8e
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	partition 'Medidas Movimientos-35e0bd82-4484-4b77-b9be-901ffda1a2f1' = m
+		mode: import
+		queryGroup: Movimientos
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Columna1 = _t]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"Columna1", type text}}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Tipo cambiado",{"Columna1"})
+				in
+				    #"Columnas quitadas"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

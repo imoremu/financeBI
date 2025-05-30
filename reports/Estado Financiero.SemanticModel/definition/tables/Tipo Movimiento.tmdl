@@ -1,0 +1,112 @@
+table 'Tipo Movimiento'
+	lineageTag: 79a691e9-e5d7-43f9-a51f-2164edd3cd31
+
+	column CLASIFICACIÓN
+		dataType: string
+		lineageTag: c9f7abbf-aa1d-4f24-b8d4-c072e9a04221
+		summarizeBy: none
+		sourceColumn: CLASIFICACIÓN
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation __PBI_SemanticLinks = [{"LinkTarget":{"TableName":"Tipo Movimiento","TableItemName":"CLASIFICACIÓN Ingresos - Gastos","ObjectType":4},"LinkType":"UsedInGroup"}]
+
+	column CATEGORÍA
+		dataType: string
+		lineageTag: f28acb2b-5cf5-4180-b679-2b6098b5fe81
+		summarizeBy: none
+		sourceColumn: CATEGORÍA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUBCATEGORÍA
+		dataType: string
+		lineageTag: b023c00d-c9ee-49dd-8d62-4bfaddcc8b41
+		summarizeBy: none
+		sourceColumn: SUBCATEGORÍA
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCRIPCIÓN
+		dataType: string
+		lineageTag: fcf50715-a9dd-4b68-bfd7-5d93a99a9152
+		summarizeBy: none
+		sourceColumn: DESCRIPCIÓN
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO
+		dataType: string
+		lineageTag: dfbdd520-588a-4700-8fdf-0b61322a9383
+		summarizeBy: none
+		sourceColumn: TIPO
+
+		annotation SummarizationSetBy = Automatic
+
+	column Índice
+		dataType: int64
+		formatString: 0
+		lineageTag: e1446add-6aa3-4ca6-840f-9857a726cd94
+		summarizeBy: none
+		sourceColumn: Índice
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CLASIFICACIÓN Ingresos - Gastos' =
+			SWITCH(
+				TRUE,
+				ISBLANK('Tipo Movimiento'[CLASIFICACIÓN]),
+				"(En blanco)",
+				'Tipo Movimiento'[CLASIFICACIÓN] IN {"Hacienda",
+					"Iván",
+					"Rebeca"},
+				"Ingresos Tras Impuestos",
+				"Gastos (Sin Impuestos)"
+			)
+		lineageTag: 6afe50ef-0f96-44e5-9b4e-8054bff29ec7
+		summarizeBy: none
+
+		extendedProperty GroupingMetadata =
+				{
+				  "groupedColumns": [
+				    {
+				      "Column": {
+				        "Expression": {
+				          "SourceRef": {
+				            "Entity": "Tipo Movimiento"
+				          }
+				        },
+				        "Property": "CLASIFICACIÓN"
+				      }
+				    }
+				  ],
+				  "version": 0
+				}
+
+		changedProperty = IsHidden
+
+		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"t","Entity":"Tipo Movimiento"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"CLASIFICACIÓN"}}],"GroupItems":[{"DisplayName":"(En blanco)","BlankDefaultPlaceholder":true},{"DisplayName":"Ingresos Tras Impuestos","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"CLASIFICACIÓN"}}],"Values":[[{"Literal":{"Value":"'Hacienda'"}}],[{"Literal":{"Value":"'Iván'"}}],[{"Literal":{"Value":"'Rebeca'"}}]]}}},{"DisplayName":"Gastos (Sin Impuestos)"}]}
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Tipo Movimiento-4ba2f255-fce4-476e-ab7d-9bdc82fa9906' = m
+		mode: import
+		queryGroup: Movimientos
+		source =
+				let
+				    Origen = #"Origen Data File",
+				    T_Movimientos_Table = Origen{[Item="T_Movimientos",Kind="Table"]}[Data],
+				    #"Tipo cambiado" = Table.TransformColumnTypes(T_Movimientos_Table,{{"FECHA", type date}, {"CLASIFICACIÓN", type text}, {"IMPORTE (€)", Currency.Type}, {"CATEGORÍA", type text}, {"SUBCATEGORÍA", type text}, {"DESCRIPCIÓN", type text}}),
+				    #"Filas filtradas" = Table.SelectRows(#"Tipo cambiado", each ([#"IMPORTE (€)"] <> 0)),
+				    #"Otras columnas quitadas" = Table.SelectColumns(#"Filas filtradas",{"CLASIFICACIÓN", "CATEGORÍA", "SUBCATEGORÍA", "DESCRIPCIÓN", "TIPO"}),
+				    #"Duplicados quitados" = Table.Distinct(#"Otras columnas quitadas"),
+				    #"Consulta anexada" = Table.Combine({#"Duplicados quitados", #"Tipo Pago Especie", #"Tipo Cobro Especie"}),
+				    #"Índice agregado" = Table.AddIndexColumn(#"Consulta anexada", "Índice", 0, 1, Int64.Type),
+				    #"Columnas reordenadas" = Table.ReorderColumns(#"Índice agregado",{"Índice", "CLASIFICACIÓN", "CATEGORÍA", "SUBCATEGORÍA", "DESCRIPCIÓN", "TIPO"})
+				in
+				    #"Columnas reordenadas"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

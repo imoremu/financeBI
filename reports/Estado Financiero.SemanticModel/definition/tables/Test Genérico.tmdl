@@ -1,0 +1,130 @@
+/// Test Saldo / Inversiones básico.
+/// 
+/// Contexto prueba: Febrero 2000 
+table 'Test Genérico'
+	lineageTag: 6752251f-d3de-4780-aa6e-ba71f6a8d2f1
+
+	calculationGroup
+
+		calculationItem Actual = ```
+				
+				
+				CALCULATE(
+				    SELECTEDMEASURE(),
+				    KEEPFILTERS(
+				        IF(
+				            ISBLANK(SELECTEDVALUE('Test Data'[mes])),
+				            TRUE(),
+				            Calendario[Mes (Num.)] = VALUE(SELECTEDVALUE('Test Data'[mes]))
+				        )
+				    ),
+				    KEEPFILTERS(
+				        IF(
+				            ISBLANK(SELECTEDVALUE('Test Data'[año])),
+				            TRUE(),
+				            Calendario[Año] = VALUE(SELECTEDVALUE('Test Data'[año]))
+				        )
+				    ),
+				    KEEPFILTERS(
+				        IF(
+				            ISBLANK(SELECTEDVALUE('Test Data'[año IRPF])),
+				            TRUE(),
+				            'Años Fiscales'[Año] = VALUE(SELECTEDVALUE('Test Data'[año IRPF]))
+				        )
+				    )
+				)
+				
+				/*CALCULATE(
+				    SELECTEDMEASURE()
+				    , KEEPFILTERS(
+				        FILTER(Calendario, 
+				            IF(
+				                ISBLANK(SELECTEDVALUE('Test Data'[mes])), TRUE(), Calendario[Mes (Num.)] = VALUE(SELECTEDVALUE('Test Data'[mes]))
+				            )
+				            &&             
+				            IF(
+				                ISBLANK(SELECTEDVALUE('Test Data'[año])), TRUE(), Calendario[Año] = VALUE(SELECTEDVALUE('Test Data'[año]))
+				            )
+				        )
+				    ) 
+				    , KEEPFILTERS(
+				        FILTER('Años Fiscales', 
+				            IF(
+				                ISBLANK(SELECTEDVALUE('Test Data'[año IRPF])), TRUE(), TRUE() // 'Años Fiscales'[Año] = VALUE(SELECTEDVALUE('Test Data'[año IRPF]))
+				            )
+				        )
+				    )
+				)*/
+				```
+
+			formatStringDefinition = "#,##0.####"
+
+		calculationItem Esperado = ```
+				
+				
+				IF(
+				    SELECTEDMEASURENAME() = "Test - Número Errores", 
+				    CALCULATE(SELECTEDMEASURE(), REMOVEFILTERS('Test Genérico'), 'Test Genérico'[Test Genérico] = "Error"), 
+				    IFERROR(VALUE(SELECTEDVALUE('Test Data'[Valor Esperado])), SELECTEDVALUE('Test Data'[Valor Esperado]))
+				)
+				```
+
+			formatStringDefinition = "#,##0.####"
+
+		calculationItem Error = ```
+				
+				
+				VAR actual = 
+				CALCULATE(
+				    SELECTEDMEASURE(),
+				    KEEPFILTERS(
+				        IF(
+				            ISBLANK(SELECTEDVALUE('Test Data'[mes])),
+				            TRUE(),
+				            Calendario[Mes (Num.)] = VALUE(SELECTEDVALUE('Test Data'[mes]))
+				        )
+				    ),
+				    KEEPFILTERS(
+				        IF(
+				            ISBLANK(SELECTEDVALUE('Test Data'[año])),
+				            TRUE(),
+				            Calendario[Año] = VALUE(SELECTEDVALUE('Test Data'[año]))
+				        )
+				    ),
+				    KEEPFILTERS(
+				        IF(
+				            ISBLANK(SELECTEDVALUE('Test Data'[año IRPF])),
+				            TRUE(),
+				            'Años Fiscales'[Año] = VALUE(SELECTEDVALUE('Test Data'[año IRPF]))
+				        )
+				    )
+				)
+				
+				VAR esperado = IFERROR(VALUE(SELECTEDVALUE('Test Data'[Valor Esperado])), SELECTEDVALUE('Test Data'[Valor Esperado]))
+				
+				RETURN 
+				IF (
+				    OR(actual = esperado , AND(ISBLANK(actual), ISBLANK(esperado)))
+				    ,0
+				    ,1
+				)
+				```
+
+	column 'Test Genérico'
+		dataType: string
+		lineageTag: c6df3cd6-0c31-4c66-9d25-ba416b937e0b
+		summarizeBy: none
+		sourceColumn: Name
+		sortByColumn: Ordinal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ordinal
+		dataType: int64
+		formatString: 0
+		lineageTag: 57efed6d-0d1c-4c7e-abe4-56b49cf6b7a0
+		summarizeBy: sum
+		sourceColumn: Ordinal
+
+		annotation SummarizationSetBy = Automatic
+

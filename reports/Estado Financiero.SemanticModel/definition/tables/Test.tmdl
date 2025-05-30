@@ -1,0 +1,63 @@
+table Test
+	lineageTag: 21f1dadb-4d7a-4526-b93d-83e230fcb845
+
+	measure 'Test - Medida Seleccionada' = ```
+			
+			
+			SWITCH(
+			    SELECTEDVALUE('Test Data'[Medida])
+			    , "Saldo Fecha Inicio", [Saldo Fecha Inicio]
+			    , "Saldo Último", [Saldo Último]
+			    , "Gastos no Computados Periodo", [Gastos no Computados Periodo]
+			    , "Beneficio Inversión", [Beneficio Inversión]
+			    , "Beneficio IRPF", [Beneficio IRPF]
+			    , "Movimientos Totales Periodo", [Movimientos Totales Periodo]
+			    , "Beneficio Bruto Total Periodo", [Beneficio Bruto Total Periodo]
+			    , "IRPF Anual", [IRPF Anual]   
+			    , "Tipo IRPF Anual", [Tipo IRPF Anual]
+			    , "Ingresos Inversión", [Ingresos Inversion]
+			    , "CONFIGURAR MEDIDA"
+			)
+			
+			```
+		formatString: 0.00
+		lineageTag: fd9278ab-02ea-4140-9799-f46f3b6af606
+
+	measure 'Test - Número Errores' = ```
+			
+			
+			SUMX(
+			    SUMMARIZE('Test Data', 'Test Data'[Medida],'Test Data'[Prueba]), 
+			    CALCULATE(
+			        [Test - Medida Seleccionada]
+			        , 'Test Genérico'[Test Genérico] = "Error"
+			    )
+			)
+			```
+		formatString: 0
+		lineageTag: 897aa625-ca38-44b6-9c3a-38cbf0a8d2d7
+
+	measure 'Test - Passed Rate' = DIVIDE(COUNTROWS('Test Data') - Test[Test - Número Errores], COUNTROWS('Test Data'))
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: d152038e-7dfc-4454-ba5f-ab06f4376394
+
+	measure 'Texto - Errores' = FORMAT(Test[Test - Número Errores], "#,0") & "/" & FORMAT(COUNTROWS('Test Data'),"#,0")
+		lineageTag: 2cacabf8-fd7b-4fbd-a63e-2deaa18eb84a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Value
+		isHidden
+		lineageTag: 4424ad8e-526d-4d32-9602-573283ca39a1
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Test = calculated
+		mode: import
+		source = {""}
+
+	annotation PBI_Id = 8da5445724bc4ea5aed1d160fc5f002a
+
