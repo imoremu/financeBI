@@ -48,18 +48,15 @@ table Dividendos
 		annotation SummarizationSetBy = Automatic
 
 	column Retenido
-		dataType: double
-		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		dataType: string
 		lineageTag: 180a1777-6806-403d-ba4a-e9686b349eea
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: Retenido
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
-
 	column 'Año IRPF'
-		dataType: int64
+		dataType: double
 		formatString: 0
 		lineageTag: 4d223b0a-23c6-45c0-8c4b-904a821f9493
 		summarizeBy: sum
@@ -184,15 +181,12 @@ table Dividendos
 		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
 
 	column 'Retenido (Moneda Transacción)'
-		dataType: double
-		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		dataType: string
 		lineageTag: a99e4420-efc5-411a-bd3c-d12747451349
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: Retenido (Moneda Transacción)
 
 		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
 
 	column 'Comisión (Moneda Transacción)'
 		dataType: double
@@ -259,28 +253,6 @@ table Dividendos
 
 		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
 
-	column 'IRPF - Ganancia / Pérdida Imputable'
-		dataType: double
-		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
-		lineageTag: a37df76f-f6d6-40e1-8995-5d7a9d5dbe18
-		summarizeBy: sum
-		sourceColumn: IRPF - Ganancia / Pérdida Imputable
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
-
-	column 'IRPF - Ajuste Diferido'
-		dataType: double
-		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
-		lineageTag: 4534ac08-05c3-4cbd-b691-5d59f76e8a74
-		summarizeBy: sum
-		sourceColumn: IRPF - Ajuste Diferido
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
-
 	column Fecha/Hora
 		dataType: dateTime
 		formatString: General Date
@@ -303,45 +275,35 @@ table Dividendos
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'PyG realizadas'
-		dataType: string
-		lineageTag: 34c73e89-1343-4d7b-add5-2b0844dd2fcc
-		summarizeBy: none
-		sourceColumn: PyG realizadas
+	column 'Rendimientos Capital Mobiliario'
+		dataType: double
+		lineageTag: 68181120-4211-4ecf-b000-ae92f591cb65
+		summarizeBy: sum
+		sourceColumn: Rendimientos Capital Mobiliario
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'ID Divisa'
-		dataType: string
-		lineageTag: 4b181a78-e874-4276-a331-9ef8752f20e7
-		summarizeBy: none
-		sourceColumn: ID Divisa
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Ganancias / Pérdidas Patrimoniales (GPP)'
+		dataType: double
+		lineageTag: 0e3dcdee-8e8f-4654-a835-80e1e93311ab
+		summarizeBy: sum
+		sourceColumn: Ganancias / Pérdidas Patrimoniales (GPP)
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'ID Transacción'
-		dataType: string
-		lineageTag: a3415b5e-293b-4070-b5b1-095ed315485e
-		summarizeBy: none
-		sourceColumn: ID Transacción
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'GPP - Ajuste por Pérdida Diferida'
+		dataType: double
+		lineageTag: 4a15ebec-07db-455b-891f-1d72c4395734
+		summarizeBy: sum
+		sourceColumn: GPP - Ajuste por Pérdida Diferida
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Check No contempladas'
-		dataType: string
-		lineageTag: 087afcee-dcd1-4c7b-be86-78de0185f003
-		summarizeBy: none
-		sourceColumn: Check No contempladas
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Transacciones Preclasificadas.Comisión (Moneda Transacción)'
-		dataType: string
-		lineageTag: 3a6da09f-9ae9-41b0-80d1-44ee71d8e8c2
-		summarizeBy: none
-		sourceColumn: Transacciones Preclasificadas.Comisión (Moneda Transacción)
-
-		annotation SummarizationSetBy = Automatic
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition Dividendos = m
 		mode: import

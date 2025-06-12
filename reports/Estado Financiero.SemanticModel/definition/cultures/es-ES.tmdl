@@ -596,74 +596,6 @@ cultureInfo es-ES
 			      ],
 			      "NameType": "Identifier"
 			    },
-			    "dividendo.IRPF__ajuste_diferido": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Dividendos",
-			          "ConceptualProperty": "IRPF - Ajuste Diferido"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "IRPF - ajuste diferido": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "IRPF ajuste diferido": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        }
-			      ]
-			    },
-			    "dividendo.IRPF__ganancia___pérdida_imputable": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Dividendos",
-			          "ConceptualProperty": "IRPF - Ganancia / Pérdida Imputable"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "IRPF - ganancia / pérdida imputable": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "IRPF - ganancia": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "IRPF - ganancia pérdida imputable": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "pérdida imputable": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "IRPF ganancia": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "IRPF ganancia pérdida imputable": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        }
-			      ]
-			    },
 			    "dividendo.año_IRPF": {
 			      "Definition": {
 			        "Binding": {
@@ -1468,7 +1400,7 @@ cultureInfo es-ES
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Medidas IRPF",
-			          "ConceptualProperty": "Beneficio IRPF"
+			          "ConceptualProperty": "Ganancias / Pérdidas Patrimoniales"
 			        }
 			      },
 			      "State": "Generated",
@@ -6684,74 +6616,6 @@ cultureInfo es-ES
 			        }
 			      ],
 			      "NameType": "Identifier"
-			    },
-			    "transaccione.IRPF__ajuste_diferido": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Transacciones",
-			          "ConceptualProperty": "IRPF - Ajuste Diferido"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "IRPF - ajuste diferido": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "IRPF ajuste diferido": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        }
-			      ]
-			    },
-			    "transaccione.IRPF__ganancia___pérdida_imputable": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Transacciones",
-			          "ConceptualProperty": "IRPF - Ganancia / Pérdida Imputable"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "IRPF - ganancia / pérdida imputable": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "IRPF - ganancia": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "IRPF - ganancia pérdida imputable": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "pérdida imputable": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "IRPF ganancia": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "IRPF ganancia pérdida imputable": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        }
-			      ]
 			    },
 			    "transaccione.IRPF_calculado": {
 			      "Definition": {

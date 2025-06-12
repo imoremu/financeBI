@@ -133,38 +133,6 @@ table Saldo
 
 		annotation SummarizationSetBy = Automatic
 
-	column Ingreso
-		dataType: string
-		lineageTag: 3b0f95cd-9c37-44fa-a2ad-1ed21fa5b26e
-		summarizeBy: none
-		sourceColumn: Ingreso
-
-		annotation SummarizationSetBy = Automatic
-
-	column Dividendos
-		dataType: string
-		lineageTag: 38591b3a-2e74-4a67-93fc-82e6d31f2bb8
-		summarizeBy: none
-		sourceColumn: Dividendos
-
-		annotation SummarizationSetBy = Automatic
-
-	column Divisa
-		dataType: string
-		lineageTag: 1f5c947a-0257-4cf5-b513-034188028940
-		summarizeBy: none
-		sourceColumn: Divisa
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'ID Divisa'
-		dataType: string
-		lineageTag: 9e218609-9d0f-4186-a7b8-bce51b81f9cc
-		summarizeBy: none
-		sourceColumn: ID Divisa
-
-		annotation SummarizationSetBy = Automatic
-
 	partition Saldo-7024361d-f96d-4192-a9ca-f02665bac21a = m
 		mode: import
 		queryGroup: Saldo
@@ -188,7 +156,7 @@ table Saldo
 				    Buffer
 				```
 
-	annotation PBI_ResultType = Exception
+	annotation PBI_ResultType = Table
 
 	annotation PBI_NavigationStepName = Navegación
 

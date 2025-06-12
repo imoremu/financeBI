@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "d0707eca63a5822bf212",
   "position": {
     "x": 10,
@@ -213,7 +213,7 @@
                       "Entity": "Medidas IRPF"
                     }
                   },
-                  "Property": "Beneficio IRPF"
+                  "Property": "Ganancias / Pérdidas Patrimoniales"
                 }
               },
               "queryRef": "Medidas IRPF.Beneficio IRPF",
@@ -233,6 +233,20 @@
               },
               "queryRef": "Transacciones.IRPF - Ajuste Diferido",
               "nativeQueryRef": "IRPF - Ajuste Diferido"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas IRPF"
+                    }
+                  },
+                  "Property": "IRPF Anual"
+                }
+              },
+              "queryRef": "Medidas IRPF.IRPF Anual",
+              "nativeQueryRef": "IRPF Anual"
             }
           ],
           "showAll": true
@@ -495,7 +509,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "60.24611403265081D"
+                  "Value": "58.46203830235288D"
                 }
               }
             }
@@ -509,7 +523,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "89.5668756287866D"
+                  "Value": "87.76708104967668D"
                 }
               }
             }
@@ -523,7 +537,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "67.76446234879353D"
+                  "Value": "65.96680874473131D"
                 }
               }
             }
@@ -537,7 +551,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "77.50295199959D"
+                  "Value": "72.99645171060598D"
                 }
               }
             }
@@ -551,7 +565,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "51.51285034903398D"
+                  "Value": "46.08755235504746D"
                 }
               }
             }
@@ -579,7 +593,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "73.86626027062348D"
+                  "Value": "58.61589652792564D"
                 }
               }
             }
@@ -635,7 +649,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "85.40856855735308D"
+                  "Value": "72.93088948593955D"
                 }
               }
             }
@@ -649,7 +663,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "63.97410111651931D"
+                  "Value": "60.3902612343656D"
                 }
               }
             }

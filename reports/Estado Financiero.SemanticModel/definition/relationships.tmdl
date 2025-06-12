@@ -68,3 +68,8 @@ relationship f4789811-5367-14c3-fbc0-b855711f6579
 	fromColumn: Dividendos.Test
 	toColumn: 'Test Data'.Prueba
 
+relationship AutoDetected_d0bfb25a-2200-4dfd-bea6-2f7a12935274
+	isActive: false
+	fromColumn: Transacciones.'Rendimientos Capital Mobiliario'
+	toColumn: Dividendos.'Rendimientos Capital Mobiliario'
+

@@ -4,7 +4,7 @@ table 'Medidas IRPF'
 	measure 'IRPF Anual' = ```
 			
 			
-			    VAR beneficio = [Beneficio IRPF]
+			    VAR beneficio = [Ganancias / Pérdidas Patrimoniales]
 			
 			    VAR tramos_ultimo_periodo = CALCULATETABLE(
 			        SELECTCOLUMNS('IRPF Ahorro', 'IRPF Ahorro'[Mínimo], 'IRPF Ahorro'[Máximo], 'IRPF Ahorro'[Tipo])
@@ -39,14 +39,14 @@ table 'Medidas IRPF'
 			
 			RETURN   
 			    CALCULATE(
-			            DIVIDE([IRPF Anual], [Beneficio IRPF])
+			            DIVIDE([IRPF Anual], [Ganancias / Pérdidas Patrimoniales])
 			            , Transacciones[Año IRPF] = fiscal_year
 			    )        
 			```
 		formatString: 0.00\ %;-0.00\ %;0.00\ %
 		lineageTag: d46c24e9-133e-4295-a1ad-2707722c7281
 
-	measure 'Beneficio IRPF' = SUM(Transacciones[IRPF - Ganancia / Pérdida Imputable])
+	measure 'Ganancias / Pérdidas Patrimoniales' = SUM(Transacciones[Ganancias / Pérdidas Patrimoniales (GPP)])
 		lineageTag: 6038c3b8-9c36-4df9-96a8-6e21c0b63051
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -54,6 +54,11 @@ table 'Medidas IRPF'
 	measure 'Presentación - Tipo IRPF Anual' = COALESCE([Tipo IRPF Anual], "Seleccione Año")
 		formatString: 0.00\ %;-0.00\ %;0.00\ %
 		lineageTag: 7b3e8605-d345-4583-b489-42ef3a2b5ec9
+
+	measure 'Rendimientos Capital Mobiliario' = SUM(Transacciones[Rendimientos Capital Mobiliario])
+		lineageTag: 7052e4fd-3e0d-4afe-af01-bf158bfe263d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition 'Medidas IRPF' = m
 		mode: import

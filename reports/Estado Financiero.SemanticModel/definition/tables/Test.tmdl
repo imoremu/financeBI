@@ -10,7 +10,7 @@ table Test
 			    , "Saldo Último", [Saldo Último]
 			    , "Gastos no Computados Periodo", [Gastos no Computados Periodo]
 			    , "Beneficio Inversión", [Beneficio Inversión]
-			    , "Beneficio IRPF", [Beneficio IRPF]
+			    , "Beneficio IRPF", [Ganancias / Pérdidas Patrimoniales]
 			    , "Movimientos Totales Periodo", [Movimientos Totales Periodo]
 			    , "Beneficio Bruto Total Periodo", [Beneficio Bruto Total Periodo]
 			    , "IRPF Anual", [IRPF Anual]   

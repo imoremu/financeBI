@@ -1,4 +1,4 @@
-expression Path = "H:/Gastos-Ingresos.xlsx" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+expression Path = "https://github.com/imoremu/financeBI/raw/refs/heads/imoremu/issue6/data/dev/data.xlsx" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
 	lineageTag: a2aa19e7-94ab-40b4-b77d-780b67c32947
 
 	annotation PBI_ResultType = Text
@@ -491,24 +491,23 @@ expression 'Transacciones Power Query' = ```
 		    #"[Tipos][Update]" = Table.TransformColumnTypes(#"Columnas con nombre cambiado1",{{"Producto", type text}, {"Participaciones", type number}, {"Precio Participación", type number}, {"Importe", type number}, {"Fecha", type date}, {"Comisión", type number}, {"Retenido", type number}, {"Cuenta Producto", type text}, {"Año IRPF", Int64.Type}, {"Tipo Transacción", type text}, {"Producto Contraparte", type text}, {"Cuenta Contraparte", type text}, {"Precio (Moneda Transacción)", type number}, {"Cambio", type number}, {"Importe Bruto (Moneda Transacción)", type number}, {"Retenido (Moneda Transacción)", type number}, {"Comisión (Moneda Transacción)", type number}, {"Detalle", type text}, {"Hora", type time}, {"Test", type text}, {"Divisa", type text}}),
 		    #"[Column][Add] Fecha/Hora" = Table.AddColumn(#"[Tipos][Update]", "Fecha/Hora", each Date.ToText([Fecha], "yyyy-MM-dd") & " " & Time.ToText(if [Hora] = null then #time(0,0,0) else [Hora], "HH:mm:ss")),
 		    #"Tipo cambiado" = Table.TransformColumnTypes(#"[Column][Add] Fecha/Hora",{{"Fecha/Hora", type datetime}, {"Cambio", type number}, {"Divisa", type text}, {"Precio Participación", type number}, {"Precio (Moneda Transacción)", type number}, {"Importe Bruto (Moneda Transacción)", type number}, {"Comisión (Moneda Transacción)", type number}}),
+		    #"[Columna][Add] Total" = Table.AddColumn(#"Tipo cambiado", "Total Bruto", each if [Tipo Transacción] = "Dividendos" then [Importe] - [Comisión] else [Importe] + [Comisión], type number),
 		    #"Transaccion Espejo" = Table.RenameColumns(
-		        #"Tipo cambiado",
+		        #"[Columna][Add] Total",
 		        {
 		            {"Producto", "Producto Contraparte"},  // Renombramos "Producto" temporalmente
 		            {"Producto Contraparte", "Producto"},  // Renombramos "Producto Contraparte" a "Producto"
 		            {"Cuenta Producto", "Cuenta Contraparte"},  // Renombramos "Cuenta Producto" temporalmente
 		            {"Cuenta Contraparte", "Cuenta Producto"}  // Renombramos "Cuenta Contraparte" a "Cuenta Producto"
 		        }),
-		    #"[Update] Importe Con comisión" = Table.AddColumn(#"Transaccion Espejo", "Importe Con Comisión", each [Importe] + [Comisión]),
-		    #"[Update] Eliminado Importe Antiguo" = Table.RemoveColumns(#"[Update] Importe Con comisión",{"Importe"}),
-		    #"[Update] Importe Nuevo" = Table.RenameColumns(#"[Update] Eliminado Importe Antiguo",{{"Importe Con Comisión", "Importe"}}),
-		    #"[Filtro] Eliminar dividendos de Espejo" = Table.SelectRows(#"[Update] Importe Nuevo", each ([Tipo Transacción] <> "Dividendos")),
+		    #"[Update] Eliminado Importe Antiguo" = Table.RemoveColumns(#"Transaccion Espejo",{"Importe"}),
+		    #"[Filtro] Eliminar dividendos de Espejo" = Table.SelectRows(#"[Update] Eliminado Importe Antiguo", each ([Tipo Transacción] <> "Dividendos")),
 		    
 		    #"[Limpiar] Transacción Espejo" = Table.TransformColumns(
 		    #"[Filtro] Eliminar dividendos de Espejo",
 		    {
 		        {"Tipo Transacción", each if _ = "Compra" then "Venta" else "Compra"},  // Invertir Compra/Venta,
-		        {"Importe", each _ * -1},
+		        {"Total Bruto", each _ * -1},
 		        {"Participaciones", each null},  
 		        {"Precio Participación", each null}, 
 		        {"Precio (Moneda Transacción)", each null},  
@@ -519,11 +518,11 @@ expression 'Transacciones Power Query' = ```
 		        {"Comisión (Moneda Transacción)", each null}
 		    }
 		),
-		    #"[Anexion] Espejo" = Table.Combine({#"Tipo cambiado", #"[Limpiar] Transacción Espejo"}),
+		    #"[Column][Add] Importe from Total Bruto - Espejo" = Table.AddColumn(#"[Limpiar] Transacción Espejo", "Importe", each [Total Bruto], type number),
+		    #"[Anexion] Espejo" = Table.Combine({#"[Columna][Add] Total", #"[Column][Add] Importe from Total Bruto - Espejo"}),
 		    #"Duplicados quitados" = Table.Distinct(#"[Anexion] Espejo", {"Producto", "Fecha", "Hora", "Producto Contraparte", "Importe"}),
 		    #"[Update] Comision - Null to 0" = Table.ReplaceValue(#"Duplicados quitados",null,0,Replacer.ReplaceValue,{"Comisión"}),
-		    #"[Columna][Add] Total" = Table.AddColumn(#"[Update] Comision - Null to 0", "Total Bruto", each [Importe] + [Comisión], type number),
-		    #"[Columna][Add] Año IRPF Fijado" = Table.AddColumn(#"[Columna][Add] Total", "Año IRPF Fijado", each if [Año IRPF] = null then false else true, type logical),
+		    #"[Columna][Add] Año IRPF Fijado" = Table.AddColumn(#"[Update] Comision - Null to 0", "Año IRPF Fijado", each if [Año IRPF] = null then false else true, type logical),
 		    #"[Modify] Año IRPF" = Table.ReplaceValue(#"[Columna][Add] Año IRPF Fijado",null, each if [Tipo Transacción] = "Compra" then null else List.Max({Date.Year([Fecha]), Date.Year(DateTime.LocalNow()) - 1}),Replacer.ReplaceValue,{"Año IRPF"}),
 		    #"[Tipo] Año a Integer" = Table.TransformColumnTypes(#"[Modify] Año IRPF",{{"Año IRPF", Int64.Type}}),
 		    #"Filas ordenadas" = Table.Sort(#"[Tipo] Año a Integer",{{"Producto", Order.Ascending},{"Fecha", Order.Ascending}}),
