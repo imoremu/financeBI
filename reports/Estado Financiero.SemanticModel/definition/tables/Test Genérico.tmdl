@@ -1,6 +1,6 @@
 /// Test Saldo / Inversiones básico.
 /// 
-/// Contexto prueba: Febrero 2000 
+/// Contexto prueba: Febrero 2000
 table 'Test Genérico'
 	lineageTag: 6752251f-d3de-4780-aa6e-ba71f6a8d2f1
 

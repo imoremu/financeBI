@@ -39,7 +39,7 @@ table Transacciones
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column Retenido
-		dataType: decimal
+		dataType: double
 		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
 		lineageTag: 3b71121f-fe73-4dc0-851c-c0a3c5e68f58
 		summarizeBy: sum
@@ -50,7 +50,7 @@ table Transacciones
 		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
 
 	column Comisión
-		dataType: decimal
+		dataType: double
 		formatString: #,0\ "€";-#,0\ "€";#,0\ "€"
 		lineageTag: d231549f-35c6-4457-b10f-a52470732cde
 		summarizeBy: sum
@@ -77,7 +77,7 @@ table Transacciones
 		annotation SummarizationSetBy = Automatic
 
 	column 'Precio Participación'
-		dataType: decimal
+		dataType: double
 		lineageTag: 273f3931-a232-4208-8462-b8ac7216281e
 		summarizeBy: sum
 		sourceColumn: Precio Participación
@@ -98,7 +98,7 @@ table Transacciones
 		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
 
 	column 'Total Bruto'
-		dataType: decimal
+		dataType: double
 		lineageTag: 139098c4-e3bc-4763-8a0a-84e38a48ed63
 		summarizeBy: sum
 		sourceColumn: Total Bruto
@@ -108,7 +108,7 @@ table Transacciones
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column 'Renta Bruta Obtenida'
-		dataType: decimal
+		dataType: double
 		lineageTag: 21c52de9-6690-4863-8877-72dd3a9aa319
 		summarizeBy: sum
 		sourceColumn: Renta Bruta Obtenida
@@ -173,7 +173,7 @@ table Transacciones
 		annotation UnderlyingDateTimeDataType = Time
 
 	column 'Precio (Moneda Transacción)'
-		dataType: decimal
+		dataType: double
 		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
 		lineageTag: a9f0d92f-9c50-4674-9bc9-bfdd9f3d8e85
 		summarizeBy: sum
@@ -184,7 +184,7 @@ table Transacciones
 		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
 
 	column 'Importe Bruto (Moneda Transacción)'
-		dataType: decimal
+		dataType: double
 		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
 		lineageTag: a2596994-ca4a-49b0-a9ad-448a262d0204
 		summarizeBy: sum
@@ -195,7 +195,7 @@ table Transacciones
 		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
 
 	column 'Retenido (Moneda Transacción)'
-		dataType: decimal
+		dataType: double
 		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
 		lineageTag: ce5dbe70-d11b-4b71-9ccc-0fb392eb3f3c
 		summarizeBy: sum
@@ -206,7 +206,7 @@ table Transacciones
 		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
 
 	column 'Comisión (Moneda Transacción)'
-		dataType: decimal
+		dataType: double
 		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
 		lineageTag: bc9edcbc-6ddd-4c8d-8dbf-60352407e1e4
 		summarizeBy: sum
@@ -215,14 +215,6 @@ table Transacciones
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
-
-	column Moneda
-		dataType: string
-		lineageTag: 1f2b702f-c0c1-4b42-9fb1-ddf4f7310cb8
-		summarizeBy: none
-		sourceColumn: Moneda
-
-		annotation SummarizationSetBy = Automatic
 
 	column Detalle
 		dataType: string
@@ -244,7 +236,7 @@ table Transacciones
 		annotation SummarizationSetBy = Automatic
 
 	column Importe
-		dataType: decimal
+		dataType: double
 		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
 		lineageTag: 02d2c9c9-75e0-467b-85ae-54ee93c0a558
 		summarizeBy: sum
@@ -273,8 +265,8 @@ table Transacciones
 		annotation SummarizationSetBy = Automatic
 
 	column 'FIFO Beneficio / Pérdida'
-		dataType: decimal
-		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		dataType: double
+		formatString: #,0.0000\ "€";-#,0.0000\ "€";#,0.0000\ "€"
 		lineageTag: c8671f87-ca1d-40a1-9fd3-17db2689b499
 		summarizeBy: sum
 		sourceColumn: FIFO Beneficio / Pérdida
@@ -284,7 +276,7 @@ table Transacciones
 		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
 
 	column 'IRPF - Ganancia / Pérdida Imputable'
-		dataType: decimal
+		dataType: double
 		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
 		lineageTag: a982fa5f-74da-43f0-8bc5-61cffa3b341f
 		summarizeBy: sum
@@ -295,7 +287,7 @@ table Transacciones
 		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
 
 	column 'IRPF - Ajuste Diferido'
-		dataType: decimal
+		dataType: double
 		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
 		lineageTag: 73bee529-d67a-4817-a9a3-6adee20388e3
 		summarizeBy: sum
@@ -319,6 +311,54 @@ table Transacciones
 
 		annotation SummarizationSetBy = Automatic
 
+	column Divisa
+		dataType: string
+		lineageTag: 78626fdc-a244-4a5f-839c-6a3c8783a3fc
+		summarizeBy: none
+		sourceColumn: Divisa
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PyG realizadas'
+		dataType: string
+		lineageTag: 6652478e-d2d4-4cac-a7ae-6ab2de9e71b6
+		summarizeBy: none
+		sourceColumn: PyG realizadas
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ID Divisa'
+		dataType: string
+		lineageTag: b37b94d4-33fe-4471-850e-56278cd63e08
+		summarizeBy: none
+		sourceColumn: ID Divisa
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ID Transacción'
+		dataType: string
+		lineageTag: 86ce7041-8e55-4e18-993b-ec5b37608ced
+		summarizeBy: none
+		sourceColumn: ID Transacción
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Check No contempladas'
+		dataType: string
+		lineageTag: 2505bc10-61f2-41b8-bd5b-8d795b141012
+		summarizeBy: none
+		sourceColumn: Check No contempladas
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transacciones Preclasificadas.Comisión (Moneda Transacción)'
+		dataType: string
+		lineageTag: 49bdb93e-ffe7-458c-8250-167d9b1f90c2
+		summarizeBy: none
+		sourceColumn: Transacciones Preclasificadas.Comisión (Moneda Transacción)
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Transacciones = m
 		mode: import
 		queryGroup: Saldo
@@ -326,8 +366,8 @@ table Transacciones
 				let    
 				    Origen = #"Transacciones Power Query",
 				    #"Filas ordenadas" = Table.Sort(Origen,{{"Fecha", Order.Ascending}}),
-				    #"Tipo cambiado1" = Table.TransformColumnTypes(#"Filas ordenadas",{{"Fecha", type text}, {"Hora", type text}, {"Participaciones", type number}, {"Precio Participación", type number}, {"Precio (Moneda Transacción)", type number}, {"Moneda", type text}, {"Cambio", type number}, {"Importe", type number}, {"Importe Bruto (Moneda Transacción)", type number}, {"Retenido", type number}, {"Retenido (Moneda Transacción)", type number}, {"Comisión", type number}, {"Comisión (Moneda Transacción)", type number}, {"Detalle", type number}}),
-				    #"[Buffer]" = Table.Buffer(#"Tipo cambiado1"),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Filas ordenadas",{{"Fecha", type text}, {"Hora", type text}}),
+				    #"[Buffer]" = Table.Buffer(#"Tipo cambiado"),
 				    #"[Python] Execute" = Python.Execute("import pandas as pd#(lf)import logging#(lf)from typing import List, Optional # Added for type hinting#(lf)#(lf)# Configuración básica del logger#(lf)logging.basicConfig(filename='G:\Mi unidad\logfile.log', level=logging.ERROR, # Changed to INFO for more detail#(lf)                    format='%(asctime)s - %(name)s - %(module)s - %(funcName)s - %(levelname)s - %(message)s')#(lf)#(lf)# Assuming these are imported correctly from your project structure#(lf)from pyportfolio.transaction_manager import TransactionManager#(lf)from pyportfolio.calculators.fifo_calculator import FIFOCalculator#(lf)from pyportfolio.calculators.irpf_earnings_calculator import (#(lf)    IrpfEarningsCalculator,#(lf)    RESULT_TAXABLE_GAIN_LOSS,#(lf)    RESULT_DEFERRED_ADJUSTMENT#(lf))#(lf)from pyportfolio.columns import FIFO, DATETIME, TRANSACTION_TYPE, TICKER # Added TICKER for grouping context#(lf)#(lf)logger = logging.getLogger(__name__)#(lf)#(lf)# --- Configuration ---#(lf)TEST_COLUMN_NAME = 'Test' #(lf)#(lf)fifo_result_column = FIFO#(lf)irpf_result_columns = [RESULT_TAXABLE_GAIN_LOSS, RESULT_DEFERRED_ADJUSTMENT]#(lf)calculated_columns = [fifo_result_column] + irpf_result_columns#(lf)fifo_result_dtype = 'Float64'#(lf)#(lf)# List to store results from each group processing#(lf)all_results: List[pd.DataFrame] = []#(lf)final_results_df: Optional[pd.DataFrame] = None#(lf)#(lf)# --- Main Processing Logic ---#(lf)try:#(lf)    # --- Input Validation ---#(lf)    if not isinstance(dataset, pd.DataFrame):#(lf)         raise TypeError(""Input 'dataset' is not a pandas DataFrame."")#(lf)    if dataset.empty:#(lf)        logger.warning(""Input dataset is empty. No calculations will be performed."")#(lf)        # Create an empty DataFrame with expected columns based on input if possible#(lf)        expected_cols = dataset.columns.tolist() + calculated_columns#(lf)        final_results_df = pd.DataFrame(columns=list(dict.fromkeys(expected_cols)), index=dataset.index)#(lf)#(lf)    elif TEST_COLUMN_NAME not in dataset.columns:#(lf)        logger.error(f""Mandatory test column '{TEST_COLUMN_NAME}' not found in the input dataset."")#(lf)        # Create an error DataFrame similar to the general exception block#(lf)        original_cols = list(dataset.columns)#(lf)        all_expected_cols = list(dict.fromkeys(original_cols + calculated_columns))#(lf)        final_results_df = pd.DataFrame(index=dataset.index, columns=all_expected_cols)#(lf)        for col in all_expected_cols:#(lf)             if col not in final_results_df.columns: final_results_df[col] = pd.NA#(lf)             elif final_results_df[col].isnull().all(): final_results_df[col] = pd.NA#(lf)        final_results_df['Error'] = f""Missing test column: {TEST_COLUMN_NAME}""#(lf)#(lf)    else:#(lf)        # --- Grouped Processing ---#(lf)        # Group by the test column AND the ticker for calculation context#(lf)        # If calculations are strictly per-test regardless of ticker, remove TICKER here.#(lf)        grouping_columns = [TEST_COLUMN_NAME]#(lf)        if TICKER in dataset.columns:#(lf)            grouping_columns.append(TICKER)#(lf)        else:#(lf)            logger.warning(f""Column '{TICKER}' not found. Grouping only by '{TEST_COLUMN_NAME}'. Calculations might mix tickers within a test."")#(lf)#(lf)        logger.info(f""Starting processing, grouping by: {grouping_columns}"")#(lf)        grouped_data = dataset.groupby(grouping_columns, observed=True, group_keys=False) # group_keys=False avoids adding group keys as index#(lf)#(lf)        logger.info(f""Grupos: {grouped_data.size()}"")#(lf)        for group_keys, group_df in grouped_data:#(lf)            # Ensure group_keys is a tuple for consistent logging#(lf)            if not isinstance(group_keys, tuple):#(lf)                group_keys = (group_keys,)#(lf)            group_id_str = "", "".join(map(str, group_keys))#(lf)            logger.info(f""--- Processing Group: {group_id_str} ({len(group_df)} rows) ---"")#(lf)#(lf)            try:#(lf)                # --- Calculations for the current group ---#(lf)                # 1. Sort the group data#(lf)                if DATETIME in group_df.columns and TRANSACTION_TYPE in group_df.columns:#(lf)                    dataset_sorted = group_df.sort_values(#(lf)                        by=[DATETIME, TRANSACTION_TYPE],#(lf)                        ascending=[True, True],#(lf)                        key=lambda col: col.map({'buy': 0, 'sell': 1}) if col.name == TRANSACTION_TYPE else col#(lf)                    ).copy() # Use copy to avoid SettingWithCopyWarning on the slice#(lf)                    logger.debug(f""Group {group_id_str}: Sorted by Date and Transaction Type."")#(lf)                else:#(lf)                    logger.warning(f""Group {group_id_str}: Missing '{DATETIME}' or '{TRANSACTION_TYPE}'. Cannot guarantee order."")#(lf)                    dataset_sorted = group_df.copy() # Use copy here as well#(lf)#(lf)                # 2. Initialize TransactionManager for the group#(lf)                tm = TransactionManager(dataset_sorted)#(lf)                logger.debug(f""Group {group_id_str}: Initialized TransactionManager."")#(lf)#(lf)                # 3. Register Calculators (Create new instances for each group for safety)#(lf)                fifo_calculator = FIFOCalculator()#(lf)                tm.register_calculation(#(lf)                    calculator=fifo_calculator,#(lf)                    column=fifo_result_column,#(lf)                    dtype=fifo_result_dtype#(lf)                )#(lf)                logger.debug(f""Group {group_id_str}: Registered FIFOCalculator."")#(lf)#(lf)                irpf_calculator = IrpfEarningsCalculator()#(lf)                tm.register_calculation(#(lf)                    calculator=irpf_calculator#(lf)                )#(lf)                logger.debug(f""Group {group_id_str}: Registered IrpfEarningsCalculator."")#(lf)#(lf)                # 4. Process calculations for the group#(lf)                logger.info(f""Group {group_id_str}: Processing calculations..."")#(lf)                tm.process_all()#(lf)                logger.info(f""Group {group_id_str}: Finished processing calculations."")#(lf)#(lf)                # 5. Store the results for this group#(lf)                group_results_df = tm.transactions.copy() # Get the processed data#(lf)                all_results.append(group_results_df)#(lf)                logger.info(f""Group {group_id_str}: Results stored."")#(lf)#(lf)            except Exception as group_e:#(lf)                logger.error(f""Error processing group {group_id_str}: {group_e}"", exc_info=True)#(lf)                # Create an error DataFrame for this specific group#(lf)                original_cols = list(group_df.columns)#(lf)                all_expected_cols = list(dict.fromkeys(original_cols + calculated_columns))#(lf)                error_df = pd.DataFrame(index=group_df.index, columns=all_expected_cols)#(lf)                # Fill original columns with original data if possible#(lf)                for col in original_cols:#(lf)                    if col in group_df:#(lf)                        error_df[col] = group_df[col]#(lf)                # Fill calculated columns with NA#(lf)                for col in calculated_columns:#(lf)                     error_df[col] = pd.NA#(lf)                     # Try setting dtype for FIFO column if it exists#(lf)                     if col == fifo_result_column and col in error_df.columns:#(lf)                         try:#(lf)                             error_df[col] = error_df[col].astype(fifo_result_dtype)#(lf)                         except Exception as dtype_e:#(lf)                             logger.warning(f""Could not set dtype for {col} in error df: {dtype_e}"")#(lf)#(lf)                error_df['Error'] = f""Error in group {group_id_str}: {str(group_e)}""#(lf)                all_results.append(error_df)#(lf)                logger.info(f""Group {group_id_str}: Created error DataFrame."")#(lf)#(lf)        # --- Combine results after the loop ---#(lf)        if all_results:#(lf)            logger.info(""Concatenating results from all processed groups..."")#(lf)            # Concatenate results from all groups#(lf)            final_results_df = pd.concat(all_results)#(lf)            # Restore the original index order from the input dataset#(lf)            final_results_df = final_results_df.reindex(dataset.index)#(lf)            logger.info(""Final results DataFrame created and reindexed successfully."")#(lf)        elif final_results_df is None: # Only if not already handled by empty input case#(lf)             logger.warning(""No groups were processed (e.g., empty groups after filtering). Creating empty DataFrame."")#(lf)             expected_cols = dataset.columns.tolist() + calculated_columns#(lf)             final_results_df = pd.DataFrame(columns=list(dict.fromkeys(expected_cols)), index=dataset.index)#(lf)#(lf)#(lf)except Exception as e:#(lf)    logger.error(f""Critical error during script execution: {e}"", exc_info=True)#(lf)    # Create DataFrame vacío con columnas originales (si es posible) + calculadas + error#(lf)    try:#(lf)        original_cols = list(dataset.columns)#(lf)        input_index = dataset.index#(lf)    except Exception as fallback_e:#(lf)        logger.error(f""Could not access original dataset columns/index in fallback error handler: {fallback_e}"")#(lf)        original_cols = []#(lf)        input_index = None # Cannot guarantee index preservation#(lf)#(lf)    all_expected_cols = list(dict.fromkeys(original_cols + calculated_columns))#(lf)#(lf)    # Use input_index if available, otherwise, it will be None (default range index)#(lf)    final_results_df = pd.DataFrame(index=input_index, columns=all_expected_cols)#(lf)#(lf)    # Rellenar con NA por si acaso#(lf)    for col in all_expected_cols:#(lf)        if col not in final_results_df.columns: # Should not happen, but safety check#(lf)             final_results_df[col] = pd.NA#(lf)        # Ensure columns exist before trying to fill NA (they should, based on columns=...)#(lf)        elif final_results_df[col].isnull().all():#(lf)             final_results_df[col] = pd.NA#(lf)             # Try setting dtype for FIFO column if it exists#(lf)             if col == fifo_result_column:#(lf)                 try:#(lf)                     final_results_df[col] = final_results_df[col].astype(fifo_result_dtype)#(lf)                 except Exception as dtype_e:#(lf)                     logger.warning(f""Could not set dtype for {col} in final error df: {dtype_e}"")#(lf)#(lf)#(lf)    final_results_df['Error'] = f""Critical error: {str(e)}""#(lf)    logger.info(""Created final error DataFrame due to critical failure."")#(lf)#(lf)#(lf)# --- Final Assignment ---#(lf)result = final_results_df if final_results_df is not None else pd.DataFrame()#(lf)",[dataset=#"[Buffer]"]),
 				    #"[Python] Result" = #"[Python] Execute"{[Name="result"]}[Value],
 				    #"[Values][Replace] Treat ." = Table.TransformColumns(
@@ -353,7 +393,7 @@ table Transacciones
 				        {"Año IRPF", each Text.Replace(_, ".", ",")}
 				    }
 				),
-				    #"[Type] Update" = Table.TransformColumnTypes(#"[Values][Replace] Treat .",{{"Fecha", type date}, {"Hora", type time}, {"Participaciones", type number}, {"Precio Participación", Currency.Type}, {"Precio (Moneda Transacción)", Currency.Type}, {"Cambio", type number}, {"Importe", Currency.Type}, {"Importe Bruto (Moneda Transacción)", Currency.Type}, {"Retenido", Currency.Type}, {"Retenido (Moneda Transacción)", Currency.Type}, {"Año IRPF", Int64.Type}, {"Comisión", Currency.Type}, {"Comisión (Moneda Transacción)", Currency.Type}, {"Total Bruto", Currency.Type}, {"Año IRPF Fijado", type logical}, {"ID", Int64.Type}, {"Participaciones Acumuladas", type number}, {"Precio Medio Hasta Transacción", type number}, {"Renta Bruta Obtenida", Currency.Type}, {"FIFO Beneficio / Pérdida", Currency.Type}, {"IRPF - Ganancia / Pérdida Imputable", Currency.Type}, {"IRPF - Ajuste Diferido", Currency.Type}, {"Fecha/Hora", type datetime}})
+				    #"[Type] Update" = Table.TransformColumnTypes(#"[Values][Replace] Treat .",{{"Fecha", type date}, {"Hora", type time}, {"Participaciones", type number}, {"Precio Participación", type number}, {"Precio (Moneda Transacción)", type number}, {"Cambio", type number}, {"Importe", type number}, {"Importe Bruto (Moneda Transacción)", type number}, {"Retenido", type number}, {"Retenido (Moneda Transacción)", type number}, {"Año IRPF", Int64.Type}, {"Comisión", type number}, {"Comisión (Moneda Transacción)", type number}, {"Total Bruto", type number}, {"Año IRPF Fijado", type logical}, {"ID", Int64.Type}, {"Participaciones Acumuladas", type number}, {"Precio Medio Hasta Transacción", type number}, {"Renta Bruta Obtenida", type number}, {"FIFO Beneficio / Pérdida", type number}, {"IRPF - Ganancia / Pérdida Imputable", type number}, {"IRPF - Ajuste Diferido", type number}, {"Fecha/Hora", type datetime}})
 				in
 				    #"[Type] Update"
 				```

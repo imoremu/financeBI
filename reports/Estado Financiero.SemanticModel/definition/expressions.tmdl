@@ -1,4 +1,4 @@
-expression Path = "https://github.com/imoremu/financeBI/raw/refs/heads/imoremu/issue6/data/dev/data.xlsx" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+expression Path = "H:/Gastos-Ingresos.xlsx" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
 	lineageTag: a2aa19e7-94ab-40b4-b77d-780b67c32947
 
 	annotation PBI_ResultType = Text
@@ -488,9 +488,9 @@ expression 'Transacciones Power Query' = ```
 		    T_Saldo_Table = Origen{[Item="T_Transacciones",Kind="Table"]}[Data],
 		    #"[Column][Add] Test" = if Table.HasColumns(T_Saldo_Table, "Test") then T_Saldo_Table else Table.AddColumn(T_Saldo_Table, "Test", each "Producción"),
 		    #"Columnas con nombre cambiado1" = Table.RenameColumns(#"[Column][Add] Test",{{"Importe Bruto", "Importe"}}),
-		    #"[Tipos][Update]" = Table.TransformColumnTypes(#"Columnas con nombre cambiado1",{{"Producto", type text}, {"Participaciones", Currency.Type}, {"Precio Participación", Currency.Type}, {"Importe", Currency.Type}, {"Fecha", type date}, {"Comisión", Currency.Type}, {"Retenido", Currency.Type}, {"Cuenta Producto", type text}, {"Año IRPF", Int64.Type}, {"Tipo Transacción", type text}, {"Producto Contraparte", type text}, {"Cuenta Contraparte", type text}, {"Precio (Moneda Transacción)", Currency.Type}, {"Cambio", Currency.Type}, {"Importe Bruto (Moneda Transacción)", Currency.Type}, {"Retenido (Moneda Transacción)", Currency.Type}, {"Comisión (Moneda Transacción)", Currency.Type}, {"Detalle", type text}, {"Hora", type time}, {"Test", type text}}),
+		    #"[Tipos][Update]" = Table.TransformColumnTypes(#"Columnas con nombre cambiado1",{{"Producto", type text}, {"Participaciones", type number}, {"Precio Participación", type number}, {"Importe", type number}, {"Fecha", type date}, {"Comisión", type number}, {"Retenido", type number}, {"Cuenta Producto", type text}, {"Año IRPF", Int64.Type}, {"Tipo Transacción", type text}, {"Producto Contraparte", type text}, {"Cuenta Contraparte", type text}, {"Precio (Moneda Transacción)", type number}, {"Cambio", type number}, {"Importe Bruto (Moneda Transacción)", type number}, {"Retenido (Moneda Transacción)", type number}, {"Comisión (Moneda Transacción)", type number}, {"Detalle", type text}, {"Hora", type time}, {"Test", type text}, {"Divisa", type text}}),
 		    #"[Column][Add] Fecha/Hora" = Table.AddColumn(#"[Tipos][Update]", "Fecha/Hora", each Date.ToText([Fecha], "yyyy-MM-dd") & " " & Time.ToText(if [Hora] = null then #time(0,0,0) else [Hora], "HH:mm:ss")),
-		    #"Tipo cambiado" = Table.TransformColumnTypes(#"[Column][Add] Fecha/Hora",{{"Fecha/Hora", type datetime}}),
+		    #"Tipo cambiado" = Table.TransformColumnTypes(#"[Column][Add] Fecha/Hora",{{"Fecha/Hora", type datetime}, {"Cambio", type number}, {"Divisa", type text}, {"Precio Participación", type number}, {"Precio (Moneda Transacción)", type number}, {"Importe Bruto (Moneda Transacción)", type number}, {"Comisión (Moneda Transacción)", type number}}),
 		    #"Transaccion Espejo" = Table.RenameColumns(
 		        #"Tipo cambiado",
 		        {
@@ -582,11 +582,12 @@ expression 'Transacciones Power Query' = ```
 		
 		    // Convertir de nuevo a tabla
 		    TablaResultado = Table.FromRecords(ResultadoRegistros),
-		    #"[Tipos][Update] Refresh" = Table.TransformColumnTypes(TablaResultado,{{"Fecha", type date}, {"Producto", type text}, {"Cuenta Producto", type text}, {"Tipo Transacción", type text}, {"Participaciones", Currency.Type}, {"Precio Participación", Currency.Type}, {"Total Bruto", type number}, {"Retenido", Currency.Type}, {"Año IRPF", Int64.Type}, {"Comisión", Currency.Type}, {"Año IRPF Fijado", type logical}, {"ParticipacionesAcum", type number}, {"PrecioMedio", type number}, {"Importe", Currency.Type}, {"Producto Contraparte", type text}, {"Cuenta Contraparte", type text}, {"ID", Int64.Type}, {"Comisión (Moneda Transacción)", Currency.Type}, {"Retenido (Moneda Transacción)", Currency.Type}, {"Importe Bruto (Moneda Transacción)", Currency.Type}, {"Cambio", Currency.Type}, {"Precio (Moneda Transacción)", Currency.Type}, {"Hora", type time}, {"Test", type text}, {"Fecha/Hora", type datetime}}),
+		    #"[Tipos][Update] Refresh" = Table.TransformColumnTypes(TablaResultado,{{"Fecha", type date}, {"Producto", type text}, {"Cuenta Producto", type text}, {"Tipo Transacción", type text}, {"Participaciones", type number}, {"Precio Participación", type number}, {"Total Bruto", type number}, {"Retenido", type number}, {"Año IRPF", Int64.Type}, {"Comisión", type number}, {"Año IRPF Fijado", type logical}, {"ParticipacionesAcum", type number}, {"PrecioMedio", type number}, {"Importe", type number}, {"Producto Contraparte", type text}, {"Cuenta Contraparte", type text}, {"ID", Int64.Type}, {"Comisión (Moneda Transacción)", Currency.Type}, {"Retenido (Moneda Transacción)", type number}, {"Importe Bruto (Moneda Transacción)", type number}, {"Cambio", type number}, {"Precio (Moneda Transacción)", type number}, {"Hora", type time}, {"Test", type text}, {"Fecha/Hora", type datetime}}),
 		    #"Columnas con nombre cambiado" = Table.RenameColumns(#"[Tipos][Update] Refresh",{{"ParticipacionesAcum", "Participaciones Acumuladas"}, {"PrecioMedio", "Precio Medio Hasta Transacción"}}),
-		    #"[Columna][Add] Renta Obtenida" = Table.AddColumn(#"Columnas con nombre cambiado", "Renta Bruta Obtenida", each if List.Contains({"Compra","Venta"},[Tipo Transacción]) then -1*[Total Bruto] else [Total Bruto], type number)
+		    #"[Columna][Add] Renta Obtenida" = Table.AddColumn(#"Columnas con nombre cambiado", "Renta Bruta Obtenida", each if List.Contains({"Compra","Venta"},[Tipo Transacción]) then -1*[Total Bruto] else [Total Bruto], type number),
+		    #"Tipo cambiado1" = Table.TransformColumnTypes(#"[Columna][Add] Renta Obtenida",{{"Comisión (Moneda Transacción)", type number}, {"Divisa", type text}, {"Detalle", type text}})
 		in
-		    #"[Columna][Add] Renta Obtenida"
+		    #"Tipo cambiado1"
 		```
 	lineageTag: 25d977a7-b997-48ee-9509-628ffded1735
 	queryGroup: Saldo

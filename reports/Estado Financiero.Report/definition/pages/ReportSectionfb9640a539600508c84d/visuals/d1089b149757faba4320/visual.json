@@ -269,7 +269,7 @@
                     "Entity": "Medidas Saldo"
                   }
                 },
-                "Property": "Dividendos Netos"
+                "Property": "Incremento Normalizado Anual (%)"
               }
             },
             "direction": "Descending"
@@ -530,7 +530,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "73.82484000499858D"
+                  "Value": "78.31382318449259D"
                 }
               }
             }
@@ -600,7 +600,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "76.21151207092632D"
+                  "Value": "68.9181463316267D"
                 }
               }
             }
@@ -614,7 +614,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "77.72639168117296D"
+                  "Value": "79.53185804123963D"
                 }
               }
             }

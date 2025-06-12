@@ -188,16 +188,6 @@
                               },
                               "Property": "Tipo"
                             }
-                          },
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "p"
-                                }
-                              },
-                              "Property": "Subtipo"
-                            }
                           }
                         ],
                         "Values": [
@@ -205,11 +195,6 @@
                             {
                               "Literal": {
                                 "Value": "'Renta Variable'"
-                              }
-                            },
-                            {
-                              "Literal": {
-                                "Value": "'Acciones'"
                               }
                             }
                           ]
@@ -233,21 +218,6 @@
                               },
                               "Level": "Tipo"
                             }
-                          },
-                          {
-                            "HierarchyLevel": {
-                              "Expression": {
-                                "Hierarchy": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "Productos"
-                                    }
-                                  },
-                                  "Hierarchy": "Tipo Producto"
-                                }
-                              },
-                              "Level": "Subtipo"
-                            }
                           }
                         ],
                         "decomposedIdentities": {
@@ -258,15 +228,6 @@
                                   {
                                     "Literal": {
                                       "Value": "'Renta Variable'"
-                                    }
-                                  }
-                                ]
-                              },
-                              {
-                                "1": [
-                                  {
-                                    "Literal": {
-                                      "Value": "'Acciones'"
                                     }
                                   }
                                 ]
@@ -285,25 +246,12 @@
                                   "Property": "Tipo"
                                 }
                               }
-                            },
-                            {
-                              "value": {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "Productos"
-                                    }
-                                  },
-                                  "Property": "Subtipo"
-                                }
-                              }
                             }
                           ]
                         },
                         "valueMap": [
                           {
-                            "0": "Renta Variable",
-                            "1": "Acciones"
+                            "0": "Renta Variable"
                           }
                         ]
                       }

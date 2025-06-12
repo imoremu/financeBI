@@ -44,7 +44,7 @@ table Movimientos
 		dataType: decimal
 		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
 		lineageTag: f900df2c-1db4-43fb-9df6-2b3a1d30f65d
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: Cantidad (€)
 
 		annotation SummarizationSetBy = User

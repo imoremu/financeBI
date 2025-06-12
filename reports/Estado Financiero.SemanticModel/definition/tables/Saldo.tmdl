@@ -48,7 +48,7 @@ table Saldo
 		annotation SummarizationSetBy = Automatic
 
 	column 'Valor liquidativo'
-		dataType: decimal
+		dataType: double
 		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
 		lineageTag: 96f79b53-1c49-4143-812f-5645a3625f70
 		summarizeBy: none
@@ -77,7 +77,7 @@ table Saldo
 		annotation SummarizationSetBy = Automatic
 
 	column Importe
-		dataType: decimal
+		dataType: double
 		lineageTag: 9f3125ac-2f24-4852-b31f-2131b59074f4
 		summarizeBy: sum
 		sourceColumn: Importe
@@ -130,6 +130,38 @@ table Saldo
 		sourceColumn: Test
 
 		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ingreso
+		dataType: string
+		lineageTag: 3b0f95cd-9c37-44fa-a2ad-1ed21fa5b26e
+		summarizeBy: none
+		sourceColumn: Ingreso
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dividendos
+		dataType: string
+		lineageTag: 38591b3a-2e74-4a67-93fc-82e6d31f2bb8
+		summarizeBy: none
+		sourceColumn: Dividendos
+
+		annotation SummarizationSetBy = Automatic
+
+	column Divisa
+		dataType: string
+		lineageTag: 1f5c947a-0257-4cf5-b513-034188028940
+		summarizeBy: none
+		sourceColumn: Divisa
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ID Divisa'
+		dataType: string
+		lineageTag: 9e218609-9d0f-4186-a7b8-bce51b81f9cc
+		summarizeBy: none
+		sourceColumn: ID Divisa
 
 		annotation SummarizationSetBy = Automatic
 

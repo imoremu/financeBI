@@ -39,7 +39,7 @@ table Dividendos
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column Comisión
-		dataType: decimal
+		dataType: double
 		formatString: 0
 		lineageTag: 0219d315-fc08-4f55-8d78-8e5c51f4fe7c
 		summarizeBy: sum
@@ -48,7 +48,7 @@ table Dividendos
 		annotation SummarizationSetBy = Automatic
 
 	column Retenido
-		dataType: decimal
+		dataType: double
 		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
 		lineageTag: 180a1777-6806-403d-ba4a-e9686b349eea
 		summarizeBy: sum
@@ -77,7 +77,7 @@ table Dividendos
 		annotation SummarizationSetBy = Automatic
 
 	column 'Precio Participación'
-		dataType: decimal
+		dataType: double
 		lineageTag: e0088e02-bb43-474d-8266-621b384472cb
 		summarizeBy: sum
 		sourceColumn: Precio Participación
@@ -98,7 +98,7 @@ table Dividendos
 		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
 
 	column 'Total Bruto'
-		dataType: decimal
+		dataType: double
 		lineageTag: 7028c846-bf67-4fcb-986b-75d7871d0df4
 		summarizeBy: sum
 		sourceColumn: Total Bruto
@@ -108,7 +108,7 @@ table Dividendos
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column 'Renta Bruta Obtenida'
-		dataType: decimal
+		dataType: double
 		lineageTag: 4bc6e92f-7575-454f-ba6f-eaaca15f0704
 		summarizeBy: sum
 		sourceColumn: Renta Bruta Obtenida
@@ -162,7 +162,7 @@ table Dividendos
 		annotation UnderlyingDateTimeDataType = Time
 
 	column 'Precio (Moneda Transacción)'
-		dataType: decimal
+		dataType: double
 		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
 		lineageTag: 7d48878b-0226-407a-80d3-792d77d23487
 		summarizeBy: sum
@@ -173,7 +173,7 @@ table Dividendos
 		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
 
 	column 'Importe Bruto (Moneda Transacción)'
-		dataType: decimal
+		dataType: double
 		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
 		lineageTag: 2e0484f1-32be-4930-b43a-cbd68b16d5b2
 		summarizeBy: sum
@@ -184,7 +184,7 @@ table Dividendos
 		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
 
 	column 'Retenido (Moneda Transacción)'
-		dataType: decimal
+		dataType: double
 		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
 		lineageTag: a99e4420-efc5-411a-bd3c-d12747451349
 		summarizeBy: sum
@@ -195,7 +195,7 @@ table Dividendos
 		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
 
 	column 'Comisión (Moneda Transacción)'
-		dataType: decimal
+		dataType: double
 		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
 		lineageTag: e6dda79a-6cd5-46a3-b94a-d649d1542b26
 		summarizeBy: sum
@@ -204,14 +204,6 @@ table Dividendos
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
-
-	column Moneda
-		dataType: string
-		lineageTag: e07a56cf-4149-4ba0-a7b7-094fdbe54841
-		summarizeBy: none
-		sourceColumn: Moneda
-
-		annotation SummarizationSetBy = Automatic
 
 	column Detalle
 		dataType: string
@@ -230,7 +222,7 @@ table Dividendos
 		annotation SummarizationSetBy = Automatic
 
 	column Importe
-		dataType: decimal
+		dataType: double
 		formatString: 0
 		lineageTag: 6a0938ed-1289-4bb1-86da-aabcefba700c
 		summarizeBy: sum
@@ -257,7 +249,7 @@ table Dividendos
 		annotation SummarizationSetBy = Automatic
 
 	column 'FIFO Beneficio / Pérdida'
-		dataType: decimal
+		dataType: double
 		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
 		lineageTag: 4d493ba9-9611-464e-a485-26e10332e7e9
 		summarizeBy: sum
@@ -268,7 +260,7 @@ table Dividendos
 		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
 
 	column 'IRPF - Ganancia / Pérdida Imputable'
-		dataType: decimal
+		dataType: double
 		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
 		lineageTag: a37df76f-f6d6-40e1-8995-5d7a9d5dbe18
 		summarizeBy: sum
@@ -279,7 +271,7 @@ table Dividendos
 		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
 
 	column 'IRPF - Ajuste Diferido'
-		dataType: decimal
+		dataType: double
 		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
 		lineageTag: 4534ac08-05c3-4cbd-b691-5d59f76e8a74
 		summarizeBy: sum
@@ -300,6 +292,54 @@ table Dividendos
 			isDefault
 			relationship: 3a5f943a-4678-40ea-b351-5487beb493ac
 			defaultHierarchy: LocalDateTable_b9da2914-fd53-4f32-b21c-39fa4c9bbfb1.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Divisa
+		dataType: string
+		lineageTag: 7258a9ed-9c84-4f17-b5d2-be251100704b
+		summarizeBy: none
+		sourceColumn: Divisa
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PyG realizadas'
+		dataType: string
+		lineageTag: 34c73e89-1343-4d7b-add5-2b0844dd2fcc
+		summarizeBy: none
+		sourceColumn: PyG realizadas
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ID Divisa'
+		dataType: string
+		lineageTag: 4b181a78-e874-4276-a331-9ef8752f20e7
+		summarizeBy: none
+		sourceColumn: ID Divisa
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ID Transacción'
+		dataType: string
+		lineageTag: a3415b5e-293b-4070-b5b1-095ed315485e
+		summarizeBy: none
+		sourceColumn: ID Transacción
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Check No contempladas'
+		dataType: string
+		lineageTag: 087afcee-dcd1-4c7b-be86-78de0185f003
+		summarizeBy: none
+		sourceColumn: Check No contempladas
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transacciones Preclasificadas.Comisión (Moneda Transacción)'
+		dataType: string
+		lineageTag: 3a6da09f-9ae9-41b0-80d1-44ee71d8e8c2
+		summarizeBy: none
+		sourceColumn: Transacciones Preclasificadas.Comisión (Moneda Transacción)
 
 		annotation SummarizationSetBy = Automatic
 
