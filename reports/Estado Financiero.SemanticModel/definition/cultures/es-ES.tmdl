@@ -1384,7 +1384,7 @@ cultureInfo es-ES
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Medidas IRPF",
-			          "ConceptualProperty": "IRPF Anual"
+			          "ConceptualProperty": "IRPF Anual Ahorro"
 			        }
 			      },
 			      "State": "Generated",
@@ -1400,7 +1400,7 @@ cultureInfo es-ES
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Medidas IRPF",
-			          "ConceptualProperty": "Ganancias / Pérdidas Patrimoniales"
+			          "ConceptualProperty": "Ganancias / Pérdidas Patrimoniales Realizadas"
 			        }
 			      },
 			      "State": "Generated",
@@ -1426,7 +1426,7 @@ cultureInfo es-ES
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Medidas IRPF",
-			          "ConceptualProperty": "Tipo IRPF Anual"
+			          "ConceptualProperty": "Tipo IRPF Anual Ahorro"
 			        }
 			      },
 			      "State": "Generated",
@@ -2040,7 +2040,7 @@ cultureInfo es-ES
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Medidas Saldo",
-			          "ConceptualProperty": "Beneficio Inversión"
+			          "ConceptualProperty": "Ganancia / Pérdida Patrimonial Total"
 			        }
 			      },
 			      "State": "Generated",

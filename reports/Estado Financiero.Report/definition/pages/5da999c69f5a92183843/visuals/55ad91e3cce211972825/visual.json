@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "55ad91e3cce211972825",
   "position": {
     "x": 250.74626865671641,
@@ -1683,7 +1683,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "49.01288493233809D"
+                  "Value": "56.17706297128606D"
                 }
               }
             }
@@ -1965,6 +1965,65 @@
                     "Right": {
                       "Literal": {
                         "Value": "'Actual'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "59.62684102895952D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Data"
+                          }
+                        },
+                        "Property": "Medida"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Rendimientos Capital Mobiliario'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Genérico"
+                          }
+                        },
+                        "Property": "Test Genérico"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Esperado'"
                       }
                     }
                   }

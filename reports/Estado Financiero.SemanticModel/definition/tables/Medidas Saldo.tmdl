@@ -74,7 +74,7 @@ table 'Medidas Saldo'
 	measure 'Beneficio Periodo' =
 			
 			
-			[Beneficio Inversión] + [Dividendos Netos]
+			[Ganancia / Pérdida Patrimonial Total] + [Ganancia Neta Capital Mobiliario]
 		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
 		displayFolder: Beneficio
 		lineageTag: 9e7830f5-83ce-449d-8c56-3caea8888d31
@@ -190,7 +190,7 @@ table 'Medidas Saldo'
 	measure 'Gastos no Computados Periodo' =
 			
 			CALCULATE(
-			    [Incremento Saldo Periodo] - [Beneficio Inversión] - [Movimientos Totales Periodo]
+			    [Incremento Saldo Periodo] - [Ganancia / Pérdida Patrimonial Total] - [Movimientos Totales Periodo]
 			    , REMOVEFILTERS('Tipo Movimiento')
 			)
 		displayFolder: Gastos
@@ -342,12 +342,15 @@ table 'Medidas Saldo'
 		displayFolder: Saldo
 		lineageTag: 8fe86df5-e0e2-4461-af39-90b5759b2bdd
 
-	measure 'Dividendos Netos' = [Dividendos Bruto]*(1-[Tipo IRPF Anual])
+	measure 'Dividendos Netos' = [Dividendos Bruto]*(1-[Tipo IRPF Anual Ahorro])
 		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
 		displayFolder: Inversión
 		lineageTag: 8c6f3656-cf65-44f3-85c6-8d000bb44e47
 
-	measure 'Beneficio Inversión' = ```
+	/// Ganancia / Pérdida Patrimonial entre las fechas seleccionadas de inicio y fin de período. 
+	/// 
+	/// Incluye tanto las ganancias / pérdidas realizadas como las no realizadas (actualizadas a los precios últimos disponibles)
+	measure 'Ganancia / Pérdida Patrimonial Total' = ```
 			
 			CALCULATE( 
 			    [Saldo Último] - [Ingresos Inversion] - [Saldo Fecha Inicio] 

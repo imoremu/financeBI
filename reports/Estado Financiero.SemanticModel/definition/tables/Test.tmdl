@@ -9,13 +9,13 @@ table Test
 			    , "Saldo Fecha Inicio", [Saldo Fecha Inicio]
 			    , "Saldo Último", [Saldo Último]
 			    , "Gastos no Computados Periodo", [Gastos no Computados Periodo]
-			    , "Beneficio Inversión", [Beneficio Inversión]
-			    , "Ganancias / Pérdidas Patrimoniales", [Ganancias / Pérdidas Patrimoniales]
+			    , "Ganancia / Pérdida Patrimonial Total", [Ganancia / Pérdida Patrimonial Total]
+			    , "Ganancias / Pérdidas Patrimoniales Realizadas", [Ganancias / Pérdidas Patrimoniales Realizadas]
 			    , "Rendimientos Capital Mobiliario", [Rendimientos Capital Mobiliario]
 			    , "Movimientos Totales Periodo", [Movimientos Totales Periodo]
 			    , "Beneficio Bruto Total Periodo", [Beneficio Bruto Total Periodo]
-			    , "IRPF Anual", [IRPF Anual]   
-			    , "Tipo IRPF Anual", [Tipo IRPF Anual]
+			    , "IRPF Anual Ahorro", [IRPF Anual Ahorro]   
+			    , "Tipo IRPF Anual Ahorro", [Tipo IRPF Anual Ahorro]
 			    , "Ingresos Inversión", [Ingresos Inversion]
 			    , "CONFIGURAR MEDIDA"
 			)

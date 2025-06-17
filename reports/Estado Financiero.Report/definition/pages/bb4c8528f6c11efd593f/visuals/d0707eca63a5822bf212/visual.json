@@ -213,26 +213,12 @@
                       "Entity": "Medidas IRPF"
                     }
                   },
-                  "Property": "Ganancias / Pérdidas Patrimoniales"
+                  "Property": "Ganancias / Pérdidas Patrimoniales Realizadas"
                 }
               },
               "queryRef": "Medidas IRPF.Beneficio IRPF",
               "nativeQueryRef": "Beneficio Imputable",
               "displayName": "Beneficio Imputable"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Transacciones"
-                    }
-                  },
-                  "Property": "IRPF - Ajuste Diferido"
-                }
-              },
-              "queryRef": "Transacciones.IRPF - Ajuste Diferido",
-              "nativeQueryRef": "IRPF - Ajuste Diferido"
             },
             {
               "field": {
@@ -242,7 +228,7 @@
                       "Entity": "Medidas IRPF"
                     }
                   },
-                  "Property": "IRPF Anual"
+                  "Property": "IRPF Anual Ahorro"
                 }
               },
               "queryRef": "Medidas IRPF.IRPF Anual",
@@ -614,20 +600,6 @@
           },
           "selector": {
             "metadata": "Medidas IRPF.Beneficio IRPF"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "62.992577134608304D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Transacciones.IRPF - Ajuste Diferido"
           }
         },
         {

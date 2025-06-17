@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "d1089b149757faba4320",
   "position": {
-    "x": 10,
-    "y": 320.744763382467,
+    "x": 10.114942528735632,
+    "y": 316.32183908045982,
     "z": 5000,
-    "height": 390.256012412723,
-    "width": 1260.1396431342125,
+    "height": 389.88505747126442,
+    "width": 1259.7701149425288,
     "tabOrder": 6000
   },
   "visual": {
@@ -1156,5 +1156,247 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "956ed49f0b9f5d1e3424",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Productos"
+              }
+            },
+            "Property": "Producto"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c542fa4b52e19a141daf",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Fecha Inicial"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0f9ed938761c245ed96d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Inversion Total Realizada"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d754208427d710b701da",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Ingresos Inversion"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b56202c6b703f50b0996",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Inversión Realizada Inicio"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "814f560add6f15343a5e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Saldo Fecha Inicio"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4bc4cb388ef9e7b93a27",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Saldo Último"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e1c982393faffa226de1",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Capital Invertido Medio"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "907dfd42e7c508f516c8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Beneficio Periodo"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "23d3ed7de86cd8aad889",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Incremento Normalizado Saldo Periodo (%)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f709dc3d18116ae0963b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Incremento Normalizado Anual (%)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ec8aa4737ff90cf49987",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Días Inversion"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8bb653b9eae7b5664d69",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Dividendos Netos"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "28f6e716718f1d03679c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Participaciones Actuales"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b73f77f8a950a21a1766",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Valor Liquidativo Actual"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ed7d2919b8dd065e0f00",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Valor Liq. Compra"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a059868fad39e8cbb81c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Valor Liquidativo Normalizado Compra Periodo"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

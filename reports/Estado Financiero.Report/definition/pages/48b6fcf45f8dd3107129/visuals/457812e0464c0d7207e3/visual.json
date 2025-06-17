@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "457812e0464c0d7207e3",
   "position": {
     "x": 10,
@@ -37,7 +37,7 @@
                       "Entity": "Medidas IRPF"
                     }
                   },
-                  "Property": "Tipo IRPF Anual"
+                  "Property": "Tipo IRPF Anual Ahorro"
                 }
               },
               "queryRef": "Medidas IRPF.Tipo IRPF Anual",
