@@ -27,9 +27,9 @@ queryGroup Test
 
 	annotation PBI_QueryGroupOrder = 4
 
-annotation PBIDesktopVersion = 2.144.679.0 (25.06)+ef40146207b86a826d1c72a7727a743ee37450e9
+annotation PBIDesktopVersion = 2.144.1378.0 (25.06)+cba1e61f16ea36d44901f06fa446299040122394
 
-annotation PBI_QueryOrder = ["Saldo","Movimientos","Productos","Tipo Movimiento","Path","Medidas Movimientos","Especie","Años","Meses","Meses con Datos","Pagos Especie - Origen","Cobros Especie - Origen","Tipo Pago Especie","Tipo Cobro Especie","Pagos Especie","Cobros Especie","Movimientos Origen","Transacciones","Transacciones Agrupadas","Dividendos","Medidas Transacciones","Medidas Saldo","Transacciones Power Query","IRPF Ahorro","Medidas IRPF","CalcularFIFO","ConsumoFIFO","Pruebas","Path (Prod)","Path (Test)","Path (Dev)","Origen Data File","Test Data","Path (Temp)"]
+annotation PBI_QueryOrder = ["Saldo","Movimientos","Productos","Transacciones Power Query","Tipo Movimiento","Path","Medidas Movimientos","Especie","Años","Meses","Meses con Datos","Pagos Especie - Origen","Cobros Especie - Origen","Tipo Pago Especie","Tipo Cobro Especie","Pagos Especie","Cobros Especie","Movimientos Origen","Transacciones","Transacciones Agrupadas","Medidas Transacciones","Medidas Saldo","IRPF Ahorro","Medidas IRPF","IRPF","CalcularFIFO","ConsumoFIFO","Pruebas","Path (Prod)","Path (Test)","Path (Dev)","Origen Data File","Test Data","Path (Temp)"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
@@ -43,7 +43,6 @@ ref table 'Tipo Movimiento'
 ref table 'Medidas Saldo'
 ref table 'Año Referencia'
 ref table 'Medidas Movimientos'
-ref table Dividendos
 ref table 'Medidas Transacciones'
 ref table 'IRPF Ahorro'
 ref table 'Medidas IRPF'
@@ -54,7 +53,7 @@ ref table Test
 ref table 'Test Data'
 ref table DateTableTemplate_c89e3af7-f9f4-492b-8e82-a0927b77cae5
 ref table LocalDateTable_93f1543f-944f-4988-9370-48e3eab51efc
-ref table LocalDateTable_b9da2914-fd53-4f32-b21c-39fa4c9bbfb1
+ref table IRPF
 
 ref cultureInfo es-ES
 

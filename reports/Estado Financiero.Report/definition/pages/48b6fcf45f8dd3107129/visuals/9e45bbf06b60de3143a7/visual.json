@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "9e45bbf06b60de3143a7",
   "position": {
     "x": 10.054988216810683,
@@ -23,7 +23,7 @@
                       "Entity": "Medidas IRPF"
                     }
                   },
-                  "Property": "Presentación - Tipo IRPF Anual"
+                  "Property": "Transacción - Presentación - Tipo IRPF Anual"
                 }
               },
               "queryRef": "Medidas IRPF.Presentación - Tipo IRPF Anual",
@@ -42,7 +42,7 @@
                     "Entity": "Medidas IRPF"
                   }
                 },
-                "Property": "Presentación - Tipo IRPF Anual"
+                "Property": "Transacción - Presentación - Tipo IRPF Anual"
               }
             },
             "direction": "Descending"

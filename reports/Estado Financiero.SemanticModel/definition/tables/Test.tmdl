@@ -10,25 +10,36 @@ table Test
 			    , "Saldo Último", [Saldo Último]
 			    , "Gastos no Computados Periodo", [Gastos no Computados Periodo]
 			    , "Ganancia / Pérdida Patrimonial Total", [Ganancia / Pérdida Patrimonial Total]
-			    , "Ganancias / Pérdidas Patrimoniales Realizadas", [Ganancias / Pérdidas Patrimoniales Realizadas]
-			    , "Rendimientos Capital Mobiliario", [Rendimientos Capital Mobiliario]
+			    , "Transacción - Ganancias / Pérdidas Patrimoniales Realizadas", [Transacción - Ganancias / Pérdidas Patrimoniales Realizadas]
+			    , "Anual - Ganancias / Pérdidas Patrimoniales Realizadas", [Anual - Ganancias / Pérdidas Patrimoniales Realizadas]
+			    , "Transacción - Rendimientos Capital Mobiliario", [Transacción - Rendimientos Capital Mobiliario]
+			    , "Anual - Rendimientos Capital Mobiliario", [Anual - Rendimientos Capital Mobiliario]
 			    , "Movimientos Totales Periodo", [Movimientos Totales Periodo]
 			    , "Beneficio Bruto Total Periodo", [Beneficio Bruto Total Periodo]
-			    , "IRPF Anual Ahorro", [IRPF Anual Ahorro]   
-			    , "Tipo IRPF Anual Ahorro", [Tipo IRPF Anual Ahorro]
+			    , "Transacción - IRPF Anual Ahorro", [Transacción - IRPF Anual Ahorro]   
+			    , "Anual - IRPF Ahorro", [Anual - IRPF Ahorro]   
+			    , "Transacción - IRPF Anual Ahorro Pendiente", [Transacción - IRPF Anual Ahorro Pendiente]   
+			    , "Transacción - Tipo IRPF Anual Ahorro", [Transacción - Tipo IRPF Anual Ahorro]
+			    , "Anual - Tipo IRPF Ahorro", [Anual - Tipo IRPF Ahorro]
 			    , "Ingresos Inversión", [Ingresos Inversion]
-			    , "CONFIGURAR MEDIDA"
+			    , "Transacción - Base Imponible del Ahorro", [Transacción - Base Imponible del Ahorro]
+			    , "Anual - Base Imponible del Ahorro", [Anual - Base Imponible del Ahorro]
+			    , "Anual - Pérdidas GPP Remanentes", [Anual - Pérdidas GPP Remanentes]
+			    , "Anual - Pérdidas RCM Remanentes", [Anual - Pérdidas RCM Remanentes]
+			    , "Anual - Pérdidas GPP Dsiponibles", [Anual - Pérdidas GPP Disponibles]
+			    , "Anual - Pérdidas RCM Disponible", [Anual - Pérdidas RCM Disponibles]
+			    , "MEDIDA NO REGISTRADA"
 			)
-			
 			```
-		formatString: 0.00
 		lineageTag: fd9278ab-02ea-4140-9799-f46f3b6af606
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Test - Número Errores' = ```
 			
 			
 			SUMX(
-			    SUMMARIZE('Test Data', 'Test Data'[Medida],'Test Data'[Prueba]), 
+			    SUMMARIZE('Test Data', 'Test Data'[Medida],'Test Data'[Caso],'Test Data'[Validación]), 
 			    CALCULATE(
 			        [Test - Medida Seleccionada]
 			        , 'Test Genérico'[Test Genérico] = "Error"

@@ -202,7 +202,7 @@ table 'Medidas Transacciones'
 		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		lineageTag: 4703907e-48ca-4364-b13a-cf1cfed29a0a
 
-	measure 'Beneficio Neto' = [Beneficio Bruto Total Periodo] - 'Medidas IRPF'[IRPF Anual Ahorro]
+	measure 'Beneficio Neto' = [Beneficio Bruto Total Periodo] - 'Medidas IRPF'[Transacción - IRPF Anual Ahorro]
 		lineageTag: 8384ecd4-5ca6-41d1-9547-8008279249e2
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}

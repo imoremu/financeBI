@@ -14,10 +14,6 @@ relationship 17e9edd7-2f4c-4d95-9346-ab191afffb83
 	fromColumn: Saldo.Fecha
 	toColumn: Calendario.Date
 
-relationship fbd5c639-342a-f7f8-321b-62d1747fec1f
-	fromColumn: Dividendos.Fecha
-	toColumn: Calendario.Date
-
 relationship 8b1bea61-c3f9-0a27-31de-98cd17d27c45
 	fromColumn: Transacciones.Fecha
 	toColumn: Calendario.Date
@@ -30,10 +26,6 @@ relationship e5578d68-57f5-01e9-2a47-7c5e44960af6
 	fromColumn: Transacciones.Producto
 	toColumn: Productos.Producto
 
-relationship 0941d729-79d1-b7f7-12c5-0475db64212d
-	fromColumn: Dividendos.Producto
-	toColumn: Productos.Producto
-
 relationship 662e5346-ea3b-adcf-c4b6-4224b36bad1f
 	fromColumn: Transacciones.'Año IRPF'
 	toColumn: 'Años Fiscales'.Año
@@ -43,33 +35,27 @@ relationship b40c6ee6-4ff4-4108-9c87-8c3405be1394
 	fromColumn: Transacciones.Fecha/Hora
 	toColumn: LocalDateTable_93f1543f-944f-4988-9370-48e3eab51efc.Date
 
-relationship 3a5f943a-4678-40ea-b351-5487beb493ac
-	joinOnDateBehavior: datePartOnly
-	fromColumn: Dividendos.Fecha/Hora
-	toColumn: LocalDateTable_b9da2914-fd53-4f32-b21c-39fa4c9bbfb1.Date
+relationship cb595951-364d-ea2a-b03d-585461b34aa7
+	fromColumn: IRPF.Year
+	toColumn: 'Años Fiscales'.Año
 
-relationship 5f187c92-9b98-1831-b8c9-73f0037614e4
-	toCardinality: many
-	fromColumn: Movimientos.Test
-	toColumn: 'Test Data'.Prueba
-
-relationship dad5e620-7aaf-ee6b-29cf-bbb87a57bb0e
+relationship 1e74385a-ee02-0d44-e7aa-72dda0d76f66
 	toCardinality: many
 	fromColumn: Transacciones.Test
-	toColumn: 'Test Data'.Prueba
+	toColumn: 'Test Data'.Caso
 
-relationship ebf62a40-dc3e-fa64-0d32-9d551302b2e3
+relationship ea8e83a4-a78d-abe9-a66c-e69f2b035a11
+	toCardinality: many
+	fromColumn: Movimientos.Test
+	toColumn: 'Test Data'.Caso
+
+relationship 72251291-c1a7-3d03-259d-91df0ce3b10e
 	toCardinality: many
 	fromColumn: Saldo.Test
-	toColumn: 'Test Data'.Prueba
+	toColumn: 'Test Data'.Caso
 
-relationship f4789811-5367-14c3-fbc0-b855711f6579
+relationship b0cd8cbd-d020-56a6-16b9-0d56fc82ccac
 	toCardinality: many
-	fromColumn: Dividendos.Test
-	toColumn: 'Test Data'.Prueba
-
-relationship AutoDetected_d0bfb25a-2200-4dfd-bea6-2f7a12935274
-	isActive: false
-	fromColumn: Transacciones.'Rendimientos Capital Mobiliario'
-	toColumn: Dividendos.'Rendimientos Capital Mobiliario'
+	fromColumn: IRPF.Test
+	toColumn: 'Test Data'.Caso
 

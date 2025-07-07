@@ -9,22 +9,6 @@ table 'Test Data'
 
 		annotation SummarizationSetBy = Automatic
 
-	column Test
-		dataType: string
-		lineageTag: fabe67b9-393c-4698-8721-7fbd57689f08
-		summarizeBy: none
-		sourceColumn: Test
-
-		annotation SummarizationSetBy = Automatic
-
-	column Prueba
-		dataType: string
-		lineageTag: 92934524-46f0-4dae-81c9-93ec1a38c24d
-		summarizeBy: none
-		sourceColumn: Prueba
-
-		annotation SummarizationSetBy = Automatic
-
 	column Descripción
 		dataType: string
 		lineageTag: 979c04f1-b76c-4eea-b3ae-5d98e555b6a8
@@ -68,6 +52,31 @@ table 'Test Data'
 
 		annotation SummarizationSetBy = Automatic
 
+	column Concepto
+		dataType: string
+		lineageTag: be2e9636-997e-446c-ad26-91b3d2b10524
+		summarizeBy: none
+		sourceColumn: Concepto
+
+		annotation SummarizationSetBy = Automatic
+
+	column Caso
+		dataType: string
+		lineageTag: 327edb81-db53-46ea-a2e4-77f2dd1d6934
+		summarizeBy: none
+		sourceColumn: Caso
+
+		annotation SummarizationSetBy = Automatic
+
+	column Validación
+		dataType: int64
+		formatString: 0
+		lineageTag: 35f1e2b2-6e10-4b3a-b5fb-ea5441d45400
+		summarizeBy: sum
+		sourceColumn: Validación
+
+		annotation SummarizationSetBy = Automatic
+
 	partition 'Test Data' = m
 		mode: import
 		queryGroup: Test
@@ -79,17 +88,17 @@ table 'Test Data'
 				    resultado = if List.Contains(List.Transform(Origen[Name], Text.Lower), "t_testdata") then 
 				
 				        let        
-				            #"Tipo cambiado" = Table.TransformColumnTypes(T_Saldo_Table,{{"Medida", type text}, {"Prueba", type text}, {"Descripción", type text}}),
+				            #"Tipo cambiado" = Table.TransformColumnTypes(T_Saldo_Table,{{"Medida", type text}, {"Caso", type text}, {"Descripción", type text}}),
 				            #"JSON analizado" = Table.TransformColumns(#"Tipo cambiado",{{"Parámetros", Json.Document}}),
 				            #"Se expandió Parámetros" = Table.ExpandRecordColumn(#"JSON analizado", "Parámetros", {"año", "mes", "año IRPF"}, {"año", "mes", "año IRPF"}),
-				            #"test_data" = Table.TransformColumnTypes(#"Se expandió Parámetros",{{"año", Int64.Type}, {"mes", Int64.Type}, {"año IRPF", Int64.Type}, {"Valor Esperado", type text}, {"Test", type text}})
+				            #"test_data" = Table.TransformColumnTypes(#"Se expandió Parámetros",{{"año", Int64.Type}, {"mes", Int64.Type}, {"año IRPF", Int64.Type}, {"Valor Esperado", type text}, {"Concepto", type text}})
 				
 				        in 
 				            #"test_data"
 				
 				    else
 				        #table({"Medida","Test", "Prueba","Descripción","Valor Esperado","Parámetros"}, {}),
-				    #"Tipo cambiado" = Table.TransformColumnTypes(resultado,{{"Medida", type text}, {"Test", type text}, {"Prueba", type text}, {"Descripción", type text}, {"Valor Esperado", type text}})
+				    #"Tipo cambiado" = Table.TransformColumnTypes(resultado,{{"Medida", type text}, {"Concepto", type text}, {"Caso", type text}, {"Descripción", type text}, {"Valor Esperado", type text}, {"Validación", Int64.Type}})
 				in
 				    #"Tipo cambiado"
 				```

@@ -1,6 +1,11 @@
 table 'Años Fiscales'
 	lineageTag: bdca8db4-4a09-4b1b-afb2-e18d359bbc3f
 
+	measure 'Año Fiscal Seleccionado' = SELECTEDVALUE('Años Fiscales'[Año])
+		lineageTag: 1326b662-7b26-44fa-8de4-a193133e600a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column Año
 		formatString: 0
 		lineageTag: 575b102f-886d-4a42-9d3a-ae4c1624dfbd

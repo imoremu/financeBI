@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "f2b9409020296952f945",
   "position": {
     "x": 510,
@@ -23,11 +23,11 @@
                       "Entity": "Test Data"
                     }
                   },
-                  "Property": "Test"
+                  "Property": "Concepto"
                 }
               },
-              "queryRef": "Test Data.Test",
-              "nativeQueryRef": "Test",
+              "queryRef": "Test Data.Concepto",
+              "nativeQueryRef": "Concepto",
               "active": true
             }
           ]
@@ -409,5 +409,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "aa2f5e1500d3b64a4908",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Test Data"
+              }
+            },
+            "Property": "Concepto"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

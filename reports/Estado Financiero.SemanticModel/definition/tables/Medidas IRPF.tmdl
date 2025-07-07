@@ -1,10 +1,10 @@
 table 'Medidas IRPF'
 	lineageTag: 8f3a51e4-9a1c-4933-885d-ca3ccd2b595f
 
-	measure 'IRPF Anual Ahorro' = ```
+	measure 'Transacción - IRPF Anual Ahorro' = ```
 			
 			
-			    VAR beneficio = [Base Imponible del Ahorro]
+			    VAR beneficio = [Transacción - Base Imponible del Ahorro]
 			
 			    VAR tramos_ultimo_periodo = CALCULATETABLE(
 			        SELECTCOLUMNS('IRPF Ahorro', 'IRPF Ahorro'[Mínimo], 'IRPF Ahorro'[Máximo], 'IRPF Ahorro'[Tipo])
@@ -32,59 +32,166 @@ table 'Medidas IRPF'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Tipo IRPF Anual Ahorro' = ```
+	measure 'Transacción - Tipo IRPF Anual Ahorro' = ```
 			
 			
 			VAR fiscal_year = SELECTEDVALUE(Transacciones[Año IRPF])
 			
 			RETURN   
 			    CALCULATE(
-			            DIVIDE([IRPF Anual Ahorro], [Base Imponible del Ahorro])
+			            DIVIDE([Transacción - IRPF Anual Ahorro], [Transacción - Base Imponible del Ahorro])
 			            , Transacciones[Año IRPF] = fiscal_year
 			    )        
 			```
 		formatString: 0.00\ %;-0.00\ %;0.00\ %
 		lineageTag: d46c24e9-133e-4295-a1ad-2707722c7281
 
-	/// Ganancia / Pérdida Patrimonial entre las fechas seleccionadas de inicio y fin de período. 
+	/// Ganancia / Pérdida Patrimonial entre las fechas seleccionadas de inicio y fin de período.
 	/// 
 	/// Incluye solo las ganancias / pérdidas realizadas siguiendo un protocolo FIFO.
-	measure 'Ganancias / Pérdidas Patrimoniales Realizadas' = SUM(Transacciones[Ganancias / Pérdidas Patrimoniales (GPP)])
+	measure 'Transacción - Ganancias / Pérdidas Patrimoniales Realizadas' = SUM(Transacciones[Ganancias / Pérdidas Patrimoniales (GPP)])
 		lineageTag: 6038c3b8-9c36-4df9-96a8-6e21c0b63051
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Presentación - Tipo IRPF Anual' = COALESCE([Tipo IRPF Anual Ahorro], "Seleccione Año")
+	measure 'Transacción - Presentación - Tipo IRPF Anual' = COALESCE([Transacción - Tipo IRPF Anual Ahorro], "Seleccione Año")
 		formatString: 0.00\ %;-0.00\ %;0.00\ %
 		lineageTag: 7b3e8605-d345-4583-b489-42ef3a2b5ec9
 
-	measure 'Rendimientos Capital Mobiliario' = SUM(Transacciones[Rendimientos Capital Mobiliario])
+	measure 'Transacción - Rendimientos Capital Mobiliario' = SUM(Transacciones[Rendimientos Capital Mobiliario])
+		formatString: #,0.00
 		lineageTag: 7052e4fd-3e0d-4afe-af01-bf158bfe263d
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Base Imponible del Ahorro' = [Ganancias / Pérdidas Patrimoniales Realizadas] + [Rendimientos Capital Mobiliario]
+	measure 'Transacción - Base Imponible del Ahorro' = ```
+			
+			
+			IF (
+			    [Transacción - Ganancias / Pérdidas Patrimoniales Realizadas] >= 0, 
+			    [Transacción - Ganancias / Pérdidas Patrimoniales Realizadas]   + [Transacción - Rendimientos Capital Mobiliario], 
+			    MAX([Transacción - Ganancias / Pérdidas Patrimoniales Realizadas], -1*0.25*[Transacción - Rendimientos Capital Mobiliario]) + [Transacción - Rendimientos Capital Mobiliario]
+			)
+			
+			```
 		lineageTag: 470bc87d-6193-48ca-a4f3-cd0b941546da
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Retención Ya Efectuada' = SUM(Transacciones[Retenido])
+	measure 'Transacción - Impuestos Retenidos Local' = CALCULATE(SUM(Transacciones[Retenido]), Transacciones[Retención Local])
 		lineageTag: 889695e9-819b-45c1-a102-5740bb364a9a
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Ganancia Neta Capital Mobiliario' = [Rendimientos Capital Mobiliario] * (1 - [Tipo IRPF Anual Ahorro])
+	measure 'Transacción - Ganancia Neta Capital Mobiliario' =
+			
+			CALCULATE(
+			    ([Transacción - Rendimientos Capital Mobiliario] - [Transacción - Gastos Deducibles]) * (1 - [Transacción - Tipo IRPF Anual Ahorro]) - [Transacción - Gastos No Deducibles]
+			    , Transacciones[Tipo Transacción] = "Dividendos"
+			)
 		lineageTag: bb517e35-d97c-4b3c-b58b-8f2fd2f6d42e
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Gastos Deducibles' = SUM(Transacciones[Comisión])
+	measure 'Transacción - Gastos Deducibles' = SUM(Transacciones[Gastos Deducibles])
 		lineageTag: 7cffd500-e201-45b6-b3ee-9096b9097ce0
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Gastos No Deducibles' = SUM(Transacciones[Comisión])
+	measure 'Transacción - Gastos No Deducibles' = SUM(Transacciones[Gastos No Deducibles])
 		lineageTag: 10a577cc-706c-452b-827f-d6a30235bb03
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Transacción - Impuestos Retenidos Extranjero' = CALCULATE(SUM(Transacciones[Retenido]), not Transacciones[Retención Local])
+		lineageTag: db895555-0751-45cf-bac1-aac38910bde4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Transacción - IRPF Anual Ahorro Pendiente' = SUMX(Transacciones, MAX(0, 'Medidas IRPF'[Transacción - IRPF Anual Ahorro] - [Transacción - Impuestos Retenidos Extranjero]) - [Transacción - Impuestos Retenidos Local] )
+		lineageTag: a4840ceb-be55-44c6-8afc-aac5fa5befa0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Anual - IRPF Ahorro' = ```
+			
+			
+			    VAR base_imponible = [Anual - Base Imponible del Ahorro]
+			
+			    VAR tramos_ultimo_periodo = CALCULATETABLE(
+			        SELECTCOLUMNS('IRPF Ahorro', 'IRPF Ahorro'[Mínimo], 'IRPF Ahorro'[Máximo], 'IRPF Ahorro'[Tipo])
+			        , 'IRPF Ahorro'[Año] = MAX(Transacciones[Año IRPF])
+			        , 'IRPF Ahorro'[Mínimo] <= base_imponible
+			    )    
+			    
+			    RETURN         
+			        IF(
+			            base_imponible <= 0
+			            , BLANK()
+			            , SUMX(
+			                tramos_ultimo_periodo
+			                , 
+			                    VAR minimo = 'IRPF Ahorro'[Mínimo]
+			                    VAR maximo = 'IRPF Ahorro'[Máximo]
+			
+			                    VAR irpf = IF (minimo = 0, MIN(base_imponible - minimo, maximo), MIN(MAX(BLANK(), base_imponible - minimo), maximo))
+			
+			                    RETURN IF (irpf=0, BLANK(), irpf * 'IRPF Ahorro'[Tipo])
+			            ) 
+			        ) 
+			```
+		lineageTag: 9da21072-d964-468f-9acd-7ecab5fcf2f7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Anual - Base Imponible del Ahorro' = SUM(IRPF[Total Taxable Base])
+		lineageTag: 15e853fa-e7f3-441e-867a-35800b18b8b3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Anual - Tipo IRPF Ahorro' = ```
+			
+			
+			VAR fiscal_year = SELECTEDVALUE(Transacciones[Año IRPF])
+			
+			RETURN   
+			    CALCULATE(
+			            DIVIDE([Anual - IRPF Ahorro], [Anual - Base Imponible del Ahorro])
+			            , Transacciones[Año IRPF] = fiscal_year
+			    )        
+			```
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 13abd3e2-4b09-4d0e-85b9-b400034f8514
+
+	measure 'Anual - Presentación - Tipo IRPF Anual' = COALESCE([Anual - Tipo IRPF Ahorro], "Seleccione Año")
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 7b663cb5-972a-440d-a259-939a4a2a2c02
+
+	measure 'Anual - Rendimientos Capital Mobiliario' = SUM(IRPF[RCM])
+		lineageTag: 6afe6d20-ab94-4bfe-a8b2-bad38fecbd49
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Anual - Ganancias / Pérdidas Patrimoniales Realizadas' = SUM(IRPF[GPP])
+		lineageTag: 8fdfab95-fe05-415f-9f77-13b0f33f616f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Anual - Pérdidas RCM Disponibles' = SUM(IRPF[RCM Loss Available])
+		lineageTag: 34277291-9f4a-42df-a3cd-0fdd73c6ff79
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Anual - Pérdidas GPP Disponibles' = SUM(IRPF[GPP Loss Available])
+		lineageTag: 272e0290-a2b7-465f-9d45-3fc5de1bbe97
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Anual - Pérdidas RCM Remanentes' = SUM(IRPF[RCM Loss Carried Forward])
+		lineageTag: 22c4d7c2-d844-4f22-a23a-8c2009eab7be
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Anual - Pérdidas GPP Remanentes' = SUM(IRPF[GPP Loss Carried Forward])
+		lineageTag: 488d478b-85bd-4057-9825-f329d8638f49
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 

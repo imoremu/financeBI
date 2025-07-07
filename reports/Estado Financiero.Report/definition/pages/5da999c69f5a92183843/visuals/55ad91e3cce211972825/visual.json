@@ -35,6 +35,21 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
+                      "Entity": "Test Data"
+                    }
+                  },
+                  "Property": "Validación"
+                }
+              },
+              "queryRef": "Test Data.Validación",
+              "nativeQueryRef": "Validación",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
                       "Entity": "Test Genérico"
                     }
                   },
@@ -57,11 +72,11 @@
                       "Entity": "Test Data"
                     }
                   },
-                  "Property": "Test"
+                  "Property": "Concepto"
                 }
               },
-              "queryRef": "Test Data.Test",
-              "nativeQueryRef": "Test",
+              "queryRef": "Test Data.Concepto",
+              "nativeQueryRef": "Concepto",
               "active": true
             },
             {
@@ -72,11 +87,11 @@
                       "Entity": "Test Data"
                     }
                   },
-                  "Property": "Prueba"
+                  "Property": "Caso"
                 }
               },
-              "queryRef": "Test Data.Prueba",
-              "nativeQueryRef": "Prueba",
+              "queryRef": "Test Data.Caso",
+              "nativeQueryRef": "Caso",
               "active": true
             },
             {
@@ -111,7 +126,8 @@
                 }
               },
               "queryRef": "Test.Medida Seleccionada",
-              "nativeQueryRef": "Test - Medida Seleccionada"
+              "nativeQueryRef": "Test - Medida Seleccionada",
+              "format": "#,##0.####"
             }
           ]
         }
@@ -125,7 +141,7 @@
         "levels": [
           {
             "queryRefs": [
-              "Test Data.Test"
+              "Test Data.Concepto"
             ],
             "identityKeys": [
               {
@@ -135,7 +151,7 @@
                       "Entity": "Test Data"
                     }
                   },
-                  "Property": "Test"
+                  "Property": "Concepto"
                 }
               }
             ],
@@ -143,7 +159,7 @@
           },
           {
             "queryRefs": [
-              "Test Data.Prueba"
+              "Test Data.Caso"
             ],
             "isCollapsed": true,
             "identityKeys": [
@@ -154,7 +170,7 @@
                       "Entity": "Test Data"
                     }
                   },
-                  "Property": "Prueba"
+                  "Property": "Caso"
                 }
               }
             ],
@@ -1183,7 +1199,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "66.69081718618366D"
+                  "Value": "56.82925654192785D"
                 }
               }
             }
@@ -1294,20 +1310,6 @@
                 }
               }
             ]
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "324.16417902212595D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Test Data.Prueba"
           }
         },
         {
@@ -1544,20 +1546,6 @@
                 }
               }
             ]
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "134.57161794999723D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Test Data.Test"
           }
         },
         {
@@ -2002,6 +1990,1406 @@
                     "Right": {
                       "Literal": {
                         "Value": "'Rendimientos Capital Mobiliario'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Genérico"
+                          }
+                        },
+                        "Property": "Test Genérico"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Esperado'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "58.2387981887059D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Data"
+                          }
+                        },
+                        "Property": "Medida"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Tipo IRPF Anual Ahorro'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Genérico"
+                          }
+                        },
+                        "Property": "Test Genérico"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Esperado'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "58.827550930154004D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Data"
+                          }
+                        },
+                        "Property": "Medida"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'IRPF Anual Ahorro Pendiente'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Genérico"
+                          }
+                        },
+                        "Property": "Test Genérico"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Esperado'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "72.04817331684919D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Data"
+                          }
+                        },
+                        "Property": "Medida"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Ganancias / Pérdidas Patrimoniales Realizadas'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Genérico"
+                          }
+                        },
+                        "Property": "Test Genérico"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Actual'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "68.2443367432906D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Data"
+                          }
+                        },
+                        "Property": "Medida"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Ganancias / Pérdidas Patrimoniales Realizadas'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Genérico"
+                          }
+                        },
+                        "Property": "Test Genérico"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Esperado'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "56.385676888491446D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Data"
+                          }
+                        },
+                        "Property": "Medida"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Base Imponible del Ahorro'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Genérico"
+                          }
+                        },
+                        "Property": "Test Genérico"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Actual'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "61.934393638170974D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Data"
+                          }
+                        },
+                        "Property": "Medida"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Ganancia / Pérdida Patrimonial Total'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Genérico"
+                          }
+                        },
+                        "Property": "Test Genérico"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Esperado'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "59.83122692919979D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Data"
+                          }
+                        },
+                        "Property": "Medida"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Base Imponible del Ahorro'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Genérico"
+                          }
+                        },
+                        "Property": "Test Genérico"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Esperado'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "59.791044545097485D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Data"
+                          }
+                        },
+                        "Property": "Medida"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'IRPF Anual Ahorro'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Genérico"
+                          }
+                        },
+                        "Property": "Test Genérico"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Esperado'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "60.30616259922387D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Data"
+                          }
+                        },
+                        "Property": "Medida"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Anual - Base Imponible del Ahorro'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Genérico"
+                          }
+                        },
+                        "Property": "Test Genérico"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Esperado'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "59.32368129986437D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Data"
+                          }
+                        },
+                        "Property": "Medida"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Anual - IRPF Ahorro'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Genérico"
+                          }
+                        },
+                        "Property": "Test Genérico"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Esperado'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "62.74984151955144D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Data"
+                          }
+                        },
+                        "Property": "Medida"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Transacción - IRPF Anual Ahorro Pendiente'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Genérico"
+                          }
+                        },
+                        "Property": "Test Genérico"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Esperado'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "61.90544043567662D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Data"
+                          }
+                        },
+                        "Property": "Medida"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Transacción - Rendimientos Capital Mobiliario'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Genérico"
+                          }
+                        },
+                        "Property": "Test Genérico"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Esperado'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "63.66599949739013D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Data"
+                          }
+                        },
+                        "Property": "Medida"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Transacción - Tipo IRPF Anual Ahorro'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Genérico"
+                          }
+                        },
+                        "Property": "Test Genérico"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Esperado'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "63.40536713064296D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Data"
+                          }
+                        },
+                        "Property": "Medida"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Transacción - IRPF Anual Ahorro'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Genérico"
+                          }
+                        },
+                        "Property": "Test Genérico"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Esperado'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "91.21614969889077D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Data"
+                          }
+                        },
+                        "Property": "Medida"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Transacción - Ganancias / Pérdidas Patrimoniales Realizadas'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Genérico"
+                          }
+                        },
+                        "Property": "Test Genérico"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Esperado'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "71.87278661871977D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Data"
+                          }
+                        },
+                        "Property": "Medida"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Transacción - Base Imponible del Ahorro'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Genérico"
+                          }
+                        },
+                        "Property": "Test Genérico"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Esperado'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "76.24739413213072D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Data"
+                          }
+                        },
+                        "Property": "Medida"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Anual - Ganancias / Pérdidas Patrimoniales Realizadas'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Genérico"
+                          }
+                        },
+                        "Property": "Test Genérico"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Esperado'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "70.3414574298853D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Data"
+                          }
+                        },
+                        "Property": "Medida"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Anual - Rendimientos Capital Mobiliario'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Genérico"
+                          }
+                        },
+                        "Property": "Test Genérico"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Esperado'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "263.8516746411483D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Test Data.Concepto"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "77.65672815148966D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Data"
+                          }
+                        },
+                        "Property": "Medida"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Anual - Ganancias / Pérdidas Patrimoniales Realizadas'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Data"
+                          }
+                        },
+                        "Property": "Validación"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "1L"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Genérico"
+                          }
+                        },
+                        "Property": "Test Genérico"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Esperado'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "63.985067042164644D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Data"
+                          }
+                        },
+                        "Property": "Medida"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Anual - Base Imponible del Ahorro'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Data"
+                          }
+                        },
+                        "Property": "Validación"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "1L"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Genérico"
+                          }
+                        },
+                        "Property": "Test Genérico"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Esperado'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "61.88062139915718D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Data"
+                          }
+                        },
+                        "Property": "Medida"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Anual - Pérdidas GPP Remanentes'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Data"
+                          }
+                        },
+                        "Property": "Validación"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "1L"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Genérico"
+                          }
+                        },
+                        "Property": "Test Genérico"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Esperado'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "60.11944563626396D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Data"
+                          }
+                        },
+                        "Property": "Medida"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Anual - Rendimientos Capital Mobiliario'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Data"
+                          }
+                        },
+                        "Property": "Validación"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "1L"
                       }
                     }
                   }
@@ -2618,6 +4006,32 @@
             }
           }
         }
+      ],
+      "visualTooltip": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "''"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
@@ -2670,38 +4084,8 @@
         "type": "Advanced"
       },
       {
-        "name": "56b0bd77233bbe0e7268",
-        "ordinal": 3,
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Test Data"
-              }
-            },
-            "Property": "Prueba"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "3a32fe971a231909ee40",
-        "ordinal": 4,
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Test Data"
-              }
-            },
-            "Property": "Test"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
         "name": "c6c6ceb01061c8a6ca02",
-        "ordinal": 5,
+        "ordinal": 3,
         "field": {
           "Column": {
             "Expression": {
@@ -2759,6 +4143,48 @@
             }
           ]
         }
+      },
+      {
+        "name": "0e329600e296929322d9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Test Data"
+              }
+            },
+            "Property": "Concepto"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a7bc55eb09779999a504",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Test Data"
+              }
+            },
+            "Property": "Caso"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "51675c23d0d0eec2ac44",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Test Data"
+              }
+            },
+            "Property": "Validación"
+          }
+        },
+        "type": "Advanced"
       }
     ],
     "filterSortOrder": "Custom"

@@ -74,7 +74,7 @@ table 'Medidas Saldo'
 	measure 'Beneficio Periodo' =
 			
 			
-			[Ganancia / Pérdida Patrimonial Total] + [Ganancia Neta Capital Mobiliario]
+			[Ganancia / Pérdida Patrimonial Total] + [Transacción - Ganancia Neta Capital Mobiliario]
 		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
 		displayFolder: Beneficio
 		lineageTag: 9e7830f5-83ce-449d-8c56-3caea8888d31
@@ -342,12 +342,7 @@ table 'Medidas Saldo'
 		displayFolder: Saldo
 		lineageTag: 8fe86df5-e0e2-4461-af39-90b5759b2bdd
 
-	measure 'Dividendos Netos' = [Dividendos Bruto]*(1-[Tipo IRPF Anual Ahorro])
-		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
-		displayFolder: Inversión
-		lineageTag: 8c6f3656-cf65-44f3-85c6-8d000bb44e47
-
-	/// Ganancia / Pérdida Patrimonial entre las fechas seleccionadas de inicio y fin de período. 
+	/// Ganancia / Pérdida Patrimonial entre las fechas seleccionadas de inicio y fin de período.
 	/// 
 	/// Incluye tanto las ganancias / pérdidas realizadas como las no realizadas (actualizadas a los precios últimos disponibles)
 	measure 'Ganancia / Pérdida Patrimonial Total' = ```
@@ -421,12 +416,6 @@ table 'Medidas Saldo'
 		formatString: General Date
 		displayFolder: Inversión
 		lineageTag: 65295c28-ab55-4d9e-9f1b-50ebce2cbbef
-
-	measure 'Dividendos Bruto' = SUM(Dividendos[Total Bruto])
-		displayFolder: Inversión
-		lineageTag: 7fffd7a0-0481-4b1a-b92e-e36310649278
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Valor Liquidativo Normalizado Compra Periodo' =
 			

@@ -37,7 +37,7 @@
                       "Entity": "Medidas IRPF"
                     }
                   },
-                  "Property": "Tipo IRPF Anual Ahorro"
+                  "Property": "Transacción - Tipo IRPF Anual Ahorro"
                 }
               },
               "queryRef": "Medidas IRPF.Tipo IRPF Anual",

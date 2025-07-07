@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 838.3045167576297,
+        "x": 355.29703151641729,
         "y": 0
       },
       "nodes": [
@@ -113,19 +113,6 @@
         },
         {
           "location": {
-            "x": 1166.1369705093298,
-            "y": 648.32442794542885
-          },
-          "nodeIndex": "Dividendos",
-          "nodeLineageTag": "71d662a6-d45e-4164-ac31-d301ddfcca99",
-          "size": {
-            "height": 507.93881568011523,
-            "width": 266.74627018584511
-          },
-          "zIndex": 13
-        },
-        {
-          "location": {
             "x": 2761.4603039340791,
             "y": 118.23173171965016
           },
@@ -217,8 +204,8 @@
         },
         {
           "location": {
-            "x": 0,
-            "y": 15.331601322450183
+            "x": 81.865675464612281,
+            "y": 5.5077202666967082
           },
           "nodeIndex": "Test Data",
           "nodeLineageTag": "b4022ae7-63a8-4ebd-a1c0-0f326d7e47b7",
@@ -227,6 +214,19 @@
             "width": 234
           },
           "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 2114.1119203500607,
+            "y": 640.832755048315
+          },
+          "nodeIndex": "IRPF",
+          "nodeLineageTag": "d656388b-c402-4d9c-8953-455885b907b4",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "Todas las tablas",

@@ -101,12 +101,21 @@ table 'Test Genérico'
 				)
 				
 				VAR esperado = IFERROR(VALUE(SELECTEDVALUE('Test Data'[Valor Esperado])), SELECTEDVALUE('Test Data'[Valor Esperado]))
+				VAR Tolerance = 0.0001
 				
 				RETURN 
-				IF (
-				    OR(actual = esperado , AND(ISBLANK(actual), ISBLANK(esperado)))
-				    ,0
-				    ,1
+				IF ( 
+				    ISNUMBER(actual)
+				    , IF (
+				        ABS(actual - esperado) < Tolerance   
+				        ,0
+				        ,1
+				      )
+				    , IF (
+				        OR(actual = esperado, OR(actual = esperado, AND(ISBLANK(actual), ISBLANK(esperado))))    
+				        ,0
+				        ,1
+				      )
 				)
 				```
 

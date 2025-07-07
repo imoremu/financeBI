@@ -149,7 +149,7 @@ table Transacciones
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'IRPF Calculado' = [IRPF Anual Ahorro]
+	column 'IRPF Calculado' = [Transacción - IRPF Anual Ahorro]
 		dataType: double
 		lineageTag: 52f32b40-183d-46c3-8ac8-3451be29df89
 		summarizeBy: sum
@@ -305,26 +305,6 @@ table Transacciones
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 'Ganancias / Pérdidas Patrimoniales (GPP)'
-		dataType: double
-		lineageTag: 055f38b0-bbf8-43b5-86c3-a0ed30ae884a
-		summarizeBy: sum
-		sourceColumn: Ganancias / Pérdidas Patrimoniales (GPP)
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column 'GPP - Ajuste por Pérdida Diferida'
-		dataType: double
-		lineageTag: be41abe1-f0a9-4107-bbc7-ca5f7282d5ad
-		summarizeBy: sum
-		sourceColumn: GPP - Ajuste por Pérdida Diferida
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column 'Gastos No Deducibles'
 		dataType: double
 		lineageTag: 253d1294-463d-4a1d-9252-af1c2066c578
@@ -345,6 +325,59 @@ table Transacciones
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	column 'País Retención'
+		dataType: string
+		lineageTag: 8092bce9-66cb-48fd-b178-90f23ef43ce9
+		summarizeBy: none
+		sourceColumn: País Retención
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Retención Local'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: cc2affd5-462c-494d-bdc6-e1b0c75a9877
+		summarizeBy: none
+		sourceColumn: Retención Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column _FifoAvailableShares
+		dataType: string
+		lineageTag: 659ae6fc-71b8-4d81-84a8-dad847ea5064
+		summarizeBy: none
+		sourceColumn: _FifoAvailableShares
+
+		annotation SummarizationSetBy = Automatic
+
+	column _FifoCostPerShareWithCommission
+		dataType: string
+		lineageTag: 68150635-57f3-4838-a99e-f642e2613026
+		summarizeBy: none
+		sourceColumn: _FifoCostPerShareWithCommission
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ganancias / Pérdidas Patrimoniales (GPP)'
+		dataType: double
+		lineageTag: e0e774e9-fcc4-4f06-8fbf-d3e04e7091d8
+		summarizeBy: sum
+		sourceColumn: Ganancias / Pérdidas Patrimoniales (GPP)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'GPP - Ajuste por Pérdida Diferida'
+		dataType: double
+		lineageTag: cf052535-af5c-43e4-9490-024a99438b09
+		summarizeBy: sum
+		sourceColumn: GPP - Ajuste por Pérdida Diferida
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	partition Transacciones = m
 		mode: import
 		queryGroup: Saldo
@@ -356,8 +389,9 @@ table Transacciones
 				    #"[Buffer]" = Table.Buffer(#"Tipo cambiado"),
 				    #"[Python] Execute" = Python.Execute("import pyportfolio.scripts.powerquery.pq_get_fifo_irpf_data as script#(lf)#(lf)import logging#(lf)#(lf)logger = logging.getLogger(__name__)#(lf)#(lf)logging.basicConfig(filename='G:\Mi unidad\logfile.log', level=logging.DEBUG, # Changed to INFO for more detail#(lf)                    format='%(asctime)s - %(name)s - %(module)s - %(funcName)s - %(levelname)s - %(message)s')#(lf)#(lf)result = script.pq_get_fifo_irpf_data(dataset)#(lf)#(lf)logger.debug(f""Power Query Actual columns: {result.columns.tolist()}"")#(lf)#(lf)result",[dataset=#"[Buffer]"]),
 				    #"[Python] Result" = #"[Python] Execute"{[Name="result"]}[Value],
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"[Python] Result",{{"GPP", "Ganancias / Pérdidas Patrimoniales (GPP)"}, {"GPP - Deferred Loss Adjustment", "GPP - Ajuste por Pérdida Diferida"}}),
 				    #"[Update] Subst - . by ," = Table.TransformColumns(
-				        #"[Python] Result", 
+				        #"Columnas con nombre cambiado", 
 				        {{"Participaciones", each Text.Replace(_, ".", ",")},
 				        {"Precio Participación", each Text.Replace(_, ".", ",")},
 				        {"Precio (Moneda Transacción)", each Text.Replace(_, ".", ",")},
@@ -381,7 +415,8 @@ table Transacciones
 				
 				    #"[Column][Add] Gastos No Deducibles" = Table.AddColumn(#"[Update] Subst - . by ,", "Gastos No Deducibles", each if [Tipo Transacción] = "Dividendos" then [Comisión] else 0),
 				    #"[Column][Add] Gastos Deducibles" = Table.AddColumn(#"[Column][Add] Gastos No Deducibles", "Gastos Deducibles", each if [Tipo Transacción] <> "Dividendos" then [Comisión] else 0),
-				    #"[Update] Types" = Table.TransformColumnTypes(#"[Column][Add] Gastos Deducibles",{{"Fecha", type date}, {"Producto", type text}, {"Cuenta Producto", type text}, {"Hora", type time}, {"Producto Contraparte", type text}, {"Cuenta Contraparte", type text}, {"Tipo Transacción", type text}, {"Participaciones", type number}, {"Precio Participación", type number}, {"Precio (Moneda Transacción)", type number}, {"Divisa", type text}, {"Cambio", type number}, {"Importe", type number}, {"Importe Bruto (Moneda Transacción)", type number}, {"Retenido", type number}, {"Retenido (Moneda Transacción)", type number}, {"Año IRPF", type number}, {"Comisión", type number}, {"Comisión (Moneda Transacción)", type number}, {"Detalle", type text}, {"Test", type text}, {"Fecha/Hora", type datetime}, {"Total Bruto", type number}, {"Año IRPF Fijado", type logical}, {"ID", Int64.Type}, {"Participaciones Acumuladas", type number}, {"Precio Medio Hasta Transacción", type number}, {"Renta Bruta Obtenida", type number}, {"FIFO Beneficio / Pérdida", type number}, {"Rendimientos Capital Mobiliario", type number}, {"Ganancias / Pérdidas Patrimoniales (GPP)", type number}, {"GPP - Ajuste por Pérdida Diferida", type number}, {"Gastos No Deducibles", type number}, {"Gastos Deducibles", type number}})
+				    #"Columna condicional agregada" = Table.AddColumn(#"[Column][Add] Gastos Deducibles", "Retención Local", each if [País Retención] = "" or [País Retención] = "ESP" then true else false, type logical),
+				    #"[Update] Types" = Table.TransformColumnTypes(#"Columna condicional agregada",{{"Fecha", type date}, {"Producto", type text}, {"Cuenta Producto", type text}, {"Hora", type time}, {"Producto Contraparte", type text}, {"Cuenta Contraparte", type text}, {"Tipo Transacción", type text}, {"Participaciones", type number}, {"Precio Participación", type number}, {"Precio (Moneda Transacción)", type number}, {"Divisa", type text}, {"Cambio", type number}, {"Importe", type number}, {"Importe Bruto (Moneda Transacción)", type number}, {"Retenido", type number}, {"Retenido (Moneda Transacción)", type number}, {"Año IRPF", type number}, {"Comisión", type number}, {"Comisión (Moneda Transacción)", type number}, {"Detalle", type text}, {"Test", type text}, {"Fecha/Hora", type datetime}, {"Total Bruto", type number}, {"Año IRPF Fijado", type logical}, {"ID", Int64.Type}, {"Participaciones Acumuladas", type number}, {"Precio Medio Hasta Transacción", type number}, {"Renta Bruta Obtenida", type number}, {"FIFO Beneficio / Pérdida", type number}, {"Rendimientos Capital Mobiliario", type number}, {"Ganancias / Pérdidas Patrimoniales (GPP)", type number}, {"GPP - Ajuste por Pérdida Diferida", type number}, {"Gastos No Deducibles", type number}, {"Gastos Deducibles", type number}})
 				in
 				    #"[Update] Types"
 				```

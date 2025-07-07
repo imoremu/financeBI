@@ -1,4 +1,4 @@
-expression Path = "https://github.com/imoremu/financeBI/raw/refs/heads/imoremu/issue6/data/dev/data.xlsx" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+expression Path = "C:\Users\imore\SW\Finance\FinanceBI\data\dev\data.xlsx" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
 	lineageTag: a2aa19e7-94ab-40b4-b77d-780b67c32947
 
 	annotation PBI_ResultType = Text
@@ -520,7 +520,7 @@ expression 'Transacciones Power Query' = ```
 		),
 		    #"[Column][Add] Importe from Total Bruto - Espejo" = Table.AddColumn(#"[Limpiar] Transacción Espejo", "Importe", each [Total Bruto], type number),
 		    #"[Anexion] Espejo" = Table.Combine({#"[Columna][Add] Total", #"[Column][Add] Importe from Total Bruto - Espejo"}),
-		    #"Duplicados quitados" = Table.Distinct(#"[Anexion] Espejo", {"Producto", "Fecha", "Hora", "Producto Contraparte", "Importe"}),
+		    #"Duplicados quitados" = Table.Distinct(#"[Anexion] Espejo", {"Producto", "Fecha", "Hora", "Producto Contraparte", "Importe","Test"}),
 		    #"[Update] Comision - Null to 0" = Table.ReplaceValue(#"Duplicados quitados",null,0,Replacer.ReplaceValue,{"Comisión"}),
 		    #"[Columna][Add] Año IRPF Fijado" = Table.AddColumn(#"[Update] Comision - Null to 0", "Año IRPF Fijado", each if [Año IRPF] = null then false else true, type logical),
 		    #"[Modify] Año IRPF" = Table.ReplaceValue(#"[Columna][Add] Año IRPF Fijado",null, each if [Tipo Transacción] = "Compra" then null else List.Max({Date.Year([Fecha]), Date.Year(DateTime.LocalNow()) - 1}),Replacer.ReplaceValue,{"Año IRPF"}),
