@@ -7,7 +7,7 @@
     "z": 8000,
     "height": 590.14925373134326,
     "width": 230,
-    "tabOrder": 8000
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -2404,48 +2404,6 @@
           ]
         },
         "howCreated": "User"
-      },
-      {
-        "name": "3bd63a1c042b2b1444c6",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Test"
-              }
-            },
-            "Property": "Test - Número Errores"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "fe41f7db70dbccc36dab",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Test Data"
-              }
-            },
-            "Property": "Concepto"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "5c81be520716b6a377b2",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Test Data"
-              }
-            },
-            "Property": "Caso"
-          }
-        },
-        "type": "Categorical"
       }
     ],
     "filterSortOrder": "Custom"

@@ -7,7 +7,7 @@
     "z": 2000,
     "height": 210,
     "width": 540,
-    "tabOrder": 3000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -538,13 +538,27 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "113.3879884548662D"
+                  "Value": "177.55788862328623D"
                 }
               }
             }
           },
           "selector": {
             "metadata": "Medidas Saldo.Saldo Mes Anterior"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "136.6448146524014D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Medidas Saldo.Ingresos"
           }
         }
       ],

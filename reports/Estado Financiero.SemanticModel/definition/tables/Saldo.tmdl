@@ -133,6 +133,22 @@ table Saldo
 
 		annotation SummarizationSetBy = Automatic
 
+	column Divisa
+		dataType: string
+		lineageTag: 29e4b5ea-0dd1-4bcc-8e07-1030f92e1023
+		summarizeBy: none
+		sourceColumn: Divisa
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ID - Product - Fecha'
+		dataType: string
+		lineageTag: ffb3d4ee-cb5e-4af8-9061-1dfa2cfb205a
+		summarizeBy: none
+		sourceColumn: ID - Product - Fecha
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Saldo-7024361d-f96d-4192-a9ca-f02665bac21a = m
 		mode: import
 		queryGroup: Saldo
@@ -156,7 +172,7 @@ table Saldo
 				    Buffer
 				```
 
-	annotation PBI_ResultType = Exception
+	annotation PBI_ResultType = Table
 
 	annotation PBI_NavigationStepName = Navegación
 

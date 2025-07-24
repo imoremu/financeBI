@@ -137,7 +137,7 @@ table IRPF
 				    #"Filas ordenadas" = Table.Sort(Origen,{{"Fecha", Order.Ascending}}),
 				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Filas ordenadas",{{"Fecha", type text}, {"Hora", type text}}),
 				    #"[Buffer]" = Table.Buffer(#"Tipo cambiado"),
-				    #"[Python] Execute" = Python.Execute("import pyportfolio.scripts.powerquery.pq_get_irpf_report as script#(lf)#(lf)import logging#(lf)#(lf)logger = logging.getLogger(__name__)#(lf)#(lf)logging.basicConfig(filename='G:\Mi unidad\logfile.log', level=logging.DEBUG, # Changed to INFO for more detail#(lf)                    format='%(asctime)s - %(name)s - %(module)s - %(funcName)s - %(levelname)s - %(message)s')#(lf)#(lf)result = script.pq_get_irpf_report(dataset)#(lf)#(lf)logger.debug(f""Power Query Actual columns: {result.columns.tolist()}"")#(lf)#(lf)result",[dataset=#"[Buffer]"]),
+				    #"[Python] Execute" = Python.Execute("import pyportfolio.scripts.powerquery.pq_get_irpf_report as script#(lf)#(lf)import logging#(lf)#(lf)logger = logging.getLogger(__name__)#(lf)#(lf)logging.basicConfig(filename='C:\\Users\\Public\\Log\\logfile.log', level=logging.WARNING, # Changed to INFO for more detail#(lf)                    format='%(asctime)s - %(name)s - %(module)s - %(funcName)s - %(levelname)s - %(message)s')#(lf)#(lf)result = script.pq_get_irpf_report(dataset)#(lf)#(lf)logger.debug(f""Power Query Actual columns: {result.columns.tolist()}"")#(lf)#(lf)result",[dataset=#"[Buffer]"]),
 				    result = #"[Python] Execute"{[Name="result"]}[Value],
 				    #"Subs . by ," = Table.TransformColumns(
 				        result, 

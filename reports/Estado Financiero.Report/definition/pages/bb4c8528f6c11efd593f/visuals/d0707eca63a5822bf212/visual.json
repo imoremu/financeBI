@@ -7,7 +7,7 @@
     "z": 2000,
     "height": 590.00964320154287,
     "width": 1000,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "tableEx",
@@ -565,7 +565,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "46.08755235504746D"
+                  "Value": "63.28754851136983D"
                 }
               }
             }
@@ -635,7 +635,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "72.93088948593955D"
+                  "Value": "88.3630216467901D"
                 }
               }
             }
@@ -649,7 +649,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "60.3902612343656D"
+                  "Value": "68.50078798921434D"
                 }
               }
             }
@@ -663,7 +663,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "61.15712479409201D"
+                  "Value": "73.8199113981926D"
                 }
               }
             }
@@ -1120,234 +1120,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "fd4100682664d05977bc",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Transacciones"
-              }
-            },
-            "Property": "Producto"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "a5e1f993ac8a3698e7bc",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Transacciones"
-              }
-            },
-            "Property": "Producto Contraparte"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "ddacb738e08493ec31bb",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Transacciones"
-              }
-            },
-            "Property": "Fecha/Hora"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "049bd496679d611a0dbe",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Transacciones"
-              }
-            },
-            "Property": "Tipo Transacción"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "304ee4ff57a998d204e1",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Transacciones"
-                  }
-                },
-                "Property": "Importe"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "02924f29d39248376515",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Transacciones"
-                  }
-                },
-                "Property": "Comisión"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "30fc061b625e810b269e",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Transacciones"
-              }
-            },
-            "Property": "Precio Participación"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "938330bb20bbab5c0531",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Transacciones"
-                  }
-                },
-                "Property": "Participaciones"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "185849e9ea036582b411",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas Saldo"
-              }
-            },
-            "Property": "Participaciones Acumuladas"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "b488aa8c0e6b6d357ea5",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Transacciones"
-              }
-            },
-            "Property": "Retenido"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "79f727e0b0a18180006d",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas Transacciones"
-              }
-            },
-            "Property": "Beneficio Bruto Venta Transaccion"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "df741ecd701c7ace698c",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas Transacciones"
-              }
-            },
-            "Property": "Beneficio Neto"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "7b5c347810d0149b8e05",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas IRPF"
-              }
-            },
-            "Property": "Transacción - Ganancias / Pérdidas Patrimoniales Realizadas"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "8e06bc17c09ae424e945",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas IRPF"
-              }
-            },
-            "Property": "Transacción - IRPF Anual Ahorro"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "347efe2943b7edd32316",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas IRPF"
-              }
-            },
-            "Property": "Transacción - Gastos No Deducibles"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

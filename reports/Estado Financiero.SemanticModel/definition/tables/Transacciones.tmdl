@@ -378,6 +378,14 @@ table Transacciones
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	column 'ID - Product - Fecha'
+		dataType: string
+		lineageTag: 5a49120f-6cd0-41be-8fa5-9006363ddd2d
+		summarizeBy: none
+		sourceColumn: ID - Product - Fecha
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Transacciones = m
 		mode: import
 		queryGroup: Saldo
@@ -387,7 +395,8 @@ table Transacciones
 				    #"Filas ordenadas" = Table.Sort(Origen,{{"Fecha", Order.Ascending}}),
 				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Filas ordenadas",{{"Fecha", type text}, {"Hora", type text}}),
 				    #"[Buffer]" = Table.Buffer(#"Tipo cambiado"),
-				    #"[Python] Execute" = Python.Execute("import pyportfolio.scripts.powerquery.pq_get_fifo_irpf_data as script#(lf)#(lf)import logging#(lf)#(lf)logger = logging.getLogger(__name__)#(lf)#(lf)logging.basicConfig(filename='G:\Mi unidad\logfile.log', level=logging.DEBUG, # Changed to INFO for more detail#(lf)                    format='%(asctime)s - %(name)s - %(module)s - %(funcName)s - %(levelname)s - %(message)s')#(lf)#(lf)result = script.pq_get_fifo_irpf_data(dataset)#(lf)#(lf)logger.debug(f""Power Query Actual columns: {result.columns.tolist()}"")#(lf)#(lf)result",[dataset=#"[Buffer]"]),
+				//    #"[Python] Execute" = Python.Execute("import pyportfolio.scripts.powerquery.pq_get_fifo_irpf_data as script#(lf)#(lf)import logging#(lf)#(lf)logger = logging.getLogger(__name__)#(lf)#(lf)logging.basicConfig(filename='G:\Mi unidad\logfile.log', level=logging.DEBUG, # Changed to INFO for more detail#(lf)                    format='%(asctime)s - %(name)s - %(module)s - %(funcName)s - %(levelname)s - %(message)s')#(lf)#(lf)result = script.pq_get_fifo_irpf_data(dataset)#(lf)#(lf)logger.debug(f""Power Query Actual columns: {result.columns.tolist()}"")#(lf)#(lf)result",[dataset=#"[Buffer]"]),
+				    #"[Python] Execute" = Python.Execute("import pyportfolio.scripts.powerquery.pq_get_fifo_irpf_data as script#(lf)#(lf)import logging#(lf)#(lf)logger = logging.getLogger(__name__)#(lf)#(lf)logging.basicConfig(filename='C:\\Users\\Public\\Log\\logfile.log', level=logging.INFO, #(lf)                   format='%(asctime)s - %(name)s - %(module)s - %(funcName)s - %(levelname)s - %(message)s')#(lf)#(lf)result = script.pq_get_fifo_irpf_data(dataset)#(lf)#(lf)logger.debug(f""Power Query Actual columns: {result.columns.tolist()}"")#(lf)#(lf)result",[dataset=#"[Buffer]"]),
 				    #"[Python] Result" = #"[Python] Execute"{[Name="result"]}[Value],
 				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"[Python] Result",{{"GPP", "Ganancias / Pérdidas Patrimoniales (GPP)"}, {"GPP - Deferred Loss Adjustment", "GPP - Ajuste por Pérdida Diferida"}}),
 				    #"[Update] Subst - . by ," = Table.TransformColumns(

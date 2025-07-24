@@ -25,33 +25,6 @@ table 'Test Data'
 
 		annotation SummarizationSetBy = Automatic
 
-	column año
-		dataType: int64
-		formatString: 0
-		lineageTag: adf0b0f9-85fa-4ae3-92e0-ecb90d4f3091
-		summarizeBy: sum
-		sourceColumn: año
-
-		annotation SummarizationSetBy = Automatic
-
-	column mes
-		dataType: int64
-		formatString: 0
-		lineageTag: 24f02524-accf-4e3e-8688-9f934d040471
-		summarizeBy: sum
-		sourceColumn: mes
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'año IRPF'
-		dataType: int64
-		formatString: 0
-		lineageTag: a3cda7fe-d2df-4f20-a338-99467e2cd39c
-		summarizeBy: sum
-		sourceColumn: año IRPF
-
-		annotation SummarizationSetBy = Automatic
-
 	column Concepto
 		dataType: string
 		lineageTag: be2e9636-997e-446c-ad26-91b3d2b10524
@@ -77,6 +50,14 @@ table 'Test Data'
 
 		annotation SummarizationSetBy = Automatic
 
+	column Parámetros
+		dataType: string
+		lineageTag: 9da27007-14e1-4bb6-997e-60bf01d9fad1
+		summarizeBy: none
+		sourceColumn: Parámetros
+
+		annotation SummarizationSetBy = Automatic
+
 	partition 'Test Data' = m
 		mode: import
 		queryGroup: Test
@@ -97,7 +78,7 @@ table 'Test Data'
 				            #"test_data"
 				
 				    else
-				        #table({"Medida","Test", "Prueba","Descripción","Valor Esperado","Parámetros"}, {}),
+				        #table({"Medida","Concepto", "Caso","Descripción","Valor Esperado","Parámetros","Validación"}, {}),
 				    #"Tipo cambiado" = Table.TransformColumnTypes(resultado,{{"Medida", type text}, {"Concepto", type text}, {"Caso", type text}, {"Descripción", type text}, {"Valor Esperado", type text}, {"Validación", Int64.Type}})
 				in
 				    #"Tipo cambiado"

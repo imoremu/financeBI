@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 80.597014925373131,
     "width": 250,
-    "tabOrder": 3000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "slicer",
@@ -409,23 +409,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "91c2c7ff330023398b15",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Test Data"
-              }
-            },
-            "Property": "Caso"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

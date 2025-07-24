@@ -7838,16 +7838,6 @@ cultureInfo es-ES
 			          "año fiscal seleccionado": {
 			            "State": "Generated"
 			          }
-			        },
-			        {
-			          "Año": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -7865,54 +7855,6 @@ cultureInfo es-ES
 			      "Terms": [
 			        {
 			          "_año fiscal seleccionado FormatString": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "test_data.año": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Test Data",
-			          "ConceptualProperty": "año"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "año": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "test_data.me": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Test Data",
-			          "ConceptualProperty": "mes"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "me": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "test_data.año_IRPF": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Test Data",
-			          "ConceptualProperty": "año IRPF"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "año IRPF": {
 			            "State": "Generated"
 			          }
 			        }

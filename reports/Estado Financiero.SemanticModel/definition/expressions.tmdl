@@ -1,4 +1,4 @@
-expression Path = "C:\Users\imore\SW\Finance\FinanceBI\data\dev\data.xlsx" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+expression Path = "https://github.com/imoremu/financeBI/raw/refs/heads/main/data/demo/demo_data.xlsx" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
 	lineageTag: a2aa19e7-94ab-40b4-b77d-780b67c32947
 
 	annotation PBI_ResultType = Text
@@ -437,7 +437,7 @@ expression 'Path (Prod)' = "H:/Gastos-Ingresos.xlsx" meta [IsParameterQuery=true
 
 	annotation PBI_ResultType = Text
 
-expression 'Path (Test)' = "https://github.com/imoremu/financeBI/raw/refs/heads/main/data/test/data.xlsx" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+expression 'Path (Test)' = "https://github.com/imoremu/financeBI/raw/refs/heads/main/data/demo/demo_data.xlsx" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
 	lineageTag: f737d9c4-c6ff-4d17-87cb-57bd2af5ee83
 
 	annotation PBI_NavigationStepName = Navegación
@@ -489,7 +489,8 @@ expression 'Transacciones Power Query' = ```
 		    #"[Column][Add] Test" = if Table.HasColumns(T_Saldo_Table, "Test") then T_Saldo_Table else Table.AddColumn(T_Saldo_Table, "Test", each "Producción"),
 		    #"Columnas con nombre cambiado1" = Table.RenameColumns(#"[Column][Add] Test",{{"Importe Bruto", "Importe"}}),
 		    #"[Tipos][Update]" = Table.TransformColumnTypes(#"Columnas con nombre cambiado1",{{"Producto", type text}, {"Participaciones", type number}, {"Precio Participación", type number}, {"Importe", type number}, {"Fecha", type date}, {"Comisión", type number}, {"Retenido", type number}, {"Cuenta Producto", type text}, {"Año IRPF", Int64.Type}, {"Tipo Transacción", type text}, {"Producto Contraparte", type text}, {"Cuenta Contraparte", type text}, {"Precio (Moneda Transacción)", type number}, {"Cambio", type number}, {"Importe Bruto (Moneda Transacción)", type number}, {"Retenido (Moneda Transacción)", type number}, {"Comisión (Moneda Transacción)", type number}, {"Detalle", type text}, {"Hora", type time}, {"Test", type text}, {"Divisa", type text}}),
-		    #"[Column][Add] Fecha/Hora" = Table.AddColumn(#"[Tipos][Update]", "Fecha/Hora", each Date.ToText([Fecha], "yyyy-MM-dd") & " " & Time.ToText(if [Hora] = null then #time(0,0,0) else [Hora], "HH:mm:ss")),
+		    #"[Update] Test vacío" = Table.ReplaceValue(#"[Tipos][Update]",null,"No definido",Replacer.ReplaceValue,{"Test"}),
+		    #"[Column][Add] Fecha/Hora" = Table.AddColumn(#"[Update] Test vacío", "Fecha/Hora", each Date.ToText([Fecha], "yyyy-MM-dd") & " " & Time.ToText(if [Hora] = null then #time(0,0,0) else [Hora], "HH:mm:ss")),
 		    #"Tipo cambiado" = Table.TransformColumnTypes(#"[Column][Add] Fecha/Hora",{{"Fecha/Hora", type datetime}, {"Cambio", type number}, {"Divisa", type text}, {"Precio Participación", type number}, {"Precio (Moneda Transacción)", type number}, {"Importe Bruto (Moneda Transacción)", type number}, {"Comisión (Moneda Transacción)", type number}}),
 		    #"[Columna][Add] Total" = Table.AddColumn(#"Tipo cambiado", "Total Bruto", each if [Tipo Transacción] = "Dividendos" then [Importe] - [Comisión] else [Importe] + [Comisión], type number),
 		    #"Transaccion Espejo" = Table.RenameColumns(

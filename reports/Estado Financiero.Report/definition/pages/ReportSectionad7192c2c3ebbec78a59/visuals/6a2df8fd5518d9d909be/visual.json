@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 380,
     "width": 630,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -67,7 +67,7 @@
               },
               "queryRef": "Calendario.Date Jerarquía.Mes",
               "nativeQueryRef": "Date Jerarquía Mes",
-              "active": true
+              "active": false
             }
           ]
         },
@@ -125,21 +125,21 @@
         "sort": [
           {
             "field": {
-              "Aggregation": {
+              "HierarchyLevel": {
                 "Expression": {
-                  "Column": {
+                  "Hierarchy": {
                     "Expression": {
                       "SourceRef": {
-                        "Entity": "Movimientos"
+                        "Entity": "Calendario"
                       }
                     },
-                    "Property": "IMPORTE (€)"
+                    "Hierarchy": "Date Jerarquía"
                   }
                 },
-                "Function": 0
+                "Level": "Año"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
         ]
       }
@@ -248,21 +248,10 @@
               "identityValues": [
                 {
                   "Literal": {
-                    "Value": "'Comida'"
-                  }
-                }
-              ],
-              "isToggled": true
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
                     "Value": "'Viajes'"
                   }
                 }
               ],
-              "isToggled": true,
               "children": [
                 {
                   "identityValues": [
@@ -301,6 +290,16 @@
                 {
                   "Literal": {
                     "Value": "'Universidad'"
+                  }
+                }
+              ],
+              "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Trabajo'"
                   }
                 }
               ],

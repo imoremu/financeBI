@@ -13,4 +13,4 @@
 *.cache
 *.mds
 Update.readme
-**/~$data*
+**/~$*

@@ -7,7 +7,7 @@
     "z": 4000,
     "height": 80,
     "width": 240,
-    "tabOrder": 4000
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "slicer",
@@ -409,23 +409,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "aa2f5e1500d3b64a4908",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Test Data"
-              }
-            },
-            "Property": "Concepto"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }
