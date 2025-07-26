@@ -135,7 +135,7 @@ table Saldo
 
 	column Divisa
 		dataType: string
-		lineageTag: 29e4b5ea-0dd1-4bcc-8e07-1030f92e1023
+		lineageTag: 44c55623-8d0b-473d-9fdf-1d676a58c27c
 		summarizeBy: none
 		sourceColumn: Divisa
 
@@ -143,7 +143,7 @@ table Saldo
 
 	column 'ID - Product - Fecha'
 		dataType: string
-		lineageTag: ffb3d4ee-cb5e-4af8-9061-1dfa2cfb205a
+		lineageTag: 2abafa57-abf0-4a8f-9259-a8b84c95d0be
 		summarizeBy: none
 		sourceColumn: ID - Product - Fecha
 

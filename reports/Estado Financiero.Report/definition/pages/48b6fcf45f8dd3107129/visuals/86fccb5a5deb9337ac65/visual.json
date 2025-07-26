@@ -6,7 +6,8 @@
     "y": 10,
     "z": 1000,
     "height": 80,
-    "width": 250
+    "width": 250,
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "slicer",
@@ -52,7 +53,7 @@
               },
               "queryRef": "Productos.Tipo Producto.Subtipo",
               "nativeQueryRef": "Tipo Producto Subtipo",
-              "active": false
+              "active": true
             }
           ]
         }
@@ -91,7 +92,20 @@
             "isPinned": true
           }
         ],
-        "root": {}
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Renta Variable'"
+                  }
+                }
+              ],
+              "isToggled": true
+            }
+          ]
+        }
       }
     ],
     "objects": {
@@ -128,6 +142,154 @@
                 "Literal": {
                   "Value": "1D"
                 }
+              }
+            },
+            "filter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "p",
+                    "Entity": "Productos",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "p"
+                                }
+                              },
+                              "Property": "Tipo"
+                            }
+                          },
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "p"
+                                }
+                              },
+                              "Property": "Subtipo"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'Renta Variable'"
+                              }
+                            },
+                            {
+                              "Literal": {
+                                "Value": "'Acciones'"
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    },
+                    "Annotations": {
+                      "filterExpressionMetadata": {
+                        "expressions": [
+                          {
+                            "HierarchyLevel": {
+                              "Expression": {
+                                "Hierarchy": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "Productos"
+                                    }
+                                  },
+                                  "Hierarchy": "Tipo Producto"
+                                }
+                              },
+                              "Level": "Tipo"
+                            }
+                          },
+                          {
+                            "HierarchyLevel": {
+                              "Expression": {
+                                "Hierarchy": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "Productos"
+                                    }
+                                  },
+                                  "Hierarchy": "Tipo Producto"
+                                }
+                              },
+                              "Level": "Subtipo"
+                            }
+                          }
+                        ],
+                        "decomposedIdentities": {
+                          "values": [
+                            [
+                              {
+                                "0": [
+                                  {
+                                    "Literal": {
+                                      "Value": "'Renta Variable'"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "1": [
+                                  {
+                                    "Literal": {
+                                      "Value": "'Acciones'"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          ],
+                          "columns": [
+                            {
+                              "value": {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "Productos"
+                                    }
+                                  },
+                                  "Property": "Tipo"
+                                }
+                              }
+                            },
+                            {
+                              "value": {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "Productos"
+                                    }
+                                  },
+                                  "Property": "Subtipo"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        "valueMap": [
+                          {
+                            "0": "Renta Variable",
+                            "1": "Acciones"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
               }
             }
           }

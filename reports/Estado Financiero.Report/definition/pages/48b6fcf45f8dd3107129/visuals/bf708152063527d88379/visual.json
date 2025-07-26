@@ -1,94 +1,67 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
-  "name": "38a43f30ae4bccb51409",
+  "name": "bf708152063527d88379",
   "position": {
-    "x": 10,
-    "y": 230,
-    "z": 5000,
-    "height": 480,
-    "width": 610,
-    "tabOrder": 7000
+    "x": 250,
+    "y": 420,
+    "z": 8500,
+    "height": 290,
+    "width": 505,
+    "tabOrder": 8000
   },
   "visual": {
-    "visualType": "pivotTable",
+    "visualType": "stackedAreaChart",
     "query": {
       "queryState": {
-        "Rows": {
+        "Category": {
           "projections": [
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Productos"
+                      "Entity": "Años Fiscales"
                     }
                   },
-                  "Property": "Producto"
+                  "Property": "Año"
                 }
               },
-              "queryRef": "Productos.Producto",
-              "nativeQueryRef": "Producto",
+              "queryRef": "Años Fiscales.Año",
+              "nativeQueryRef": "Año",
               "active": true
             }
           ]
         },
-        "Values": {
+        "Y": {
           "projections": [
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Medidas Saldo"
+                      "Entity": "Medidas IRPF"
                     }
                   },
-                  "Property": "Saldo Último"
+                  "Property": "Anual - Rendimientos Capital Mobiliario"
                 }
               },
-              "queryRef": "Medidas Saldo.Saldo Último",
-              "nativeQueryRef": "Saldo Último"
+              "queryRef": "Medidas IRPF.Anual - Rendimientos Capital Mobiliario",
+              "nativeQueryRef": "Rendimientos Capital Mobiliario",
+              "displayName": "Rendimientos Capital Mobiliario"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Medidas Saldo"
+                      "Entity": "Medidas IRPF"
                     }
                   },
-                  "Property": "Saldo Mes Anterior"
+                  "Property": "Anual - Ganancias / Pérdidas Patrimoniales Disponibles"
                 }
               },
-              "queryRef": "Medidas Saldo.Saldo Mes Anterior",
-              "nativeQueryRef": "Saldo Mes Anterior"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Medidas Saldo"
-                    }
-                  },
-                  "Property": "Ingresos Inversion"
-                }
-              },
-              "queryRef": "Medidas Saldo.Ingresos",
-              "nativeQueryRef": "Ingresos Inversion"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Medidas Saldo"
-                    }
-                  },
-                  "Property": "Saldo Esperado Sin Beneficios"
-                }
-              },
-              "queryRef": "Medidas Saldo.Saldo Esperado Sin Beneficios",
-              "nativeQueryRef": "Saldo Esperado Sin Beneficios"
+              "queryRef": "Medidas IRPF.Anual - Ganancias / Pérdidas Patrimoniales Disponibles",
+              "nativeQueryRef": "GPP Disponibles"
             }
           ]
         }
@@ -100,58 +73,189 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Medidas Saldo"
+                    "Entity": "Medidas IRPF"
                   }
                 },
-                "Property": "Ingresos Inversion"
+                "Property": "Anual - Rendimientos Capital Mobiliario"
               }
             },
             "direction": "Descending"
           }
-        ]
+        ],
+        "isDefaultSort": true
       }
     },
-    "expansionStates": [
-      {
-        "roles": [
-          "Rows"
-        ],
-        "levels": [
-          {
-            "queryRefs": [
-              "Productos.Producto"
-            ],
-            "isCollapsed": true,
-            "isPinned": true
-          }
-        ],
-        "root": {}
-      }
-    ],
     "objects": {
-      "columnHeaders": [
+      "labels": [
         {
           "properties": {
-            "fontFamily": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "'''Segoe UI Bold'', wf_segoe-ui_bold, helvetica, arial, sans-serif'"
+                  "Value": "false"
                 }
               }
             },
-            "fontColor": {
+            "labelPosition": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Auto'"
+                }
+              }
+            },
+            "labelDensity": {
+              "expr": {
+                "Literal": {
+                  "Value": "28L"
+                }
+              }
+            },
+            "color": {
               "solid": {
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": 0
+                      "ColorId": 8,
+                      "Percent": -0.5
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "showSeries": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(Movimientos.IMPORTE (€))"
+          }
+        },
+        {
+          "properties": {
+            "showSeries": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Saldo.Beneficio Inversión Mensual"
+          }
+        },
+        {
+          "properties": {
+            "showSeries": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Medidas Saldo.Gastos no Computados"
+          }
+        },
+        {
+          "properties": {
+            "showSeries": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Saldo.MoM% de Saldo Actual"
+          }
+        },
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 8,
+                      "Percent": -0.5
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "preferredCategoryWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "20D"
+                }
+              }
+            },
+            "maxMarginFactor": {
+              "expr": {
+                "Literal": {
+                  "Value": "15L"
+                }
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 8,
+                      "Percent": -0.5
                     }
                   }
                 }
               }
             },
-            "backColor": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "labelColor": {
               "solid": {
                 "color": {
                   "expr": {
@@ -166,46 +270,10 @@
           }
         }
       ],
-      "values": [
+      "dataPoint": [
         {
           "properties": {
-            "fontColorPrimary": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 1,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            },
-            "backColorPrimary": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 8,
-                      "Percent": 0.6
-                    }
-                  }
-                }
-              }
-            },
-            "fontColorSecondary": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 1,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            },
-            "backColorSecondary": {
+            "fill": {
               "solid": {
                 "color": {
                   "expr": {
@@ -216,398 +284,242 @@
                   }
                 }
               }
-            },
-            "wordWrap": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Tipo Movimiento"
+                          }
+                        },
+                        "Property": "CLASIFICACIÓN"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Colegio'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 8,
+                      "Percent": 0.2
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Tipo Movimiento"
+                          }
+                        },
+                        "Property": "CLASIFICACIÓN"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Luz'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 8,
+                      "Percent": 0.2
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Saldo.Saldo Actual"
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 8,
+                      "Percent": -0.5
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Saldo.Saldo Inversiones"
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 8,
+                      "Percent": -0.25
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Medidas Saldo.Beneficio Hasta Fecha"
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 8,
+                      "Percent": -0.25
+                    }
+                  }
                 }
               }
             }
           }
         }
       ],
-      "columnWidth": [
+      "valueAxis": [
         {
           "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "195.89911819573229D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Tipo Movimiento.TIPO"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "117.62858877472921D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Medidas Movimientos.Media Mismo Período Otros Años"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "101.4851299110647D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Medidas Movimientos.Media Mensual Período (€)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "103.22438197794891D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "Tipo Movimiento"
-                          }
-                        },
-                        "Property": "TIPO"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Crédito'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "94.8942637666304D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "Tipo Movimiento"
-                          }
-                        },
-                        "Property": "TIPO"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Gasto'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "132.11495745357914D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Tipo Movimiento.CLASIFICACIÓN"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "111.64077669902913D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Sum(Movimientos.IMPORTE (€))"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "101.77144406847007D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "Tipo Movimiento"
-                          }
-                        },
-                        "Property": "TIPO"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Ingreso'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "108.39798247093532D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "Tipo Movimiento"
-                          }
-                        },
-                        "Property": "TIPO"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Movimiento'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "75.36690647482014D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Calendario.Date Jerarquía.Mes"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "93.04067094015468D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Medidas Saldo.Ingresos"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "119.80282181760954D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Medidas Saldo.Saldo Esperado Sin Beneficios"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "115.73674829424594D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Medidas Saldo.Saldo Último"
-          }
-        },
-        {
-          "properties": {},
-          "selector": {
-            "metadata": "Medidas Saldo.Saldo Mes Anterior"
-          }
-        }
-      ],
-      "grid": [
-        {
-          "properties": {
-            "outlineStyle": {
-              "expr": {
-                "Literal": {
-                  "Value": "7D"
-                }
-              }
-            },
-            "outlineColor": {
+            "labelColor": {
               "solid": {
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
                       "ColorId": 8,
-                      "Percent": 0.6
+                      "Percent": -0.5
                     }
                   }
                 }
               }
             },
-            "outlineWeight": {
+            "labelDisplayUnits": {
               "expr": {
                 "Literal": {
-                  "Value": "1D"
+                  "Value": "1000D"
                 }
               }
             },
-            "gridVertical": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "gridVerticalColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 8,
-                      "Percent": 0.6
-                    }
-                  }
-                }
-              }
-            },
-            "gridVerticalWeight": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            },
-            "gridHorizontal": {
+            "showAxisTitle": {
               "expr": {
                 "Literal": {
                   "Value": "false"
                 }
               }
+            }
+          }
+        }
+      ],
+      "zoom": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "trend": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
             },
-            "gridHorizontalColor": {
+            "displayName": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Línea de tendencia 1'"
+                }
+              }
+            },
+            "lineColor": {
               "solid": {
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 8,
-                      "Percent": 0.6
+                      "ColorId": 5,
+                      "Percent": -0.25
                     }
                   }
                 }
               }
-            },
-            "gridHorizontalWeight": {
+            }
+          }
+        }
+      ],
+      "lineStyles": [
+        {
+          "properties": {
+            "strokeWidth": {
               "expr": {
                 "Literal": {
                   "Value": "1D"
                 }
               }
             },
-            "rowPadding": {
+            "lineChartType": {
               "expr": {
                 "Literal": {
-                  "Value": "2D"
-                }
-              }
-            },
-            "textSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            },
-            "imageHeight": {
-              "expr": {
-                "Literal": {
-                  "Value": "75D"
+                  "Value": "'smooth'"
                 }
               }
             }
@@ -622,7 +534,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Inversiones'"
+                  "Value": "'Base Imponible del Ahorro'"
                 }
               }
             },
@@ -696,7 +608,7 @@
                   "expr": {
                     "ThemeDataColor": {
                       "ColorId": 8,
-                      "Percent": -0.5
+                      "Percent": 0.2
                     }
                   }
                 }
@@ -842,18 +754,57 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "Filter0599fad284c76b1d1775",
+        "name": "3db9a6580d21c1eb69bd",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Tipo Movimiento"
+                "Entity": "Calendario"
               }
             },
-            "Property": "TIPO"
+            "Property": "FinDeMes"
           }
         },
         "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "c",
+              "Entity": "Calendario",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "c"
+                          }
+                        },
+                        "Property": "FinDeMes"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "1L"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
         "howCreated": "User"
       }
     ]

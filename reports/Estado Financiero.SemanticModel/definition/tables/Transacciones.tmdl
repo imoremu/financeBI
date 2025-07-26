@@ -358,16 +358,6 @@ table Transacciones
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Ganancias / Pérdidas Patrimoniales (GPP)'
-		dataType: double
-		lineageTag: e0e774e9-fcc4-4f06-8fbf-d3e04e7091d8
-		summarizeBy: sum
-		sourceColumn: Ganancias / Pérdidas Patrimoniales (GPP)
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column 'GPP - Ajuste por Pérdida Diferida'
 		dataType: double
 		lineageTag: cf052535-af5c-43e4-9490-024a99438b09
@@ -380,11 +370,31 @@ table Transacciones
 
 	column 'ID - Product - Fecha'
 		dataType: string
-		lineageTag: 5a49120f-6cd0-41be-8fa5-9006363ddd2d
+		lineageTag: a7ac2f18-c5ae-406d-9802-b47f72e1a3e9
 		summarizeBy: none
 		sourceColumn: ID - Product - Fecha
 
 		annotation SummarizationSetBy = Automatic
+
+	column 'Ganancias / Pérdidas Patrimoniales Disponibles (GPP)'
+		dataType: double
+		lineageTag: 7b1220f3-52eb-481c-a75d-730bc25bd964
+		summarizeBy: sum
+		sourceColumn: Ganancias / Pérdidas Patrimoniales Disponibles (GPP)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'GPP Total'
+		dataType: double
+		lineageTag: 3af9c878-586d-4396-b900-662266385cbd
+		summarizeBy: sum
+		sourceColumn: GPP Total
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition Transacciones = m
 		mode: import
@@ -398,7 +408,7 @@ table Transacciones
 				//    #"[Python] Execute" = Python.Execute("import pyportfolio.scripts.powerquery.pq_get_fifo_irpf_data as script#(lf)#(lf)import logging#(lf)#(lf)logger = logging.getLogger(__name__)#(lf)#(lf)logging.basicConfig(filename='G:\Mi unidad\logfile.log', level=logging.DEBUG, # Changed to INFO for more detail#(lf)                    format='%(asctime)s - %(name)s - %(module)s - %(funcName)s - %(levelname)s - %(message)s')#(lf)#(lf)result = script.pq_get_fifo_irpf_data(dataset)#(lf)#(lf)logger.debug(f""Power Query Actual columns: {result.columns.tolist()}"")#(lf)#(lf)result",[dataset=#"[Buffer]"]),
 				    #"[Python] Execute" = Python.Execute("import pyportfolio.scripts.powerquery.pq_get_fifo_irpf_data as script#(lf)#(lf)import logging#(lf)#(lf)logger = logging.getLogger(__name__)#(lf)#(lf)logging.basicConfig(filename='C:\\Users\\Public\\Log\\logfile.log', level=logging.INFO, #(lf)                   format='%(asctime)s - %(name)s - %(module)s - %(funcName)s - %(levelname)s - %(message)s')#(lf)#(lf)result = script.pq_get_fifo_irpf_data(dataset)#(lf)#(lf)logger.debug(f""Power Query Actual columns: {result.columns.tolist()}"")#(lf)#(lf)result",[dataset=#"[Buffer]"]),
 				    #"[Python] Result" = #"[Python] Execute"{[Name="result"]}[Value],
-				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"[Python] Result",{{"GPP", "Ganancias / Pérdidas Patrimoniales (GPP)"}, {"GPP - Deferred Loss Adjustment", "GPP - Ajuste por Pérdida Diferida"}}),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"[Python] Result",{{"GPP Allowable", "Ganancias / Pérdidas Patrimoniales Disponibles (GPP)"}, {"GPP - Deferred Loss Adjustment", "GPP - Ajuste por Pérdida Diferida"}}),
 				    #"[Update] Subst - . by ," = Table.TransformColumns(
 				        #"Columnas con nombre cambiado", 
 				        {{"Participaciones", each Text.Replace(_, ".", ",")},
@@ -416,8 +426,9 @@ table Transacciones
 				        {"Precio Medio Hasta Transacción", each Text.Replace(_, ".", ",")}, 
 				        {"Renta Bruta Obtenida", each Text.Replace(_, ".", ",")},
 				        {"FIFO Beneficio / Pérdida", each Text.Replace(_, ".", ",")},
-				        {"Ganancias / Pérdidas Patrimoniales (GPP)", each Text.Replace(_, ".", ",")},
+				        {"Ganancias / Pérdidas Patrimoniales Disponibles (GPP)", each Text.Replace(_, ".", ",")},
 				        {"GPP - Ajuste por Pérdida Diferida", each Text.Replace(_, ".", ",")},
+				        {"GPP Total", each Text.Replace(_, ".", ",")},
 				        {"Rendimientos Capital Mobiliario", each Text.Replace(_, ".", ",")},
 				        {"Año IRPF", each Text.Replace(_, ".", ",")}}
 				    ),
@@ -425,7 +436,7 @@ table Transacciones
 				    #"[Column][Add] Gastos No Deducibles" = Table.AddColumn(#"[Update] Subst - . by ,", "Gastos No Deducibles", each if [Tipo Transacción] = "Dividendos" then [Comisión] else 0),
 				    #"[Column][Add] Gastos Deducibles" = Table.AddColumn(#"[Column][Add] Gastos No Deducibles", "Gastos Deducibles", each if [Tipo Transacción] <> "Dividendos" then [Comisión] else 0),
 				    #"Columna condicional agregada" = Table.AddColumn(#"[Column][Add] Gastos Deducibles", "Retención Local", each if [País Retención] = "" or [País Retención] = "ESP" then true else false, type logical),
-				    #"[Update] Types" = Table.TransformColumnTypes(#"Columna condicional agregada",{{"Fecha", type date}, {"Producto", type text}, {"Cuenta Producto", type text}, {"Hora", type time}, {"Producto Contraparte", type text}, {"Cuenta Contraparte", type text}, {"Tipo Transacción", type text}, {"Participaciones", type number}, {"Precio Participación", type number}, {"Precio (Moneda Transacción)", type number}, {"Divisa", type text}, {"Cambio", type number}, {"Importe", type number}, {"Importe Bruto (Moneda Transacción)", type number}, {"Retenido", type number}, {"Retenido (Moneda Transacción)", type number}, {"Año IRPF", type number}, {"Comisión", type number}, {"Comisión (Moneda Transacción)", type number}, {"Detalle", type text}, {"Test", type text}, {"Fecha/Hora", type datetime}, {"Total Bruto", type number}, {"Año IRPF Fijado", type logical}, {"ID", Int64.Type}, {"Participaciones Acumuladas", type number}, {"Precio Medio Hasta Transacción", type number}, {"Renta Bruta Obtenida", type number}, {"FIFO Beneficio / Pérdida", type number}, {"Rendimientos Capital Mobiliario", type number}, {"Ganancias / Pérdidas Patrimoniales (GPP)", type number}, {"GPP - Ajuste por Pérdida Diferida", type number}, {"Gastos No Deducibles", type number}, {"Gastos Deducibles", type number}})
+				    #"[Update] Types" = Table.TransformColumnTypes(#"Columna condicional agregada",{{"Fecha", type date}, {"Producto", type text}, {"Cuenta Producto", type text}, {"Hora", type time}, {"Producto Contraparte", type text}, {"Cuenta Contraparte", type text}, {"Tipo Transacción", type text}, {"Participaciones", type number}, {"Precio Participación", type number}, {"Precio (Moneda Transacción)", type number}, {"Divisa", type text}, {"Cambio", type number}, {"Importe", type number}, {"Importe Bruto (Moneda Transacción)", type number}, {"Retenido", type number}, {"Retenido (Moneda Transacción)", type number}, {"Año IRPF", type number}, {"Comisión", type number}, {"Comisión (Moneda Transacción)", type number}, {"Detalle", type text}, {"Test", type text}, {"Fecha/Hora", type datetime}, {"Total Bruto", type number}, {"Año IRPF Fijado", type logical}, {"ID", Int64.Type}, {"Participaciones Acumuladas", type number}, {"Precio Medio Hasta Transacción", type number}, {"Renta Bruta Obtenida", type number}, {"FIFO Beneficio / Pérdida", type number}, {"Rendimientos Capital Mobiliario", type number}, {"Ganancias / Pérdidas Patrimoniales Disponibles (GPP)", type number}, {"GPP Total", type number}, {"GPP - Ajuste por Pérdida Diferida", type number}, {"Gastos No Deducibles", type number}, {"Gastos Deducibles", type number}})
 				in
 				    #"[Update] Types"
 				```

@@ -11,7 +11,7 @@ table Test
 			    , "Gastos no Computados Periodo", [Gastos no Computados Periodo]
 			    , "Ganancia / Pérdida Patrimonial Total", [Ganancia / Pérdida Patrimonial Total]
 			    , "Transacción - Ganancias / Pérdidas Patrimoniales Realizadas", [Transacción - Ganancias / Pérdidas Patrimoniales Realizadas]
-			    , "Anual - Ganancias / Pérdidas Patrimoniales Realizadas", [Anual - Ganancias / Pérdidas Patrimoniales Realizadas]
+			    , "Anual - Ganancias / Pérdidas Patrimoniales Realizadas", [Anual - Ganancias / Pérdidas Patrimoniales Disponibles]
 			    , "Transacción - Rendimientos Capital Mobiliario", [Transacción - Rendimientos Capital Mobiliario]
 			    , "Anual - Rendimientos Capital Mobiliario", [Anual - Rendimientos Capital Mobiliario]
 			    , "Movimientos Totales Periodo", [Movimientos Totales Periodo]

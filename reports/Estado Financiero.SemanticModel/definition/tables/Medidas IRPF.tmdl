@@ -49,7 +49,7 @@ table 'Medidas IRPF'
 	/// Ganancia / Pérdida Patrimonial entre las fechas seleccionadas de inicio y fin de período.
 	/// 
 	/// Incluye solo las ganancias / pérdidas realizadas siguiendo un protocolo FIFO.
-	measure 'Transacción - Ganancias / Pérdidas Patrimoniales Realizadas' = SUM(Transacciones[Ganancias / Pérdidas Patrimoniales (GPP)])
+	measure 'Transacción - Ganancias / Pérdidas Patrimoniales Realizadas' = SUM(Transacciones[Ganancias / Pérdidas Patrimoniales Disponibles (GPP)])
 		lineageTag: 6038c3b8-9c36-4df9-96a8-6e21c0b63051
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -142,7 +142,7 @@ table 'Medidas IRPF'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Anual - Base Imponible del Ahorro' = SUM(IRPF[Total Taxable Base])
+	measure 'Anual - Base Imponible del Ahorro' = SUM(IRPF[Base Imponible Total])
 		lineageTag: 15e853fa-e7f3-441e-867a-35800b18b8b3
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -170,30 +170,39 @@ table 'Medidas IRPF'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Anual - Ganancias / Pérdidas Patrimoniales Realizadas' = SUM(IRPF[GPP])
+	measure 'Anual - Ganancias / Pérdidas Patrimoniales Disponibles' = SUM(IRPF[GPP Disponible])
 		lineageTag: 8fdfab95-fe05-415f-9f77-13b0f33f616f
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Anual - Pérdidas RCM Disponibles' = SUM(IRPF[RCM Loss Available])
+	measure 'Anual - Pérdidas RCM Disponibles' = SUM(IRPF[Pérdidas RCM Compensables])
 		lineageTag: 34277291-9f4a-42df-a3cd-0fdd73c6ff79
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Anual - Pérdidas GPP Disponibles' = SUM(IRPF[GPP Loss Available])
+	measure 'Anual - Pérdidas GPP Disponibles' = SUM(IRPF[Pérdidas GPP Compensables])
 		lineageTag: 272e0290-a2b7-465f-9d45-3fc5de1bbe97
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Anual - Pérdidas RCM Remanentes' = SUM(IRPF[RCM Loss Carried Forward])
+	measure 'Anual - Pérdidas RCM Remanentes' = SUM(IRPF[Pérdidas RCM a Compensar Futuro])
 		lineageTag: 22c4d7c2-d844-4f22-a23a-8c2009eab7be
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Anual - Pérdidas GPP Remanentes' = SUM(IRPF[GPP Loss Carried Forward])
+	measure 'Anual - Pérdidas GPP Remanentes' = SUM(IRPF[Pérdidas GPP a Compensar Futuro])
 		lineageTag: 488d478b-85bd-4057-9825-f329d8638f49
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Anual - Ganancias / Pérdidas Totales' = SUM(IRPF[GPP Total])
+		lineageTag: 9231bbeb-1ae9-4f0c-99e7-39a39323fbc2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Anual - RCM Total' = SUM(IRPF[RCM])
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: bad3a52c-78cb-45e0-bd2c-e39dafe3bfaa
 
 	partition 'Medidas IRPF' = m
 		mode: import

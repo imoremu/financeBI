@@ -36,7 +36,7 @@ relationship b40c6ee6-4ff4-4108-9c87-8c3405be1394
 	toColumn: LocalDateTable_93f1543f-944f-4988-9370-48e3eab51efc.Date
 
 relationship cb595951-364d-ea2a-b03d-585461b34aa7
-	fromColumn: IRPF.Year
+	fromColumn: IRPF.Año
 	toColumn: 'Años Fiscales'.Año
 
 relationship 1e74385a-ee02-0d44-e7aa-72dda0d76f66

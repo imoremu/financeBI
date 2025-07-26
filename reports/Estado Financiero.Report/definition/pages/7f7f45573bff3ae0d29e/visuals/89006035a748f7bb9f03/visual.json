@@ -7,7 +7,7 @@
     "z": 2000,
     "height": 600,
     "width": 570,
-    "tabOrder": 3000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "tableEx",
@@ -824,107 +824,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "d11d11a91e9be4b47b56",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Productos"
-              }
-            },
-            "Property": "Tipo"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "5f953ef60f16b6f5f089",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Productos"
-              }
-            },
-            "Property": "Subtipo"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "edc77dd82b8ed4f447a7",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Productos"
-              }
-            },
-            "Property": "Producto"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "5344aa91dda20b644b88",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas Saldo"
-              }
-            },
-            "Property": "Saldo Último"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "8878ec41243658c62bf0",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas Saldo"
-              }
-            },
-            "Property": "Valor Liquidativo Actual"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "8ab197e49bdc5735ae3f",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas Saldo"
-              }
-            },
-            "Property": "Participaciones Actuales"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "25d68d874ba4d7a09f12",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas Saldo"
-              }
-            },
-            "Property": "Saldo Fecha Inicio"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }
