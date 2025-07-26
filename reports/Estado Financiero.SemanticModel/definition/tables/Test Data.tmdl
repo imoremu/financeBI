@@ -52,7 +52,7 @@ table 'Test Data'
 
 	column Parámetros
 		dataType: string
-		lineageTag: 9da27007-14e1-4bb6-997e-60bf01d9fad1
+		lineageTag: 564e8ba0-0685-4d2f-b68a-cad01de29a31
 		summarizeBy: none
 		sourceColumn: Parámetros
 
