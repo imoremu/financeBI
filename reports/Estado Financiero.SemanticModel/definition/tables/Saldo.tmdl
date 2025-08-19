@@ -86,7 +86,7 @@ table Saldo
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 'Beneficio Acumulado' = [Beneficio Hasta Fecha]
+	column 'Beneficio Acumulado' = [Saldo - Beneficio Hasta Fecha]
 		lineageTag: ddf79f79-8ac3-40e0-9951-4b326865030d
 		summarizeBy: sum
 
@@ -130,22 +130,6 @@ table Saldo
 		sourceColumn: Test
 
 		changedProperty = IsHidden
-
-		annotation SummarizationSetBy = Automatic
-
-	column Divisa
-		dataType: string
-		lineageTag: 44c55623-8d0b-473d-9fdf-1d676a58c27c
-		summarizeBy: none
-		sourceColumn: Divisa
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'ID - Product - Fecha'
-		dataType: string
-		lineageTag: 2abafa57-abf0-4a8f-9259-a8b84c95d0be
-		summarizeBy: none
-		sourceColumn: ID - Product - Fecha
 
 		annotation SummarizationSetBy = Automatic
 

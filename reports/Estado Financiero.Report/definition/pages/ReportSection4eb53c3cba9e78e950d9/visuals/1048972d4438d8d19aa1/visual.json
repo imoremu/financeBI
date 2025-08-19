@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "1048972d4438d8d19aa1",
   "position": {
-    "x": 630,
+    "x": 670,
     "y": 475,
     "z": 4000,
     "height": 235,
-    "width": 640,
-    "tabOrder": 6000
+    "width": 600,
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "tableEx",
@@ -796,7 +796,103 @@
   "filterConfig": {
     "filters": [
       {
+        "name": "6f7666dfe270c1e49657",
+        "ordinal": 0,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Tipo Movimiento"
+              }
+            },
+            "Property": "CATEGORÍA"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "41f2acb40e4d0b500238",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Tipo Movimiento"
+              }
+            },
+            "Property": "CLASIFICACIÓN"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "ef59a08624bae0e5d707",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Calendario"
+              }
+            },
+            "Property": "Date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "22bb3ee800b957c93282",
+        "ordinal": 3,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Tipo Movimiento"
+              }
+            },
+            "Property": "DESCRIPCIÓN"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a8724c89bb395d82ac72",
+        "ordinal": 4,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Movimientos"
+                  }
+                },
+                "Property": "IMPORTE (€)"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6cd20e4d006002b98c08",
+        "ordinal": 5,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Tipo Movimiento"
+              }
+            },
+            "Property": "SUBCATEGORÍA"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
         "name": "Filter0599fad284c76b1d1775",
+        "ordinal": 6,
         "field": {
           "Column": {
             "Expression": {
@@ -810,6 +906,7 @@
         "type": "Categorical",
         "howCreated": "User"
       }
-    ]
+    ],
+    "filterSortOrder": "Custom"
   }
 }

@@ -7,7 +7,7 @@
     "z": 2000,
     "height": 590.00964320154287,
     "width": 1000,
-    "tabOrder": 7000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "tableEx",
@@ -184,7 +184,7 @@
                       "Entity": "Medidas Transacciones"
                     }
                   },
-                  "Property": "Beneficio Bruto Venta Transaccion"
+                  "Property": "Transacciones - Beneficio Bruto Venta Transaccion"
                 }
               },
               "queryRef": "Medidas Transacciones.Beneficio Bruto Venta Transaccion",
@@ -199,7 +199,7 @@
                       "Entity": "Medidas Transacciones"
                     }
                   },
-                  "Property": "Beneficio Neto"
+                  "Property": "Transacciones - Beneficio Neto"
                 }
               },
               "queryRef": "Medidas Transacciones.Beneficio Neto",

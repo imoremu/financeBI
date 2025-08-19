@@ -14,11 +14,9 @@ table 'Medidas Saldo'
 			                    SUM(Saldo[Saldo]),       
 			                    Saldo[Fecha] = UltimaFechaSaldoParaEsteProd            
 			            )
-			            +
-			            CALCULATE(
-			                    SUM(Transacciones[Total Bruto]),       
-			                    Transacciones[Fecha] > UltimaFechaSaldoParaEsteProd            
-			            )
+			            + [Saldo - Total Bruto Transferido Desde Último Saldo]
+			
+			            + [Saldo - Movimientos Totales Desde Último Saldo]
 			    )
 			    , Calendario[Date] <= MAX(Calendario[Date])
 			)
@@ -40,10 +38,10 @@ table 'Medidas Saldo'
 
 		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
 
-	measure 'Incremeto Saldo Desde Referencia (%)' =
+	measure 'Saldo - Incremeto Saldo Desde Referencia (%)' =
 			
 			CALCULATE(
-			    'Medidas Saldo'[Incremento % Periodo]
+			    'Medidas Saldo'[Saldo - Incremento % Periodo]
 			    , FILTER(
 			        Calendario
 			        ,Calendario[Año] >= [Valor Año Referencia]
@@ -71,17 +69,20 @@ table 'Medidas Saldo'
 
 		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
 
-	measure 'Beneficio Periodo' =
+	/// Beneficio del periodo seleccionado. Incluye tanto ganancias patrimoniales como rendimientos de capital mobiliario.
+	/// 
+	/// Contexto: Toda medida de saldo tiene en cuenta el saldo actual, i.e. incluye tanto las ganancias / pérdidas realizadas como las no realizadas (actualizadas a los precios últimos disponibles)
+	measure 'Saldo - Beneficio Periodo' =
 			
 			
-			[Ganancia / Pérdida Patrimonial Total] + [Transacción - Ganancia Neta Capital Mobiliario]
+			[Saldo - Ganancia / Pérdida Patrimonial] + [Transacción - Ganancia Neta Capital Mobiliario]
 		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
 		displayFolder: Beneficio
 		lineageTag: 9e7830f5-83ce-449d-8c56-3caea8888d31
 
-	measure 'Incremento Normalizado Saldo Periodo (%)' =
+	measure 'Saldo - Incremento Normalizado Saldo Periodo (%)' =
 			
-			DIVIDE([Beneficio Periodo],[Capital Invertido Medio],0)
+			DIVIDE([Saldo - Beneficio Periodo],[Capital Invertido Medio],0)
 		formatString: 0.00\ %;-0.00\ %;0.00\ %
 		displayFolder: Beneficio
 		lineageTag: 3b69a7c0-385d-48d7-bffc-d4e6174fdc67
@@ -141,9 +142,9 @@ table 'Medidas Saldo'
 		displayFolder: Inversión
 		lineageTag: 85d4c53f-3931-46b2-89df-2ff90e9382d4
 
-	measure 'Incremento Normalizado Anual (%)' =
+	measure 'Saldo - Incremento Normalizado Anual (%)' =
 			
-			VAR Base      = 1 + [Incremento Normalizado Saldo Periodo (%)]
+			VAR Base      = 1 + [Saldo - Incremento Normalizado Saldo Periodo (%)]
 			VAR Exponente = DIVIDE(
 			                    1,
 			                    ([Tiempo Inversión(Meses)] / 12),
@@ -162,14 +163,39 @@ table 'Medidas Saldo'
 		displayFolder: Beneficio
 		lineageTag: 64abfa5d-68a7-472d-a819-ac2f04eb3172
 
-	measure 'Saldo Mes Anterior' =
+	measure 'Saldo Mes Anterior' = ```
 			
-			CLOSINGBALANCEMONTH(SUM(Saldo[Saldo]), PARALLELPERIOD(Saldo[Fecha], -1, MONTH), ALL(Calendario))
-		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+			VAR FechaSeleccionada = MAX(Calendario[Date])
+			VAR FechaFinMesAnterior = EOMONTH(FechaSeleccionada, -1)
+			
+			RETURN 
+			CALCULATE(
+			    SUMX(
+			        VALUES(Productos[Producto]),
+			        VAR UltimaFechaSaldoParaEsteProd = CALCULATE(MAX(Saldo[Fecha]), NOT(ISBLANK(Saldo[Saldo])))
+			
+			        RETURN
+			            CALCULATE(
+			                    SUM(Saldo[Saldo]),       
+			                    Calendario[Date] = UltimaFechaSaldoParaEsteProd            
+			            )
+			            +
+			            CALCULATE(
+			                    SUM(Transacciones[Total Bruto]) 
+			                    + [Movimientos Totales Periodo],                           
+			                    Calendario[Date] > UltimaFechaSaldoParaEsteProd &&
+			                    Calendario[Date] <= FechaFinMesAnterior
+			            )
+			    )
+			    , Calendario[Date] <= FechaFinMesAnterior
+			)
+			
+			
+			```
 		displayFolder: Saldo
 		lineageTag: 761bee12-a2cc-4758-a067-a9ae4b3c6ab7
 
-		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Saldo Año Anterior' =
 			
@@ -180,19 +206,27 @@ table 'Medidas Saldo'
 
 		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
 
-	measure 'Incremento Saldo Periodo' = [Saldo Último] - [Saldo Fecha Inicio]
+	measure 'Saldo - Incremento Saldo Periodo' = [Saldo Último] - [Saldo Fecha Inicio]
 		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
 		displayFolder: Beneficio
 		lineageTag: ed294a56-6b4a-4e40-8955-134eb22448b7
 
 		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
 
-	measure 'Gastos no Computados Periodo' =
+	/// Medida de desincronización entre el incremento de saldo real (saldo actual menos saldo inicial) con el incremento esperado (beneficio de inversiones más ingresos menos gastos)
+	/// 
+	/// El resultado esperado se consideran gastos (o ingresos) que no se han incluido en los datos.
+	/// 
+	/// E.g.: Movimientos incluidos manualmente pagados con dinero en metálico.
+	/// 
+	/// Función: Detectar incoherencias entre los datos (en general, si todo se paga con tarjeta, debería ser nulo)
+	measure 'Gastos No Computados - Valor Periodo' = ```
 			
-			CALCULATE(
-			    [Incremento Saldo Periodo] - [Ganancia / Pérdida Patrimonial Total] - [Movimientos Totales Periodo]
+			CALCULATE(    
+			    [Saldo - Beneficio Periodo] + [Movimientos Totales Periodo] - [Saldo - Incremento Saldo Periodo]
 			    , REMOVEFILTERS('Tipo Movimiento')
 			)
+			```
 		displayFolder: Gastos
 		lineageTag: 7179a8be-9929-4647-ae17-d26b36074a74
 
@@ -211,38 +245,12 @@ table 'Medidas Saldo'
 			                    SUM(Saldo[Saldo]),       
 			                    Saldo[Fecha] = UltimaFechaSaldoParaEsteProd            
 			            )
-			            +
-			            CALCULATE(
-			                    SUM(Transacciones[Total Bruto]),       
-			                    Transacciones[Fecha] > UltimaFechaSaldoParaEsteProd            
-			            )
+			            + [Saldo - Total Bruto Transferido Desde Último Saldo]
+			
+			            + [Saldo - Movimientos Totales Desde Último Saldo]
 			    )
 			    , Calendario[Date] < MIN(Calendario[Date])
 			)
-			
-			/*CALCULATE(
-			    SUMX(
-			        CALCULATETABLE(
-			            VALUES(Saldo[Producto])
-			            , REMOVEFILTERS(Calendario)
-			        )
-			        ,
-			        VAR Prod = Saldo[Producto]
-			        VAR UltimaFechaParaEsteProd =
-			            CALCULATE(
-			                MAX(Saldo[Fecha]),
-			                Calendario[Date] < MIN(Calendario[Date])
-			            )
-			
-			        RETURN 
-			            CALCULATE(
-			                SUM(Saldo[Saldo]),            
-			                ALL(Saldo),
-			                Saldo[Producto] = Prod,
-			                Saldo[Fecha] = UltimaFechaParaEsteProd            
-			            )
-			    )
-			)*/
 			```
 		displayFolder: Saldo
 		lineageTag: a63ea999-5957-4646-ac5b-90819685d678
@@ -258,7 +266,7 @@ table 'Medidas Saldo'
 			
 			    CALCULATE(
 			        SUM('Transacciones'[Total Bruto])
-			        , Transacciones[Tipo Transacción] IN {"Compra","Venta","Traspaso"}
+			        , Transacciones[Tipo Transacción] IN {"Compra","Venta","Traspaso","Forex"}
 			    )
 			```
 		displayFolder: Inversión
@@ -291,14 +299,14 @@ table 'Medidas Saldo'
 
 		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
 
-	measure 'Beneficio Hasta Fecha' = ```
+	measure 'Saldo - Beneficio Hasta Fecha' = ```
 			
 			
 			VAR fecha_actual = SELECTEDVALUE(Calendario[Date])
 			
 			RETURN 
 			CALCULATE(
-			    [Beneficio Periodo],
+			    [Saldo - Beneficio Periodo],
 			    Calendario[Date] <= fecha_actual,
 			    ALLSELECTED(Calendario)
 			)
@@ -309,7 +317,7 @@ table 'Medidas Saldo'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Incremento Normalizado Hasta la Fecha' = ```
+	measure 'Saldo - Incremento Normalizado Hasta la Fecha' = ```
 			
 			
 			VAR fecha_actual = MAX(Calendario[Date])
@@ -317,7 +325,7 @@ table 'Medidas Saldo'
 			RETURN 
 			CALCULATE(
 			   CALCULATE(
-			        [Incremento Normalizado Saldo Periodo (%)]
+			        [Saldo - Incremento Normalizado Saldo Periodo (%)]
 			        , KEEPFILTERS(Calendario[Date] <= fecha_actual)
 			    )
 			    , ALLSELECTED(Calendario)
@@ -329,8 +337,8 @@ table 'Medidas Saldo'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Saldo Esperado Sin Beneficios' = [Saldo Mes Anterior] + [Ingresos Inversion]
-		displayFolder: Saldo
+	measure 'Gastos No Computados - Saldo Esperado' = [Saldo Mes Anterior] + [Saldo - Beneficio Periodo] + [Movimientos Totales Periodo] + [Saldo - Total Bruto Transferido Desde Último Saldo]
+		displayFolder: Gastos
 		lineageTag: 6b181c5d-622e-4789-aff1-5841a5918035
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -344,8 +352,8 @@ table 'Medidas Saldo'
 
 	/// Ganancia / Pérdida Patrimonial entre las fechas seleccionadas de inicio y fin de período.
 	/// 
-	/// Incluye tanto las ganancias / pérdidas realizadas como las no realizadas (actualizadas a los precios últimos disponibles)
-	measure 'Ganancia / Pérdida Patrimonial Total' = ```
+	/// Contexto: Toda medida de saldo tiene en cuenta el saldo actual, i.e. incluye tanto las ganancias / pérdidas realizadas como las no realizadas (actualizadas a los precios últimos disponibles)
+	measure 'Saldo - Ganancia / Pérdida Patrimonial' = ```
 			
 			CALCULATE( 
 			    [Saldo Último] - [Ingresos Inversion] - [Saldo Fecha Inicio] 
@@ -423,7 +431,7 @@ table 'Medidas Saldo'
 			// Representa el valor liquidativo medio normalizado de compra de las acciones durante el período
 			// Para calcularlo, se usa el valor actual y el incremento normalizado durante el período
 			// Esto nos lleva a tener en cuenta no solo las compras realizadas, sino cuanto tiempo llevamos invertidos con cada uno de las inversiones realizadas
-			DIVIDE([Valor Liquidativo Actual], (1 + [Incremento Normalizado Saldo Periodo (%)]))
+			DIVIDE([Valor Liquidativo Actual], (1 + [Saldo - Incremento Normalizado Saldo Periodo (%)]))
 		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
 		displayFolder: Saldo
 		lineageTag: 09390001-c412-4c58-b427-f6be554eec85
@@ -461,7 +469,7 @@ table 'Medidas Saldo'
 		displayFolder: Saldo
 		lineageTag: 3ee8e587-8667-4318-aadc-6d41644e629a
 
-	measure 'Incremento % Periodo' = DIVIDE([Incremento Saldo Periodo], [Saldo Fecha Inicio])
+	measure 'Saldo - Incremento % Periodo' = DIVIDE([Saldo - Incremento Saldo Periodo], [Saldo Fecha Inicio])
 		formatString: 0.00\ %;-0.00\ %;0.00\ %
 		displayFolder: Beneficio
 		lineageTag: c8aaff31-7dba-45cf-b78b-9fa583e7fb88
@@ -473,7 +481,14 @@ table 'Medidas Saldo'
 
 		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
 
-	measure 'Beneficio Acumulado' = ```
+	/// Contexto: 
+	/// 
+	/// La tabla de saldo contiene una columna calculada (a partir de [Beneficio Hasta Fecha]) de Beneficio acumulado para cada entrada de saldo.
+	/// 
+	/// En él, se incluye el rendimiento en la moneda del producto para un elemento dado en la fecha de entrada del saldo.
+	/// 
+	/// Salida: Suma de todos los beneficios acumulados de todos los productos entre las fechas seleccionadas.
+	measure 'Saldo - Beneficio Acumulado' = ```
 			
 			
 			VAR fecha_actual = SELECTEDVALUE(Calendario[Date])
@@ -503,9 +518,90 @@ table 'Medidas Saldo'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Beneficio Acumulado - Valor Máximo'
+	measure 'Saldo - Beneficio Acumulado - Valor Máximo'
 		displayFolder: Beneficio
 		lineageTag: d9afb1f0-8629-4ef4-b747-28578e0853f9
+
+	measure 'Gastos No Computados - Alerta' = 1
+		displayFolder: Gastos
+		lineageTag: 421312e5-5f12-4cbf-9edd-97d41d2f3fe0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Saldo - Total Bruto Transferido Desde Último Saldo' = ```
+			
+			
+			CALCULATE(
+			    SUMX(
+			        VALUES(Productos[Producto]),
+			        VAR UltimaFechaSaldoParaEsteProd = CALCULATE(MAX(Saldo[Fecha]), NOT(ISBLANK(Saldo[Saldo])))
+			
+			        RETURN            
+			            CALCULATE(
+			                    SUM(Transacciones[Total Bruto]),       
+			                    KEEPFILTERS(Calendario[Date] > UltimaFechaSaldoParaEsteProd)            
+			            )
+			    )
+			    , Calendario[Date] <= MAX(Calendario[Date])
+			)
+			```
+		displayFolder: Saldo
+		lineageTag: bb21482e-7578-4935-8529-6c81302ebc10
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Saldo - Movimientos Totales Desde Último Saldo' = ```
+			
+			
+			CALCULATE(
+			    SUMX(
+			        VALUES(Productos[Producto]),
+			        VAR UltimaFechaSaldoParaEsteProd = CALCULATE(MAX(Saldo[Fecha]), NOT(ISBLANK(Saldo[Saldo])))
+			
+			        RETURN            
+			            CALCULATE(
+			                    [Movimientos Totales Periodo],       
+			                    KEEPFILTERS(Calendario[Date] > UltimaFechaSaldoParaEsteProd)            
+			            )
+			    )
+			    , Calendario[Date] <= MAX(Calendario[Date])
+			)
+			```
+		displayFolder: Saldo
+		lineageTag: 072b90a4-0ea7-4245-9403-54a18d0bf0ef
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Saldo - Fecha Último Saldo' =
+			
+			
+			CALCULATE(MAX(Saldo[Fecha]), NOT(ISBLANK(Saldo[Saldo])))
+		displayFolder: Saldo
+		lineageTag: daece644-febe-4478-903b-4187e1931352
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Saldo - Beneificios Totales Desde Último Saldo' = ```
+			
+			
+			CALCULATE(
+			    SUMX(
+			        VALUES(Productos[Producto]),
+			        VAR UltimaFechaSaldoParaEsteProd = CALCULATE(MAX(Saldo[Fecha]), NOT(ISBLANK(Saldo[Saldo])))
+			
+			        RETURN            
+			            CALCULATE(
+			                    [Saldo - Beneficio Periodo],       
+			                    KEEPFILTERS(Calendario[Date] > UltimaFechaSaldoParaEsteProd)            
+			            )
+			    )
+			    , Calendario[Date] <= MAX(Calendario[Date])
+			)
+			```
+		displayFolder: Saldo
+		lineageTag: 51878db2-c7d8-4bda-a741-baab047249c0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition 'Medidas Saldo-33aeef08-3cdc-4fa0-95f6-080e8879d97f' = m
 		mode: import

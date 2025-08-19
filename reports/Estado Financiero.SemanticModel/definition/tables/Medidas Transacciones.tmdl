@@ -1,7 +1,7 @@
 table 'Medidas Transacciones'
 	lineageTag: 1119b22a-9d0a-4769-8f0c-4498053d07e1
 
-	measure 'Participaciones Vendidas Total' = ```
+	measure 'Transacciones - Participaciones Vendidas Total' = ```
 			
 			
 			VAR products = VALUES('Transacciones'[Producto])
@@ -22,7 +22,7 @@ table 'Medidas Transacciones'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Participaciones Vendidas de Transacción De Compra' = ```
+	measure 'Transacciones - Participaciones Vendidas de Transacción De Compra' = ```
 			
 			
 			VAR participaciones_totales_compradas = 
@@ -34,7 +34,7 @@ table 'Medidas Transacciones'
 			VAR participaciones_vendidas = 
 			MAX(
 			    MIN(
-			        MAX(BLANK(), [Participaciones Vendidas Total] - ([Participaciones Compradas Hasta Última Transacción] - participaciones_totales_compradas))
+			        MAX(BLANK(), [Transacciones - Participaciones Vendidas Total] - ([Transacciones - Participaciones Compradas Hasta Última Transacción] - participaciones_totales_compradas))
 			        , participaciones_totales_compradas
 			    )
 			    ,BLANK()
@@ -47,7 +47,7 @@ table 'Medidas Transacciones'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Participaciones Compradas Hasta Última Transacción' = ```
+	measure 'Transacciones - Participaciones Compradas Hasta Última Transacción' = ```
 			
 			
 			VAR productos = VALUES(Transacciones[Producto])
@@ -66,7 +66,7 @@ table 'Medidas Transacciones'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Coste Participaciones Vendidas Transaccion' = ```
+	measure 'Transacciones - Coste Participaciones Vendidas Transaccion' = ```
 			
 			
 			VAR products = VALUES('Transacciones'[Producto])
@@ -78,7 +78,7 @@ table 'Medidas Transacciones'
 			            , products
 			            , Transacciones[Tipo Transacción] = "Compra"
 			        )
-			        , [Participaciones Vendidas de Transacción De Compra] * 'Transacciones'[Precio participación]
+			        , [Transacciones - Participaciones Vendidas de Transacción De Compra] * 'Transacciones'[Precio participación]
 			    )    
 			
 			RETURN if (coste = 0, BLANK(), coste)
@@ -87,7 +87,7 @@ table 'Medidas Transacciones'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Precio de Venta Total' = ```
+	measure 'Transacciones - Precio de Venta Total' = ```
 			
 			
 			VAR products = VALUES('Transacciones'[Producto])
@@ -113,7 +113,7 @@ table 'Medidas Transacciones'
 		formatString: 0.00
 		lineageTag: b3f2b7f3-08c5-4e9f-800c-76e110564481
 
-	measure 'Beneficio Tras Transacción' = ```
+	measure 'Transacciones - Beneficio Tras Transacción' = ```
 			
 			
 			VAR last_date = MAX('Transacciones'[Fecha])
@@ -122,7 +122,7 @@ table 'Medidas Transacciones'
 			RETURN 
 			
 			CALCULATE(
-			    [Beneficio Bruto Venta Total]
+			    [Transacciones - Beneficio Bruto Venta Total]
 			    , Calendario[Date] <= last_date
 			    , products
 			)
@@ -130,7 +130,7 @@ table 'Medidas Transacciones'
 		formatString: 0.00
 		lineageTag: 9e21d318-b805-404f-a7f6-aacdf17dc99c
 
-	measure 'Coste Participaciones Vendidas Total' = ```
+	measure 'Transacciones - Coste Participaciones Vendidas Total' = ```
 			
 			
 			VAR products = VALUES('Transacciones'[Producto])
@@ -139,7 +139,7 @@ table 'Medidas Transacciones'
 			
 			RETURN 
 			CALCULATE(
-			    [Coste Participaciones Vendidas Transaccion]
+			    [Transacciones - Coste Participaciones Vendidas Transaccion]
 			    , ALL(Transacciones)
 			    , products 
 			    , dates
@@ -149,16 +149,16 @@ table 'Medidas Transacciones'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Beneficio Bruto Venta Total' =
+	measure 'Transacciones - Beneficio Bruto Venta Total' =
 			
 			
-			VAR beneficio = [Precio de Venta Total] - [Coste Participaciones Vendidas Total]
+			VAR beneficio = [Transacciones - Precio de Venta Total] - [Transacciones - Coste Participaciones Vendidas Total]
 			
 			RETURN IF(beneficio=0,BLANK(),beneficio)
 		formatString: 0.00
 		lineageTag: f0b3c4c7-5b2e-4a2f-a77c-6b72a1000659
 
-	measure 'Beneficio Antes Transacción' = ```
+	measure 'Transacciones - Beneficio Antes Transacción' = ```
 			
 			
 			VAR products = VALUES('Transacciones'[Producto])
@@ -167,7 +167,7 @@ table 'Medidas Transacciones'
 			RETURN 
 			
 			CALCULATE(
-			    [Beneficio Bruto Venta Total]
+			    [Transacciones - Beneficio Bruto Venta Total]
 			    , Calendario[Date] < last_date
 			    , Transacciones[Tipo Transacción] IN {"Compra","Venta"}
 			    , REMOVEFILTERS('Transacciones')
@@ -178,36 +178,36 @@ table 'Medidas Transacciones'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Beneficio Bruto Venta Transaccion' = SUM(Transacciones[FIFO Beneficio / Pérdida])
+	measure 'Transacciones - Beneficio Bruto Venta Transaccion' = SUM(Transacciones[FIFO Beneficio / Pérdida])
 		lineageTag: 48dab9c0-036f-4d25-a7d7-5c8c198b23d0
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Retenciones Pendientes' =
+	measure 'Transacciones - Retenciones Pendientes' =
 			
 			
 			SUM('Transacciones'[IRPF Calculado]) - SUM('Transacciones'[Retenido])
 		formatString: 0.00
 		lineageTag: 71a0dc06-6a5a-4456-8064-ac9596e940d2
 
-	measure 'Beneficio Bruto Total Periodo' =
+	measure 'Transacciones - Beneficio Bruto Total Periodo' =
 			
 			
-			[Beneficio Bruto Venta Transaccion] + [Beneficio Bruto Dividendo]
+			[Transacciones - Beneficio Bruto Venta Transaccion] + [Transacciones - Beneficio Bruto Dividendo]
 		lineageTag: b76497b5-f9e1-4a59-b69a-115c0b296afc
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Beneficio Bruto Dividendo' = CALCULATE(SUM(Transacciones[Total Bruto]), Transacciones[Tipo Transacción] = "Dividendos")
+	measure 'Transacciones - Beneficio Bruto Dividendo' = CALCULATE(SUM(Transacciones[Total Bruto]), Transacciones[Tipo Transacción] = "Dividendos")
 		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		lineageTag: 4703907e-48ca-4364-b13a-cf1cfed29a0a
 
-	measure 'Beneficio Neto' = [Beneficio Bruto Total Periodo] - 'Medidas IRPF'[Transacción - IRPF Anual Ahorro]
+	measure 'Transacciones - Beneficio Neto' = [Transacciones - Beneficio Bruto Total Periodo] - 'Medidas IRPF'[Transacción - IRPF Anual Ahorro]
 		lineageTag: 8384ecd4-5ca6-41d1-9547-8008279249e2
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Precio Último Transacción' = ```
+	measure 'Transacciones - Precio Último Transacción' = ```
 			
 			IF(HASONEVALUE(Transacciones[Producto]) ,
 			    CALCULATE(

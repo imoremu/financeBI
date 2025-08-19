@@ -7,7 +7,7 @@
     "z": 5000,
     "height": 390,
     "width": 1260,
-    "tabOrder": 3000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "tableEx",
@@ -135,7 +135,7 @@
                       "Entity": "Medidas Saldo"
                     }
                   },
-                  "Property": "Beneficio Periodo"
+                  "Property": "Saldo - Beneficio Periodo"
                 }
               },
               "queryRef": "Medidas Saldo.Incremento Saldo Periodo",
@@ -149,7 +149,7 @@
                       "Entity": "Medidas Saldo"
                     }
                   },
-                  "Property": "Incremento Normalizado Saldo Periodo (%)"
+                  "Property": "Saldo - Incremento Normalizado Saldo Periodo (%)"
                 }
               },
               "queryRef": "Medidas Saldo.Incremento Normalizado Saldo Periodo (%)",
@@ -163,7 +163,7 @@
                       "Entity": "Medidas Saldo"
                     }
                   },
-                  "Property": "Incremento Normalizado Anual (%)"
+                  "Property": "Saldo - Incremento Normalizado Anual (%)"
                 }
               },
               "queryRef": "Medidas Saldo.Incremento Normalizado Anual (%)",
@@ -255,7 +255,7 @@
                     "Entity": "Medidas Saldo"
                   }
                 },
-                "Property": "Incremento Normalizado Anual (%)"
+                "Property": "Saldo - Incremento Normalizado Anual (%)"
               }
             },
             "direction": "Descending"

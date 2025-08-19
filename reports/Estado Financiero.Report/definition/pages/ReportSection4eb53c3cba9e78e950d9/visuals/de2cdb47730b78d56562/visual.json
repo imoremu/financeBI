@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "de2cdb47730b78d56562",
   "position": {
-    "x": 630,
-    "y": 230,
+    "x": 670,
+    "y": 229.91957104557639,
     "z": 3000,
-    "height": 235,
-    "width": 640,
-    "tabOrder": 3000
+    "height": 235.63896336014298,
+    "width": 600,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -67,7 +67,7 @@
                       "Entity": "Medidas Saldo"
                     }
                   },
-                  "Property": "Gastos no Computados Periodo"
+                  "Property": "Gastos No Computados - Valor Periodo"
                 }
               },
               "queryRef": "Medidas Saldo.Gastos no Computados Periodo",
@@ -648,49 +648,6 @@
           }
         },
         "type": "Advanced",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "m",
-              "Entity": "Movimientos",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Not": {
-                  "Expression": {
-                    "Comparison": {
-                      "ComparisonKind": 0,
-                      "Left": {
-                        "Aggregation": {
-                          "Expression": {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "m"
-                                }
-                              },
-                              "Property": "IMPORTE (€)"
-                            }
-                          },
-                          "Function": 0
-                        }
-                      },
-                      "Right": {
-                        "Literal": {
-                          "Value": "0M"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        },
         "howCreated": "User"
       },
       {
@@ -727,6 +684,58 @@
         },
         "type": "Categorical",
         "howCreated": "Drill"
+      },
+      {
+        "name": "ad81ec20517b02a40327",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Calendario"
+                  }
+                },
+                "Hierarchy": "Date Jerarquía"
+              }
+            },
+            "Level": "Año"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2c70ca05ce690da57011",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Calendario"
+                  }
+                },
+                "Hierarchy": "Date Jerarquía"
+              }
+            },
+            "Level": "Mes"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e7be6396372ee9179add",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Gastos No Computados - Valor Periodo"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

@@ -6,7 +6,8 @@
     "y": 420.29268292682929,
     "z": 8000,
     "height": 290,
-    "width": 505
+    "width": 505,
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "areaChart",
@@ -867,7 +868,7 @@
                 "Entity": "Medidas Saldo"
               }
             },
-            "Property": "Beneficio Hasta Fecha"
+            "Property": "Saldo - Beneficio Hasta Fecha"
           }
         },
         "type": "Advanced",

@@ -27,9 +27,19 @@ queryGroup Test
 
 	annotation PBI_QueryGroupOrder = 4
 
-annotation PBIDesktopVersion = 2.145.1262.0 (25.07)+10bdeda5ab0db954b2cf824e7a117ad7cee97f88
+/// Errores en las consultas cargadas en 19/08/2025 20:36:41.
+queryGroup 'Errores en las consultas: 19/08/2025 20:36:41'
 
-annotation PBI_QueryOrder = ["Saldo","Movimientos","Productos","Transacciones Power Query","Tipo Movimiento","Path","Medidas Movimientos","Especie","Años","Meses","Meses con Datos","Pagos Especie - Origen","Cobros Especie - Origen","Tipo Pago Especie","Tipo Cobro Especie","Pagos Especie","Cobros Especie","Movimientos Origen","Transacciones","Transacciones Agrupadas","Medidas Transacciones","Medidas Saldo","IRPF Ahorro","Medidas IRPF","IRPF","CalcularFIFO","ConsumoFIFO","Pruebas","Path (Prod)","Path (Test)","Path (Dev)","Origen Data File","Test Data","Path (Temp)"]
+	annotation PBI_QueryGroupOrder = 5
+
+/// Errores en las consultas cargadas en 19/08/2025 20:40:49.
+queryGroup 'Errores en las consultas: 19/08/2025 20:40:49'
+
+	annotation PBI_QueryGroupOrder = 6
+
+annotation PBIDesktopVersion = 2.146.705.0 (25.08)+b71502aff0a01340c88f384884ef42771068f115
+
+annotation PBI_QueryOrder = ["Saldo","Movimientos","Productos","Transacciones Power Query","Tipo Movimiento","Path","Medidas Movimientos","Especie","Años","Meses","Meses con Datos","Pagos Especie - Origen","Cobros Especie - Origen","Tipo Pago Especie","Tipo Cobro Especie","Pagos Especie","Cobros Especie","Movimientos Origen","Transacciones","Transacciones Agrupadas","Medidas Transacciones","Medidas Saldo","IRPF Ahorro","Medidas IRPF","IRPF","CalcularFIFO","ConsumoFIFO","Pruebas","Path (Prod)","Path (Test)","Path (Dev)","Origen Data File","Test Data","Path (Temp)","Errores en Test Data","Errores en Test Data (2)"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 

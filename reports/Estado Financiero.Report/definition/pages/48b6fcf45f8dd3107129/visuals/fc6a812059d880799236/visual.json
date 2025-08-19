@@ -7,7 +7,7 @@
     "z": 9000,
     "height": 290,
     "width": 505,
-    "tabOrder": 7000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "areaChart",
@@ -790,7 +790,7 @@
                 "Entity": "Medidas Saldo"
               }
             },
-            "Property": "Beneficio Hasta Fecha"
+            "Property": "Saldo - Beneficio Hasta Fecha"
           }
         },
         "type": "Advanced",

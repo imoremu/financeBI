@@ -6,7 +6,8 @@
     "y": 400.37914691943126,
     "z": 4000,
     "height": 310,
-    "width": 590.33175355450237
+    "width": 590.33175355450237,
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "lineClusteredColumnComboChart",
@@ -66,7 +67,7 @@
                       "Entity": "Medidas Saldo"
                     }
                   },
-                  "Property": "Incremento Saldo Periodo"
+                  "Property": "Saldo - Incremento Saldo Periodo"
                 }
               },
               "queryRef": "Medidas Saldo.Incremento Saldo Anual",
@@ -100,7 +101,7 @@
                       "Entity": "Medidas Saldo"
                     }
                   },
-                  "Property": "Beneficio Periodo"
+                  "Property": "Saldo - Beneficio Periodo"
                 }
               },
               "queryRef": "Medidas Saldo.Beneficio Periodo",
@@ -114,7 +115,7 @@
                       "Entity": "Medidas Saldo"
                     }
                   },
-                  "Property": "Gastos no Computados Periodo"
+                  "Property": "Gastos No Computados - Valor Periodo"
                 }
               },
               "queryRef": "Medidas Saldo.Gastos no Computados Anual",
@@ -133,7 +134,7 @@
                       "Entity": "Medidas Saldo"
                     }
                   },
-                  "Property": "Incremento % Periodo"
+                  "Property": "Saldo - Incremento % Periodo"
                 }
               },
               "queryRef": "Medidas Saldo.Incremento % Año",

@@ -50,11 +50,30 @@ table 'Test Data'
 
 		annotation SummarizationSetBy = Automatic
 
-	column Parámetros
-		dataType: string
-		lineageTag: 564e8ba0-0685-4d2f-b68a-cad01de29a31
-		summarizeBy: none
-		sourceColumn: Parámetros
+	column año
+		dataType: int64
+		formatString: 0
+		lineageTag: 005432e7-0b52-4366-9b94-cc33c280ccbe
+		summarizeBy: sum
+		sourceColumn: año
+
+		annotation SummarizationSetBy = Automatic
+
+	column mes
+		dataType: int64
+		formatString: 0
+		lineageTag: f2c58510-ac90-4197-bed0-5a07246ab0d4
+		summarizeBy: sum
+		sourceColumn: mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'año IRPF'
+		dataType: int64
+		formatString: 0
+		lineageTag: b0685e5c-e49c-4fef-9b88-fdb86b643b7e
+		summarizeBy: sum
+		sourceColumn: año IRPF
 
 		annotation SummarizationSetBy = Automatic
 

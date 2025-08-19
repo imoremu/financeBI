@@ -7,7 +7,7 @@
     "z": 1000,
     "height": 200,
     "width": 410,
-    "tabOrder": 7000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "areaChart",
@@ -42,7 +42,7 @@
                       "Entity": "Medidas Saldo"
                     }
                   },
-                  "Property": "Beneficio Acumulado"
+                  "Property": "Saldo - Beneficio Acumulado"
                 }
               },
               "queryRef": "Medidas Saldo.Beneficio Acumulado",
@@ -793,7 +793,7 @@
                 "Entity": "Medidas Saldo"
               }
             },
-            "Property": "Beneficio Hasta Fecha"
+            "Property": "Saldo - Beneficio Hasta Fecha"
           }
         },
         "type": "Advanced",

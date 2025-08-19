@@ -7,7 +7,7 @@
     "z": 1000,
     "height": 590.14925373134326,
     "width": 1020,
-    "tabOrder": 6000
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -107,7 +107,7 @@
               },
               "queryRef": "Test Data.Descripción",
               "nativeQueryRef": "Descripción",
-              "active": false
+              "active": true
             }
           ],
           "showAll": true
@@ -184,7 +184,31 @@
             "isPinned": true
           }
         ],
-        "root": {}
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Inversión'"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Saldo / Inversión Anual - Con transacciones'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                }
+              ]
+            }
+          ]
+        }
       }
     ],
     "objects": {
@@ -3368,6 +3392,87 @@
                     "Right": {
                       "Literal": {
                         "Value": "'Anual - Rendimientos Capital Mobiliario'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Data"
+                          }
+                        },
+                        "Property": "Validación"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "1L"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Genérico"
+                          }
+                        },
+                        "Property": "Test Genérico"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Esperado'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "97.50628688734925D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Test Data"
+                          }
+                        },
+                        "Property": "Medida"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Transacción - Rendimientos Capital Mobiliario'"
                       }
                     }
                   }

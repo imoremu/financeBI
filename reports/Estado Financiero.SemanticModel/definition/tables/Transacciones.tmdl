@@ -368,14 +368,6 @@ table Transacciones
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 'ID - Product - Fecha'
-		dataType: string
-		lineageTag: a7ac2f18-c5ae-406d-9802-b47f72e1a3e9
-		summarizeBy: none
-		sourceColumn: ID - Product - Fecha
-
-		annotation SummarizationSetBy = Automatic
-
 	column 'Ganancias / Pérdidas Patrimoniales Disponibles (GPP)'
 		dataType: double
 		lineageTag: 7b1220f3-52eb-481c-a75d-730bc25bd964

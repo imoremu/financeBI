@@ -87,13 +87,21 @@ table Movimientos
 
 		annotation SummarizationSetBy = Automatic
 
+	column CUENTA
+		dataType: string
+		lineageTag: 04fb7181-8463-4d3c-997b-1e5a43dd9332
+		summarizeBy: none
+		sourceColumn: CUENTA
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Movimientos-b861a020-f47d-455f-8c0e-68d4cbdfb9bc = m
 		mode: import
 		queryGroup: Movimientos
 		source =
 				let
 				    Origen = #"Movimientos Origen",
-				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"FECHA", type date}, {"CLASIFICACIÓN", type text}, {"IMPORTE (€)", Currency.Type}, {"CATEGORÍA", type text}, {"SUBCATEGORÍA", type text}, {"DESCRIPCIÓN", type text}, {"Test", type text}}),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"FECHA", type date}, {"CLASIFICACIÓN", type text}, {"IMPORTE (€)", Currency.Type}, {"CATEGORÍA", type text}, {"SUBCATEGORÍA", type text}, {"DESCRIPCIÓN", type text}, {"Test", type text}, {"CUENTA", type text}}),
 				    #"Filas filtradas" = Table.SelectRows(#"Tipo cambiado", each ([#"IMPORTE (€)"] <> 0)),
 				    #"[Type] Gasto to $" = Table.TransformColumnTypes(#"Filas filtradas",{{"IMPORTE (€)", Currency.Type}}),
 				    #"[Column] New Valor (ABS)" = Table.AddColumn(#"[Type] Gasto to $", "Cantidad (€)", each Number.Abs([#"IMPORTE (€)"])),
@@ -101,7 +109,7 @@ table Movimientos
 				    #"[Type] Importe To $" = Table.TransformColumnTypes(#"[Update] Importe de movimientos a 0",{{"IMPORTE (€)", Currency.Type}, {"Cantidad (€)", Currency.Type}}),
 				    #"Consultas combinadas" = Table.NestedJoin(#"[Type] Importe To $", {"CLASIFICACIÓN", "CATEGORÍA", "SUBCATEGORÍA", "DESCRIPCIÓN", "TIPO"}, #"Tipo Movimiento", {"CLASIFICACIÓN", "CATEGORÍA", "SUBCATEGORÍA", "DESCRIPCIÓN", "TIPO"}, "Tipo Movimiento", JoinKind.LeftOuter),
 				    #"Se expandió Tipo Movimiento" = Table.ExpandTableColumn(#"Consultas combinadas", "Tipo Movimiento", {"Índice"}, {"Tipo Movimiento.Índice"}),
-				    #"Otras columnas quitadas" = Table.SelectColumns(#"Se expandió Tipo Movimiento",{"FECHA", "IMPORTE (€)", "Detalle", "Test", "Cantidad (€)", "Tipo Movimiento.Índice"}),
+				    #"Otras columnas quitadas" = Table.SelectColumns(#"Se expandió Tipo Movimiento",{"FECHA", "CUENTA", "IMPORTE (€)", "Detalle", "Test", "Cantidad (€)", "Tipo Movimiento.Índice"}),
 				    #"Consulta anexada" = Table.Combine({#"Otras columnas quitadas", #"Pagos Especie", #"Cobros Especie"}),
 				    #"Agregar columna personalizada" = Table.AddColumn(#"Consulta anexada", "Mes / Año", each Text.Combine({Date.ToText([FECHA], "MM"), "-", Date.ToText([FECHA], "yyyy")}), type text),
 				    #"Año insertado" = Table.AddColumn(#"Agregar columna personalizada", "Año", each Date.Year([FECHA]), Int64.Type)
