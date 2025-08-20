@@ -2,6 +2,21 @@ table Calendario
 	lineageTag: 587011a5-84bf-4545-a193-39fd0de29998
 	dataCategory: Time
 
+	measure 'Paso 20' = ```
+			
+			
+			VAR posicion = RANKX(ALLSELECTED(Calendario), Calendario[Date],SELECTEDVALUE(Calendario[Date]),ASC)
+			
+			VAR total_rows = COUNTROWS(ALLSELECTED(Calendario))
+			
+			VAR paso = ROUNDUP(DIVIDE(total_rows, 20, 1),0)
+			
+			RETURN if (MOD(posicion, paso) = 0, 1, 0) 
+			```
+		lineageTag: c3c63953-b1d1-468e-a7ed-1c52bd400bec
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column Date
 		isKey
 		formatString: Short Date

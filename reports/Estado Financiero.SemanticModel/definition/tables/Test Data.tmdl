@@ -97,8 +97,8 @@ table 'Test Data'
 				            #"test_data"
 				
 				    else
-				        #table({"Medida","Concepto", "Caso","Descripción","Valor Esperado","Parámetros","Validación"}, {}),
-				    #"Tipo cambiado" = Table.TransformColumnTypes(resultado,{{"Medida", type text}, {"Concepto", type text}, {"Caso", type text}, {"Descripción", type text}, {"Valor Esperado", type text}, {"Validación", Int64.Type}})
+				        #table({"Medida","Concepto", "Caso","Descripción","Valor Esperado","mes","año","año IRPF", "Validación"}, {}),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(resultado,{{"Medida", type text}, {"Concepto", type text}, {"Caso", type text}, {"Descripción", type text}, {"Valor Esperado", type text}, {"Validación", Int64.Type}, {"mes", Int64.Type}, {"año", Int64.Type}, {"año IRPF", Int64.Type}})
 				in
 				    #"Tipo cambiado"
 				```

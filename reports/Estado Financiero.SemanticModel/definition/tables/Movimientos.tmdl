@@ -112,9 +112,11 @@ table Movimientos
 				    #"Otras columnas quitadas" = Table.SelectColumns(#"Se expandió Tipo Movimiento",{"FECHA", "CUENTA", "IMPORTE (€)", "Detalle", "Test", "Cantidad (€)", "Tipo Movimiento.Índice"}),
 				    #"Consulta anexada" = Table.Combine({#"Otras columnas quitadas", #"Pagos Especie", #"Cobros Especie"}),
 				    #"Agregar columna personalizada" = Table.AddColumn(#"Consulta anexada", "Mes / Año", each Text.Combine({Date.ToText([FECHA], "MM"), "-", Date.ToText([FECHA], "yyyy")}), type text),
-				    #"Año insertado" = Table.AddColumn(#"Agregar columna personalizada", "Año", each Date.Year([FECHA]), Int64.Type)
+				    #"Año insertado" = Table.AddColumn(#"Agregar columna personalizada", "Año", each Date.Year([FECHA]), Int64.Type),
+				    #"Valor reemplazado" = Table.ReplaceValue(#"Año insertado",null,"Especie",Replacer.ReplaceValue,{"CUENTA"}),
+				    #"Filas filtradas1" = Table.SelectRows(#"Valor reemplazado", each true)
 				in
-				    #"Año insertado"
+				    #"Filas filtradas1"
 
 	annotation PBI_ResultType = Table
 

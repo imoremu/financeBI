@@ -1179,28 +1179,6 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
-			    "medidas_saldo.saldo__beneficio_acumulado": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Medidas Saldo",
-			          "ConceptualProperty": "Saldo - Beneficio Acumulado"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "saldo - beneficio acumulado": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "saldo beneficio acumulado": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        }
-			      ]
-			    },
 			    "medidas_saldo.saldo__beneficio_hasta_fecha": {
 			      "Definition": {
 			        "Binding": {
@@ -4619,22 +4597,6 @@ cultureInfo es-ES
 			      "Terms": [
 			        {
 			          "año": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "saldo.beneficio_acumulado": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Saldo",
-			          "ConceptualProperty": "Beneficio Acumulado"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "beneficio acumulado": {
 			            "State": "Generated"
 			          }
 			        }

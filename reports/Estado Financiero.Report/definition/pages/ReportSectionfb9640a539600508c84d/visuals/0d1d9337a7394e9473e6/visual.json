@@ -42,11 +42,11 @@
                       "Entity": "Medidas Saldo"
                     }
                   },
-                  "Property": "Saldo - Beneficio Acumulado"
+                  "Property": "Saldo - Beneficio Hasta Fecha"
                 }
               },
-              "queryRef": "Medidas Saldo.Beneficio Acumulado",
-              "nativeQueryRef": "Beneficio Acumulado1"
+              "queryRef": "Medidas Saldo.Saldo - Beneficio Hasta Fecha",
+              "nativeQueryRef": "Saldo - Beneficio Hasta Fecha"
             }
           ]
         }
@@ -224,6 +224,13 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "axisType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Scalar'"
                 }
               }
             }
@@ -430,25 +437,6 @@
           },
           "selector": {
             "metadata": "Medidas Saldo.Beneficio Hasta Fecha"
-          }
-        },
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 8,
-                      "Percent": -0.25
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Medidas Saldo.Beneficio Acumulado"
           }
         }
       ],
@@ -796,8 +784,7 @@
             "Property": "Saldo - Beneficio Hasta Fecha"
           }
         },
-        "type": "Advanced",
-        "howCreated": "User"
+        "type": "Advanced"
       },
       {
         "name": "8ba7cb132a117d8111c4",

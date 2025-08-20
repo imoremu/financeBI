@@ -806,6 +806,48 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "b17aa2234c6280745565",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Años Fiscales"
+              }
+            },
+            "Property": "Año"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9d74d8549075eb3c1219",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas IRPF"
+              }
+            },
+            "Property": "Anual - Rendimientos Capital Mobiliario"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ebb9a24aecb3645c8a2b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas IRPF"
+              }
+            },
+            "Property": "Anual - Ganancias / Pérdidas Patrimoniales Disponibles"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

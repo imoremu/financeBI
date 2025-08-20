@@ -388,6 +388,62 @@ table Transacciones
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	column 'Cambio Fijo'
+		dataType: string
+		lineageTag: cbf10d4f-ae6f-4d94-849f-e05441276c34
+		summarizeBy: none
+		sourceColumn: Cambio Fijo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'País Retención2'
+		dataType: string
+		lineageTag: a13eeb2a-7280-4bbb-b4be-5e4e979e4ac9
+		summarizeBy: none
+		sourceColumn: País Retención2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PyG realizadas'
+		dataType: string
+		lineageTag: 09941855-42bb-4683-a088-7fbafa5e9a4d
+		summarizeBy: none
+		sourceColumn: PyG realizadas
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ID Divisa'
+		dataType: string
+		lineageTag: 52351f61-7611-4f97-b6ac-1f24d7aee7af
+		summarizeBy: none
+		sourceColumn: ID Divisa
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ID Transacción'
+		dataType: string
+		lineageTag: 18cacafd-2126-4b5a-bb8d-312eed460f91
+		summarizeBy: none
+		sourceColumn: ID Transacción
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Check No contempladas'
+		dataType: string
+		lineageTag: 1bca36e5-1a9a-4a9d-abb1-ab902abe8abc
+		summarizeBy: none
+		sourceColumn: Check No contempladas
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transacciones Preclasificadas.Comisión (Moneda Transacción)'
+		dataType: string
+		lineageTag: 543bf0e6-b7e7-4dca-84d3-0d88f70a10e0
+		summarizeBy: none
+		sourceColumn: Transacciones Preclasificadas.Comisión (Moneda Transacción)
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Transacciones = m
 		mode: import
 		queryGroup: Saldo
@@ -435,5 +491,5 @@ table Transacciones
 
 	annotation PBI_NavigationStepName = Navegación
 
-	annotation PBI_ResultType = Table
+	annotation PBI_ResultType = Exception
 

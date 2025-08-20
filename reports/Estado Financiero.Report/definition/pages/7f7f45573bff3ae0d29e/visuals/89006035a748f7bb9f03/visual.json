@@ -119,16 +119,16 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Medidas Saldo"
+                    "Entity": "Productos"
                   }
                 },
-                "Property": "Saldo Último"
+                "Property": "Tipo"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
         ]
       }
@@ -823,5 +823,107 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "006a23547098880ca230",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Productos"
+              }
+            },
+            "Property": "Tipo"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a6756afd801ead2bb382",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Productos"
+              }
+            },
+            "Property": "Subtipo"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "81012ac84b0ad82104a0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Productos"
+              }
+            },
+            "Property": "Producto"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "79531d90e2dc88d3075c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Saldo Último"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0caab994511d7c1d9021",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Valor Liquidativo Actual"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "bac43b2e90d0498b740c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Participaciones Actuales"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "818bbba30ace5c7289b1",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Saldo Fecha Inicio"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

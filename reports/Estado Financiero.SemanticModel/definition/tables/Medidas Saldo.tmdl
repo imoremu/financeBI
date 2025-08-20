@@ -481,43 +481,6 @@ table 'Medidas Saldo'
 
 		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
 
-	/// Contexto: 
-	/// 
-	/// La tabla de saldo contiene una columna calculada (a partir de [Beneficio Hasta Fecha]) de Beneficio acumulado para cada entrada de saldo.
-	/// 
-	/// En él, se incluye el rendimiento en la moneda del producto para un elemento dado en la fecha de entrada del saldo.
-	/// 
-	/// Salida: Suma de todos los beneficios acumulados de todos los productos entre las fechas seleccionadas.
-	measure 'Saldo - Beneficio Acumulado' = ```
-			
-			
-			VAR fecha_actual = SELECTEDVALUE(Calendario[Date])
-			VAR fecha_inicial = CALCULATE(MIN(Calendario[Date]), ALLSELECTED(Calendario[Date]))
-			
-			RETURN
-			CALCULATE(
-			    SUMX(
-			        VALUES(Saldo[Producto]), 
-			        VAR FechaUltima =
-			            CALCULATE (
-			                LASTNONBLANK(Saldo[Fecha], SUM(Saldo[Beneficio Acumulado]))
-			            )
-			        
-			        RETURN
-			            CALCULATE (
-			                MAX(Saldo[Beneficio Acumulado]),
-			                Saldo[Fecha] = FechaUltima
-			            )
-			    )
-			    , Calendario[Date] <= fecha_actual
-			)
-			
-			```
-		displayFolder: Beneficio
-		lineageTag: a0d1e788-b548-4cae-9443-bcc70e28feef
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure 'Saldo - Beneficio Acumulado - Valor Máximo'
 		displayFolder: Beneficio
 		lineageTag: d9afb1f0-8629-4ef4-b747-28578e0853f9
