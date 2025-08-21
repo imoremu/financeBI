@@ -6,7 +6,8 @@
     "y": 500,
     "z": 5000,
     "height": 200,
-    "width": 1260
+    "width": 1260,
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "tableEx",

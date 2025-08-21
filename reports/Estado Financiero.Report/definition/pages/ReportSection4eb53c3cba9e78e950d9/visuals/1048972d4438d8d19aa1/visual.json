@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "1048972d4438d8d19aa1",
   "position": {
-    "x": 670,
-    "y": 475,
+    "x": 720.31176929072478,
+    "y": 474.88698363211222,
     "z": 4000,
-    "height": 235,
-    "width": 600,
-    "tabOrder": 5000
+    "height": 235.44816835541698,
+    "width": 549.71161340607944,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "tableEx",
@@ -249,7 +249,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "111.64077669902913D"
+                  "Value": "84.61719928277623D"
                 }
               }
             }
@@ -365,7 +365,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "132.11495745357914D"
+                  "Value": "117.1624280396996D"
                 }
               }
             }
@@ -460,6 +460,34 @@
           },
           "selector": {
             "metadata": "Calendario.Date Jerarquía.Mes"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "99.12039078922875D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Tipo Movimiento.CATEGORÍA"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "258.70845412800384D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Tipo Movimiento.DESCRIPCIÓN"
           }
         }
       ],

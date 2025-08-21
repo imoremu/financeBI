@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "38a43f30ae4bccb51409",
   "position": {
-    "x": 9.9748110831234253,
-    "y": 230.32745591939545,
+    "x": 9.9766173031956349,
+    "y": 230.45985970381915,
     "z": 5000,
-    "height": 480.60453400503775,
-    "width": 650,
-    "tabOrder": 6000
+    "height": 480.87295401402957,
+    "width": 701.35619641465314,
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -71,11 +71,12 @@
                       "Entity": "Medidas Saldo"
                     }
                   },
-                  "Property": "Saldo Mes Anterior"
+                  "Property": "Saldo Fecha Inicio"
                 }
               },
-              "queryRef": "Medidas Saldo.Saldo Mes Anterior",
-              "nativeQueryRef": "Saldo Mes Anterior"
+              "queryRef": "Medidas Saldo.Saldo Fecha Inicio",
+              "nativeQueryRef": "Saldo Inicial",
+              "displayName": "Saldo Inicial"
             },
             {
               "field": {
@@ -96,14 +97,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Medidas Saldo"
+                      "Entity": "Medidas Transacciones"
                     }
                   },
-                  "Property": "Movimientos Totales Periodo"
+                  "Property": "Transacciones - Total Período"
                 }
               },
-              "queryRef": "Medidas Saldo.Movimientos Totales Periodo",
-              "nativeQueryRef": "Movimientos Totales Periodo"
+              "queryRef": "Medidas Transacciones.Transacciones - Total Período",
+              "nativeQueryRef": "Transacciones - Total Período"
             },
             {
               "field": {
@@ -113,27 +114,11 @@
                       "Entity": "Medidas Saldo"
                     }
                   },
-                  "Property": "Saldo - Total Bruto Transferido Desde Último Saldo"
+                  "Property": "Saldo - Movimientos Caja - Total Periodo"
                 }
               },
-              "queryRef": "Medidas Transacciones.Transacciones - Total Bruto",
-              "nativeQueryRef": "Transferido Desde Último Saldo",
-              "displayName": "Transferido Desde Último Saldo"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Medidas Saldo"
-                    }
-                  },
-                  "Property": "Saldo - Movimientos Totales Desde Último Saldo"
-                }
-              },
-              "queryRef": "Medidas Saldo.Saldo - Movimientos Totales Desde Último Saldo",
-              "nativeQueryRef": "Movimientos Desde Último Saldo",
-              "displayName": "Movimientos Desde Último Saldo"
+              "queryRef": "Medidas Saldo.Movimientos - Total Periodo",
+              "nativeQueryRef": "Saldo - Movimientos Caja - Total Periodo"
             },
             {
               "field": {
@@ -163,7 +148,7 @@
                     "Entity": "Medidas Saldo"
                   }
                 },
-                "Property": "Movimientos Totales Periodo"
+                "Property": "Gastos No Computados - Valor Periodo"
               }
             },
             "direction": "Descending"
@@ -525,7 +510,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "65.40807937516668D"
+                  "Value": "75.32273103430398D"
                 }
               }
             }
@@ -553,69 +538,13 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "72.1958082206718D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Medidas Saldo.Saldo Mes Anterior"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "79.4176986547066D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Medidas Saldo.Movimientos Totales Periodo"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "64.25183651760848D"
+                  "Value": "77.5565845164418D"
                 }
               }
             }
           },
           "selector": {
             "metadata": "Medidas Saldo.Saldo - Beneficio Periodo"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "69.9947149115959D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Medidas Transacciones.Transacciones - Total Bruto"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "77.39886501814928D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Medidas Saldo.Saldo - Movimientos Totales Desde Último Saldo"
           }
         },
         {
@@ -630,6 +559,76 @@
           },
           "selector": {
             "metadata": "Medidas Saldo.Gastos No Computados - Valor Periodo"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "92.41305328743985D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Productos.Producto"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "91.7296197951704D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Medidas Transacciones.Transacciones - Total Período"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "91.7296197951704D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Medidas Saldo.Movimientos Totales Periodo"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "102.27086847434771D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Medidas Saldo.Movimientos - Total Periodo"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "68.77208955612988D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Medidas Saldo.Saldo Fecha Inicio"
           }
         }
       ],
@@ -979,6 +978,90 @@
         },
         "type": "Categorical",
         "howCreated": "User"
+      },
+      {
+        "name": "344681ad8e3b58b5cee7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Productos"
+              }
+            },
+            "Property": "Producto"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c58c81de283000a9756c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Gastos No Computados - Saldo Esperado"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9dc7132d4baaae260830",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Saldo Último"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "66cf38568339595b4c36",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Saldo - Beneficio Periodo"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "57830e8155087d31c66a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Gastos No Computados - Valor Periodo"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "627d9fca6a14a057b68a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Transacciones"
+              }
+            },
+            "Property": "Transacciones - Total Período"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

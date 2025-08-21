@@ -220,6 +220,11 @@ table 'Medidas Transacciones'
 		formatString: 0.00
 		lineageTag: 942a95b2-d35a-428a-9836-54a93ae1c685
 
+	measure 'Transacciones - Total Período' = SUM(Transacciones[Total Bruto])
+		lineageTag: f9a97217-696e-4840-ae33-22d912ff5179
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	partition 'Medidas Transacciones' = m
 		mode: import
 		queryGroup: Saldo

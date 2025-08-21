@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "de2cdb47730b78d56562",
   "position": {
-    "x": 670,
-    "y": 229.91957104557639,
+    "x": 720.31176929072478,
+    "y": 229.4621979734996,
     "z": 3000,
-    "height": 235.63896336014298,
-    "width": 600,
-    "tabOrder": 2000
+    "height": 236.44583008573653,
+    "width": 549.71161340607944,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -684,58 +684,6 @@
         },
         "type": "Categorical",
         "howCreated": "Drill"
-      },
-      {
-        "name": "ad81ec20517b02a40327",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Calendario"
-                  }
-                },
-                "Hierarchy": "Date Jerarquía"
-              }
-            },
-            "Level": "Año"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "2c70ca05ce690da57011",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Calendario"
-                  }
-                },
-                "Hierarchy": "Date Jerarquía"
-              }
-            },
-            "Level": "Mes"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "e7be6396372ee9179add",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas Saldo"
-              }
-            },
-            "Property": "Gastos No Computados - Valor Periodo"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

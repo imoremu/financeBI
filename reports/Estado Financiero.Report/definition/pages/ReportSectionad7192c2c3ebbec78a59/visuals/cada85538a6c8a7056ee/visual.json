@@ -7,7 +7,7 @@
     "z": 4000,
     "height": 380,
     "width": 620,
-    "tabOrder": 7000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -225,6 +225,16 @@
                     {
                       "Literal": {
                         "Value": "'mayo'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                },
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'febrero'"
                       }
                     }
                   ],

@@ -14,7 +14,7 @@ table Test
 			    , "Anual - Ganancias / Pérdidas Patrimoniales Realizadas", [Anual - Ganancias / Pérdidas Patrimoniales Disponibles]
 			    , "Transacción - Rendimientos Capital Mobiliario", [Transacción - Rendimientos Capital Mobiliario]
 			    , "Anual - Rendimientos Capital Mobiliario", [Anual - Rendimientos Capital Mobiliario]
-			    , "Movimientos Totales Periodo", [Movimientos Totales Periodo]
+			    , "Movimientos Totales Periodo", [Saldo - Movimientos Caja - Total Periodo]
 			    , "Beneficio Bruto Total Periodo", [Transacciones - Beneficio Bruto Total Periodo]
 			    , "Transacción - IRPF Anual Ahorro", [Transacción - IRPF Anual Ahorro]   
 			    , "Anual - IRPF Ahorro", [Anual - IRPF Ahorro]   

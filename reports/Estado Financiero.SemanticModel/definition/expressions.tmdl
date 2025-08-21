@@ -1,4 +1,4 @@
-expression Path = "C:\Users\Public\Downloads\Gastos-Ingresos.xlsx" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+expression Path = "https://github.com/imoremu/financeBI/raw/refs/heads/main/data/dev/data.xlsx" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
 	lineageTag: a2aa19e7-94ab-40b4-b77d-780b67c32947
 
 	annotation PBI_ResultType = Text

@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 80,
     "width": 200,
-    "tabOrder": 7000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "slicer",
@@ -194,13 +194,6 @@
                           [
                             {
                               "Literal": {
-                                "Value": "2024L"
-                              }
-                            }
-                          ],
-                          [
-                            {
-                              "Literal": {
                                 "Value": "2025L"
                               }
                             }
@@ -234,17 +227,6 @@
                                 "0": [
                                   {
                                     "Literal": {
-                                      "Value": "2024L"
-                                    }
-                                  }
-                                ]
-                              }
-                            ],
-                            [
-                              {
-                                "0": [
-                                  {
-                                    "Literal": {
                                       "Value": "2025L"
                                     }
                                   }
@@ -268,9 +250,6 @@
                           ]
                         },
                         "valueMap": [
-                          {
-                            "0": "2024"
-                          },
                           {
                             "0": "2025"
                           }

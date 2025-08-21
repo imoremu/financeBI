@@ -14,9 +14,9 @@ table 'Medidas Saldo'
 			                    SUM(Saldo[Saldo]),       
 			                    Saldo[Fecha] = UltimaFechaSaldoParaEsteProd            
 			            )
-			            + [Saldo - Total Bruto Transferido Desde Último Saldo]
+			            + [Saldo - Total Bruto Transferido - Desde Último Saldo]
 			
-			            + [Saldo - Movimientos Totales Desde Último Saldo]
+			            + [Saldo - Movimientos Caja - Desde Último Saldo]
 			    )
 			    , Calendario[Date] <= MAX(Calendario[Date])
 			)
@@ -182,7 +182,7 @@ table 'Medidas Saldo'
 			            +
 			            CALCULATE(
 			                    SUM(Transacciones[Total Bruto]) 
-			                    + [Movimientos Totales Periodo],                           
+			                    + [Saldo - Movimientos Caja - Total Periodo],                           
 			                    Calendario[Date] > UltimaFechaSaldoParaEsteProd &&
 			                    Calendario[Date] <= FechaFinMesAnterior
 			            )
@@ -223,7 +223,7 @@ table 'Medidas Saldo'
 	measure 'Gastos No Computados - Valor Periodo' = ```
 			
 			CALCULATE(    
-			    [Saldo - Beneficio Periodo] + [Movimientos Totales Periodo] - [Saldo - Incremento Saldo Periodo]
+			    [Saldo - Beneficio Periodo] + [Saldo - Movimientos Caja - Total Periodo] - [Saldo - Incremento Saldo Periodo] + [Transacciones - Total Período]
 			    , REMOVEFILTERS('Tipo Movimiento')
 			)
 			```
@@ -245,9 +245,9 @@ table 'Medidas Saldo'
 			                    SUM(Saldo[Saldo]),       
 			                    Saldo[Fecha] = UltimaFechaSaldoParaEsteProd            
 			            )
-			            + [Saldo - Total Bruto Transferido Desde Último Saldo]
+			            + [Saldo - Total Bruto Transferido - Desde Último Saldo]
 			
-			            + [Saldo - Movimientos Totales Desde Último Saldo]
+			            + [Saldo - Movimientos Caja - Desde Último Saldo]
 			    )
 			    , Calendario[Date] < MIN(Calendario[Date])
 			)
@@ -337,7 +337,7 @@ table 'Medidas Saldo'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Gastos No Computados - Saldo Esperado' = [Saldo Mes Anterior] + [Saldo - Beneficio Periodo] + [Movimientos Totales Periodo] + [Saldo - Total Bruto Transferido Desde Último Saldo]
+	measure 'Gastos No Computados - Saldo Esperado' = [Saldo Fecha Inicio] + [Saldo - Beneficio Periodo] + [Saldo - Movimientos Caja - Total Periodo] + [Transacciones - Total Período]
 		displayFolder: Gastos
 		lineageTag: 6b181c5d-622e-4789-aff1-5841a5918035
 
@@ -474,12 +474,22 @@ table 'Medidas Saldo'
 		displayFolder: Beneficio
 		lineageTag: c8aaff31-7dba-45cf-b78b-9fa583e7fb88
 
-	measure 'Movimientos Totales Periodo' = SUM(Movimientos[IMPORTE (€)])
-		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+	measure 'Saldo - Movimientos Caja - Total Periodo' = ```
+			CALCULATE(SUM(Movimientos[IMPORTE (€)]), 'Tipo Movimiento'[TIPO] in {"Gasto","Ingreso","Crédito"})
+			
+			// Nota: Crédito debe incluirse dado que los movimientos a crédito están duplicados. En la tabla de movimientos por una compra de X a crédito se incluye:
+			
+			// - Una entrada de X como gasto clasificada según su categoría
+			// - Una entrada de X como entrada (-1 * coste de X) como crédito
+			
+			// Posteriormente se tendrá la entrada de pago de recibo, también categorizada como crédito 
+			
+			
+			```
 		displayFolder: Saldo
 		lineageTag: 3f8cc06e-462b-4dc7-94ac-1ef6fde8f585
 
-		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Saldo - Beneficio Acumulado - Valor Máximo'
 		displayFolder: Beneficio
@@ -491,7 +501,7 @@ table 'Medidas Saldo'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Saldo - Total Bruto Transferido Desde Último Saldo' = ```
+	measure 'Saldo - Total Bruto Transferido - Desde Último Saldo' = ```
 			
 			
 			CALCULATE(
@@ -513,7 +523,7 @@ table 'Medidas Saldo'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Saldo - Movimientos Totales Desde Último Saldo' = ```
+	measure 'Saldo - Movimientos Caja - Desde Último Saldo' = ```
 			
 			
 			CALCULATE(
@@ -523,17 +533,16 @@ table 'Medidas Saldo'
 			
 			        RETURN            
 			            CALCULATE(
-			                    [Movimientos Totales Periodo],       
+			                    [Saldo - Movimientos Caja - Total Periodo],       
 			                    KEEPFILTERS(Calendario[Date] > UltimaFechaSaldoParaEsteProd)            
 			            )
 			    )
 			    , Calendario[Date] <= MAX(Calendario[Date])
 			)
 			```
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
 		displayFolder: Saldo
 		lineageTag: 072b90a4-0ea7-4245-9403-54a18d0bf0ef
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Saldo - Fecha Último Saldo' =
 			
@@ -544,7 +553,7 @@ table 'Medidas Saldo'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Saldo - Beneificios Totales Desde Último Saldo' = ```
+	measure 'Saldo - Beneficios Totales Desde Último Saldo' = ```
 			
 			
 			CALCULATE(

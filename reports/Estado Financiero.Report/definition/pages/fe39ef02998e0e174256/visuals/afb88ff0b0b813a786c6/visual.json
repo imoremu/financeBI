@@ -6,8 +6,7 @@
     "y": 110,
     "z": 2000,
     "height": 280,
-    "width": 590,
-    "tabOrder": 1000
+    "width": 590
   },
   "visual": {
     "visualType": "lineClusteredColumnComboChart",
@@ -53,7 +52,7 @@
               },
               "queryRef": "Calendario.Date Jerarquía.Mes",
               "nativeQueryRef": "Date Jerarquía Mes",
-              "active": true
+              "active": false
             }
           ]
         },
@@ -759,68 +758,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "91284b81464574b8d3bd",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Calendario"
-                  }
-                },
-                "Hierarchy": "Date Jerarquía"
-              }
-            },
-            "Level": "Año"
-          }
-        },
-        "type": "Categorical",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "c",
-              "Entity": "Calendario",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "c"
-                          }
-                        },
-                        "Property": "Año"
-                      }
-                    }
-                  ],
-                  "Values": [
-                    [
-                      {
-                        "Literal": {
-                          "Value": "2025L"
-                        }
-                      }
-                    ]
-                  ]
-                }
-              }
-            }
-          ]
-        },
-        "howCreated": "Drill"
-      }
-    ]
   }
 }

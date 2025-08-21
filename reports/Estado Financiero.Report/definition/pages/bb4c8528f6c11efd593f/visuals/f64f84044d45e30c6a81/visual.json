@@ -7,7 +7,7 @@
     "z": 6000,
     "height": 80,
     "width": 250,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "slicer",
@@ -423,23 +423,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "262c93aa6033a940d240",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Transacciones"
-              }
-            },
-            "Property": "Producto"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }
