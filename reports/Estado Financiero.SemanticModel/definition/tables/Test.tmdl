@@ -28,6 +28,7 @@ table Test
 			    , "Anual - Pérdidas RCM Remanentes", [Anual - Pérdidas RCM Remanentes]
 			    , "Anual - Pérdidas GPP Dsiponibles", [Anual - Pérdidas GPP Disponibles]
 			    , "Anual - Pérdidas RCM Disponible", [Anual - Pérdidas RCM Disponibles]
+			    , "Capital Invertido Medio", [Capital Invertido Medio]
 			    , "MEDIDA NO REGISTRADA"
 			)
 			```

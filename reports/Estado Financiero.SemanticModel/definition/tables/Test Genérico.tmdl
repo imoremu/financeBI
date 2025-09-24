@@ -31,6 +31,13 @@ table 'Test Genérico'
 				            TRUE(),
 				            'Años Fiscales'[Año] = VALUE(SELECTEDVALUE('Test Data'[año IRPF]))
 				        )
+				    ),
+				    KEEPFILTERS(
+				        IF(
+				            ISBLANK(SELECTEDVALUE('Test Data'[producto])),
+				            TRUE(),
+				            Productos[Producto] = SELECTEDVALUE('Test Data'[producto])
+				        )
 				    )
 				)
 				
@@ -96,6 +103,13 @@ table 'Test Genérico'
 				            ISBLANK(SELECTEDVALUE('Test Data'[año IRPF])),
 				            TRUE(),
 				            'Años Fiscales'[Año] = VALUE(SELECTEDVALUE('Test Data'[año IRPF]))
+				        )
+				    ),
+				    KEEPFILTERS(
+				        IF(
+				            ISBLANK(SELECTEDVALUE('Test Data'[producto])),
+				            TRUE(),
+				            Productos[Producto] = SELECTEDVALUE('Test Data'[producto])
 				        )
 				    )
 				)

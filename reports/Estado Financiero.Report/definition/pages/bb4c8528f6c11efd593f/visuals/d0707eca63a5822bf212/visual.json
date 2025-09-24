@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "d0707eca63a5822bf212",
   "position": {
     "x": 10,
@@ -7,7 +7,7 @@
     "z": 2000,
     "height": 590.00964320154287,
     "width": 1000,
-    "tabOrder": 5000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "tableEx",
@@ -92,6 +92,20 @@
               },
               "queryRef": "Sum(Transacciones.Importe)",
               "nativeQueryRef": "Importe1"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Transacciones"
+                    }
+                  },
+                  "Property": "Total Bruto"
+                }
+              },
+              "queryRef": "Transacciones.Total Bruto",
+              "nativeQueryRef": "Total Bruto"
             },
             {
               "field": {

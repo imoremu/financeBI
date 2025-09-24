@@ -3,7 +3,7 @@ table Saldo
 
 	column Fecha
 		dataType: dateTime
-		formatString: Long Date
+		formatString: Short Date
 		lineageTag: 1ec5e515-964d-4d8f-affd-638428f188d7
 		summarizeBy: none
 		sourceColumn: Fecha
@@ -127,7 +127,7 @@ table Saldo
 
 	column Ticker
 		dataType: string
-		lineageTag: d8e3df17-cd23-4379-af2b-96f2c055b109
+		lineageTag: 4d0b4cab-603c-49d8-8ccd-cb3bbf2afd05
 		summarizeBy: none
 		sourceColumn: Ticker
 
@@ -135,7 +135,7 @@ table Saldo
 
 	column Ingreso
 		dataType: string
-		lineageTag: 7b5641d8-9cb2-4ee4-b7ad-6a45e2129a40
+		lineageTag: b89d1e3b-7fb7-48ff-b42b-a155705a199b
 		summarizeBy: none
 		sourceColumn: Ingreso
 
@@ -143,7 +143,7 @@ table Saldo
 
 	column Dividendos
 		dataType: string
-		lineageTag: cdc117f1-0710-4f63-9102-2473aed8cbfc
+		lineageTag: 7b505eca-1e23-4dd5-bb12-dbe4317fe55a
 		summarizeBy: none
 		sourceColumn: Dividendos
 
@@ -151,7 +151,7 @@ table Saldo
 
 	column Divisa
 		dataType: string
-		lineageTag: 572464ee-278d-4666-8588-7ca9c83d37cc
+		lineageTag: 0816f55d-714c-4c10-b28f-53b342f51575
 		summarizeBy: none
 		sourceColumn: Divisa
 
@@ -159,7 +159,7 @@ table Saldo
 
 	column 'ID Divisa'
 		dataType: string
-		lineageTag: 1163e384-9855-4a52-b45b-d12ed1f7840d
+		lineageTag: a7b5f515-acf0-4bad-ba45-00f9b89c4491
 		summarizeBy: none
 		sourceColumn: ID Divisa
 

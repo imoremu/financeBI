@@ -90,7 +90,7 @@ table 'Test Data'
 				        let        
 				            #"Tipo cambiado" = Table.TransformColumnTypes(T_Saldo_Table,{{"Medida", type text}, {"Caso", type text}, {"Descripción", type text}}),
 				            #"JSON analizado" = Table.TransformColumns(#"Tipo cambiado",{{"Parámetros", Json.Document}}),
-				            #"Se expandió Parámetros" = Table.ExpandRecordColumn(#"JSON analizado", "Parámetros", {"año", "mes", "año IRPF"}, {"año", "mes", "año IRPF"}),
+				            #"Se expandió Parámetros" = Table.ExpandRecordColumn(#"JSON analizado", "Parámetros", {"año", "mes", "año IRPF","Producto"}, {"año", "mes", "año IRPF","producto"}),
 				            #"test_data" = Table.TransformColumnTypes(#"Se expandió Parámetros",{{"año", Int64.Type}, {"mes", Int64.Type}, {"año IRPF", Int64.Type}, {"Valor Esperado", type text}, {"Concepto", type text}})
 				
 				        in 

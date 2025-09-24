@@ -1,13 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "d1089b149757faba4320",
   "position": {
     "x": 10.8816120906801,
     "y": 320,
     "z": 5000,
     "height": 390,
-    "width": 1260,
-    "tabOrder": 1000
+    "width": 1260
   },
   "visual": {
     "visualType": "tableEx",
@@ -1128,5 +1127,233 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "8f60efb2a60d8060a000",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Productos"
+              }
+            },
+            "Property": "Producto"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "0f110b89dbde536c3d05",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Fecha Inicial"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "30a981f59bb508545d8c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Inversion Total Realizada"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ab80f0463132b8274b92",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Ingresos Inversion"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4cdffd2407829814c087",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Inversión Realizada Inicio"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b0ab8f2115b536911200",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Saldo Fecha Inicio"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8f1fa5fdb992240a8001",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Saldo Último"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "940f21810c1d6d677070",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Capital Invertido Medio"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ace4dcc1234b3a0a3187",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Saldo - Beneficio Periodo"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "833fc891685b29055b0a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Saldo - Incremento Normalizado Saldo Periodo (%)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6c8defaea5be02c706b6",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Saldo - Incremento Normalizado Anual (%)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "99546982888206c05be5",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Días Inversion"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "cf88ed83116a894a667c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Participaciones Actuales"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0a6fa97accb01040bb00",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Valor Liquidativo Actual"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c4ceef3f8ee4e681c08c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Valor Liq. Compra"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d8d8dffd95ca8574b006",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Valor Liquidativo Normalizado Compra Periodo"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

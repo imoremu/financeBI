@@ -390,7 +390,7 @@ table Transacciones
 
 	column 'Cambio Fijo'
 		dataType: string
-		lineageTag: f8d8fefc-440d-442d-a93e-9229c58ec6b4
+		lineageTag: c12b5589-3c63-4240-bc23-7039fd8b415c
 		summarizeBy: none
 		sourceColumn: Cambio Fijo
 
@@ -398,7 +398,7 @@ table Transacciones
 
 	column 'País Retención2'
 		dataType: string
-		lineageTag: e07844bd-0227-4f50-bf94-9b6ef330ac3a
+		lineageTag: 5c812cc2-613f-4308-9452-0275985fece4
 		summarizeBy: none
 		sourceColumn: País Retención2
 
@@ -406,7 +406,7 @@ table Transacciones
 
 	column 'PyG realizadas'
 		dataType: string
-		lineageTag: 75ae13a1-2910-43cf-9a3c-3c009812248e
+		lineageTag: f22a0f5e-3001-4557-b84f-7fd1736abfd5
 		summarizeBy: none
 		sourceColumn: PyG realizadas
 
@@ -414,7 +414,7 @@ table Transacciones
 
 	column 'ID Divisa'
 		dataType: string
-		lineageTag: 77f56c30-8c73-427d-aa3b-8e1071a95c52
+		lineageTag: 8da5b92e-4da5-44db-b1cb-3856b2ec4033
 		summarizeBy: none
 		sourceColumn: ID Divisa
 
@@ -422,7 +422,7 @@ table Transacciones
 
 	column 'ID Transacción'
 		dataType: string
-		lineageTag: 16501f9f-7cc8-4df5-95ed-4f5e5618dfbd
+		lineageTag: 0bee44f0-c2f6-44df-8ffb-4db8f0c87d00
 		summarizeBy: none
 		sourceColumn: ID Transacción
 
@@ -430,7 +430,7 @@ table Transacciones
 
 	column 'Check No contempladas'
 		dataType: string
-		lineageTag: 0b403ebc-bf3f-4849-a190-ff3199cf28f9
+		lineageTag: 41ca4fcb-516a-45b5-b40b-2409a38debaf
 		summarizeBy: none
 		sourceColumn: Check No contempladas
 
@@ -438,7 +438,7 @@ table Transacciones
 
 	column 'Transacciones Preclasificadas.Comisión (Moneda Transacción)'
 		dataType: string
-		lineageTag: 42eda881-7b1f-4d06-8239-6207595db915
+		lineageTag: 655fb543-43de-484c-9a31-f7f24056de3b
 		summarizeBy: none
 		sourceColumn: Transacciones Preclasificadas.Comisión (Moneda Transacción)
 

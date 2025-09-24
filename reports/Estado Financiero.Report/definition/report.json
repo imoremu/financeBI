@@ -125,7 +125,8 @@
     "useStylableVisualContainerHeader": true,
     "defaultDrillFilterOtherVisuals": true,
     "allowChangeFilterTypes": true,
-    "useEnhancedTooltips": true
+    "useEnhancedTooltips": true,
+    "filterPaneHiddenInEditMode": true
   },
   "slowDataSourceSettings": {
     "isCrossHighlightingDisabled": false,

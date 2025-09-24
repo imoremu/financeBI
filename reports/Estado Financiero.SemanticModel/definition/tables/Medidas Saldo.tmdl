@@ -14,9 +14,9 @@ table 'Medidas Saldo'
 			                    SUM(Saldo[Saldo]),       
 			                    Saldo[Fecha] = UltimaFechaSaldoParaEsteProd            
 			            )
-			            + [Saldo - Total Bruto Transferido - Desde Último Saldo]
+			            // + [Saldo - Total Bruto Transferido - Desde Último Saldo]
 			
-			            + [Saldo - Movimientos Caja - Desde Último Saldo]
+			        //    + [Saldo - Movimientos Caja - Desde Último Saldo]
 			    )
 			    , Calendario[Date] <= MAX(Calendario[Date])
 			)
@@ -101,41 +101,75 @@ table 'Medidas Saldo'
 	measure 'Capital Invertido Medio' = ```
 			
 			
-			VAR capital_inicial = [Saldo Fecha Inicio]
+			VAR saldo_inicio = [Saldo Fecha Inicio]
 			VAR dias_inversion = [Días Inversion]
+			VAR fecha_inicio = MIN(Calendario[Date])
+			VAR fecha_fin = MIN(MAX(Calendario[Date]), TODAY())
+			VAR fecha_primera_transaccion = COALESCE(MIN(Transacciones[Fecha]), fecha_fin)
+			
+			Var peso_inicial = 
+			    IF (
+			        saldo_inicio = 0, 
+			        0,
+			        DATEDIFF(fecha_inicio, fecha_primera_transaccion, DAY) 
+			        *    
+			        ( saldo_inicio + 
+			            CALCULATE(
+			                [Ingresos Relevantes Entre Fechas (Sin Saldo de Inicio)]
+			                , Transacciones[Fecha] < fecha_primera_transaccion && Transacciones[Fecha] >= fecha_inicio
+			            )
+			        )
+			    )
 			
 			RETURN
-			SUMX(
-			    VALUES(Saldo[Fecha])
-			    ,
-			    VAR fecha_actual = CALCULATE(SELECTEDVALUE(Saldo[Fecha]))
-			    VAR fecha_posterior = 
-			        COALESCE(
-			            CALCULATE(
-			                MIN(Saldo[Fecha]), Saldo[Fecha] > fecha_actual
+			
+			 DIVIDE(
+			    peso_inicial 
+			    + 
+			    SUMX(
+			    
+			        VALUES(Transacciones[Fecha])
+			        ,
+			        VAR fecha_actual = Transacciones[Fecha]
+			        Var participaciones_actuales = ROUND(CALCULATE([Participaciones Actuales], Transacciones[Fecha] <= fecha_actual),4)
+			
+			        VAR fecha_posterior = 
+			            if (
+			                participaciones_actuales = 0
+			                , fecha_actual ,
+			                 COALESCE(
+			                    MIN(
+			                        CALCULATE(
+			                            MIN(Transacciones[Fecha]), Transacciones[Fecha] > fecha_actual && Transacciones[Fecha] <= fecha_fin
+			                        )
+			                        , fecha_fin
+			                    )
+			                    , fecha_fin
+			                )
 			            )
-			        , MIN(MAX(Calendario[Date]), TODAY())
-			        )
+			            
 			
-			    RETURN 
+			        RETURN 
 			
-			       DIVIDE(
-			        DATEDIFF(fecha_actual, fecha_posterior, DAY) 
-			        *
-			        (CALCULATE(           
-			            [Ingresos Relevantes Entre Fechas (Sin Saldo de Inicio)]
-			            , KEEPFILTERS(Calendario[Date] <= fecha_actual)
-			            , Saldo[Fecha] <= fecha_actual
-			        )
-			        +
-			        capital_inicial)
-			        , dias_inversion
-			       )
+			            DATEDIFF(fecha_actual, fecha_posterior, DAY)             
+			            *
+			            (
+			                saldo_inicio 
+			                + 
+			
+			                CALCULATE(
+			                    [Ingresos Relevantes Entre Fechas (Sin Saldo de Inicio)]
+			                    , Transacciones[Fecha] <= fecha_actual && Transacciones[Fecha] >= fecha_inicio
+			                )
+			            )
+			    )    
+			    , dias_inversion            
 			)
 			```
-		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
 		displayFolder: Inversión
 		lineageTag: 8b55bfd6-0bb6-4178-8516-2c70dc67bc35
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Tiempo Inversión(Meses)' = MAXX(VALUES(Productos[Producto]), DISTINCTCOUNT(Saldo[Mes / Año]))
 		formatString: 0
@@ -147,7 +181,8 @@ table 'Medidas Saldo'
 			VAR Base      = 1 + [Saldo - Incremento Normalizado Saldo Periodo (%)]
 			VAR Exponente = DIVIDE(
 			                    1,
-			                    ([Tiempo Inversión(Meses)] / 12),
+			                    // ([Tiempo Inversión(Meses)] / 12),
+			                    ([Días Inversion] / 365),
 			                    0
 			                )
 			RETURN
@@ -364,23 +399,19 @@ table 'Medidas Saldo'
 		displayFolder: Beneficio
 		lineageTag: 56ea0509-eec2-4483-9b9a-dd3dc5420fb9
 
-	measure 'Participaciones Actuales' =
+	measure 'Participaciones Actuales' = ```
 			
 			
 			VAR ultima_fecha = MAX ( Calendario[Date] )
 			
 			RETURN
-			IF (
-			    ISFILTERED ( Productos[Producto] ),
-			    ROUND (
-			        CALCULATE (
+			    CALCULATE (
 			            SUM ( Transacciones[Participaciones] ),
 			            Transacciones[Tipo Transacción] <> "Dividendos",
 			            Calendario[Date] <= ultima_fecha
-			        ),
-			        3
 			    )
-			)
+			
+			```
 		formatString: #,0.00
 		displayFolder: Saldo
 		lineageTag: 42d391dd-ae26-42fc-823a-bcf679760487
@@ -436,7 +467,45 @@ table 'Medidas Saldo'
 		displayFolder: Saldo
 		lineageTag: 09390001-c412-4c58-b427-f6be554eec85
 
-	measure 'Días Inversion' = DATEDIFF(MIN(Saldo[Fecha]),MAX(Saldo[Fecha]),DAY)
+	measure 'Días Inversion' = ```
+			// DATEDIFF(MIN(Saldo[Fecha]),MAX(Saldo[Fecha]),DAY)
+			
+			VAR saldo_inicio = [Saldo Fecha Inicio]
+			VAR fecha_inicio = MIN(Calendario[Date])
+			VAR fecha_fin = MIN(MAX(Calendario[Date]), TODAY())
+			VAR fecha_primera_transaccion = COALESCE(MIN(Transacciones[Fecha]), fecha_fin)
+			
+			VAR dias_previos_primera_transaccion = if (saldo_inicio = 0, 0 , DATEDIFF(fecha_inicio, fecha_primera_transaccion, DAY))          
+			
+			RETURN
+			    dias_previos_primera_transaccion
+			    +
+			    SUMX(
+			            VALUES(Transacciones[Fecha])
+			            ,
+			            VAR fecha_actual = Transacciones[Fecha]
+			            Var participaciones_actuales = ROUND(CALCULATE([Participaciones Actuales], Transacciones[Fecha] <= fecha_actual), 4)
+			
+			            VAR fecha_posterior = 
+			                if (
+			                    participaciones_actuales = 0
+			                    , fecha_actual ,
+			                    COALESCE(
+			                        MIN(
+			                            CALCULATE(
+			                                MIN(Transacciones[Fecha]), Transacciones[Fecha] > fecha_actual && Transacciones[Fecha] <= fecha_fin
+			                            )
+			                            , fecha_fin
+			                        )
+			                        , fecha_fin
+			                    )
+			                )
+			                
+			            RETURN 
+			
+			                DATEDIFF(fecha_actual, fecha_posterior, DAY)             
+			    )
+			```
 		formatString: 0
 		displayFolder: Inversión
 		lineageTag: 92557d77-fa48-4bd0-bc27-06b0b0508207

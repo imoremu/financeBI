@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "89006035a748f7bb9f03",
   "position": {
     "x": 10,
@@ -7,7 +7,7 @@
     "z": 2000,
     "height": 600,
     "width": 570,
-    "tabOrder": 7000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "tableEx",
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Productos"
+                      "Entity": "Saldo"
                     }
                   },
-                  "Property": "Tipo"
+                  "Property": "Fecha"
                 }
               },
-              "queryRef": "Productos.Tipo",
-              "nativeQueryRef": "Tipo"
+              "queryRef": "Saldo.Fecha",
+              "nativeQueryRef": "Fecha"
             },
             {
               "field": {
@@ -59,59 +59,45 @@
             },
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Medidas Saldo"
+                      "Entity": "Saldo"
                     }
                   },
-                  "Property": "Saldo Último"
+                  "Property": "Saldo"
                 }
               },
-              "queryRef": "Medidas Saldo.Saldo Último",
-              "nativeQueryRef": "Saldo Último"
+              "queryRef": "Saldo.Saldo",
+              "nativeQueryRef": "Saldo"
             },
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Medidas Saldo"
+                      "Entity": "Saldo"
                     }
                   },
-                  "Property": "Valor Liquidativo Actual"
+                  "Property": "Valor liquidativo"
                 }
               },
-              "queryRef": "Medidas Saldo.Valor Liquidativo Actual",
-              "nativeQueryRef": "Valor Liquidativo Actual"
+              "queryRef": "Saldo.Valor liquidativo",
+              "nativeQueryRef": "Valor liquidativo"
             },
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Medidas Saldo"
+                      "Entity": "Saldo"
                     }
                   },
-                  "Property": "Participaciones Actuales"
+                  "Property": "Participaciones"
                 }
               },
-              "queryRef": "Medidas Saldo.Participaciones Actuales",
-              "nativeQueryRef": "Participaciones Actuales"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Medidas Saldo"
-                    }
-                  },
-                  "Property": "Saldo Fecha Inicio"
-                }
-              },
-              "queryRef": "Medidas Saldo.Saldo Fecha Inicio",
-              "nativeQueryRef": "Saldo Fecha Inicio"
+              "queryRef": "Saldo.Participaciones",
+              "nativeQueryRef": "Participaciones"
             }
           ]
         }
@@ -123,10 +109,10 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Productos"
+                    "Entity": "Saldo"
                   }
                 },
-                "Property": "Tipo"
+                "Property": "Fecha"
               }
             },
             "direction": "Ascending"
@@ -359,41 +345,69 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "81.74154025003756D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Medidas Saldo.Valor Liquidativo Actual"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "96.76137297403565D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Medidas Saldo.Participaciones Actuales"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "94.44058791652526D"
+                  "Value": "98.42205714220361D"
                 }
               }
             }
           },
           "selector": {
             "metadata": "Productos.Producto"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "70D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Saldo.Valor liquidativo"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "97D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Saldo.Saldo"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "115D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Productos.Subtipo"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "74D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Saldo.Fecha"
           }
         }
       ],

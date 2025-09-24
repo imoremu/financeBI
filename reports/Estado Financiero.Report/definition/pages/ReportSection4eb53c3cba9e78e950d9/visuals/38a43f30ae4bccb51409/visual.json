@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "38a43f30ae4bccb51409",
   "position": {
     "x": 9.9766173031956349,
@@ -7,7 +7,7 @@
     "z": 5000,
     "height": 480.87295401402957,
     "width": 701.35619641465314,
-    "tabOrder": 5000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -978,90 +978,6 @@
         },
         "type": "Categorical",
         "howCreated": "User"
-      },
-      {
-        "name": "344681ad8e3b58b5cee7",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Productos"
-              }
-            },
-            "Property": "Producto"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "c58c81de283000a9756c",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas Saldo"
-              }
-            },
-            "Property": "Gastos No Computados - Saldo Esperado"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "9dc7132d4baaae260830",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas Saldo"
-              }
-            },
-            "Property": "Saldo Último"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "66cf38568339595b4c36",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas Saldo"
-              }
-            },
-            "Property": "Saldo - Beneficio Periodo"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "57830e8155087d31c66a",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas Saldo"
-              }
-            },
-            "Property": "Gastos No Computados - Valor Periodo"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "627d9fca6a14a057b68a",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas Transacciones"
-              }
-            },
-            "Property": "Transacciones - Total Período"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }
