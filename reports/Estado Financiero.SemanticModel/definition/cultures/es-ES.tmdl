@@ -4720,7 +4720,7 @@ cultureInfo es-ES
 			          }
 			        },
 			        {
-			          "Saldo Último Inversión": {
+			          "Saldo Fin Período": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -4730,7 +4730,7 @@ cultureInfo es-ES
 			          }
 			        },
 			        {
-			          "Saldo Fin Período": {
+			          "Saldo Último Inversión": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",

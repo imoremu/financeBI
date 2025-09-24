@@ -224,17 +224,7 @@
                   "identityValues": [
                     {
                       "Literal": {
-                        "Value": "'mayo'"
-                      }
-                    }
-                  ],
-                  "isToggled": true
-                },
-                {
-                  "identityValues": [
-                    {
-                      "Literal": {
-                        "Value": "'febrero'"
+                        "Value": "'agosto'"
                       }
                     }
                   ],

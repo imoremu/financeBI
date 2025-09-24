@@ -125,6 +125,46 @@ table Saldo
 
 		annotation SummarizationSetBy = Automatic
 
+	column Ticker
+		dataType: string
+		lineageTag: d8e3df17-cd23-4379-af2b-96f2c055b109
+		summarizeBy: none
+		sourceColumn: Ticker
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ingreso
+		dataType: string
+		lineageTag: 7b5641d8-9cb2-4ee4-b7ad-6a45e2129a40
+		summarizeBy: none
+		sourceColumn: Ingreso
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dividendos
+		dataType: string
+		lineageTag: cdc117f1-0710-4f63-9102-2473aed8cbfc
+		summarizeBy: none
+		sourceColumn: Dividendos
+
+		annotation SummarizationSetBy = Automatic
+
+	column Divisa
+		dataType: string
+		lineageTag: 572464ee-278d-4666-8588-7ca9c83d37cc
+		summarizeBy: none
+		sourceColumn: Divisa
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ID Divisa'
+		dataType: string
+		lineageTag: 1163e384-9855-4a52-b45b-d12ed1f7840d
+		summarizeBy: none
+		sourceColumn: ID Divisa
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Saldo-7024361d-f96d-4192-a9ca-f02665bac21a = m
 		mode: import
 		queryGroup: Saldo
