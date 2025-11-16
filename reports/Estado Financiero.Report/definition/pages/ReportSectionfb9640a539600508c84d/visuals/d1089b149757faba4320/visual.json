@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "d1089b149757faba4320",
   "position": {
     "x": 10.8816120906801,
     "y": 320,
     "z": 5000,
     "height": 390,
-    "width": 1260
+    "width": 1260,
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "tableEx",
@@ -254,7 +255,7 @@
                     "Entity": "Medidas Saldo"
                   }
                 },
-                "Property": "Saldo - Incremento Normalizado Anual (%)"
+                "Property": "Saldo - Beneficio Periodo"
               }
             },
             "direction": "Descending"
@@ -1131,7 +1132,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "8f60efb2a60d8060a000",
+        "name": "60331bc95cc3365729e0",
         "field": {
           "Column": {
             "Expression": {
@@ -1145,7 +1146,7 @@
         "type": "Categorical"
       },
       {
-        "name": "0f110b89dbde536c3d05",
+        "name": "7a78182a553417aa18d0",
         "field": {
           "Measure": {
             "Expression": {
@@ -1159,7 +1160,7 @@
         "type": "Advanced"
       },
       {
-        "name": "30a981f59bb508545d8c",
+        "name": "1db35aa6cbdb9a395d51",
         "field": {
           "Measure": {
             "Expression": {
@@ -1173,7 +1174,7 @@
         "type": "Advanced"
       },
       {
-        "name": "ab80f0463132b8274b92",
+        "name": "4d4e67cd933a50205b9c",
         "field": {
           "Measure": {
             "Expression": {
@@ -1187,7 +1188,7 @@
         "type": "Advanced"
       },
       {
-        "name": "4cdffd2407829814c087",
+        "name": "87c39869c7723ccbccea",
         "field": {
           "Measure": {
             "Expression": {
@@ -1201,7 +1202,7 @@
         "type": "Advanced"
       },
       {
-        "name": "b0ab8f2115b536911200",
+        "name": "df29d61528d0dbb7b60c",
         "field": {
           "Measure": {
             "Expression": {
@@ -1215,7 +1216,7 @@
         "type": "Advanced"
       },
       {
-        "name": "8f1fa5fdb992240a8001",
+        "name": "4a6a529b203513c7d073",
         "field": {
           "Measure": {
             "Expression": {
@@ -1226,10 +1227,44 @@
             "Property": "Saldo Último"
           }
         },
-        "type": "Advanced"
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "m",
+              "Entity": "Medidas Saldo",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 1,
+                  "Left": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "m"
+                        }
+                      },
+                      "Property": "Saldo Último"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "0L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
       },
       {
-        "name": "940f21810c1d6d677070",
+        "name": "53318a102d60753c0238",
         "field": {
           "Measure": {
             "Expression": {
@@ -1243,7 +1278,7 @@
         "type": "Advanced"
       },
       {
-        "name": "ace4dcc1234b3a0a3187",
+        "name": "818acd8518132e360551",
         "field": {
           "Measure": {
             "Expression": {
@@ -1257,7 +1292,7 @@
         "type": "Advanced"
       },
       {
-        "name": "833fc891685b29055b0a",
+        "name": "40c65c1b0760812be004",
         "field": {
           "Measure": {
             "Expression": {
@@ -1271,7 +1306,7 @@
         "type": "Advanced"
       },
       {
-        "name": "6c8defaea5be02c706b6",
+        "name": "03e5573f0971d1b3c601",
         "field": {
           "Measure": {
             "Expression": {
@@ -1285,7 +1320,7 @@
         "type": "Advanced"
       },
       {
-        "name": "99546982888206c05be5",
+        "name": "a3fcf5a343abc9056d6a",
         "field": {
           "Measure": {
             "Expression": {
@@ -1299,7 +1334,7 @@
         "type": "Advanced"
       },
       {
-        "name": "cf88ed83116a894a667c",
+        "name": "baf5e4cd5de574ab6d78",
         "field": {
           "Measure": {
             "Expression": {
@@ -1313,7 +1348,7 @@
         "type": "Advanced"
       },
       {
-        "name": "0a6fa97accb01040bb00",
+        "name": "ff0ff013000c877c3a00",
         "field": {
           "Measure": {
             "Expression": {
@@ -1327,7 +1362,7 @@
         "type": "Advanced"
       },
       {
-        "name": "c4ceef3f8ee4e681c08c",
+        "name": "ddd6a8208beba6852971",
         "field": {
           "Measure": {
             "Expression": {
@@ -1341,7 +1376,7 @@
         "type": "Advanced"
       },
       {
-        "name": "d8d8dffd95ca8574b006",
+        "name": "1af376c2cabbe1d58840",
         "field": {
           "Measure": {
             "Expression": {

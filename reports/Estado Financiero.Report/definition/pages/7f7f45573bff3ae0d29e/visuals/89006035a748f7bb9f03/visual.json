@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "89006035a748f7bb9f03",
   "position": {
-    "x": 10,
-    "y": 110,
+    "x": 9.6,
+    "y": 109.86666666666666,
     "z": 2000,
-    "height": 600,
-    "width": 570,
-    "tabOrder": 6000
+    "height": 600.5333333333333,
+    "width": 620,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "tableEx",
@@ -109,10 +109,10 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Saldo"
+                    "Entity": "Productos"
                   }
                 },
-                "Property": "Fecha"
+                "Property": "Subtipo"
               }
             },
             "direction": "Ascending"
@@ -345,7 +345,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "98.42205714220361D"
+                  "Value": "101.7125389431477D"
                 }
               }
             }
@@ -359,7 +359,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "70D"
+                  "Value": "90.92943201376936D"
                 }
               }
             }
@@ -387,7 +387,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "115D"
+                  "Value": "126.01549053356283D"
                 }
               }
             }
@@ -838,5 +838,93 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ba52f60a3d5e0e74c616",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Saldo"
+              }
+            },
+            "Property": "Fecha"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "f4b53aa18b5daa637103",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Productos"
+              }
+            },
+            "Property": "Subtipo"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "1bc194958500048b4332",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Productos"
+              }
+            },
+            "Property": "Producto"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "fac5d2208600db268200",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Saldo"
+              }
+            },
+            "Property": "Saldo"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1d9ebc591c5001225500",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Saldo"
+              }
+            },
+            "Property": "Valor liquidativo"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "bef51b92e5ad7281ec24",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Saldo"
+              }
+            },
+            "Property": "Participaciones"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

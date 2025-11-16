@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "a89cd8d8fbe937e5eacb",
   "position": {
     "x": 1020,
@@ -7,7 +7,7 @@
     "z": 4000,
     "height": 80.597014925373131,
     "width": 250,
-    "tabOrder": 8000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "slicer",
@@ -98,7 +98,7 @@
               "identityValues": [
                 {
                   "Literal": {
-                    "Value": "'Renta Fija'"
+                    "Value": "'Cash'"
                   }
                 }
               ],
@@ -109,26 +109,6 @@
                 {
                   "Literal": {
                     "Value": "'Renta Variable'"
-                  }
-                }
-              ],
-              "isToggled": true
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'Renta Mixta'"
-                  }
-                }
-              ],
-              "isToggled": true
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'Cash'"
                   }
                 }
               ],

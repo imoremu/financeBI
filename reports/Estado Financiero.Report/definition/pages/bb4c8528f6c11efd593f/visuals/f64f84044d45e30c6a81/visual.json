@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "f64f84044d45e30c6a81",
   "position": {
     "x": 500,
     "y": 10,
     "z": 6000,
     "height": 80,
-    "width": 250
+    "width": 250,
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "slicer",
@@ -100,7 +101,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'DE'"
+                                "Value": "'Fondo ING - Monetario'"
                               }
                             }
                           ]

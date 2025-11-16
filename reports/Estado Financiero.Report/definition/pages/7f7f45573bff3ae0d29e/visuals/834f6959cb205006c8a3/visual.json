@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "834f6959cb205006c8a3",
   "position": {
     "x": 765,
     "y": 10,
     "z": 6000,
     "height": 80,
-    "width": 245.1905252317199
+    "width": 245.1905252317199,
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "slicer",
@@ -458,6 +459,20 @@
             }
           ]
         }
+      },
+      {
+        "name": "b9bdf337930733da8306",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Productos"
+              }
+            },
+            "Property": "Producto"
+          }
+        },
+        "type": "Categorical"
       }
     ]
   }

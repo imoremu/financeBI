@@ -419,7 +419,7 @@ table 'Medidas Saldo'
 	measure 'Valor Liquidativo Actual' = ```
 			
 			IF(
-			    HASONEVALUE(Transacciones[Producto]) && [Participaciones Actuales] > 0.001, 
+			    OR([Saldo Fecha Inicio] > 0, HASONEVALUE(Transacciones[Producto])) && [Participaciones Actuales] > 0.001, 
 			    DIVIDE([Saldo Último],[Participaciones Actuales],BLANK())
 			)
 			```

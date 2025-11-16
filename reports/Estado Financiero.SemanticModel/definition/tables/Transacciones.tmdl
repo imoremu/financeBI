@@ -388,38 +388,6 @@ table Transacciones
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 'Cambio Fijo'
-		dataType: string
-		lineageTag: c12b5589-3c63-4240-bc23-7039fd8b415c
-		summarizeBy: none
-		sourceColumn: Cambio Fijo
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'País Retención2'
-		dataType: string
-		lineageTag: 5c812cc2-613f-4308-9452-0275985fece4
-		summarizeBy: none
-		sourceColumn: País Retención2
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'PyG realizadas'
-		dataType: string
-		lineageTag: f22a0f5e-3001-4557-b84f-7fd1736abfd5
-		summarizeBy: none
-		sourceColumn: PyG realizadas
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'ID Divisa'
-		dataType: string
-		lineageTag: 8da5b92e-4da5-44db-b1cb-3856b2ec4033
-		summarizeBy: none
-		sourceColumn: ID Divisa
-
-		annotation SummarizationSetBy = Automatic
-
 	column 'ID Transacción'
 		dataType: string
 		lineageTag: 0bee44f0-c2f6-44df-8ffb-4db8f0c87d00
@@ -428,19 +396,11 @@ table Transacciones
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Check No contempladas'
+	column 'ID Transacción Espejo'
 		dataType: string
-		lineageTag: 41ca4fcb-516a-45b5-b40b-2409a38debaf
+		lineageTag: fe79ccad-d3ae-4fc9-892d-c2e43b0a6908
 		summarizeBy: none
-		sourceColumn: Check No contempladas
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Transacciones Preclasificadas.Comisión (Moneda Transacción)'
-		dataType: string
-		lineageTag: 655fb543-43de-484c-9a31-f7f24056de3b
-		summarizeBy: none
-		sourceColumn: Transacciones Preclasificadas.Comisión (Moneda Transacción)
+		sourceColumn: ID Transacción Espejo
 
 		annotation SummarizationSetBy = Automatic
 

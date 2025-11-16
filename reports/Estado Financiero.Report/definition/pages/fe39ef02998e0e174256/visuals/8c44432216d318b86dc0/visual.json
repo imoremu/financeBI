@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "8c44432216d318b86dc0",
   "position": {
     "x": 350,
@@ -7,7 +7,7 @@
     "z": 6000,
     "height": 80,
     "width": 250,
-    "tabOrder": 6000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "slicer",
@@ -53,7 +53,7 @@
               },
               "queryRef": "Calendario.Date Jerarquía.Mes",
               "nativeQueryRef": "Date Jerarquía Mes",
-              "active": true
+              "active": false
             }
           ]
         }
@@ -92,20 +92,7 @@
             "isPinned": true
           }
         ],
-        "root": {
-          "children": [
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "2024L"
-                  }
-                }
-              ],
-              "isToggled": true
-            }
-          ]
-        }
+        "root": {}
       }
     ],
     "objects": {
@@ -499,6 +486,44 @@
             }
           ]
         }
+      },
+      {
+        "name": "f4e8120e6d01beb33660",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Calendario"
+                  }
+                },
+                "Hierarchy": "Date Jerarquía"
+              }
+            },
+            "Level": "Año"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9d96cb3c60a209140984",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Calendario"
+                  }
+                },
+                "Hierarchy": "Date Jerarquía"
+              }
+            },
+            "Level": "Mes"
+          }
+        },
+        "type": "Categorical"
       }
     ]
   }

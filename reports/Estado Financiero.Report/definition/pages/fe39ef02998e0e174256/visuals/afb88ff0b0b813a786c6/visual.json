@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "afb88ff0b0b813a786c6",
   "position": {
     "x": 10.236966824644551,
@@ -7,7 +7,7 @@
     "z": 2000,
     "height": 280,
     "width": 590,
-    "tabOrder": 7000
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "lineClusteredColumnComboChart",
@@ -33,7 +33,7 @@
               },
               "queryRef": "Calendario.Date Jerarquía.Año",
               "nativeQueryRef": "Date Jerarquía Año",
-              "active": true
+              "active": false
             },
             {
               "field": {
@@ -53,7 +53,7 @@
               },
               "queryRef": "Calendario.Date Jerarquía.Mes",
               "nativeQueryRef": "Date Jerarquía Mes",
-              "active": false
+              "active": true
             }
           ]
         },
@@ -759,5 +759,75 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "3d23bda1b71b7970c0a2",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Calendario"
+                  }
+                },
+                "Hierarchy": "Date Jerarquía"
+              }
+            },
+            "Level": "Año"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a26b717fe352c904376e",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Calendario"
+                  }
+                },
+                "Hierarchy": "Date Jerarquía"
+              }
+            },
+            "Level": "Mes"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "30841b2c7ba6652d5da7",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Saldo Último"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f37a069a0b00820b3a13",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Saldo Inversiones"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

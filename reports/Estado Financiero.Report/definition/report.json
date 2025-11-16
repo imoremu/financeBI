@@ -84,7 +84,7 @@
           "expanded": {
             "expr": {
               "Literal": {
-                "Value": "false"
+                "Value": "true"
               }
             }
           }
@@ -125,8 +125,7 @@
     "useStylableVisualContainerHeader": true,
     "defaultDrillFilterOtherVisuals": true,
     "allowChangeFilterTypes": true,
-    "useEnhancedTooltips": true,
-    "filterPaneHiddenInEditMode": true
+    "useEnhancedTooltips": true
   },
   "slowDataSourceSettings": {
     "isCrossHighlightingDisabled": false,

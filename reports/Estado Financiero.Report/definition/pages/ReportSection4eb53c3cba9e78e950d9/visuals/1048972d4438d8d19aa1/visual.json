@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "1048972d4438d8d19aa1",
   "position": {
     "x": 720.31176929072478,
@@ -7,7 +7,7 @@
     "z": 4000,
     "height": 235.44816835541698,
     "width": 549.71161340607944,
-    "tabOrder": 3000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "tableEx",
@@ -47,6 +47,20 @@
               },
               "queryRef": "Sum(Movimientos.IMPORTE (€))",
               "nativeQueryRef": "IMPORTE (€)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Tipo Movimiento"
+                    }
+                  },
+                  "Property": "TIPO"
+                }
+              },
+              "queryRef": "Tipo Movimiento.TIPO",
+              "nativeQueryRef": "TIPO"
             },
             {
               "field": {
