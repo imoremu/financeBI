@@ -1,183 +1,6 @@
 table 'Medidas Transacciones'
 	lineageTag: 1119b22a-9d0a-4769-8f0c-4498053d07e1
 
-	measure 'Transacciones - Participaciones Vendidas Total' = ```
-			
-			
-			VAR products = VALUES('Transacciones'[Producto])
-			Var dates = VALUES(Calendario[Date])
-			
-			RETURN SUMX(
-			    CALCULATETABLE(
-			        SELECTCOLUMNS('Transacciones', 'Transacciones'[Producto], 'Transacciones'[Participaciones])                
-			        , ALL('Transacciones')
-			        , products
-			        , dates
-			        , 'Transacciones'[Tipo Transacción] = "Venta"                
-			    )
-			    , 'Transacciones'[Participaciones] * -1    
-			)
-			```
-		lineageTag: 91842e8e-345f-4571-8084-fb58f28df508
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Transacciones - Participaciones Vendidas de Transacción De Compra' = ```
-			
-			
-			VAR participaciones_totales_compradas = 
-			    CALCULATE(
-			        SELECTEDVALUE('Transacciones'[Participaciones]),
-			        Transacciones[Tipo Transacción] = "Compra"
-			    )
-			
-			VAR participaciones_vendidas = 
-			MAX(
-			    MIN(
-			        MAX(BLANK(), [Transacciones - Participaciones Vendidas Total] - ([Transacciones - Participaciones Compradas Hasta Última Transacción] - participaciones_totales_compradas))
-			        , participaciones_totales_compradas
-			    )
-			    ,BLANK()
-			)
-			
-			RETURN  participaciones_vendidas
-			
-			```
-		lineageTag: c5d21235-30ce-4183-819f-7620c7599e88
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Transacciones - Participaciones Compradas Hasta Última Transacción' = ```
-			
-			
-			VAR productos = VALUES(Transacciones[Producto])
-			VAR fecha_transaccion = MAX('Transacciones'[Fecha])
-			
-			RETURN CALCULATE(
-			    SUM('Transacciones'[Participaciones])
-			    , Calendario[Date] <= fecha_transaccion
-			    , ALL(Transacciones)
-			    , productos
-			    , 'Transacciones'[Tipo Transacción] = "Compra"
-			)
-			
-			```
-		lineageTag: 8b3509c2-e185-4171-b8ce-1cd0ecb2e9fa
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Transacciones - Coste Participaciones Vendidas Transaccion' = ```
-			
-			
-			VAR products = VALUES('Transacciones'[Producto])
-			
-			VAR coste = 
-			    SUMX(
-			        CALCULATETABLE(
-			            SELECTCOLUMNS('Transacciones', 'Transacciones'[Producto], 'Transacciones'[Participaciones], 'Transacciones'[Precio participación], Transacciones[Tipo Transacción])                       
-			            , products
-			            , Transacciones[Tipo Transacción] = "Compra"
-			        )
-			        , [Transacciones - Participaciones Vendidas de Transacción De Compra] * 'Transacciones'[Precio participación]
-			    )    
-			
-			RETURN if (coste = 0, BLANK(), coste)
-			```
-		lineageTag: abd9c660-e158-4d5d-9677-b14b4021723a
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Transacciones - Precio de Venta Total' = ```
-			
-			
-			VAR products = VALUES('Transacciones'[Producto])
-			VAR dates = VALUES(Calendario[Date])
-			
-			VAR revenue = 
-			CALCULATE(
-			    SUMX(
-			        CALCULATETABLE(
-			            SELECTCOLUMNS('Transacciones', 'Transacciones'[Producto], 'Transacciones'[Total Bruto])                       
-			            , products
-			            , dates            
-			        )
-			        , 'Transacciones'[Total Bruto] * -1 
-			    )    
-			    , REMOVEFILTERS('Transacciones')
-			    , 'Transacciones'[Tipo Transacción] = "Venta"
-			)
-			
-			RETURN revenue
-			
-			```
-		formatString: 0.00
-		lineageTag: b3f2b7f3-08c5-4e9f-800c-76e110564481
-
-	measure 'Transacciones - Beneficio Tras Transacción' = ```
-			
-			
-			VAR last_date = MAX('Transacciones'[Fecha])
-			VAR products = VALUES('Transacciones'[Producto])
-			
-			RETURN 
-			
-			CALCULATE(
-			    [Transacciones - Beneficio Bruto Venta Total]
-			    , Calendario[Date] <= last_date
-			    , products
-			)
-			```
-		formatString: 0.00
-		lineageTag: 9e21d318-b805-404f-a7f6-aacdf17dc99c
-
-	measure 'Transacciones - Coste Participaciones Vendidas Total' = ```
-			
-			
-			VAR products = VALUES('Transacciones'[Producto])
-			VAR dates = VALUES(Calendario[Date])
-			
-			
-			RETURN 
-			CALCULATE(
-			    [Transacciones - Coste Participaciones Vendidas Transaccion]
-			    , ALL(Transacciones)
-			    , products 
-			    , dates
-			)
-			```
-		lineageTag: ede80459-583f-40cd-b03b-4052532aa1a9
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Transacciones - Beneficio Bruto Venta Total' =
-			
-			
-			VAR beneficio = [Transacciones - Precio de Venta Total] - [Transacciones - Coste Participaciones Vendidas Total]
-			
-			RETURN IF(beneficio=0,BLANK(),beneficio)
-		formatString: 0.00
-		lineageTag: f0b3c4c7-5b2e-4a2f-a77c-6b72a1000659
-
-	measure 'Transacciones - Beneficio Antes Transacción' = ```
-			
-			
-			VAR products = VALUES('Transacciones'[Producto])
-			VAR last_date = MIN('Transacciones'[Fecha])
-			
-			RETURN 
-			
-			CALCULATE(
-			    [Transacciones - Beneficio Bruto Venta Total]
-			    , Calendario[Date] < last_date
-			    , Transacciones[Tipo Transacción] IN {"Compra","Venta"}
-			    , REMOVEFILTERS('Transacciones')
-			    , products
-			)
-			```
-		lineageTag: bac6c5aa-b7fc-40f6-9113-4603a049cd86
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure 'Transacciones - Beneficio Bruto Venta Transaccion' = SUM(Transacciones[FIFO Beneficio / Pérdida])
 		lineageTag: 48dab9c0-036f-4d25-a7d7-5c8c198b23d0
 
@@ -207,26 +30,18 @@ table 'Medidas Transacciones'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Transacciones - Precio Último Transacción' = ```
-			
-			IF(HASONEVALUE(Transacciones[Producto]) ,
-			    CALCULATE(
-			        SELECTEDVALUE(Transacciones[Precio Participación]), 
-			        Transacciones[Fecha] = MAX(Transacciones[Fecha]), 
-			        Transacciones[Hora] = MAX(Transacciones[Hora])    
-			    )
-			)
-			```
-		formatString: 0.00
-		lineageTag: 942a95b2-d35a-428a-9836-54a93ae1c685
-
-	measure 'Transacciones - Total Período' = SUM(Transacciones[Total Bruto])
+	measure 'Transacciones - Total Bruto' = SUM(Transacciones[Total Bruto])
 		lineageTag: f9a97217-696e-4840-ae33-22d912ff5179
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Transacciones - ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos' = IF(SUM(Transacciones[Traspaso - Pérdida Bloqueada Trasladada]) > 0, 1)
 		lineageTag: b537b499-9996-4cc0-a523-e62a0683a435
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Transacciones - Valor Adquisición' = CALCULATE(ABS([Transacciones - Total Bruto]) - [Transacciones - Beneficio Bruto Venta Transaccion], KEEPFILTERS(Transacciones[Tipo Transacción] = "Venta"))
+		lineageTag: ed3954bd-3e17-4516-8e40-873f7471d3b7
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 

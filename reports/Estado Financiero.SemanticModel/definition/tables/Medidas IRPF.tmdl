@@ -204,6 +204,9 @@ table 'Medidas IRPF'
 		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
 		lineageTag: bad3a52c-78cb-45e0-bd2c-e39dafe3bfaa
 
+	measure 'Transacción - IRPF - Valor de adquisición'
+		lineageTag: ab340cea-4ef4-4c2f-bf41-2f7b843fa86a
+
 	partition 'Medidas IRPF' = m
 		mode: import
 		queryGroup: IRPF

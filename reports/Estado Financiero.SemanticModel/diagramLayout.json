@@ -19,7 +19,7 @@
             "height": 498.06967980361469,
             "width": 276.5701512415983
           },
-          "zIndex": 8
+          "zIndex": 17
         },
         {
           "location": {
@@ -31,7 +31,7 @@
             "height": 176,
             "width": 234
           },
-          "zIndex": 14
+          "zIndex": 13
         },
         {
           "location": {
@@ -70,7 +70,7 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 6
+          "zIndex": 7
         },
         {
           "location": {
@@ -83,7 +83,7 @@
             "height": 283.38709826249641,
             "width": 234
           },
-          "zIndex": 7
+          "zIndex": 8
         },
         {
           "location": {
@@ -109,7 +109,7 @@
             "height": 283.38709826249641,
             "width": 234
           },
-          "zIndex": 5
+          "zIndex": 6
         },
         {
           "location": {
@@ -135,7 +135,7 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 4
+          "zIndex": 5
         },
         {
           "location": {
@@ -148,7 +148,7 @@
             "height": 104,
             "width": 234
           },
-          "zIndex": 17
+          "zIndex": 15
         },
         {
           "location": {
@@ -174,7 +174,7 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 15
+          "zIndex": 14
         },
         {
           "location": {
@@ -187,7 +187,7 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 3
+          "zIndex": 4
         },
         {
           "location": {
@@ -200,7 +200,7 @@
             "height": 145,
             "width": 234
           },
-          "zIndex": 2
+          "zIndex": 3
         },
         {
           "location": {
@@ -213,7 +213,7 @@
             "height": 248,
             "width": 234
           },
-          "zIndex": 1
+          "zIndex": 2
         },
         {
           "location": {
@@ -226,7 +226,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 1
         }
       ],
       "name": "Todas las tablas",

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "00567f59e41c17854ab5",
   "position": {
     "x": 250.2770780856423,
@@ -224,6 +224,20 @@
               "queryRef": "Medidas Transacciones.GENERAL - Retenciones Pendientes",
               "nativeQueryRef": "GENERAL - Retenciones Pendientes",
               "displayName": "Retenciones Pendientes"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas IRPF"
+                    }
+                  },
+                  "Property": "Transacción - Base Imponible del Ahorro"
+                }
+              },
+              "queryRef": "Medidas IRPF.Transacción - Base Imponible del Ahorro",
+              "nativeQueryRef": "Transacción - Base Imponible del Ahorro"
             }
           ]
         }
@@ -632,6 +646,20 @@
           },
           "selector": {
             "metadata": "Sum(Transacciones.Retenido)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "94.56460927349923D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Medidas IRPF.Transacción - Base Imponible del Ahorro"
           }
         }
       ],
@@ -1055,5 +1083,124 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "3be2b9e37b5304171b89",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Transacciones"
+              }
+            },
+            "Property": "Producto"
+          }
+        },
+        "type": "Categorical",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "adbfe9a0b7d0096ddcd5",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Transacciones"
+              }
+            },
+            "Property": "Fecha"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "t",
+              "Entity": "Transacciones",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "t"
+                              }
+                            },
+                            "Property": "Fecha"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "datetime'2024-09-03T00:00:00'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "datetime'2024-12-23T00:00:00'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "datetime'2024-09-16T00:00:00'"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
   }
 }

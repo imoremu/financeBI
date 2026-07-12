@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.2.0/schema.json",
   "themeCollection": {
     "baseTheme": {
       "name": "CY24SU10",
@@ -109,14 +109,14 @@
       "type": "RegisteredResources",
       "items": [
         {
-          "name": "NereoData-removebg13389230299310806.png",
-          "path": "NereoData-removebg13389230299310806.png",
-          "type": "Image"
-        },
-        {
           "name": "Nereodata_Custom_Theme7969309651362299.json",
           "path": "Nereodata_Custom_Theme7969309651362299.json",
           "type": "CustomTheme"
+        },
+        {
+          "name": "NereoData-removebg13389230299310806.png",
+          "path": "NereoData-removebg13389230299310806.png",
+          "type": "Image"
         }
       ]
     }

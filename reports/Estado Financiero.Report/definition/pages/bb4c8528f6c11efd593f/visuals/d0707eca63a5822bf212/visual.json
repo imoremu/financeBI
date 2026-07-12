@@ -1,9 +1,9 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "d0707eca63a5822bf212",
   "position": {
-    "x": 10,
-    "y": 120,
+    "x": 9.9533437013996888,
+    "y": 121.43079315707621,
     "z": 2000,
     "height": 590.00964320154287,
     "width": 1000,
@@ -95,17 +95,32 @@
             },
             {
               "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas Transacciones"
+                    }
+                  },
+                  "Property": "Transacciones - Total Bruto"
+                }
+              },
+              "queryRef": "Medidas Transacciones.Transacciones - Total Período",
+              "nativeQueryRef": "Total Bruto",
+              "displayName": "Total Bruto"
+            },
+            {
+              "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
                       "Entity": "Transacciones"
                     }
                   },
-                  "Property": "Total Bruto"
+                  "Property": "FIFO Beneficio / Pérdida"
                 }
               },
-              "queryRef": "Transacciones.Total Bruto",
-              "nativeQueryRef": "Total Bruto"
+              "queryRef": "Transacciones.FIFO Beneficio / Pérdida",
+              "nativeQueryRef": "FIFO Beneficio / Pérdida"
             },
             {
               "field": {
@@ -240,6 +255,35 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
+                      "Entity": "Medidas Transacciones"
+                    }
+                  },
+                  "Property": "Transacciones - Valor Adquisición"
+                }
+              },
+              "queryRef": "Medidas Transacciones.Transacciones - Valor Adquisición",
+              "nativeQueryRef": "Valor Adquisición",
+              "displayName": "Valor Adquisición"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Transacciones"
+                    }
+                  },
+                  "Property": "GPP - Ajuste por Pérdida Diferida"
+                }
+              },
+              "queryRef": "Transacciones.GPP - Ajuste por Pérdida Diferida",
+              "nativeQueryRef": "GPP - Ajuste por Pérdida Diferida"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
                       "Entity": "Medidas IRPF"
                     }
                   },
@@ -279,6 +323,34 @@
               "queryRef": "Medidas Transacciones.Transacciones - ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos",
               "nativeQueryRef": "ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos",
               "displayName": "ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas IRPF"
+                    }
+                  },
+                  "Property": "Transacción - Impuestos Retenidos Extranjero"
+                }
+              },
+              "queryRef": "Medidas IRPF.Transacción - Impuestos Retenidos Extranjero",
+              "nativeQueryRef": "Transacción - Impuestos Retenidos Extranjero"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas IRPF"
+                    }
+                  },
+                  "Property": "Transacción - Impuestos Retenidos Local"
+                }
+              },
+              "queryRef": "Medidas IRPF.Transacción - Impuestos Retenidos Local",
+              "nativeQueryRef": "Transacción - Impuestos Retenidos Local"
             }
           ],
           "showAll": true
@@ -541,7 +613,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "58.46203830235288D"
+                  "Value": "56.13903529920306D"
                 }
               }
             }
@@ -597,7 +669,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "63.28754851136983D"
+                  "Value": "49.301207047955195D"
                 }
               }
             }
@@ -625,7 +697,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "72.57498299375698D"
+                  "Value": "54.91003206585493D"
                 }
               }
             }
@@ -667,7 +739,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "88.3630216467901D"
+                  "Value": "73.25595175735009D"
                 }
               }
             }
@@ -695,7 +767,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "73.8199113981926D"
+                  "Value": "63.70745485569081D"
                 }
               }
             }

@@ -541,16 +541,6 @@ cultureInfo es-ES
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
-			        },
-			        {
-			          "IRPF Anual Ahorro": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -2237,106 +2227,6 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
-			    "medidas_transaccione.entity__transacciones__beneficio_bruto_venta_total_FormatString": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Medidas Transacciones",
-			          "ConceptualProperty": "_Transacciones - Beneficio Bruto Venta Total FormatString"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "_transacciones - beneficio bruto venta total FormatString": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "_transacciones beneficio bruto venta total FormatString": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        }
-			      ]
-			    },
-			    "medidas_transaccione.entity__transacciones__coste_participaciones_vendidas_total_FormatString": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Medidas Transacciones",
-			          "ConceptualProperty": "_Transacciones - Coste Participaciones Vendidas Total FormatString"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "_transacciones - coste participaciones vendidas total FormatString": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "_transacciones coste participaciones vendidas total FormatString": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        }
-			      ]
-			    },
-			    "medidas_transaccione.entity__transacciones__beneficio_tras_transacción_FormatString": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Medidas Transacciones",
-			          "ConceptualProperty": "_Transacciones - Beneficio Tras Transacción FormatString"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "_transacciones - beneficio tras transacción FormatString": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "_transacciones beneficio tras transacción FormatString": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        }
-			      ]
-			    },
-			    "medidas_transaccione.entity__transacciones__precio_de_venta_total_FormatString": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Medidas Transacciones",
-			          "ConceptualProperty": "_Transacciones - Precio de Venta Total FormatString"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "_transacciones - precio de venta total FormatString": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "_transacciones precio de venta total FormatString": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        }
-			      ]
-			    },
 			    "medidas_saldo.entity__capital_invertido_medio_FormatString": {
 			      "Definition": {
 			        "Binding": {
@@ -2352,31 +2242,6 @@ cultureInfo es-ES
 			        {
 			          "_capital invertido medio FormatString": {
 			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "medidas_transaccione.entity__transacciones__coste_participaciones_vendidas_transaccion_FormatString": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Medidas Transacciones",
-			          "ConceptualProperty": "_Transacciones - Coste Participaciones Vendidas Transaccion FormatString"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "_transacciones - coste participaciones vendidas transaccion FormatString": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "_transacciones coste participaciones vendidas transaccion FormatString": {
-			            "State": "Generated",
-			            "Weight": 0.97
 			          }
 			        }
 			      ]
@@ -2447,81 +2312,6 @@ cultureInfo es-ES
 			        }
 			      ],
 			      "SemanticType": "Time"
-			    },
-			    "medidas_transaccione.entity__transacciones__participaciones_compradas_hasta_última_transacción_FormatString": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Medidas Transacciones",
-			          "ConceptualProperty": "_Transacciones - Participaciones Compradas Hasta Última Transacción FormatString"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "_transacciones - participaciones compradas hasta última transacción FormatString": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "_transacciones participaciones compradas hasta última transacción FormatString": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        }
-			      ]
-			    },
-			    "medidas_transaccione.entity__transacciones__participaciones_vendidas_de_transacción_de_compra_FormatString": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Medidas Transacciones",
-			          "ConceptualProperty": "_Transacciones - Participaciones Vendidas de Transacción De Compra FormatString"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "_transacciones - participaciones vendidas de transacción de compra FormatString": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "_transacciones participaciones vendidas de transacción de compra FormatString": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        }
-			      ]
-			    },
-			    "medidas_transaccione.entity__transacciones__participaciones_vendidas_total_FormatString": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Medidas Transacciones",
-			          "ConceptualProperty": "_Transacciones - Participaciones Vendidas Total FormatString"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "_transacciones - participaciones vendidas total FormatString": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "_transacciones participaciones vendidas total FormatString": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        }
-			      ]
 			    },
 			    "medidas_saldo.entity__gastos_no_computados__alerta_FormatString": {
 			      "Definition": {
@@ -3140,28 +2930,6 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
-			    "medidas_transaccione.transacciones__beneficio_antes_transacción": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Medidas Transacciones",
-			          "ConceptualProperty": "Transacciones - Beneficio Antes Transacción"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "transacciones - beneficio antes transacción": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "transacciones beneficio antes transacción": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        }
-			      ]
-			    },
 			    "medidas_transaccione.transacciones__beneficio_bruto_dividendo": {
 			      "Definition": {
 			        "Binding": {
@@ -3212,70 +2980,6 @@ cultureInfo es-ES
 			              "Agent": "PowerBI.VisualColumnRename"
 			            },
 			            "Weight": 0.9
-			          }
-			        }
-			      ]
-			    },
-			    "medidas_transaccione.transacciones__beneficio_bruto_venta_total": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Medidas Transacciones",
-			          "ConceptualProperty": "Transacciones - Beneficio Bruto Venta Total"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "transacciones - beneficio bruto venta total": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "transacciones beneficio bruto venta total": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "transaccione beneficio bruto venta aggregate": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.757
-			          }
-			        },
-			        {
-			          "transaccione beneficio bruto venta overall": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.757
-			          }
-			        }
-			      ]
-			    },
-			    "medidas_transaccione.transacciones__beneficio_tras_transacción": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Medidas Transacciones",
-			          "ConceptualProperty": "Transacciones - Beneficio Tras Transacción"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "transacciones - beneficio tras transacción": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "transacciones beneficio tras transacción": {
-			            "State": "Generated",
-			            "Weight": 0.97
 			          }
 			        }
 			      ]
@@ -3354,218 +3058,6 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
-			    "medidas_transaccione.transacciones__coste_participaciones_vendidas_total": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Medidas Transacciones",
-			          "ConceptualProperty": "Transacciones - Coste Participaciones Vendidas Total"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "transacciones - coste participaciones vendidas total": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "transacciones coste participaciones vendidas total": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "transaccione coste participacione vendida aggregate": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.757
-			          }
-			        },
-			        {
-			          "transaccione coste participacione vendida overall": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.757
-			          }
-			        }
-			      ]
-			    },
-			    "medidas_transaccione.transacciones__coste_participaciones_vendidas_transaccion": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Medidas Transacciones",
-			          "ConceptualProperty": "Transacciones - Coste Participaciones Vendidas Transaccion"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "transacciones - coste participaciones vendidas transaccion": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "transacciones coste participaciones vendidas transaccion": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        }
-			      ]
-			    },
-			    "medidas_transaccione.transacciones__participaciones_compradas_hasta_última_transacción": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Medidas Transacciones",
-			          "ConceptualProperty": "Transacciones - Participaciones Compradas Hasta Última Transacción"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "transacciones - participaciones compradas hasta última transacción": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "transacciones participaciones compradas hasta última transacción": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        }
-			      ]
-			    },
-			    "medidas_transaccione.transacciones__participaciones_vendidas_de_transacción_de_compra": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Medidas Transacciones",
-			          "ConceptualProperty": "Transacciones - Participaciones Vendidas de Transacción De Compra"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "transacciones - participaciones vendidas de transacción de compra": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "transacciones participaciones vendidas de transacción de compra": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        }
-			      ]
-			    },
-			    "medidas_transaccione.transacciones__participaciones_vendidas_total": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Medidas Transacciones",
-			          "ConceptualProperty": "Transacciones - Participaciones Vendidas Total"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "transacciones - participaciones vendidas total": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "transacciones participaciones vendidas total": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "transaccione - participacione vendida aggregate": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.757
-			          }
-			        },
-			        {
-			          "transaccione - participacione vendida overall": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.757
-			          }
-			        },
-			        {
-			          "transaccione participacione vendida aggregate": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.748
-			          }
-			        },
-			        {
-			          "transaccione participacione vendida overall": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.748
-			          }
-			        }
-			      ]
-			    },
-			    "medidas_transaccione.transacciones__precio_de_venta_total": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Medidas Transacciones",
-			          "ConceptualProperty": "Transacciones - Precio de Venta Total"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "transacciones - precio de venta total": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "transacciones precio de venta total": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "transaccione precio de venta aggregate": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.757
-			          }
-			        },
-			        {
-			          "transaccione precio de venta overall": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.757
-			          }
-			        }
-			      ]
-			    },
 			    "medidas_transaccione.transacciones__retenciones_pendientes": {
 			      "Definition": {
 			        "Binding": {
@@ -3594,28 +3086,6 @@ cultureInfo es-ES
 			              "Agent": "PowerBI.VisualColumnRename"
 			            },
 			            "Weight": 0.9
-			          }
-			        }
-			      ]
-			    },
-			    "medidas_transaccione.transacciones__precio_último_transacción": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Medidas Transacciones",
-			          "ConceptualProperty": "Transacciones - Precio Último Transacción"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "transacciones - precio último transacción": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "transacciones precio último transacción": {
-			            "State": "Generated",
-			            "Weight": 0.97
 			          }
 			        }
 			      ]
@@ -6896,16 +6366,6 @@ cultureInfo es-ES
 			            },
 			            "Weight": 0.599
 			          }
-			        },
-			        {
-			          "Gastos No Deducibles": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -8822,31 +8282,6 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
-			    "medidas_transaccione.entity__transacciones__beneficio_antes_transacción_FormatString": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Medidas Transacciones",
-			          "ConceptualProperty": "_Transacciones - Beneficio Antes Transacción FormatString"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "_transacciones - beneficio antes transacción FormatString": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "_transacciones beneficio antes transacción FormatString": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        }
-			      ]
-			    },
 			    "medidas_transaccione.entity__transacciones__beneficio_bruto_venta_transaccion_FormatString": {
 			      "Definition": {
 			        "Binding": {
@@ -8966,31 +8401,6 @@ cultureInfo es-ES
 			        },
 			        {
 			          "_transacciones beneficio neto FormatString": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        }
-			      ]
-			    },
-			    "medidas_transaccione.entity__transacciones__precio_último_transacción_FormatString": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Medidas Transacciones",
-			          "ConceptualProperty": "_Transacciones - Precio Último Transacción FormatString"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "_transacciones - precio último transacción FormatString": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "_transacciones precio último transacción FormatString": {
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
@@ -9263,28 +8673,28 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
-			    "medidas_transaccione.transacciones__total_período": {
+			    "medidas_transaccione.transacciones__total_bruto": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Medidas Transacciones",
-			          "ConceptualProperty": "Transacciones - Total Período"
+			          "ConceptualProperty": "Transacciones - Total Bruto"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "transacciones - total período": {
+			          "transacciones - total bruto": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "transacciones total período": {
+			          "transacciones total bruto": {
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
 			        },
 			        {
-			          "transaccione - aggregate período": {
+			          "transaccione - aggregate bruto": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -9294,7 +8704,7 @@ cultureInfo es-ES
 			          }
 			        },
 			        {
-			          "transaccione - overall período": {
+			          "transaccione - overall bruto": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -9304,7 +8714,7 @@ cultureInfo es-ES
 			          }
 			        },
 			        {
-			          "transaccione aggregate período": {
+			          "transaccione aggregate bruto": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -9314,22 +8724,32 @@ cultureInfo es-ES
 			          }
 			        },
 			        {
-			          "transaccione overall período": {
+			          "transaccione overall bruto": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "Total Bruto": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
 			    },
-			    "medidas_transaccione.entity__transacciones__total_período_FormatString": {
+			    "medidas_transaccione.entity__transacciones__total_bruto_FormatString": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Medidas Transacciones",
-			          "ConceptualProperty": "_Transacciones - Total Período FormatString"
+			          "ConceptualProperty": "_Transacciones - Total Bruto FormatString"
 			        }
 			      },
 			      "State": "Generated",
@@ -9338,18 +8758,18 @@ cultureInfo es-ES
 			      },
 			      "Terms": [
 			        {
-			          "_transacciones - total período FormatString": {
+			          "_transacciones - total bruto FormatString": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "_transacciones total período FormatString": {
+			          "_transacciones total bruto FormatString": {
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
 			        },
 			        {
-			          "_transaccione aggregate período formatstring": {
+			          "_transaccione aggregate bruto formatstring": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -9359,13 +8779,29 @@ cultureInfo es-ES
 			          }
 			        },
 			        {
-			          "_transaccione overall período formatstring": {
+			          "_transaccione overall bruto formatstring": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.605
+			          }
+			        }
+			      ]
+			    },
+			    "saldo.divisa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Saldo",
+			          "ConceptualProperty": "Divisa"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "divisa": {
+			            "State": "Generated"
 			          }
 			        }
 			      ]
@@ -9413,22 +8849,6 @@ cultureInfo es-ES
 			      "Terms": [
 			        {
 			          "dividendo": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "saldo.divisa": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Saldo",
-			          "ConceptualProperty": "Divisa"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "divisa": {
 			            "State": "Generated"
 			          }
 			        }
@@ -9486,6 +8906,53 @@ cultureInfo es-ES
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "medidas_IRPF.transacción__IRPF__valor_de_adquisición": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas IRPF",
+			          "ConceptualProperty": "Transacción - IRPF - Valor de adquisición"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "transacción - IRPF - valor de adquisición": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "transacción IRPF valor de adquisición": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "medidas_IRPF.entity__transacción__IRPF__valor_de_adquisición_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas IRPF",
+			          "ConceptualProperty": "_Transacción - IRPF - Valor de adquisición FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_transacción - IRPF - valor de adquisición FormatString": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "_transacción IRPF valor de adquisición FormatString": {
+			            "State": "Generated",
+			            "Weight": 0.97
 			          }
 			        }
 			      ]
@@ -9938,50 +9405,28 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
-			    "transaccione.traspaso__pérdida_bloqueada_trasladada": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Transacciones",
-			          "ConceptualProperty": "Traspaso - Pérdida Bloqueada Trasladada"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "traspaso - pérdida bloqueada trasladada": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "traspaso pérdida bloqueada trasladada": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        }
-			      ]
-			    },
-			    "medidas_transaccione.transacciones__ALERTA__pérdidas_bloqueadas_traspasadas_entre_fondos": {
+			    "medidas_transaccione.transacciones__valor_adquisición": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Medidas Transacciones",
-			          "ConceptualProperty": "Transacciones - ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos"
+			          "ConceptualProperty": "Transacciones - Valor Adquisición"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "transacciones - ALERTA - pérdidas bloqueadas traspasadas entre fondos": {
+			          "transacciones - valor adquisición": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "transacciones ALERTA pérdidas bloqueadas traspasadas entre fondos": {
+			          "transacciones valor adquisición": {
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
 			        },
 			        {
-			          "ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos": {
+			          "Valor Adquisición": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -9992,11 +9437,11 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
-			    "medidas_transaccione.entity__transacciones__ALERTA__pérdidas_bloqueadas_traspasadas_entre_fondos_FormatString": {
+			    "medidas_transaccione.entity__transacciones__valor_adquisición_FormatString": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Medidas Transacciones",
-			          "ConceptualProperty": "_Transacciones - ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos FormatString"
+			          "ConceptualProperty": "_Transacciones - Valor Adquisición FormatString"
 			        }
 			      },
 			      "State": "Generated",
@@ -10005,12 +9450,12 @@ cultureInfo es-ES
 			      },
 			      "Terms": [
 			        {
-			          "_transacciones - ALERTA - pérdidas bloqueadas traspasadas entre fondos FormatString": {
+			          "_transacciones - valor adquisición FormatString": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "_transacciones ALERTA pérdidas bloqueadas traspasadas entre fondos FormatString": {
+			          "_transacciones valor adquisición FormatString": {
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
@@ -10019,6 +9464,487 @@ cultureInfo es-ES
 			    }
 			  },
 			  "Relationships": {
+			    "calendario_date_jerarquía_me_has_calendario_date_jerarquía_día": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario.date_jerarquía.me": {
+			          "Target": {
+			            "Entity": "calendario.date_jerarquía.me"
+			          }
+			        },
+			        "calendario.date_jerarquía.día": {
+			          "Target": {
+			            "Entity": "calendario.date_jerarquía.día"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.date_jerarquía.me"
+			            },
+			            "Object": {
+			              "Role": "calendario.date_jerarquía.día"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "me_have_días"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.date_jerarquía.día"
+			            },
+			            "Object": {
+			              "Role": "calendario.date_jerarquía.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "días_have_me"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "calendario.date_jerarquía.día"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "calendario.date_jerarquía.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "días_are_in_me"
+			        }
+			      ]
+			    },
+			    "calendario_date_jerarquía_año_has_calendario_date_jerarquía_me": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario.date_jerarquía.año": {
+			          "Target": {
+			            "Entity": "calendario.date_jerarquía.año"
+			          }
+			        },
+			        "calendario.date_jerarquía.me": {
+			          "Target": {
+			            "Entity": "calendario.date_jerarquía.me"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.date_jerarquía.año"
+			            },
+			            "Object": {
+			              "Role": "calendario.date_jerarquía.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "años_have_me"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.date_jerarquía.me"
+			            },
+			            "Object": {
+			              "Role": "calendario.date_jerarquía.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "me_have_años"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "calendario.date_jerarquía.me"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "calendario.date_jerarquía.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "me_are_in_años"
+			        }
+			      ]
+			    },
+			    "calendario_date_jerarquía_has_día": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario.date_jerarquía": {
+			          "Target": {
+			            "Entity": "calendario.date_jerarquía"
+			          }
+			        },
+			        "calendario.date_jerarquía.día": {
+			          "Target": {
+			            "Entity": "calendario.date_jerarquía.día"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.date_jerarquía"
+			            },
+			            "Object": {
+			              "Role": "calendario.date_jerarquía.día"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "date_jerarquías_have_días"
+			        }
+			      ]
+			    },
+			    "calendario_date_jerarquía_has_me": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario.date_jerarquía": {
+			          "Target": {
+			            "Entity": "calendario.date_jerarquía"
+			          }
+			        },
+			        "calendario.date_jerarquía.me": {
+			          "Target": {
+			            "Entity": "calendario.date_jerarquía.me"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.date_jerarquía"
+			            },
+			            "Object": {
+			              "Role": "calendario.date_jerarquía.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "date_jerarquías_have_me"
+			        }
+			      ]
+			    },
+			    "calendario_date_jerarquía_has_año": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario.date_jerarquía": {
+			          "Target": {
+			            "Entity": "calendario.date_jerarquía"
+			          }
+			        },
+			        "calendario.date_jerarquía.año": {
+			          "Target": {
+			            "Entity": "calendario.date_jerarquía.año"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.date_jerarquía"
+			            },
+			            "Object": {
+			              "Role": "calendario.date_jerarquía.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "date_jerarquías_have_años"
+			        }
+			      ]
+			    },
+			    "irpf_has_test_data": {
+			      "Binding": {
+			        "ConceptualEntity": "IRPF"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "irpf": {
+			          "Target": {
+			            "Entity": "irpf"
+			          }
+			        },
+			        "test_data": {
+			          "Target": {
+			            "Entity": "test_data"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "irpf"
+			            },
+			            "Object": {
+			              "Role": "test_data"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "irpfs_have_test_data"
+			        }
+			      ]
+			    },
+			    "irpf_has_años_fiscale": {
+			      "Binding": {
+			        "ConceptualEntity": "IRPF"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "irpf": {
+			          "Target": {
+			            "Entity": "irpf"
+			          }
+			        },
+			        "años_fiscale": {
+			          "Target": {
+			            "Entity": "años_fiscale"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "irpf"
+			            },
+			            "Object": {
+			              "Role": "años_fiscale"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "irpfs_have_años_fiscales"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "años_fiscale"
+			            },
+			            "Object": {
+			              "Role": "irpf"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "años_fiscales_have_irpfs"
+			        }
+			      ]
+			    },
+			    "transaccione_has_test_data": {
+			      "Binding": {
+			        "ConceptualEntity": "Transacciones"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "transaccione": {
+			          "Target": {
+			            "Entity": "transaccione"
+			          }
+			        },
+			        "test_data": {
+			          "Target": {
+			            "Entity": "test_data"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "transaccione"
+			            },
+			            "Object": {
+			              "Role": "test_data"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "transacciones_have_test_data"
+			        }
+			      ]
+			    },
+			    "transaccione_has_años_fiscale": {
+			      "Binding": {
+			        "ConceptualEntity": "Transacciones"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "transaccione": {
+			          "Target": {
+			            "Entity": "transaccione"
+			          }
+			        },
+			        "años_fiscale": {
+			          "Target": {
+			            "Entity": "años_fiscale"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "transaccione"
+			            },
+			            "Object": {
+			              "Role": "años_fiscale"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "transacciones_have_años_fiscales"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "años_fiscale"
+			            },
+			            "Object": {
+			              "Role": "transaccione"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "años_fiscales_have_transacciones"
+			        }
+			      ]
+			    },
+			    "transaccione_has_producto": {
+			      "Binding": {
+			        "ConceptualEntity": "Transacciones"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "transaccione": {
+			          "Target": {
+			            "Entity": "transaccione"
+			          }
+			        },
+			        "producto": {
+			          "Target": {
+			            "Entity": "producto"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "transaccione"
+			            },
+			            "Object": {
+			              "Role": "producto"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "transacciones_have_productos"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "producto"
+			            },
+			            "Object": {
+			              "Role": "transaccione"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "productos_have_transacciones"
+			        }
+			      ]
+			    },
+			    "transaccione_has_calendario": {
+			      "Binding": {
+			        "ConceptualEntity": "Transacciones"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "transaccione": {
+			          "Target": {
+			            "Entity": "transaccione"
+			          }
+			        },
+			        "calendario": {
+			          "Target": {
+			            "Entity": "calendario"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "transaccione"
+			            },
+			            "Object": {
+			              "Role": "calendario"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "transacciones_have_calendarios"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario"
+			            },
+			            "Object": {
+			              "Role": "transaccione"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendarios_have_transacciones"
+			        }
+			      ]
+			    },
 			    "saldo_has_test_data": {
 			      "Binding": {
 			        "ConceptualEntity": "Saldo"
@@ -10361,7 +10287,7 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
-			    "transaccione_has_medidas_transaccione_transacciones__ALERTA__pérdidas_bloqueadas_traspasadas_entre_fondos": {
+			    "transaccione_has_medidas_transaccione_transacciones__valor_adquisición": {
 			      "Binding": {
 			        "ConceptualEntity": "Transacciones"
 			      },
@@ -10372,9 +10298,9 @@ cultureInfo es-ES
 			            "Entity": "transaccione"
 			          }
 			        },
-			        "medidas_transaccione.transacciones__ALERTA__pérdidas_bloqueadas_traspasadas_entre_fondos": {
+			        "medidas_transaccione.transacciones__valor_adquisición": {
 			          "Target": {
-			            "Entity": "medidas_transaccione.transacciones__ALERTA__pérdidas_bloqueadas_traspasadas_entre_fondos"
+			            "Entity": "medidas_transaccione.transacciones__valor_adquisición"
 			          }
 			        }
 			      },
@@ -10385,45 +10311,12 @@ cultureInfo es-ES
 			              "Role": "transaccione"
 			            },
 			            "Object": {
-			              "Role": "medidas_transaccione.transacciones__ALERTA__pérdidas_bloqueadas_traspasadas_entre_fondos"
+			              "Role": "medidas_transaccione.transacciones__valor_adquisición"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "transacciones_have_transacciones__ALERTA__pérdidas_bloqueadas_traspasadas_entre_fondos"
-			        }
-			      ]
-			    },
-			    "transaccione_has_traspaso__pérdida_bloqueada_trasladada": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "transaccione.traspaso__pérdida_bloqueada_trasladada": {
-			          "Target": {
-			            "Entity": "transaccione.traspaso__pérdida_bloqueada_trasladada"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "transaccione.traspaso__pérdida_bloqueada_trasladada"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_traspaso__pérdida_bloqueada_trasladadas"
+			          "ID": "transacciones_have_transacciones__valor_adquisición"
 			        }
 			      ]
 			    },
@@ -10691,6 +10584,39 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
+			    "medidas_IRPF_has_transacción__IRPF__valor_de_adquisición": {
+			      "Binding": {
+			        "ConceptualEntity": "Medidas IRPF"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "medidas_IRPF": {
+			          "Target": {
+			            "Entity": "medidas_IRPF"
+			          }
+			        },
+			        "medidas_IRPF.transacción__IRPF__valor_de_adquisición": {
+			          "Target": {
+			            "Entity": "medidas_IRPF.transacción__IRPF__valor_de_adquisición"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "medidas_IRPF"
+			            },
+			            "Object": {
+			              "Role": "medidas_IRPF.transacción__IRPF__valor_de_adquisición"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "medidas_IRPFs_have_transacción__IRPF__valor_de_adquisición"
+			        }
+			      ]
+			    },
 			    "saldo_has_ID_divisa": {
 			      "Binding": {
 			        "ConceptualEntity": "Saldo"
@@ -10721,39 +10647,6 @@ cultureInfo es-ES
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "saldos_have_ID_divisas"
-			        }
-			      ]
-			    },
-			    "saldo_has_divisa": {
-			      "Binding": {
-			        "ConceptualEntity": "Saldo"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "saldo": {
-			          "Target": {
-			            "Entity": "saldo"
-			          }
-			        },
-			        "saldo.divisa": {
-			          "Target": {
-			            "Entity": "saldo.divisa"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "saldo"
-			            },
-			            "Object": {
-			              "Role": "saldo.divisa"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "saldos_have_divisas"
 			        }
 			      ]
 			    },
@@ -10856,7 +10749,40 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
-			    "transaccione_has_medidas_transaccione_transacciones__total_período": {
+			    "saldo_has_divisa": {
+			      "Binding": {
+			        "ConceptualEntity": "Saldo"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "saldo": {
+			          "Target": {
+			            "Entity": "saldo"
+			          }
+			        },
+			        "saldo.divisa": {
+			          "Target": {
+			            "Entity": "saldo.divisa"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "saldo"
+			            },
+			            "Object": {
+			              "Role": "saldo.divisa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "saldos_have_divisas"
+			        }
+			      ]
+			    },
+			    "transaccione_has_medidas_transaccione_transacciones__total_bruto": {
 			      "Binding": {
 			        "ConceptualEntity": "Transacciones"
 			      },
@@ -10867,9 +10793,9 @@ cultureInfo es-ES
 			            "Entity": "transaccione"
 			          }
 			        },
-			        "medidas_transaccione.transacciones__total_período": {
+			        "medidas_transaccione.transacciones__total_bruto": {
 			          "Target": {
-			            "Entity": "medidas_transaccione.transacciones__total_período"
+			            "Entity": "medidas_transaccione.transacciones__total_bruto"
 			          }
 			        }
 			      },
@@ -10880,12 +10806,12 @@ cultureInfo es-ES
 			              "Role": "transaccione"
 			            },
 			            "Object": {
-			              "Role": "medidas_transaccione.transacciones__total_período"
+			              "Role": "medidas_transaccione.transacciones__total_bruto"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "transacciones_have_transacciones__total_período"
+			          "ID": "transacciones_have_transacciones__total_bruto"
 			        }
 			      ]
 			    },
@@ -15881,39 +15807,6 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
-			    "transaccione_has_medidas_transaccione_transacciones__precio_último_transacción": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "medidas_transaccione.transacciones__precio_último_transacción": {
-			          "Target": {
-			            "Entity": "medidas_transaccione.transacciones__precio_último_transacción"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "medidas_transaccione.transacciones__precio_último_transacción"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_transacciones__precio_último_transacción"
-			        }
-			      ]
-			    },
 			    "transaccione_has_medidas_transaccione_transacciones__retenciones_pendientes": {
 			      "Binding": {
 			        "ConceptualEntity": "Transacciones"
@@ -15944,204 +15837,6 @@ cultureInfo es-ES
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "transacciones_have_transacciones__retenciones_pendientes"
-			        }
-			      ]
-			    },
-			    "transaccione_has_medidas_transaccione_transacciones__precio_de_venta_total": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "medidas_transaccione.transacciones__precio_de_venta_total": {
-			          "Target": {
-			            "Entity": "medidas_transaccione.transacciones__precio_de_venta_total"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "medidas_transaccione.transacciones__precio_de_venta_total"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_transacciones__precio_de_venta_total"
-			        }
-			      ]
-			    },
-			    "transaccione_has_medidas_transaccione_transacciones__participaciones_vendidas_total": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "medidas_transaccione.transacciones__participaciones_vendidas_total": {
-			          "Target": {
-			            "Entity": "medidas_transaccione.transacciones__participaciones_vendidas_total"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "medidas_transaccione.transacciones__participaciones_vendidas_total"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_transacciones__participaciones_vendidas_total"
-			        }
-			      ]
-			    },
-			    "transaccione_has_medidas_transaccione_transacciones__participaciones_vendidas_de_transacción_de_compra": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "medidas_transaccione.transacciones__participaciones_vendidas_de_transacción_de_compra": {
-			          "Target": {
-			            "Entity": "medidas_transaccione.transacciones__participaciones_vendidas_de_transacción_de_compra"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "medidas_transaccione.transacciones__participaciones_vendidas_de_transacción_de_compra"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_transacciones__participaciones_vendidas_de_transacción_de_compra"
-			        }
-			      ]
-			    },
-			    "transaccione_has_medidas_transaccione_transacciones__participaciones_compradas_hasta_última_transacción": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "medidas_transaccione.transacciones__participaciones_compradas_hasta_última_transacción": {
-			          "Target": {
-			            "Entity": "medidas_transaccione.transacciones__participaciones_compradas_hasta_última_transacción"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "medidas_transaccione.transacciones__participaciones_compradas_hasta_última_transacción"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_transacciones__participaciones_compradas_hasta_última_transacción"
-			        }
-			      ]
-			    },
-			    "transaccione_has_medidas_transaccione_transacciones__coste_participaciones_vendidas_transaccion": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "medidas_transaccione.transacciones__coste_participaciones_vendidas_transaccion": {
-			          "Target": {
-			            "Entity": "medidas_transaccione.transacciones__coste_participaciones_vendidas_transaccion"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "medidas_transaccione.transacciones__coste_participaciones_vendidas_transaccion"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_transacciones__coste_participaciones_vendidas_transaccion"
-			        }
-			      ]
-			    },
-			    "transaccione_has_medidas_transaccione_transacciones__coste_participaciones_vendidas_total": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "medidas_transaccione.transacciones__coste_participaciones_vendidas_total": {
-			          "Target": {
-			            "Entity": "medidas_transaccione.transacciones__coste_participaciones_vendidas_total"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "medidas_transaccione.transacciones__coste_participaciones_vendidas_total"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_transacciones__coste_participaciones_vendidas_total"
 			        }
 			      ]
 			    },
@@ -16208,72 +15903,6 @@ cultureInfo es-ES
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "transacciones_have_transacciones__beneficio_bruto_venta_transaccion"
-			        }
-			      ]
-			    },
-			    "transaccione_has_medidas_transaccione_transacciones__beneficio_tras_transacción": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "medidas_transaccione.transacciones__beneficio_tras_transacción": {
-			          "Target": {
-			            "Entity": "medidas_transaccione.transacciones__beneficio_tras_transacción"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "medidas_transaccione.transacciones__beneficio_tras_transacción"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_transacciones__beneficio_tras_transacción"
-			        }
-			      ]
-			    },
-			    "transaccione_has_medidas_transaccione_transacciones__beneficio_bruto_venta_total": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "medidas_transaccione.transacciones__beneficio_bruto_venta_total": {
-			          "Target": {
-			            "Entity": "medidas_transaccione.transacciones__beneficio_bruto_venta_total"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "medidas_transaccione.transacciones__beneficio_bruto_venta_total"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_transacciones__beneficio_bruto_venta_total"
 			        }
 			      ]
 			    },
@@ -16406,39 +16035,6 @@ cultureInfo es-ES
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "transacciones_have_transacciones__beneficio_bruto_dividendo"
-			        }
-			      ]
-			    },
-			    "transaccione_has_medidas_transaccione_transacciones__beneficio_antes_transacción": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "medidas_transaccione.transacciones__beneficio_antes_transacción": {
-			          "Target": {
-			            "Entity": "medidas_transaccione.transacciones__beneficio_antes_transacción"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "medidas_transaccione.transacciones__beneficio_antes_transacción"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_transacciones__beneficio_antes_transacción"
 			        }
 			      ]
 			    },
@@ -20552,487 +20148,6 @@ cultureInfo es-ES
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "máximo_indicates_how_expensive_IRPF_ahorros_are"
-			        }
-			      ]
-			    },
-			    "transaccione_has_calendario": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "calendario": {
-			          "Target": {
-			            "Entity": "calendario"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "calendario"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_calendarios"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "calendario"
-			            },
-			            "Object": {
-			              "Role": "transaccione"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "calendarios_have_transacciones"
-			        }
-			      ]
-			    },
-			    "transaccione_has_producto": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "producto": {
-			          "Target": {
-			            "Entity": "producto"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "producto"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_productos"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "producto"
-			            },
-			            "Object": {
-			              "Role": "transaccione"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "productos_have_transacciones"
-			        }
-			      ]
-			    },
-			    "transaccione_has_años_fiscale": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "años_fiscale": {
-			          "Target": {
-			            "Entity": "años_fiscale"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "años_fiscale"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_años_fiscales"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "años_fiscale"
-			            },
-			            "Object": {
-			              "Role": "transaccione"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "años_fiscales_have_transacciones"
-			        }
-			      ]
-			    },
-			    "transaccione_has_test_data": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "test_data": {
-			          "Target": {
-			            "Entity": "test_data"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "test_data"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_test_data"
-			        }
-			      ]
-			    },
-			    "irpf_has_años_fiscale": {
-			      "Binding": {
-			        "ConceptualEntity": "IRPF"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "irpf": {
-			          "Target": {
-			            "Entity": "irpf"
-			          }
-			        },
-			        "años_fiscale": {
-			          "Target": {
-			            "Entity": "años_fiscale"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "irpf"
-			            },
-			            "Object": {
-			              "Role": "años_fiscale"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "irpfs_have_años_fiscales"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "años_fiscale"
-			            },
-			            "Object": {
-			              "Role": "irpf"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "años_fiscales_have_irpfs"
-			        }
-			      ]
-			    },
-			    "irpf_has_test_data": {
-			      "Binding": {
-			        "ConceptualEntity": "IRPF"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "irpf": {
-			          "Target": {
-			            "Entity": "irpf"
-			          }
-			        },
-			        "test_data": {
-			          "Target": {
-			            "Entity": "test_data"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "irpf"
-			            },
-			            "Object": {
-			              "Role": "test_data"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "irpfs_have_test_data"
-			        }
-			      ]
-			    },
-			    "calendario_date_jerarquía_has_año": {
-			      "Binding": {
-			        "ConceptualEntity": "Calendario"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "calendario.date_jerarquía": {
-			          "Target": {
-			            "Entity": "calendario.date_jerarquía"
-			          }
-			        },
-			        "calendario.date_jerarquía.año": {
-			          "Target": {
-			            "Entity": "calendario.date_jerarquía.año"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "calendario.date_jerarquía"
-			            },
-			            "Object": {
-			              "Role": "calendario.date_jerarquía.año"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "date_jerarquías_have_años"
-			        }
-			      ]
-			    },
-			    "calendario_date_jerarquía_has_me": {
-			      "Binding": {
-			        "ConceptualEntity": "Calendario"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "calendario.date_jerarquía": {
-			          "Target": {
-			            "Entity": "calendario.date_jerarquía"
-			          }
-			        },
-			        "calendario.date_jerarquía.me": {
-			          "Target": {
-			            "Entity": "calendario.date_jerarquía.me"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "calendario.date_jerarquía"
-			            },
-			            "Object": {
-			              "Role": "calendario.date_jerarquía.me"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "date_jerarquías_have_me"
-			        }
-			      ]
-			    },
-			    "calendario_date_jerarquía_has_día": {
-			      "Binding": {
-			        "ConceptualEntity": "Calendario"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "calendario.date_jerarquía": {
-			          "Target": {
-			            "Entity": "calendario.date_jerarquía"
-			          }
-			        },
-			        "calendario.date_jerarquía.día": {
-			          "Target": {
-			            "Entity": "calendario.date_jerarquía.día"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "calendario.date_jerarquía"
-			            },
-			            "Object": {
-			              "Role": "calendario.date_jerarquía.día"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "date_jerarquías_have_días"
-			        }
-			      ]
-			    },
-			    "calendario_date_jerarquía_año_has_calendario_date_jerarquía_me": {
-			      "Binding": {
-			        "ConceptualEntity": "Calendario"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "calendario.date_jerarquía.año": {
-			          "Target": {
-			            "Entity": "calendario.date_jerarquía.año"
-			          }
-			        },
-			        "calendario.date_jerarquía.me": {
-			          "Target": {
-			            "Entity": "calendario.date_jerarquía.me"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "calendario.date_jerarquía.año"
-			            },
-			            "Object": {
-			              "Role": "calendario.date_jerarquía.me"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "años_have_me"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "calendario.date_jerarquía.me"
-			            },
-			            "Object": {
-			              "Role": "calendario.date_jerarquía.año"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "me_have_años"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "calendario.date_jerarquía.me"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "calendario.date_jerarquía.año"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "me_are_in_años"
-			        }
-			      ]
-			    },
-			    "calendario_date_jerarquía_me_has_calendario_date_jerarquía_día": {
-			      "Binding": {
-			        "ConceptualEntity": "Calendario"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "calendario.date_jerarquía.me": {
-			          "Target": {
-			            "Entity": "calendario.date_jerarquía.me"
-			          }
-			        },
-			        "calendario.date_jerarquía.día": {
-			          "Target": {
-			            "Entity": "calendario.date_jerarquía.día"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "calendario.date_jerarquía.me"
-			            },
-			            "Object": {
-			              "Role": "calendario.date_jerarquía.día"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "me_have_días"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "calendario.date_jerarquía.día"
-			            },
-			            "Object": {
-			              "Role": "calendario.date_jerarquía.me"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "días_have_me"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "calendario.date_jerarquía.día"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "calendario.date_jerarquía.me"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "días_are_in_me"
 			        }
 			      ]
 			    },
