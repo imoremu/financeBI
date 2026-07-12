@@ -157,30 +157,6 @@ table Saldo
 
 		annotation SummarizationSetBy = Automatic
 
-	column Ticker
-		dataType: string
-		lineageTag: 2869f9fa-bbaa-41be-a449-106201724bb5
-		summarizeBy: none
-		sourceColumn: Ticker
-
-		annotation SummarizationSetBy = Automatic
-
-	column Ingreso
-		dataType: string
-		lineageTag: f32c1fb6-1524-4093-a923-2bbfc3b32d2b
-		summarizeBy: none
-		sourceColumn: Ingreso
-
-		annotation SummarizationSetBy = Automatic
-
-	column Dividendos
-		dataType: string
-		lineageTag: 88c09fc5-870e-44de-8dbe-11d1b57bde44
-		summarizeBy: none
-		sourceColumn: Dividendos
-
-		annotation SummarizationSetBy = Automatic
-
 	column 'ID Divisa'
 		dataType: string
 		lineageTag: 9976d3ac-bfce-4133-bcff-efb47d2a6514
