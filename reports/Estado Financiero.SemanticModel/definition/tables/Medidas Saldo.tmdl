@@ -258,7 +258,7 @@ table 'Medidas Saldo'
 	measure 'Gastos No Computados - Valor Periodo' = ```
 			
 			CALCULATE(    
-			    [Saldo - Beneficio Periodo] + [Saldo - Movimientos Caja - Total Periodo] - [Saldo - Incremento Saldo Periodo] + [Transacciones - Total Período]
+			    [Saldo - Beneficio Periodo] + [Saldo - Movimientos Caja - Total Periodo] - [Saldo - Incremento Saldo Periodo] + [Transacciones - Total Bruto]
 			    , REMOVEFILTERS('Tipo Movimiento')
 			)
 			```
@@ -372,7 +372,7 @@ table 'Medidas Saldo'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Gastos No Computados - Saldo Esperado' = [Saldo Fecha Inicio] + [Saldo - Beneficio Periodo] + [Saldo - Movimientos Caja - Total Periodo] + [Transacciones - Total Período]
+	measure 'Gastos No Computados - Saldo Esperado' = [Saldo Fecha Inicio] + [Saldo - Beneficio Periodo] + [Saldo - Movimientos Caja - Total Periodo] + [Transacciones - Total Bruto]
 		displayFolder: Gastos
 		lineageTag: 6b181c5d-622e-4789-aff1-5841a5918035
 

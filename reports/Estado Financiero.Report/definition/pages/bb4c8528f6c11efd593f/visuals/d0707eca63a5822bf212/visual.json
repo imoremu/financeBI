@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "d0707eca63a5822bf212",
   "position": {
-    "x": 10,
-    "y": 120,
+    "x": 9.9533437013996888,
+    "y": 121.43079315707621,
     "z": 2000,
-    "height": 590.00964320154287,
-    "width": 1000,
-    "tabOrder": 2000
+    "height": 589.23794712286156,
+    "width": 1000.3110419906687,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "tableEx",
@@ -95,17 +95,32 @@
             },
             {
               "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas Transacciones"
+                    }
+                  },
+                  "Property": "Transacciones - Total Bruto"
+                }
+              },
+              "queryRef": "Medidas Transacciones.Transacciones - Total Período",
+              "nativeQueryRef": "Total Bruto",
+              "displayName": "Total Bruto"
+            },
+            {
+              "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
                       "Entity": "Transacciones"
                     }
                   },
-                  "Property": "Total Bruto"
+                  "Property": "FIFO Beneficio / Pérdida"
                 }
               },
-              "queryRef": "Transacciones.Total Bruto",
-              "nativeQueryRef": "Total Bruto"
+              "queryRef": "Transacciones.FIFO Beneficio / Pérdida",
+              "nativeQueryRef": "FIFO Beneficio / Pérdida"
             },
             {
               "field": {
@@ -217,7 +232,8 @@
                 }
               },
               "queryRef": "Medidas Transacciones.Beneficio Neto",
-              "nativeQueryRef": "Beneficio Neto"
+              "nativeQueryRef": "Beneficio Neto",
+              "displayName": "Beneficio Neto"
             },
             {
               "field": {
@@ -233,6 +249,35 @@
               "queryRef": "Medidas IRPF.Beneficio IRPF",
               "nativeQueryRef": "Beneficio Imputable",
               "displayName": "Beneficio Imputable"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas Transacciones"
+                    }
+                  },
+                  "Property": "Transacciones - Valor Adquisición"
+                }
+              },
+              "queryRef": "Medidas Transacciones.Transacciones - Valor Adquisición",
+              "nativeQueryRef": "Valor Adquisición",
+              "displayName": "Valor Adquisición"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Transacciones"
+                    }
+                  },
+                  "Property": "GPP - Ajuste por Pérdida Diferida"
+                }
+              },
+              "queryRef": "Transacciones.GPP - Ajuste por Pérdida Diferida",
+              "nativeQueryRef": "GPP - Ajuste por Pérdida Diferida"
             },
             {
               "field": {
@@ -261,6 +306,34 @@
               },
               "queryRef": "Medidas IRPF.Gastos No Deducibles",
               "nativeQueryRef": "Gastos No Deducibles"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas IRPF"
+                    }
+                  },
+                  "Property": "Transacción - Impuestos Retenidos Extranjero"
+                }
+              },
+              "queryRef": "Medidas IRPF.Transacción - Impuestos Retenidos Extranjero",
+              "nativeQueryRef": "Transacción - Impuestos Retenidos Extranjero"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas IRPF"
+                    }
+                  },
+                  "Property": "Transacción - Impuestos Retenidos Local"
+                }
+              },
+              "queryRef": "Medidas IRPF.Transacción - Impuestos Retenidos Local",
+              "nativeQueryRef": "Transacción - Impuestos Retenidos Local"
             }
           ],
           "showAll": true
@@ -523,7 +596,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "58.46203830235288D"
+                  "Value": "56.13903529920306D"
                 }
               }
             }
@@ -579,7 +652,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "63.28754851136983D"
+                  "Value": "49.301207047955195D"
                 }
               }
             }
@@ -607,7 +680,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "72.57498299375698D"
+                  "Value": "54.91003206585493D"
                 }
               }
             }
@@ -649,7 +722,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "88.3630216467901D"
+                  "Value": "73.25595175735009D"
                 }
               }
             }
@@ -677,7 +750,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "73.8199113981926D"
+                  "Value": "63.70745485569081D"
                 }
               }
             }
@@ -698,6 +771,34 @@
           },
           "selector": {
             "metadata": "Sum(Transacciones.Comisión)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "90.41523504462778D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Transacciones.GPP - Ajuste por Pérdida Diferida"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "76.80488811260571D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Transacciones.FIFO Beneficio / Pérdida"
           }
         }
       ],
@@ -1134,5 +1235,318 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "2957ea8958398c0b84e2",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Transacciones"
+              }
+            },
+            "Property": "Producto"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "51ca0ef8b1ecad4939ee",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Transacciones"
+              }
+            },
+            "Property": "Producto Contraparte"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6a2cf82216515092b098",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Transacciones"
+              }
+            },
+            "Property": "Fecha/Hora"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c4dd03a0658359d6e0e6",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Transacciones"
+              }
+            },
+            "Property": "Tipo Transacción"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "dff6cb88944766e9de6a",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Transacciones"
+                  }
+                },
+                "Property": "Importe"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "af94be206128d377abf4",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Transacciones"
+              }
+            },
+            "Property": "FIFO Beneficio / Pérdida"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1c464c87d7fd40c4cf3a",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Transacciones"
+                  }
+                },
+                "Property": "Comisión"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2c8fdbf74f4b6e2a4b25",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Transacciones"
+              }
+            },
+            "Property": "Precio Participación"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "10fb43f9b462a15320a4",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Transacciones"
+                  }
+                },
+                "Property": "Participaciones"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "133507c8c1c37a208b2f",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Participaciones Acumuladas"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "711a533d303bd456c97f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Transacciones"
+              }
+            },
+            "Property": "Retenido"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "30299aa953d8e6085ace",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Transacciones"
+              }
+            },
+            "Property": "Transacciones - Beneficio Bruto Venta Transaccion"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "335173085abb1b54cce4",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Transacciones"
+              }
+            },
+            "Property": "Transacciones - Beneficio Neto"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "acb4f8221890ea698baf",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas IRPF"
+              }
+            },
+            "Property": "Transacción - Ganancias / Pérdidas Patrimoniales Realizadas"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1935387c46a27b0b3634",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Transacciones"
+              }
+            },
+            "Property": "GPP - Ajuste por Pérdida Diferida"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7435997528d592c4d5ef",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas IRPF"
+              }
+            },
+            "Property": "Transacción - IRPF Anual Ahorro"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c2b191df8cdcbe2068a8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas IRPF"
+              }
+            },
+            "Property": "Transacción - Gastos No Deducibles"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f952abc5ed4c2026d30c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas IRPF"
+              }
+            },
+            "Property": "Transacción - Impuestos Retenidos Extranjero"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "18e2b8c8f5631911058a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas IRPF"
+              }
+            },
+            "Property": "Transacción - Impuestos Retenidos Local"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "054e6d618bca51e61999",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Transacciones"
+              }
+            },
+            "Property": "Transacciones - Total Bruto"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "fb2940930fbf50a15157",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Transacciones"
+              }
+            },
+            "Property": "Transacciones - Valor Adquisición"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
