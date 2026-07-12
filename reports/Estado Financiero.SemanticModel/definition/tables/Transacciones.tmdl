@@ -404,6 +404,64 @@ table Transacciones
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Cambio Fijo'
+		dataType: string
+		lineageTag: b26ebc41-2596-49ec-85fa-c86d4eb54987
+		summarizeBy: none
+		sourceColumn: Cambio Fijo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'País Retención2'
+		dataType: string
+		lineageTag: af545d27-655b-4360-8a3f-c0be36c2b107
+		summarizeBy: none
+		sourceColumn: País Retención2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PyG realizadas'
+		dataType: string
+		lineageTag: 7ce849b3-6899-48af-85f2-014aa7309666
+		summarizeBy: none
+		sourceColumn: PyG realizadas
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ID Divisa'
+		dataType: string
+		lineageTag: bfefc128-7734-41d0-92be-b22097318bac
+		summarizeBy: none
+		sourceColumn: ID Divisa
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Check No Preclasificadas'
+		dataType: string
+		lineageTag: 8b446efe-8f71-4481-b23c-61ea54393fa6
+		summarizeBy: none
+		sourceColumn: Check No Preclasificadas
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Check No contempladas'
+		dataType: string
+		lineageTag: 9cd1332a-2d06-452a-9128-d79a8d1c2aed
+		summarizeBy: none
+		sourceColumn: Check No contempladas
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Traspaso - Pérdida Bloqueada Trasladada'
+		dataType: double
+		lineageTag: 77250ab0-efb0-4593-917f-dcf9bfff20c9
+		summarizeBy: sum
+		sourceColumn: Traspaso - Pérdida Bloqueada Trasladada
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	partition Transacciones = m
 		mode: import
 		queryGroup: Saldo
@@ -444,7 +502,7 @@ table Transacciones
 				    #"[Column][Add] Gastos No Deducibles" = Table.AddColumn(#"[Update] Subst - . by ,", "Gastos No Deducibles", each if [Tipo Transacción] = "Dividendos" then [Comisión] else 0),
 				    #"[Column][Add] Gastos Deducibles" = Table.AddColumn(#"[Column][Add] Gastos No Deducibles", "Gastos Deducibles", each if [Tipo Transacción] <> "Dividendos" then [Comisión] else 0),
 				    #"Columna condicional agregada" = Table.AddColumn(#"[Column][Add] Gastos Deducibles", "Retención Local", each if [País Retención] = "" or [País Retención] = "ESP" then true else false, type logical),
-				    #"[Update] Types" = Table.TransformColumnTypes(#"Columna condicional agregada",{{"Fecha", type date}, {"Producto", type text}, {"Cuenta Producto", type text}, {"Hora", type time}, {"Producto Contraparte", type text}, {"Cuenta Contraparte", type text}, {"Tipo Transacción", type text}, {"Participaciones", type number}, {"Precio Participación", type number}, {"Precio (Moneda Transacción)", type number}, {"Divisa", type text}, {"Cambio", type number}, {"Importe", type number}, {"Importe Bruto (Moneda Transacción)", type number}, {"Retenido", type number}, {"Retenido (Moneda Transacción)", type number}, {"Año IRPF", type number}, {"Comisión", type number}, {"Comisión (Moneda Transacción)", type number}, {"Detalle", type text}, {"Test", type text}, {"Fecha/Hora", type datetime}, {"Total Bruto", type number}, {"Año IRPF Fijado", type logical}, {"ID", Int64.Type}, {"Participaciones Acumuladas", type number}, {"Precio Medio Hasta Transacción", type number}, {"Renta Bruta Obtenida", type number}, {"FIFO Beneficio / Pérdida", type number}, {"Rendimientos Capital Mobiliario", type number}, {"Ganancias / Pérdidas Patrimoniales Disponibles (GPP)", type number}, {"GPP Total", type number}, {"GPP - Ajuste por Pérdida Diferida", type number}, {"Gastos No Deducibles", type number}, {"Gastos Deducibles", type number}})
+				    #"[Update] Types" = Table.TransformColumnTypes(#"Columna condicional agregada",{{"Fecha", type date}, {"Producto", type text}, {"Cuenta Producto", type text}, {"Hora", type time}, {"Producto Contraparte", type text}, {"Cuenta Contraparte", type text}, {"Tipo Transacción", type text}, {"Participaciones", type number}, {"Precio Participación", type number}, {"Precio (Moneda Transacción)", type number}, {"Divisa", type text}, {"Cambio", type number}, {"Importe", type number}, {"Importe Bruto (Moneda Transacción)", type number}, {"Retenido", type number}, {"Retenido (Moneda Transacción)", type number}, {"Año IRPF", type number}, {"Comisión", type number}, {"Comisión (Moneda Transacción)", type number}, {"Detalle", type text}, {"Test", type text}, {"Fecha/Hora", type datetime}, {"Total Bruto", type number}, {"Año IRPF Fijado", type logical}, {"ID", Int64.Type}, {"Participaciones Acumuladas", type number}, {"Precio Medio Hasta Transacción", type number}, {"Renta Bruta Obtenida", type number}, {"FIFO Beneficio / Pérdida", type number}, {"Rendimientos Capital Mobiliario", type number}, {"Ganancias / Pérdidas Patrimoniales Disponibles (GPP)", type number}, {"GPP Total", type number}, {"GPP - Ajuste por Pérdida Diferida", type number}, {"Gastos No Deducibles", type number}, {"Gastos Deducibles", type number}, {"Traspaso - Pérdida Bloqueada Trasladada", type number}})
 				in
 				    #"[Update] Types"
 				```

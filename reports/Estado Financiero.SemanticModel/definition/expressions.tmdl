@@ -1,4 +1,4 @@
-expression Path = "https://github.com/imoremu/financeBI/raw/refs/heads/main/data/demo/demo_data.xlsx" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+expression Path = "H:\Finanzas.xlsx" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
 	lineageTag: a2aa19e7-94ab-40b4-b77d-780b67c32947
 
 	annotation PBI_ResultType = Text
@@ -430,7 +430,7 @@ expression Pruebas = ```
 
 	annotation PBI_ResultType = Table
 
-expression 'Path (Prod)' = "H:\Gastos-Ingresos.xlsx" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+expression 'Path (Prod)' = "H:\Finanzas.xlsx" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
 	lineageTag: ed311670-0039-42b3-8c51-44f01d93b7f5
 
 	annotation PBI_NavigationStepName = Navegación

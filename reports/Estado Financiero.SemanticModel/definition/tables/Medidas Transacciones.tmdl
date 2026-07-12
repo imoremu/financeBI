@@ -225,6 +225,11 @@ table 'Medidas Transacciones'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure 'Transacciones - ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos' = IF(SUM(Transacciones[Traspaso - Pérdida Bloqueada Trasladada]) > 0, 1)
+		lineageTag: b537b499-9996-4cc0-a523-e62a0683a435
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	partition 'Medidas Transacciones' = m
 		mode: import
 		queryGroup: Saldo

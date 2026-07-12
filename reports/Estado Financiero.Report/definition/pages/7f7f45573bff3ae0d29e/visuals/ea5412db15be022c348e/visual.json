@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "ea5412db15be022c348e",
   "position": {
     "x": 640,
@@ -7,7 +7,7 @@
     "z": 5000,
     "height": 290,
     "width": 630.4,
-    "tabOrder": 5000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "lineClusteredColumnComboChart",
@@ -33,7 +33,7 @@
               },
               "queryRef": "Calendario.Date Jerarquía.Año",
               "nativeQueryRef": "Date Jerarquía Año",
-              "active": true
+              "active": false
             },
             {
               "field": {
@@ -53,7 +53,7 @@
               },
               "queryRef": "Calendario.Date Jerarquía.Mes",
               "nativeQueryRef": "Date Jerarquía Mes",
-              "active": false
+              "active": true
             }
           ]
         },

@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "cada85538a6c8a7056ee",
   "position": {
-    "x": 644.96487119437938,
-    "y": 109.60187353629976,
+    "x": 649.88671472708552,
+    "y": 109.41297631307931,
     "z": 4000,
-    "height": 380.23419203747073,
-    "width": 619.672131147541,
-    "tabOrder": 3000
+    "height": 379.64984552008241,
+    "width": 620.88568486096813,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -136,7 +136,7 @@
                     "Hierarchy": "Date Jerarquía"
                   }
                 },
-                "Level": "Año"
+                "Level": "Mes"
               }
             },
             "direction": "Ascending"
@@ -218,7 +218,6 @@
                   }
                 }
               ],
-              "isToggled": true,
               "children": [
                 {
                   "identityValues": [
@@ -235,6 +234,16 @@
                     {
                       "Literal": {
                         "Value": "'octubre'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                },
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'noviembre'"
                       }
                     }
                   ],
@@ -256,6 +265,58 @@
                     {
                       "Literal": {
                         "Value": "'enero'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                }
+              ]
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "2026L"
+                  }
+                }
+              ],
+              "isToggled": true,
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'marzo'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                },
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'abril'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                },
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'mayo'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                },
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'junio'"
                       }
                     }
                   ],
@@ -490,7 +551,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "105.94969196867942D"
+                  "Value": "108.25488092153113D"
                 }
               }
             }

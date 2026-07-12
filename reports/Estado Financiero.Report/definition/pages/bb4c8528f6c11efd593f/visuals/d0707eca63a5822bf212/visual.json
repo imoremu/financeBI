@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "d0707eca63a5822bf212",
   "position": {
     "x": 10,
@@ -7,7 +7,7 @@
     "z": 2000,
     "height": 590.00964320154287,
     "width": 1000,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "tableEx",
@@ -217,7 +217,8 @@
                 }
               },
               "queryRef": "Medidas Transacciones.Beneficio Neto",
-              "nativeQueryRef": "Beneficio Neto"
+              "nativeQueryRef": "Beneficio Neto",
+              "displayName": "Beneficio Neto"
             },
             {
               "field": {
@@ -246,7 +247,8 @@
                 }
               },
               "queryRef": "Medidas IRPF.IRPF Anual",
-              "nativeQueryRef": "IRPF Anual"
+              "nativeQueryRef": "IRPF Anual Ahorro",
+              "displayName": "IRPF Anual Ahorro"
             },
             {
               "field": {
@@ -260,7 +262,23 @@
                 }
               },
               "queryRef": "Medidas IRPF.Gastos No Deducibles",
-              "nativeQueryRef": "Gastos No Deducibles"
+              "nativeQueryRef": "Gastos No Deducibles",
+              "displayName": "Gastos No Deducibles"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas Transacciones"
+                    }
+                  },
+                  "Property": "Transacciones - ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos"
+                }
+              },
+              "queryRef": "Medidas Transacciones.Transacciones - ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos",
+              "nativeQueryRef": "ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos",
+              "displayName": "ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos"
             }
           ],
           "showAll": true
@@ -279,7 +297,7 @@
                 "Property": "Fecha/Hora"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ]
       }
@@ -699,6 +717,34 @@
           "selector": {
             "metadata": "Sum(Transacciones.Comisión)"
           }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "136.96653597623188D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Medidas Transacciones.Transacciones - ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "193.07766990291262D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Medidas IRPF.Gastos No Deducibles"
+          }
         }
       ],
       "columnHeaders": [
@@ -796,6 +842,396 @@
                 }
               }
             }
+          }
+        },
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Conditional": {
+                      "Cases": [
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 4,
+                              "Left": {
+                                "Measure": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "Medidas Transacciones"
+                                    }
+                                  },
+                                  "Property": "Transacciones - ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos"
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "1D"
+                                }
+                              }
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#f8c4b8'"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "Transacciones.Producto Contraparte"
+          }
+        },
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Conditional": {
+                      "Cases": [
+                        {
+                          "Condition": {
+                            "And": {
+                              "Left": {
+                                "Comparison": {
+                                  "ComparisonKind": 1,
+                                  "Left": {
+                                    "Measure": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "Medidas Transacciones"
+                                        }
+                                      },
+                                      "Property": "Transacciones - ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos"
+                                    }
+                                  },
+                                  "Right": {
+                                    "Literal": {
+                                      "Value": "0D"
+                                    }
+                                  }
+                                }
+                              },
+                              "Right": {
+                                "Comparison": {
+                                  "ComparisonKind": 4,
+                                  "Left": {
+                                    "Measure": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "Medidas Transacciones"
+                                        }
+                                      },
+                                      "Property": "Transacciones - ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos"
+                                    }
+                                  },
+                                  "Right": {
+                                    "Literal": {
+                                      "Value": "1D"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#f8c4b8'"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "Medidas Transacciones.Transacciones - ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos"
+          }
+        },
+        {
+          "properties": {
+            "icon": {
+              "kind": "Icon",
+              "layout": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Before'"
+                  }
+                }
+              },
+              "verticalAlignment": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Top'"
+                  }
+                }
+              },
+              "value": {
+                "expr": {
+                  "Conditional": {
+                    "Cases": [
+                      {
+                        "Condition": {
+                          "Comparison": {
+                            "ComparisonKind": 0,
+                            "Left": {
+                              "Measure": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Entity": "Medidas Transacciones"
+                                  }
+                                },
+                                "Property": "Transacciones - ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "null"
+                              }
+                            }
+                          }
+                        },
+                        "Value": {
+                          "Literal": {
+                            "Value": "'CircleSymbolHigh'"
+                          }
+                        }
+                      },
+                      {
+                        "Condition": {
+                          "And": {
+                            "Left": {
+                              "Comparison": {
+                                "ComparisonKind": 1,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "Medidas Transacciones"
+                                      }
+                                    },
+                                    "Property": "Transacciones - ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0D"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Comparison": {
+                                "ComparisonKind": 4,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "Medidas Transacciones"
+                                      }
+                                    },
+                                    "Property": "Transacciones - ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos"
+                                  }
+                                },
+                                "Right": {
+                                  "RangePercent": {
+                                    "Min": {
+                                      "ScopedEval": {
+                                        "Expression": {
+                                          "Aggregation": {
+                                            "Expression": {
+                                              "ScopedEval": {
+                                                "Expression": {
+                                                  "Measure": {
+                                                    "Expression": {
+                                                      "SourceRef": {
+                                                        "Entity": "Medidas Transacciones"
+                                                      }
+                                                    },
+                                                    "Property": "Transacciones - ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos"
+                                                  }
+                                                },
+                                                "Scope": [
+                                                  {
+                                                    "AllRolesRef": {}
+                                                  }
+                                                ]
+                                              }
+                                            },
+                                            "Function": 3
+                                          }
+                                        },
+                                        "Scope": []
+                                      }
+                                    },
+                                    "Max": {
+                                      "ScopedEval": {
+                                        "Expression": {
+                                          "Aggregation": {
+                                            "Expression": {
+                                              "ScopedEval": {
+                                                "Expression": {
+                                                  "Measure": {
+                                                    "Expression": {
+                                                      "SourceRef": {
+                                                        "Entity": "Medidas Transacciones"
+                                                      }
+                                                    },
+                                                    "Property": "Transacciones - ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos"
+                                                  }
+                                                },
+                                                "Scope": [
+                                                  {
+                                                    "AllRolesRef": {}
+                                                  }
+                                                ]
+                                              }
+                                            },
+                                            "Function": 4
+                                          }
+                                        },
+                                        "Scope": []
+                                      }
+                                    },
+                                    "Percent": 0.01
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "Value": {
+                          "Literal": {
+                            "Value": "'CircleSymbolLow'"
+                          }
+                        }
+                      },
+                      {
+                        "Condition": {
+                          "Comparison": {
+                            "ComparisonKind": 0,
+                            "Left": {
+                              "Measure": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Entity": "Medidas Transacciones"
+                                  }
+                                },
+                                "Property": "Transacciones - ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos"
+                              }
+                            },
+                            "Right": {
+                              "RangePercent": {
+                                "Min": {
+                                  "ScopedEval": {
+                                    "Expression": {
+                                      "Aggregation": {
+                                        "Expression": {
+                                          "ScopedEval": {
+                                            "Expression": {
+                                              "Measure": {
+                                                "Expression": {
+                                                  "SourceRef": {
+                                                    "Entity": "Medidas Transacciones"
+                                                  }
+                                                },
+                                                "Property": "Transacciones - ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos"
+                                              }
+                                            },
+                                            "Scope": [
+                                              {
+                                                "AllRolesRef": {}
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "Function": 3
+                                      }
+                                    },
+                                    "Scope": []
+                                  }
+                                },
+                                "Max": {
+                                  "ScopedEval": {
+                                    "Expression": {
+                                      "Aggregation": {
+                                        "Expression": {
+                                          "ScopedEval": {
+                                            "Expression": {
+                                              "Measure": {
+                                                "Expression": {
+                                                  "SourceRef": {
+                                                    "Entity": "Medidas Transacciones"
+                                                  }
+                                                },
+                                                "Property": "Transacciones - ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos"
+                                              }
+                                            },
+                                            "Scope": [
+                                              {
+                                                "AllRolesRef": {}
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "Function": 4
+                                      }
+                                    },
+                                    "Scope": []
+                                  }
+                                },
+                                "Percent": 0
+                              }
+                            }
+                          }
+                        },
+                        "Value": {
+                          "Literal": {
+                            "Value": "'CircleSymbolHigh'"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "Medidas Transacciones.Transacciones - ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos"
           }
         }
       ],
@@ -1134,5 +1570,262 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "1094dc6e093b41cd2ec7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Transacciones"
+              }
+            },
+            "Property": "Producto"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "1aa0ef398618f2ce56fb",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Transacciones"
+              }
+            },
+            "Property": "Producto Contraparte"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "122c6d64d5b4e86bb275",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Transacciones"
+              }
+            },
+            "Property": "Fecha/Hora"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9afe4c8ca8ed49c81b12",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Transacciones"
+              }
+            },
+            "Property": "Tipo Transacción"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "262b4fc7273f4daf8f52",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Transacciones"
+                  }
+                },
+                "Property": "Importe"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "37dd265ba692c8546544",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Transacciones"
+              }
+            },
+            "Property": "Total Bruto"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "fb6be15e570758ece063",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Transacciones"
+                  }
+                },
+                "Property": "Comisión"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "eb49dc16f0db096e1c9f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Transacciones"
+              }
+            },
+            "Property": "Precio Participación"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "dd3655dfdaf447f48704",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Transacciones"
+                  }
+                },
+                "Property": "Participaciones"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "980bceb757b7fc7195e6",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Participaciones Acumuladas"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ac3974461e9d60cac588",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Transacciones"
+              }
+            },
+            "Property": "Retenido"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "fc9d40cd1844031358f0",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Transacciones"
+              }
+            },
+            "Property": "Transacciones - Beneficio Bruto Venta Transaccion"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "66b3950c3eaabca70293",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Transacciones"
+              }
+            },
+            "Property": "Transacciones - Beneficio Neto"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "80597d30f85c264d196c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas IRPF"
+              }
+            },
+            "Property": "Transacción - Ganancias / Pérdidas Patrimoniales Realizadas"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2ac3fe5f8c6eebb7630b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas IRPF"
+              }
+            },
+            "Property": "Transacción - IRPF Anual Ahorro"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b51804999fee00456073",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas IRPF"
+              }
+            },
+            "Property": "Transacción - Gastos No Deducibles"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f34670adc85d2160de4b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Transacciones"
+              }
+            },
+            "Property": "Transacciones - ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

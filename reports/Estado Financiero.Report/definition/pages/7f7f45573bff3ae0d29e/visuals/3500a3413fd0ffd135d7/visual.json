@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "3500a3413fd0ffd135d7",
   "position": {
     "x": 1021.645885286783,
@@ -7,7 +7,7 @@
     "z": 4000,
     "height": 77.206982543640891,
     "width": 245.98503740648377,
-    "tabOrder": 1000
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "slicer",
@@ -99,6 +99,16 @@
                 {
                   "Literal": {
                     "Value": "'Renta Variable'"
+                  }
+                }
+              ],
+              "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Cuenta Corriente'"
                   }
                 }
               ],
@@ -533,6 +543,44 @@
             }
           ]
         }
+      },
+      {
+        "name": "4bee313c4d849b1ad63f",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Productos"
+                  }
+                },
+                "Hierarchy": "Tipo Producto"
+              }
+            },
+            "Level": "Tipo"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e7d355c5ae6a48fa3270",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Productos"
+                  }
+                },
+                "Hierarchy": "Tipo Producto"
+              }
+            },
+            "Level": "Subtipo"
+          }
+        },
+        "type": "Categorical"
       }
     ]
   }

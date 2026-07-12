@@ -541,6 +541,16 @@ cultureInfo es-ES
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
+			        },
+			        {
+			          "IRPF Anual Ahorro": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -6886,6 +6896,16 @@ cultureInfo es-ES
 			            },
 			            "Weight": 0.599
 			          }
+			        },
+			        {
+			          "Gastos No Deducibles": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -9349,9 +9369,1163 @@ cultureInfo es-ES
 			          }
 			        }
 			      ]
+			    },
+			    "saldo.ticker": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Saldo",
+			          "ConceptualProperty": "Ticker"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ticker": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "saldo.ingreso": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Saldo",
+			          "ConceptualProperty": "Ingreso"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ingreso": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "saldo.dividendo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Saldo",
+			          "ConceptualProperty": "Dividendos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dividendo": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "saldo.divisa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Saldo",
+			          "ConceptualProperty": "Divisa"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "divisa": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "saldo.ID_divisa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Saldo",
+			          "ConceptualProperty": "ID Divisa"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ID divisa": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "identification divisa": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identity divisa": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identifier divisa": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "credential divisa": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "transaccione.ID_transacción": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Transacciones",
+			          "ConceptualProperty": "ID Transacción"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ID transacción": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "identification transacción": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identity transacción": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identifier transacción": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "credential transacción": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "transaccione.ID_transacción_espejo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Transacciones",
+			          "ConceptualProperty": "ID Transacción Espejo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ID transacción espejo": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "identification transacción espejo": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "identity transacción espejo": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "identifier transacción espejo": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "credential transacción espejo": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "transaccione.cambio_fijo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Transacciones",
+			          "ConceptualProperty": "Cambio Fijo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cambio fijo": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "transaccione.país_Retención2": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Transacciones",
+			          "ConceptualProperty": "País Retención2"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "país Retención2": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "transaccione.PyG_realizada": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Transacciones",
+			          "ConceptualProperty": "PyG realizadas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "PyG realizada": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "transaccione.ID_divisa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Transacciones",
+			          "ConceptualProperty": "ID Divisa"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ID divisa": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "identification divisa": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identity divisa": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identifier divisa": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "credential divisa": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "transaccione.check_no_preclasificada": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Transacciones",
+			          "ConceptualProperty": "Check No Preclasificadas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "check no preclasificada": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cheque no preclasificada": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "checkup no preclasificada": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "inspection no preclasificada": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "payment no preclasificada": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "test no preclasificada": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "tick no preclasificada": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "bill no preclasificada": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "check number preclasificada": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "safety inspection no preclasificada": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.484
+			          }
+			        },
+			        {
+			          "safety test no preclasificada": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.484
+			          }
+			        }
+			      ]
+			    },
+			    "transaccione.check_no_contemplada": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Transacciones",
+			          "ConceptualProperty": "Check No contempladas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "check no contemplada": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cheque no contemplada": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "checkup no contemplada": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "inspection no contemplada": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "payment no contemplada": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "test no contemplada": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "tick no contemplada": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "bill no contemplada": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "check number contemplada": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "safety inspection no contemplada": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.484
+			          }
+			        },
+			        {
+			          "safety test no contemplada": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.484
+			          }
+			        }
+			      ]
+			    },
+			    "transaccione.traspaso__pérdida_bloqueada_trasladada": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Transacciones",
+			          "ConceptualProperty": "Traspaso - Pérdida Bloqueada Trasladada"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "traspaso - pérdida bloqueada trasladada": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "traspaso pérdida bloqueada trasladada": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "medidas_transaccione.transacciones__ALERTA__pérdidas_bloqueadas_traspasadas_entre_fondos": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas Transacciones",
+			          "ConceptualProperty": "Transacciones - ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "transacciones - ALERTA - pérdidas bloqueadas traspasadas entre fondos": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "transacciones ALERTA pérdidas bloqueadas traspasadas entre fondos": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "medidas_transaccione.entity__transacciones__ALERTA__pérdidas_bloqueadas_traspasadas_entre_fondos_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas Transacciones",
+			          "ConceptualProperty": "_Transacciones - ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_transacciones - ALERTA - pérdidas bloqueadas traspasadas entre fondos FormatString": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "_transacciones ALERTA pérdidas bloqueadas traspasadas entre fondos FormatString": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
+			    "saldo_has_test_data": {
+			      "Binding": {
+			        "ConceptualEntity": "Saldo"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "saldo": {
+			          "Target": {
+			            "Entity": "saldo"
+			          }
+			        },
+			        "test_data": {
+			          "Target": {
+			            "Entity": "test_data"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "saldo"
+			            },
+			            "Object": {
+			              "Role": "test_data"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "saldos_have_test_data"
+			        }
+			      ]
+			    },
+			    "saldo_has_producto": {
+			      "Binding": {
+			        "ConceptualEntity": "Saldo"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "saldo": {
+			          "Target": {
+			            "Entity": "saldo"
+			          }
+			        },
+			        "producto": {
+			          "Target": {
+			            "Entity": "producto"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "saldo"
+			            },
+			            "Object": {
+			              "Role": "producto"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "saldos_have_productos"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "producto"
+			            },
+			            "Object": {
+			              "Role": "saldo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "productos_have_saldos"
+			        }
+			      ]
+			    },
+			    "saldo_has_calendario": {
+			      "Binding": {
+			        "ConceptualEntity": "Saldo"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "saldo": {
+			          "Target": {
+			            "Entity": "saldo"
+			          }
+			        },
+			        "calendario": {
+			          "Target": {
+			            "Entity": "calendario"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "saldo"
+			            },
+			            "Object": {
+			              "Role": "calendario"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "saldos_have_calendarios"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario"
+			            },
+			            "Object": {
+			              "Role": "saldo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendarios_have_saldos"
+			        }
+			      ]
+			    },
+			    "movimiento_has_producto": {
+			      "Binding": {
+			        "ConceptualEntity": "Movimientos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "movimiento": {
+			          "Target": {
+			            "Entity": "movimiento"
+			          }
+			        },
+			        "producto": {
+			          "Target": {
+			            "Entity": "producto"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "movimiento"
+			            },
+			            "Object": {
+			              "Role": "producto"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "movimientos_have_productos"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "producto"
+			            },
+			            "Object": {
+			              "Role": "movimiento"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "productos_have_movimientos"
+			        }
+			      ]
+			    },
+			    "movimiento_has_test_data": {
+			      "Binding": {
+			        "ConceptualEntity": "Movimientos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "movimiento": {
+			          "Target": {
+			            "Entity": "movimiento"
+			          }
+			        },
+			        "test_data": {
+			          "Target": {
+			            "Entity": "test_data"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "movimiento"
+			            },
+			            "Object": {
+			              "Role": "test_data"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "movimientos_have_test_data"
+			        }
+			      ]
+			    },
+			    "movimiento_has_calendario": {
+			      "Binding": {
+			        "ConceptualEntity": "Movimientos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "movimiento": {
+			          "Target": {
+			            "Entity": "movimiento"
+			          }
+			        },
+			        "calendario": {
+			          "Target": {
+			            "Entity": "calendario"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "movimiento"
+			            },
+			            "Object": {
+			              "Role": "calendario"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "movimientos_have_calendarios"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario"
+			            },
+			            "Object": {
+			              "Role": "movimiento"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendarios_have_movimientos"
+			        }
+			      ]
+			    },
+			    "movimiento_has_tipo_movimiento": {
+			      "Binding": {
+			        "ConceptualEntity": "Movimientos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "movimiento": {
+			          "Target": {
+			            "Entity": "movimiento"
+			          }
+			        },
+			        "tipo_movimiento": {
+			          "Target": {
+			            "Entity": "tipo_movimiento"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "movimiento"
+			            },
+			            "Object": {
+			              "Role": "tipo_movimiento"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "movimientos_have_tipo_movimientos"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tipo_movimiento"
+			            },
+			            "Object": {
+			              "Role": "movimiento"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tipo_movimientos_have_movimientos"
+			        }
+			      ]
+			    },
+			    "IRPF_ahorro_has_años_fiscale": {
+			      "Binding": {
+			        "ConceptualEntity": "IRPF Ahorro"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "IRPF_ahorro": {
+			          "Target": {
+			            "Entity": "IRPF_ahorro"
+			          }
+			        },
+			        "años_fiscale": {
+			          "Target": {
+			            "Entity": "años_fiscale"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "IRPF_ahorro"
+			            },
+			            "Object": {
+			              "Role": "años_fiscale"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "IRPF_ahorros_have_años_fiscales"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "años_fiscale"
+			            },
+			            "Object": {
+			              "Role": "IRPF_ahorro"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "años_fiscales_have_IRPF_ahorros"
+			        }
+			      ]
+			    },
+			    "transaccione_has_medidas_transaccione_transacciones__ALERTA__pérdidas_bloqueadas_traspasadas_entre_fondos": {
+			      "Binding": {
+			        "ConceptualEntity": "Transacciones"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "transaccione": {
+			          "Target": {
+			            "Entity": "transaccione"
+			          }
+			        },
+			        "medidas_transaccione.transacciones__ALERTA__pérdidas_bloqueadas_traspasadas_entre_fondos": {
+			          "Target": {
+			            "Entity": "medidas_transaccione.transacciones__ALERTA__pérdidas_bloqueadas_traspasadas_entre_fondos"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "transaccione"
+			            },
+			            "Object": {
+			              "Role": "medidas_transaccione.transacciones__ALERTA__pérdidas_bloqueadas_traspasadas_entre_fondos"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "transacciones_have_transacciones__ALERTA__pérdidas_bloqueadas_traspasadas_entre_fondos"
+			        }
+			      ]
+			    },
+			    "transaccione_has_traspaso__pérdida_bloqueada_trasladada": {
+			      "Binding": {
+			        "ConceptualEntity": "Transacciones"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "transaccione": {
+			          "Target": {
+			            "Entity": "transaccione"
+			          }
+			        },
+			        "transaccione.traspaso__pérdida_bloqueada_trasladada": {
+			          "Target": {
+			            "Entity": "transaccione.traspaso__pérdida_bloqueada_trasladada"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "transaccione"
+			            },
+			            "Object": {
+			              "Role": "transaccione.traspaso__pérdida_bloqueada_trasladada"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "transacciones_have_traspaso__pérdida_bloqueada_trasladadas"
+			        }
+			      ]
+			    },
+			    "transaccione_has_check_no_contemplada": {
+			      "Binding": {
+			        "ConceptualEntity": "Transacciones"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "transaccione": {
+			          "Target": {
+			            "Entity": "transaccione"
+			          }
+			        },
+			        "transaccione.check_no_contemplada": {
+			          "Target": {
+			            "Entity": "transaccione.check_no_contemplada"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "transaccione"
+			            },
+			            "Object": {
+			              "Role": "transaccione.check_no_contemplada"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "transacciones_have_check_no_contempladas"
+			        }
+			      ]
+			    },
+			    "transaccione_has_check_no_preclasificada": {
+			      "Binding": {
+			        "ConceptualEntity": "Transacciones"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "transaccione": {
+			          "Target": {
+			            "Entity": "transaccione"
+			          }
+			        },
+			        "transaccione.check_no_preclasificada": {
+			          "Target": {
+			            "Entity": "transaccione.check_no_preclasificada"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "transaccione"
+			            },
+			            "Object": {
+			              "Role": "transaccione.check_no_preclasificada"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "transacciones_have_check_no_preclasificadas"
+			        }
+			      ]
+			    },
+			    "transaccione_has_ID_divisa": {
+			      "Binding": {
+			        "ConceptualEntity": "Transacciones"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "transaccione": {
+			          "Target": {
+			            "Entity": "transaccione"
+			          }
+			        },
+			        "transaccione.ID_divisa": {
+			          "Target": {
+			            "Entity": "transaccione.ID_divisa"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "transaccione"
+			            },
+			            "Object": {
+			              "Role": "transaccione.ID_divisa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "transacciones_have_ID_divisas"
+			        }
+			      ]
+			    },
 			    "transaccione_has_PyG_realizada": {
 			      "Binding": {
 			        "ConceptualEntity": "Transacciones"
@@ -9451,6 +10625,237 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
+			    "transaccione_has_ID_transacción_espejo": {
+			      "Binding": {
+			        "ConceptualEntity": "Transacciones"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "transaccione": {
+			          "Target": {
+			            "Entity": "transaccione"
+			          }
+			        },
+			        "transaccione.ID_transacción_espejo": {
+			          "Target": {
+			            "Entity": "transaccione.ID_transacción_espejo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "transaccione"
+			            },
+			            "Object": {
+			              "Role": "transaccione.ID_transacción_espejo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "transacciones_have_ID_transacción_espejos"
+			        }
+			      ]
+			    },
+			    "transaccione_has_ID_transacción": {
+			      "Binding": {
+			        "ConceptualEntity": "Transacciones"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "transaccione": {
+			          "Target": {
+			            "Entity": "transaccione"
+			          }
+			        },
+			        "transaccione.ID_transacción": {
+			          "Target": {
+			            "Entity": "transaccione.ID_transacción"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "transaccione"
+			            },
+			            "Object": {
+			              "Role": "transaccione.ID_transacción"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "transacciones_have_ID_transaccións"
+			        }
+			      ]
+			    },
+			    "saldo_has_ID_divisa": {
+			      "Binding": {
+			        "ConceptualEntity": "Saldo"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "saldo": {
+			          "Target": {
+			            "Entity": "saldo"
+			          }
+			        },
+			        "saldo.ID_divisa": {
+			          "Target": {
+			            "Entity": "saldo.ID_divisa"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "saldo"
+			            },
+			            "Object": {
+			              "Role": "saldo.ID_divisa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "saldos_have_ID_divisas"
+			        }
+			      ]
+			    },
+			    "saldo_has_divisa": {
+			      "Binding": {
+			        "ConceptualEntity": "Saldo"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "saldo": {
+			          "Target": {
+			            "Entity": "saldo"
+			          }
+			        },
+			        "saldo.divisa": {
+			          "Target": {
+			            "Entity": "saldo.divisa"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "saldo"
+			            },
+			            "Object": {
+			              "Role": "saldo.divisa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "saldos_have_divisas"
+			        }
+			      ]
+			    },
+			    "saldo_has_dividendo": {
+			      "Binding": {
+			        "ConceptualEntity": "Saldo"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "saldo": {
+			          "Target": {
+			            "Entity": "saldo"
+			          }
+			        },
+			        "saldo.dividendo": {
+			          "Target": {
+			            "Entity": "saldo.dividendo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "saldo"
+			            },
+			            "Object": {
+			              "Role": "saldo.dividendo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "saldos_have_dividendos"
+			        }
+			      ]
+			    },
+			    "saldo_has_ingreso": {
+			      "Binding": {
+			        "ConceptualEntity": "Saldo"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "saldo": {
+			          "Target": {
+			            "Entity": "saldo"
+			          }
+			        },
+			        "saldo.ingreso": {
+			          "Target": {
+			            "Entity": "saldo.ingreso"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "saldo"
+			            },
+			            "Object": {
+			              "Role": "saldo.ingreso"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "saldos_have_ingresos"
+			        }
+			      ]
+			    },
+			    "saldo_has_ticker": {
+			      "Binding": {
+			        "ConceptualEntity": "Saldo"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "saldo": {
+			          "Target": {
+			            "Entity": "saldo"
+			          }
+			        },
+			        "saldo.ticker": {
+			          "Target": {
+			            "Entity": "saldo.ticker"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "saldo"
+			            },
+			            "Object": {
+			              "Role": "saldo.ticker"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "saldos_have_tickers"
+			        }
+			      ]
+			    },
 			    "transaccione_has_medidas_transaccione_transacciones__total_período": {
 			      "Binding": {
 			        "ConceptualEntity": "Transacciones"
@@ -9514,39 +10919,6 @@ cultureInfo es-ES
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "calendarios_have_paso_20"
-			        }
-			      ]
-			    },
-			    "saldo_has_divisa": {
-			      "Binding": {
-			        "ConceptualEntity": "Saldo"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "saldo": {
-			          "Target": {
-			            "Entity": "saldo"
-			          }
-			        },
-			        "saldo.divisa": {
-			          "Target": {
-			            "Entity": "saldo.divisa"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "saldo"
-			            },
-			            "Object": {
-			              "Role": "saldo.divisa"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "saldos_have_divisas"
 			        }
 			      ]
 			    },
@@ -13200,15 +14572,15 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
-			    "transaccione_has_test_texto__errores": {
+			    "test_has_texto__errores": {
 			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
+			        "ConceptualEntity": "Test"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "transaccione": {
+			        "test": {
 			          "Target": {
-			            "Entity": "transaccione"
+			            "Entity": "test"
 			          }
 			        },
 			        "test.texto__errores": {
@@ -13221,7 +14593,7 @@ cultureInfo es-ES
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "transaccione"
+			              "Role": "test"
 			            },
 			            "Object": {
 			              "Role": "test.texto__errores"
@@ -13229,217 +14601,19 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "transacciones_have_texto__errores"
+			          "ID": "tests_have_texto__errores"
 			        }
 			      ]
 			    },
-			    "test_data_has_test_texto__errores": {
+			    "test_has_test__número_errores": {
 			      "Binding": {
-			        "ConceptualEntity": "Test Data"
+			        "ConceptualEntity": "Test"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "test_data": {
+			        "test": {
 			          "Target": {
-			            "Entity": "test_data"
-			          }
-			        },
-			        "test.texto__errores": {
-			          "Target": {
-			            "Entity": "test.texto__errores"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "test_data"
-			            },
-			            "Object": {
-			              "Role": "test.texto__errores"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "test_data_have_texto__errores"
-			        }
-			      ]
-			    },
-			    "saldo_has_test_texto__errores": {
-			      "Binding": {
-			        "ConceptualEntity": "Saldo"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "saldo": {
-			          "Target": {
-			            "Entity": "saldo"
-			          }
-			        },
-			        "test.texto__errores": {
-			          "Target": {
-			            "Entity": "test.texto__errores"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "saldo"
-			            },
-			            "Object": {
-			              "Role": "test.texto__errores"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "saldos_have_texto__errores"
-			        }
-			      ]
-			    },
-			    "producto_has_test_texto__errores": {
-			      "Binding": {
-			        "ConceptualEntity": "Productos"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "producto": {
-			          "Target": {
-			            "Entity": "producto"
-			          }
-			        },
-			        "test.texto__errores": {
-			          "Target": {
-			            "Entity": "test.texto__errores"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "producto"
-			            },
-			            "Object": {
-			              "Role": "test.texto__errores"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "productos_have_texto__errores"
-			        }
-			      ]
-			    },
-			    "movimiento_has_test_texto__errores": {
-			      "Binding": {
-			        "ConceptualEntity": "Movimientos"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "movimiento": {
-			          "Target": {
-			            "Entity": "movimiento"
-			          }
-			        },
-			        "test.texto__errores": {
-			          "Target": {
-			            "Entity": "test.texto__errores"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "movimiento"
-			            },
-			            "Object": {
-			              "Role": "test.texto__errores"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "movimientos_have_texto__errores"
-			        }
-			      ]
-			    },
-			    "IRPF_ahorro_has_test_texto__errores": {
-			      "Binding": {
-			        "ConceptualEntity": "IRPF Ahorro"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "IRPF_ahorro": {
-			          "Target": {
-			            "Entity": "IRPF_ahorro"
-			          }
-			        },
-			        "test.texto__errores": {
-			          "Target": {
-			            "Entity": "test.texto__errores"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "IRPF_ahorro"
-			            },
-			            "Object": {
-			              "Role": "test.texto__errores"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "IRPF_ahorros_have_texto__errores"
-			        }
-			      ]
-			    },
-			    "irpf_has_test_texto__errores": {
-			      "Binding": {
-			        "ConceptualEntity": "IRPF"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "irpf": {
-			          "Target": {
-			            "Entity": "irpf"
-			          }
-			        },
-			        "test.texto__errores": {
-			          "Target": {
-			            "Entity": "test.texto__errores"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "irpf"
-			            },
-			            "Object": {
-			              "Role": "test.texto__errores"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "irpfs_have_texto__errores"
-			        }
-			      ]
-			    },
-			    "transaccione_has_test_test__número_errores": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
+			            "Entity": "test"
 			          }
 			        },
 			        "test.test__número_errores": {
@@ -13452,7 +14626,7 @@ cultureInfo es-ES
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "transaccione"
+			              "Role": "test"
 			            },
 			            "Object": {
 			              "Role": "test.test__número_errores"
@@ -13460,217 +14634,19 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "transacciones_have_test__número_errores"
+			          "ID": "tests_have_test__número_errores"
 			        }
 			      ]
 			    },
-			    "test_data_has_test_test__número_errores": {
+			    "test_has_test__passed_rate": {
 			      "Binding": {
-			        "ConceptualEntity": "Test Data"
+			        "ConceptualEntity": "Test"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "test_data": {
+			        "test": {
 			          "Target": {
-			            "Entity": "test_data"
-			          }
-			        },
-			        "test.test__número_errores": {
-			          "Target": {
-			            "Entity": "test.test__número_errores"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "test_data"
-			            },
-			            "Object": {
-			              "Role": "test.test__número_errores"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "test_data_have_test__número_errores"
-			        }
-			      ]
-			    },
-			    "saldo_has_test_test__número_errores": {
-			      "Binding": {
-			        "ConceptualEntity": "Saldo"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "saldo": {
-			          "Target": {
-			            "Entity": "saldo"
-			          }
-			        },
-			        "test.test__número_errores": {
-			          "Target": {
-			            "Entity": "test.test__número_errores"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "saldo"
-			            },
-			            "Object": {
-			              "Role": "test.test__número_errores"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "saldos_have_test__número_errores"
-			        }
-			      ]
-			    },
-			    "producto_has_test_test__número_errores": {
-			      "Binding": {
-			        "ConceptualEntity": "Productos"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "producto": {
-			          "Target": {
-			            "Entity": "producto"
-			          }
-			        },
-			        "test.test__número_errores": {
-			          "Target": {
-			            "Entity": "test.test__número_errores"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "producto"
-			            },
-			            "Object": {
-			              "Role": "test.test__número_errores"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "productos_have_test__número_errores"
-			        }
-			      ]
-			    },
-			    "movimiento_has_test_test__número_errores": {
-			      "Binding": {
-			        "ConceptualEntity": "Movimientos"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "movimiento": {
-			          "Target": {
-			            "Entity": "movimiento"
-			          }
-			        },
-			        "test.test__número_errores": {
-			          "Target": {
-			            "Entity": "test.test__número_errores"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "movimiento"
-			            },
-			            "Object": {
-			              "Role": "test.test__número_errores"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "movimientos_have_test__número_errores"
-			        }
-			      ]
-			    },
-			    "IRPF_ahorro_has_test_test__número_errores": {
-			      "Binding": {
-			        "ConceptualEntity": "IRPF Ahorro"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "IRPF_ahorro": {
-			          "Target": {
-			            "Entity": "IRPF_ahorro"
-			          }
-			        },
-			        "test.test__número_errores": {
-			          "Target": {
-			            "Entity": "test.test__número_errores"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "IRPF_ahorro"
-			            },
-			            "Object": {
-			              "Role": "test.test__número_errores"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "IRPF_ahorros_have_test__número_errores"
-			        }
-			      ]
-			    },
-			    "irpf_has_test_test__número_errores": {
-			      "Binding": {
-			        "ConceptualEntity": "IRPF"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "irpf": {
-			          "Target": {
-			            "Entity": "irpf"
-			          }
-			        },
-			        "test.test__número_errores": {
-			          "Target": {
-			            "Entity": "test.test__número_errores"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "irpf"
-			            },
-			            "Object": {
-			              "Role": "test.test__número_errores"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "irpfs_have_test__número_errores"
-			        }
-			      ]
-			    },
-			    "transaccione_has_test_test__passed_rate": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
+			            "Entity": "test"
 			          }
 			        },
 			        "test.test__passed_rate": {
@@ -13683,7 +14659,7 @@ cultureInfo es-ES
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "transaccione"
+			              "Role": "test"
 			            },
 			            "Object": {
 			              "Role": "test.test__passed_rate"
@@ -13691,217 +14667,19 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "transacciones_have_test__passed_rate"
+			          "ID": "tests_have_test__passed_rate"
 			        }
 			      ]
 			    },
-			    "test_data_has_test_test__passed_rate": {
+			    "test_has_test__medida_seleccionada": {
 			      "Binding": {
-			        "ConceptualEntity": "Test Data"
+			        "ConceptualEntity": "Test"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "test_data": {
+			        "test": {
 			          "Target": {
-			            "Entity": "test_data"
-			          }
-			        },
-			        "test.test__passed_rate": {
-			          "Target": {
-			            "Entity": "test.test__passed_rate"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "test_data"
-			            },
-			            "Object": {
-			              "Role": "test.test__passed_rate"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "test_data_have_test__passed_rate"
-			        }
-			      ]
-			    },
-			    "saldo_has_test_test__passed_rate": {
-			      "Binding": {
-			        "ConceptualEntity": "Saldo"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "saldo": {
-			          "Target": {
-			            "Entity": "saldo"
-			          }
-			        },
-			        "test.test__passed_rate": {
-			          "Target": {
-			            "Entity": "test.test__passed_rate"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "saldo"
-			            },
-			            "Object": {
-			              "Role": "test.test__passed_rate"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "saldos_have_test__passed_rate"
-			        }
-			      ]
-			    },
-			    "producto_has_test_test__passed_rate": {
-			      "Binding": {
-			        "ConceptualEntity": "Productos"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "producto": {
-			          "Target": {
-			            "Entity": "producto"
-			          }
-			        },
-			        "test.test__passed_rate": {
-			          "Target": {
-			            "Entity": "test.test__passed_rate"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "producto"
-			            },
-			            "Object": {
-			              "Role": "test.test__passed_rate"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "productos_have_test__passed_rate"
-			        }
-			      ]
-			    },
-			    "movimiento_has_test_test__passed_rate": {
-			      "Binding": {
-			        "ConceptualEntity": "Movimientos"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "movimiento": {
-			          "Target": {
-			            "Entity": "movimiento"
-			          }
-			        },
-			        "test.test__passed_rate": {
-			          "Target": {
-			            "Entity": "test.test__passed_rate"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "movimiento"
-			            },
-			            "Object": {
-			              "Role": "test.test__passed_rate"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "movimientos_have_test__passed_rate"
-			        }
-			      ]
-			    },
-			    "IRPF_ahorro_has_test_test__passed_rate": {
-			      "Binding": {
-			        "ConceptualEntity": "IRPF Ahorro"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "IRPF_ahorro": {
-			          "Target": {
-			            "Entity": "IRPF_ahorro"
-			          }
-			        },
-			        "test.test__passed_rate": {
-			          "Target": {
-			            "Entity": "test.test__passed_rate"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "IRPF_ahorro"
-			            },
-			            "Object": {
-			              "Role": "test.test__passed_rate"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "IRPF_ahorros_have_test__passed_rate"
-			        }
-			      ]
-			    },
-			    "irpf_has_test_test__passed_rate": {
-			      "Binding": {
-			        "ConceptualEntity": "IRPF"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "irpf": {
-			          "Target": {
-			            "Entity": "irpf"
-			          }
-			        },
-			        "test.test__passed_rate": {
-			          "Target": {
-			            "Entity": "test.test__passed_rate"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "irpf"
-			            },
-			            "Object": {
-			              "Role": "test.test__passed_rate"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "irpfs_have_test__passed_rate"
-			        }
-			      ]
-			    },
-			    "transaccione_has_test_test__medida_seleccionada": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
+			            "Entity": "test"
 			          }
 			        },
 			        "test.test__medida_seleccionada": {
@@ -13914,7 +14692,7 @@ cultureInfo es-ES
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "transaccione"
+			              "Role": "test"
 			            },
 			            "Object": {
 			              "Role": "test.test__medida_seleccionada"
@@ -13922,205 +14700,7 @@ cultureInfo es-ES
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "transacciones_have_test__medida_seleccionada"
-			        }
-			      ]
-			    },
-			    "test_data_has_test_test__medida_seleccionada": {
-			      "Binding": {
-			        "ConceptualEntity": "Test Data"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "test_data": {
-			          "Target": {
-			            "Entity": "test_data"
-			          }
-			        },
-			        "test.test__medida_seleccionada": {
-			          "Target": {
-			            "Entity": "test.test__medida_seleccionada"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "test_data"
-			            },
-			            "Object": {
-			              "Role": "test.test__medida_seleccionada"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "test_data_have_test__medida_seleccionada"
-			        }
-			      ]
-			    },
-			    "saldo_has_test_test__medida_seleccionada": {
-			      "Binding": {
-			        "ConceptualEntity": "Saldo"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "saldo": {
-			          "Target": {
-			            "Entity": "saldo"
-			          }
-			        },
-			        "test.test__medida_seleccionada": {
-			          "Target": {
-			            "Entity": "test.test__medida_seleccionada"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "saldo"
-			            },
-			            "Object": {
-			              "Role": "test.test__medida_seleccionada"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "saldos_have_test__medida_seleccionada"
-			        }
-			      ]
-			    },
-			    "producto_has_test_test__medida_seleccionada": {
-			      "Binding": {
-			        "ConceptualEntity": "Productos"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "producto": {
-			          "Target": {
-			            "Entity": "producto"
-			          }
-			        },
-			        "test.test__medida_seleccionada": {
-			          "Target": {
-			            "Entity": "test.test__medida_seleccionada"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "producto"
-			            },
-			            "Object": {
-			              "Role": "test.test__medida_seleccionada"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "productos_have_test__medida_seleccionada"
-			        }
-			      ]
-			    },
-			    "movimiento_has_test_test__medida_seleccionada": {
-			      "Binding": {
-			        "ConceptualEntity": "Movimientos"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "movimiento": {
-			          "Target": {
-			            "Entity": "movimiento"
-			          }
-			        },
-			        "test.test__medida_seleccionada": {
-			          "Target": {
-			            "Entity": "test.test__medida_seleccionada"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "movimiento"
-			            },
-			            "Object": {
-			              "Role": "test.test__medida_seleccionada"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "movimientos_have_test__medida_seleccionada"
-			        }
-			      ]
-			    },
-			    "IRPF_ahorro_has_test_test__medida_seleccionada": {
-			      "Binding": {
-			        "ConceptualEntity": "IRPF Ahorro"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "IRPF_ahorro": {
-			          "Target": {
-			            "Entity": "IRPF_ahorro"
-			          }
-			        },
-			        "test.test__medida_seleccionada": {
-			          "Target": {
-			            "Entity": "test.test__medida_seleccionada"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "IRPF_ahorro"
-			            },
-			            "Object": {
-			              "Role": "test.test__medida_seleccionada"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "IRPF_ahorros_have_test__medida_seleccionada"
-			        }
-			      ]
-			    },
-			    "irpf_has_test_test__medida_seleccionada": {
-			      "Binding": {
-			        "ConceptualEntity": "IRPF"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "irpf": {
-			          "Target": {
-			            "Entity": "irpf"
-			          }
-			        },
-			        "test.test__medida_seleccionada": {
-			          "Target": {
-			            "Entity": "test.test__medida_seleccionada"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "irpf"
-			            },
-			            "Object": {
-			              "Role": "test.test__medida_seleccionada"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "irpfs_have_test__medida_seleccionada"
+			          "ID": "tests_have_test__medida_seleccionada"
 			        }
 			      ]
 			    },
@@ -14250,39 +14830,6 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
-			    "transaccione_has_medidas_saldo_saldo_inversiones": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "medidas_saldo.saldo_inversiones": {
-			          "Target": {
-			            "Entity": "medidas_saldo.saldo_inversiones"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "medidas_saldo.saldo_inversiones"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_saldo_inversiones"
-			        }
-			      ]
-			    },
 			    "saldo_has_medidas_saldo_saldo_inversiones": {
 			      "Binding": {
 			        "ConceptualEntity": "Saldo"
@@ -14349,72 +14896,6 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
-			    "movimiento_has_medidas_saldo_saldo_inversiones": {
-			      "Binding": {
-			        "ConceptualEntity": "Movimientos"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "movimiento": {
-			          "Target": {
-			            "Entity": "movimiento"
-			          }
-			        },
-			        "medidas_saldo.saldo_inversiones": {
-			          "Target": {
-			            "Entity": "medidas_saldo.saldo_inversiones"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "movimiento"
-			            },
-			            "Object": {
-			              "Role": "medidas_saldo.saldo_inversiones"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "movimientos_have_saldo_inversiones"
-			        }
-			      ]
-			    },
-			    "transaccione_has_medidas_saldo_saldo_último": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "medidas_saldo.saldo_último": {
-			          "Target": {
-			            "Entity": "medidas_saldo.saldo_último"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "medidas_saldo.saldo_último"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_saldo_último"
-			        }
-			      ]
-			    },
 			    "saldo_has_medidas_saldo_saldo_último": {
 			      "Binding": {
 			        "ConceptualEntity": "Saldo"
@@ -14478,39 +14959,6 @@ cultureInfo es-ES
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "productos_have_saldo_último"
-			        }
-			      ]
-			    },
-			    "movimiento_has_medidas_saldo_saldo_último": {
-			      "Binding": {
-			        "ConceptualEntity": "Movimientos"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "movimiento": {
-			          "Target": {
-			            "Entity": "movimiento"
-			          }
-			        },
-			        "medidas_saldo.saldo_último": {
-			          "Target": {
-			            "Entity": "medidas_saldo.saldo_último"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "movimiento"
-			            },
-			            "Object": {
-			              "Role": "medidas_saldo.saldo_último"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "movimientos_have_saldo_último"
 			        }
 			      ]
 			    },
@@ -16291,138 +16739,6 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
-			    "saldo_has_ticker": {
-			      "Binding": {
-			        "ConceptualEntity": "Saldo"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "saldo": {
-			          "Target": {
-			            "Entity": "saldo"
-			          }
-			        },
-			        "saldo.ticker": {
-			          "Target": {
-			            "Entity": "saldo.ticker"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "saldo"
-			            },
-			            "Object": {
-			              "Role": "saldo.ticker"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "saldos_have_tickers"
-			        }
-			      ]
-			    },
-			    "saldo_has_ingreso": {
-			      "Binding": {
-			        "ConceptualEntity": "Saldo"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "saldo": {
-			          "Target": {
-			            "Entity": "saldo"
-			          }
-			        },
-			        "saldo.ingreso": {
-			          "Target": {
-			            "Entity": "saldo.ingreso"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "saldo"
-			            },
-			            "Object": {
-			              "Role": "saldo.ingreso"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "saldos_have_ingresos"
-			        }
-			      ]
-			    },
-			    "saldo_has_dividendo": {
-			      "Binding": {
-			        "ConceptualEntity": "Saldo"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "saldo": {
-			          "Target": {
-			            "Entity": "saldo"
-			          }
-			        },
-			        "saldo.dividendo": {
-			          "Target": {
-			            "Entity": "saldo.dividendo"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "saldo"
-			            },
-			            "Object": {
-			              "Role": "saldo.dividendo"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "saldos_have_dividendos"
-			        }
-			      ]
-			    },
-			    "saldo_has_ID_divisa": {
-			      "Binding": {
-			        "ConceptualEntity": "Saldo"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "saldo": {
-			          "Target": {
-			            "Entity": "saldo"
-			          }
-			        },
-			        "saldo.ID_divisa": {
-			          "Target": {
-			            "Entity": "saldo.ID_divisa"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "saldo"
-			            },
-			            "Object": {
-			              "Role": "saldo.ID_divisa"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "saldos_have_ID_divisas"
-			        }
-			      ]
-			    },
 			    "medidas_saldo_has_saldo__beneficio_acumulado__valor_máximo": {
 			      "Binding": {
 			        "ConceptualEntity": "Medidas Saldo"
@@ -17248,39 +17564,6 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
-			    "transaccione_has_medidas_saldo_primer_saldo_seleccion": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "medidas_saldo.primer_saldo_seleccion": {
-			          "Target": {
-			            "Entity": "medidas_saldo.primer_saldo_seleccion"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "medidas_saldo.primer_saldo_seleccion"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_primer_saldo_seleccion"
-			        }
-			      ]
-			    },
 			    "saldo_has_medidas_saldo_primer_saldo_seleccion": {
 			      "Binding": {
 			        "ConceptualEntity": "Saldo"
@@ -17347,39 +17630,6 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
-			    "movimiento_has_medidas_saldo_primer_saldo_seleccion": {
-			      "Binding": {
-			        "ConceptualEntity": "Movimientos"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "movimiento": {
-			          "Target": {
-			            "Entity": "movimiento"
-			          }
-			        },
-			        "medidas_saldo.primer_saldo_seleccion": {
-			          "Target": {
-			            "Entity": "medidas_saldo.primer_saldo_seleccion"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "movimiento"
-			            },
-			            "Object": {
-			              "Role": "medidas_saldo.primer_saldo_seleccion"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "movimientos_have_primer_saldo_seleccion"
-			        }
-			      ]
-			    },
 			    "transaccione_has_medidas_saldo_participaciones_acumuladas": {
 			      "Binding": {
 			        "ConceptualEntity": "Transacciones"
@@ -17443,39 +17693,6 @@ cultureInfo es-ES
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "transacciones_have_participaciones_actuales"
-			        }
-			      ]
-			    },
-			    "producto_has_medidas_saldo_participaciones_actuales": {
-			      "Binding": {
-			        "ConceptualEntity": "Productos"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "producto": {
-			          "Target": {
-			            "Entity": "producto"
-			          }
-			        },
-			        "medidas_saldo.participaciones_actuales": {
-			          "Target": {
-			            "Entity": "medidas_saldo.participaciones_actuales"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "producto"
-			            },
-			            "Object": {
-			              "Role": "medidas_saldo.participaciones_actuales"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "productos_have_participaciones_actuales"
 			        }
 			      ]
 			    },
@@ -20335,493 +20552,6 @@ cultureInfo es-ES
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "máximo_indicates_how_expensive_IRPF_ahorros_are"
-			        }
-			      ]
-			    },
-			    "transaccione_is_check_no_contemplada": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "transaccione.check_no_contemplada": {
-			          "Target": {
-			            "Entity": "transaccione.check_no_contemplada"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "DynamicAdjective": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Adjective": {
-			              "Role": "transaccione.check_no_contemplada"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "check_no_contempladas_describe_transacciones"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "transaccione.check_no_contemplada"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_check_no_contempladas"
-			        }
-			      ]
-			    },
-			    "transaccione_has_ID_divisa": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "transaccione.ID_divisa": {
-			          "Target": {
-			            "Entity": "transaccione.ID_divisa"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "transaccione.ID_divisa"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_ID_divisas"
-			        }
-			      ]
-			    },
-			    "transaccione_has_ID_transacción": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "transaccione.ID_transacción": {
-			          "Target": {
-			            "Entity": "transaccione.ID_transacción"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "transaccione.ID_transacción"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_ID_transaccións"
-			        }
-			      ]
-			    },
-			    "transaccione_has_transacciones_preclasificadas_comisión_moneda_transacción": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "transaccione.transacciones_preclasificadas_comisión_moneda_transacción": {
-			          "Target": {
-			            "Entity": "transaccione.transacciones_preclasificadas_comisión_moneda_transacción"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "transaccione.transacciones_preclasificadas_comisión_moneda_transacción"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_transacciones_preclasificadas_comisión_moneda_transacción"
-			        }
-			      ]
-			    },
-			    "IRPF_ahorro_has_años_fiscale": {
-			      "Binding": {
-			        "ConceptualEntity": "IRPF Ahorro"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "IRPF_ahorro": {
-			          "Target": {
-			            "Entity": "IRPF_ahorro"
-			          }
-			        },
-			        "años_fiscale": {
-			          "Target": {
-			            "Entity": "años_fiscale"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "IRPF_ahorro"
-			            },
-			            "Object": {
-			              "Role": "años_fiscale"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "IRPF_ahorros_have_años_fiscales"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "años_fiscale"
-			            },
-			            "Object": {
-			              "Role": "IRPF_ahorro"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "años_fiscales_have_IRPF_ahorros"
-			        }
-			      ]
-			    },
-			    "movimiento_has_tipo_movimiento": {
-			      "Binding": {
-			        "ConceptualEntity": "Movimientos"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "movimiento": {
-			          "Target": {
-			            "Entity": "movimiento"
-			          }
-			        },
-			        "tipo_movimiento": {
-			          "Target": {
-			            "Entity": "tipo_movimiento"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "movimiento"
-			            },
-			            "Object": {
-			              "Role": "tipo_movimiento"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "movimientos_have_tipo_movimientos"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "tipo_movimiento"
-			            },
-			            "Object": {
-			              "Role": "movimiento"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "tipo_movimientos_have_movimientos"
-			        }
-			      ]
-			    },
-			    "movimiento_has_calendario": {
-			      "Binding": {
-			        "ConceptualEntity": "Movimientos"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "movimiento": {
-			          "Target": {
-			            "Entity": "movimiento"
-			          }
-			        },
-			        "calendario": {
-			          "Target": {
-			            "Entity": "calendario"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "movimiento"
-			            },
-			            "Object": {
-			              "Role": "calendario"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "movimientos_have_calendarios"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "calendario"
-			            },
-			            "Object": {
-			              "Role": "movimiento"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "calendarios_have_movimientos"
-			        }
-			      ]
-			    },
-			    "movimiento_has_test_data": {
-			      "Binding": {
-			        "ConceptualEntity": "Movimientos"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "movimiento": {
-			          "Target": {
-			            "Entity": "movimiento"
-			          }
-			        },
-			        "test_data": {
-			          "Target": {
-			            "Entity": "test_data"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "movimiento"
-			            },
-			            "Object": {
-			              "Role": "test_data"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "movimientos_have_test_data"
-			        }
-			      ]
-			    },
-			    "movimiento_has_producto": {
-			      "Binding": {
-			        "ConceptualEntity": "Movimientos"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "movimiento": {
-			          "Target": {
-			            "Entity": "movimiento"
-			          }
-			        },
-			        "producto": {
-			          "Target": {
-			            "Entity": "producto"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "movimiento"
-			            },
-			            "Object": {
-			              "Role": "producto"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "movimientos_have_productos"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "producto"
-			            },
-			            "Object": {
-			              "Role": "movimiento"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "productos_have_movimientos"
-			        }
-			      ]
-			    },
-			    "saldo_has_calendario": {
-			      "Binding": {
-			        "ConceptualEntity": "Saldo"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "saldo": {
-			          "Target": {
-			            "Entity": "saldo"
-			          }
-			        },
-			        "calendario": {
-			          "Target": {
-			            "Entity": "calendario"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "saldo"
-			            },
-			            "Object": {
-			              "Role": "calendario"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "saldos_have_calendarios"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "calendario"
-			            },
-			            "Object": {
-			              "Role": "saldo"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "calendarios_have_saldos"
-			        }
-			      ]
-			    },
-			    "saldo_has_producto": {
-			      "Binding": {
-			        "ConceptualEntity": "Saldo"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "saldo": {
-			          "Target": {
-			            "Entity": "saldo"
-			          }
-			        },
-			        "producto": {
-			          "Target": {
-			            "Entity": "producto"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "saldo"
-			            },
-			            "Object": {
-			              "Role": "producto"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "saldos_have_productos"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "producto"
-			            },
-			            "Object": {
-			              "Role": "saldo"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "productos_have_saldos"
-			        }
-			      ]
-			    },
-			    "saldo_has_test_data": {
-			      "Binding": {
-			        "ConceptualEntity": "Saldo"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "saldo": {
-			          "Target": {
-			            "Entity": "saldo"
-			          }
-			        },
-			        "test_data": {
-			          "Target": {
-			            "Entity": "test_data"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "saldo"
-			            },
-			            "Object": {
-			              "Role": "test_data"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "saldos_have_test_data"
 			        }
 			      ]
 			    },
