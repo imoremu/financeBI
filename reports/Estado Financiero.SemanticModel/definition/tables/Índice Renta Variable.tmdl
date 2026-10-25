@@ -34,7 +34,7 @@ table 'Índice Renta Variable'
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Índice'
+	column Índice
 		dataType: double
 		formatString: #,0.0000
 		lineageTag: 0ff33c7c-0448-4ba3-b60e-fef028aa763d
@@ -46,7 +46,7 @@ table 'Índice Renta Variable'
 
 	partition 'Índice Renta Variable' = calculated
 		mode: import
-		source = ```
+		source =
 				VAR _meses =
 				    SELECTCOLUMNS(
 				        FILTER(ALL(Calendario), Calendario[FinDeMes] = 1),
@@ -80,7 +80,6 @@ table 'Índice Renta Variable'
 				            VAR _fin = [Fecha Fin]
 				            RETURN PRODUCTX(FILTER(_rentabilidad, [Fecha Fin] <= _fin), 1 + [Rentabilidad Mes])
 				    )
-				```
 
 	annotation PBI_Id = d6abb38cd6624efe977424df7b53d41e
 

@@ -16,7 +16,14 @@ table 'Configuración Familia'
 		summarizeBy: none
 		sourceColumn: Fecha
 
+		variation Variation
+			isDefault
+			relationship: a82a6f2c-22d8-4727-b42f-0180d4eedf94
+			defaultHierarchy: LocalDateTable_171ff932-e54a-4b9d-a707-2fdb60cdc9b9.'Jerarquía de fechas'
+
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column Tipo
 		dataType: string
@@ -35,14 +42,13 @@ table 'Configuración Familia'
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Importe Firmado' = ```
+	column 'Importe Firmado' =
 			SWITCH(
 			    TRIM('Configuración Familia'[Tipo]),
 			    "Ingreso", ABS('Configuración Familia'[Importe]),
 			    "Salida", -ABS('Configuración Familia'[Importe]),
 			    BLANK()   -- Tipo no reconocido: no computa (revisar el JSON)
 			)
-			```
 		formatString: #,0.00
 		lineageTag: bf1be429-b969-4a59-8217-a23cf33a2d54
 		summarizeBy: sum
@@ -50,7 +56,7 @@ table 'Configuración Familia'
 		annotation SummarizationSetBy = Automatic
 
 	/// Índice TWR de Renta Variable en la fecha del movimiento (precio de "compra" de la participación).
-	column 'Índice Entrada' = ```
+	column 'Índice Entrada' =
 			VAR _fecha = 'Configuración Familia'[Fecha]
 			VAR _fila =
 			    TOPN(
@@ -78,7 +84,6 @@ table 'Configuración Familia'
 			            )
 			        )
 			    )
-			```
 		formatString: #,0.0000
 		lineageTag: ce84ed41-5043-4e08-b739-610d6d7efc8a
 		summarizeBy: none

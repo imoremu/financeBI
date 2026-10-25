@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
-  "name": "4d7bf9255d56c9789301",
+  "name": "78c930275e91e423a2e0",
   "position": {
-    "x": 10.545829042224511,
-    "y": 416.56024716786823,
-    "z": 7001,
-    "height": 290.01029866117409,
-    "width": 1260.2265705458292,
-    "tabOrder": 8001
+    "x": 10.368,
+    "y": 435.45599999999996,
+    "z": 7005,
+    "height": 256.896,
+    "width": 1260.288,
+    "tabOrder": 8005
   },
   "visual": {
-    "visualType": "lineClusteredColumnComboChart",
+    "visualType": "lineChart",
     "query": {
       "queryState": {
         "Category": {
@@ -53,7 +53,25 @@
               },
               "queryRef": "Calendario.Date Jerarquía.Mes",
               "nativeQueryRef": "Date Jerarquía Mes",
-              "active": false
+              "active": true
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Configuración Familia"
+                    }
+                  },
+                  "Property": "Nombre"
+                }
+              },
+              "queryRef": "Configuración Familia.Nombre",
+              "nativeQueryRef": "Nombre"
             }
           ]
         },
@@ -67,11 +85,11 @@
                       "Entity": "Medidas Saldo"
                     }
                   },
-                  "Property": "Saldo Hija 2"
+                  "Property": "Hijas - Rentabilidad sobre Aportado (%)"
                 }
               },
-              "queryRef": "Medidas Saldo.Saldo Hija 2",
-              "nativeQueryRef": "Saldo Hija 2"
+              "queryRef": "Medidas Saldo.Hijas - Rentabilidad sobre Aportado (%)",
+              "nativeQueryRef": "Hijas - Rentabilidad sobre Aportado (%)"
             }
           ]
         }
@@ -107,13 +125,6 @@
               "expr": {
                 "Literal": {
                   "Value": "'Saldo e Inversiones'"
-                }
-              }
-            },
-            "secTitleText": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Beneficios'"
                 }
               }
             },
@@ -173,65 +184,6 @@
                       "Percent": -0.5
                     }
                   }
-                }
-              }
-            },
-            "secShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "alignZeros": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "secShowAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "secLabelColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 8,
-                      "Percent": -0.5
-                    }
-                  }
-                }
-              }
-            },
-            "secFontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            },
-            "secTitleColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 8,
-                      "Percent": -0.5
-                    }
-                  }
-                }
-              }
-            },
-            "secTitleFontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
                 }
               }
             }
@@ -484,7 +436,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Saldo Hija 2'"
+                  "Value": "'Saldo Hija'"
                 }
               }
             },
@@ -704,26 +656,6 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "a5770e0138827fa99ff7",
-        "ordinal": 0,
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Calendario"
-                  }
-                },
-                "Hierarchy": "Date Jerarquía"
-              }
-            },
-            "Level": "Año"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
         "name": "f0734a2e96c7616f49f9",
         "ordinal": 1,
         "field": {
@@ -738,26 +670,6 @@
         },
         "type": "Advanced",
         "howCreated": "User"
-      },
-      {
-        "name": "a71a7bcedf2086f2c7a1",
-        "ordinal": 2,
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Calendario"
-                  }
-                },
-                "Hierarchy": "Date Jerarquía"
-              }
-            },
-            "Level": "Mes"
-          }
-        },
-        "type": "Categorical"
       },
       {
         "name": "f2b2820c1698b63c8582",
@@ -790,6 +702,72 @@
         },
         "type": "Advanced",
         "howCreated": "User"
+      },
+      {
+        "name": "dd8f247cf4b55918a248",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Calendario"
+                  }
+                },
+                "Hierarchy": "Date Jerarquía"
+              }
+            },
+            "Level": "Año"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9334062a93f11eaa3ecd",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Calendario"
+                  }
+                },
+                "Hierarchy": "Date Jerarquía"
+              }
+            },
+            "Level": "Mes"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c8f4d28fad0f548df163",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas Saldo"
+              }
+            },
+            "Property": "Hijas - Rentabilidad sobre Aportado (%)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7d4486b283bc92ab5967",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Configuración Familia"
+              }
+            },
+            "Property": "Nombre"
+          }
+        },
+        "type": "Categorical"
       }
     ],
     "filterSortOrder": "Custom"

@@ -64,6 +64,7 @@ ref table LocalDateTable_93f1543f-944f-4988-9370-48e3eab51efc
 ref table IRPF
 ref table 'Configuración Familia'
 ref table 'Índice Renta Variable'
+ref table LocalDateTable_171ff932-e54a-4b9d-a707-2fdb60cdc9b9
 
 ref cultureInfo es-ES
 

@@ -63,4 +63,8 @@ relationship a735c3bd-6312-9736-d7f2-9d2927698690
 	fromColumn: Movimientos.CUENTA
 	toColumn: Productos.Producto
 
+relationship a82a6f2c-22d8-4727-b42f-0180d4eedf94
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Configuración Familia'.Fecha
+	toColumn: LocalDateTable_171ff932-e54a-4b9d-a707-2fdb60cdc9b9.Date
 

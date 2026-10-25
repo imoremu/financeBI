@@ -9042,7 +9042,7 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
-			    "medidas_transacciones.transacciones__alerta__pérdidas_bloqueadas_traspasadas_entre_fondos": {
+			    "medidas_transaccione.transacciones__ALERTA__pérdidas_bloqueadas_traspasadas_entre_fondos": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Medidas Transacciones",
@@ -9051,6 +9051,17 @@ cultureInfo es-ES
 			      },
 			      "State": "Generated",
 			      "Terms": [
+			        {
+			          "transacciones - ALERTA - pérdidas bloqueadas traspasadas entre fondos": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "transacciones ALERTA pérdidas bloqueadas traspasadas entre fondos": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
 			        {
 			          "ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos": {
 			            "State": "Suggested",
@@ -9062,491 +9073,1217 @@ cultureInfo es-ES
 			          }
 			        }
 			      ]
+			    },
+			    "saldo.ID__product__fecha": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Saldo",
+			          "ConceptualProperty": "ID - Product - Fecha"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ID - product - fecha": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ID product fecha": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "identification - product - fecha": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.624
+			          }
+			        },
+			        {
+			          "identity - product - fecha": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.624
+			          }
+			        },
+			        {
+			          "identifier - product - fecha": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.624
+			          }
+			        },
+			        {
+			          "id - artifact - fecha": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.624
+			          }
+			        },
+			        {
+			          "identification product fecha": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "identity product fecha": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "identifier product fecha": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "id artifact fecha": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "credential - product - fecha": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "id - item - fecha": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        }
+			      ]
+			    },
+			    "medidas_saldo.hijas__índice_renta_variable": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas Saldo",
+			          "ConceptualProperty": "Hijas - Índice Renta Variable"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "hijas - índice renta variable": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "hijas índice renta variable": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "medidas_saldo.hijas__aportado_neto": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas Saldo",
+			          "ConceptualProperty": "Hijas - Aportado Neto"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "hijas - aportado neto": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "hijas aportado neto": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "medidas_saldo.hijas__saldo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas Saldo",
+			          "ConceptualProperty": "Hijas - Saldo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "hijas - saldo": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "hijas saldo": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "medidas_saldo.hijas__beneficio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas Saldo",
+			          "ConceptualProperty": "Hijas - Beneficio"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "hijas - beneficio": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "hijas beneficio": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "medidas_saldo.hijas__rentabilidad_sobre_aportado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas Saldo",
+			          "ConceptualProperty": "Hijas - Rentabilidad sobre Aportado (%)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "hijas - rentabilidad sobre aportado": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "hijas - rentabilidad sobre aportado (%)": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "hijas rentabilidad sobre aportado": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "hijas rentabilidad sobre aportado (%)": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ],
+			      "Units": [
+			        "percentage",
+			        "%"
+			      ]
+			    },
+			    "medidas_saldo.entity__hijas__índice_renta_variable_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas Saldo",
+			          "ConceptualProperty": "_Hijas - Índice Renta Variable FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_hijas - índice renta variable FormatString": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "_hijas índice renta variable FormatString": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "medidas_saldo.entity__hijas__aportado_neto_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas Saldo",
+			          "ConceptualProperty": "_Hijas - Aportado Neto FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_hijas - aportado neto FormatString": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "_hijas aportado neto FormatString": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "medidas_saldo.entity__hijas__saldo_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas Saldo",
+			          "ConceptualProperty": "_Hijas - Saldo FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_hijas - saldo FormatString": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "_hijas saldo FormatString": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "medidas_saldo.entity__hijas__beneficio_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas Saldo",
+			          "ConceptualProperty": "_Hijas - Beneficio FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_hijas - beneficio FormatString": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "_hijas beneficio FormatString": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "medidas_saldo.entity__hijas__rentabilidad_sobre_aportado__FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas Saldo",
+			          "ConceptualProperty": "_Hijas - Rentabilidad sobre Aportado (%) FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_hijas - rentabilidad sobre aportado (%) FormatString": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "_hijas rentabilidad sobre aportado (%) FormatString": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "medidas_transaccione.entity__transacciones__ALERTA__pérdidas_bloqueadas_traspasadas_entre_fondos_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas Transacciones",
+			          "ConceptualProperty": "_Transacciones - ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_transacciones - ALERTA - pérdidas bloqueadas traspasadas entre fondos FormatString": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "_transacciones ALERTA pérdidas bloqueadas traspasadas entre fondos FormatString": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "transaccione.traspaso__pérdida_bloqueada_trasladada": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Transacciones",
+			          "ConceptualProperty": "Traspaso - Pérdida Bloqueada Trasladada"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "traspaso - pérdida bloqueada trasladada": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "traspaso pérdida bloqueada trasladada": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "configuración_familia": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Configuración Familia"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "configuración familia": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "configuración_familia.nombre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Configuración Familia",
+			          "ConceptualProperty": "Nombre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "nombre": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "configuración_familia.fecha": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Configuración Familia",
+			          "ConceptualProperty": "Fecha"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "fecha": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "configuración_familia.fecha.jerarquía_de_fecha": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Configuración Familia",
+			          "VariationSource": "Fecha",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Jerarquía de fechas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "jerarquía de fecha": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "configuración_familia.fecha.año": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Configuración Familia",
+			          "VariationSource": "Fecha",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Jerarquía de fechas",
+			          "HierarchyLevel": "Año"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "año": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "fecha año": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "configuración_familia.fecha.trimestre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Configuración Familia",
+			          "VariationSource": "Fecha",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Jerarquía de fechas",
+			          "HierarchyLevel": "Trimestre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "trimestre": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "fecha trimestre": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "configuración_familia.fecha.me": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Configuración Familia",
+			          "VariationSource": "Fecha",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Jerarquía de fechas",
+			          "HierarchyLevel": "Mes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "me": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "fecha me": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "configuración_familia.fecha.día": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Configuración Familia",
+			          "VariationSource": "Fecha",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Jerarquía de fechas",
+			          "HierarchyLevel": "Día"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "día": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "fecha día": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "configuración_familia.tipo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Configuración Familia",
+			          "ConceptualProperty": "Tipo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tipo": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "configuración_familia.importe": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Configuración Familia",
+			          "ConceptualProperty": "Importe"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "importe": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "configuración_familia.importe_firmado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Configuración Familia",
+			          "ConceptualProperty": "Importe Firmado"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "importe firmado": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "configuración_familia.índice_entrada": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Configuración Familia",
+			          "ConceptualProperty": "Índice Entrada"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "índice entrada": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "índice_renta_variable": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Índice Renta Variable"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "índice renta variable": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "índice_renta_variable.fecha_fin": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Índice Renta Variable",
+			          "ConceptualProperty": "Fecha Fin"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "fecha fin": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        },
+			        {
+			          "fecha appendage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "fecha limb": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "fecha organ": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "fecha member": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "fecha flipper": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "fecha paddle": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "fecha projection": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "fecha propeller": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "fecha rudder": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "fecha stabilizer": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "índice_renta_variable.fecha_inicio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Índice Renta Variable",
+			          "ConceptualProperty": "Fecha Inicio"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "fecha inicio": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "índice_renta_variable.rentabilidad_me": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Índice Renta Variable",
+			          "ConceptualProperty": "Rentabilidad Mes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "rentabilidad me": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "índice_renta_variable.índice": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Índice Renta Variable",
+			          "ConceptualProperty": "Índice"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "índice": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
-			    "calendario_date_jerarquía_me_has_calendario_date_jerarquía_día": {
+			    "calendario_has_medidas_saldo_hijas__rentabilidad_sobre_aportado": {
 			      "Binding": {
 			        "ConceptualEntity": "Calendario"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "calendario.date_jerarquía.me": {
-			          "Target": {
-			            "Entity": "calendario.date_jerarquía.me"
-			          }
-			        },
-			        "calendario.date_jerarquía.día": {
-			          "Target": {
-			            "Entity": "calendario.date_jerarquía.día"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "calendario.date_jerarquía.me"
-			            },
-			            "Object": {
-			              "Role": "calendario.date_jerarquía.día"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "me_have_días"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "calendario.date_jerarquía.día"
-			            },
-			            "Object": {
-			              "Role": "calendario.date_jerarquía.me"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "días_have_me"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "calendario.date_jerarquía.día"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "calendario.date_jerarquía.me"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "días_are_in_me"
-			        }
-			      ]
-			    },
-			    "calendario_date_jerarquía_año_has_calendario_date_jerarquía_me": {
-			      "Binding": {
-			        "ConceptualEntity": "Calendario"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "calendario.date_jerarquía.año": {
-			          "Target": {
-			            "Entity": "calendario.date_jerarquía.año"
-			          }
-			        },
-			        "calendario.date_jerarquía.me": {
-			          "Target": {
-			            "Entity": "calendario.date_jerarquía.me"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "calendario.date_jerarquía.año"
-			            },
-			            "Object": {
-			              "Role": "calendario.date_jerarquía.me"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "años_have_me"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "calendario.date_jerarquía.me"
-			            },
-			            "Object": {
-			              "Role": "calendario.date_jerarquía.año"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "me_have_años"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "calendario.date_jerarquía.me"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "calendario.date_jerarquía.año"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "me_are_in_años"
-			        }
-			      ]
-			    },
-			    "calendario_date_jerarquía_has_día": {
-			      "Binding": {
-			        "ConceptualEntity": "Calendario"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "calendario.date_jerarquía": {
-			          "Target": {
-			            "Entity": "calendario.date_jerarquía"
-			          }
-			        },
-			        "calendario.date_jerarquía.día": {
-			          "Target": {
-			            "Entity": "calendario.date_jerarquía.día"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "calendario.date_jerarquía"
-			            },
-			            "Object": {
-			              "Role": "calendario.date_jerarquía.día"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "date_jerarquías_have_días"
-			        }
-			      ]
-			    },
-			    "calendario_date_jerarquía_has_me": {
-			      "Binding": {
-			        "ConceptualEntity": "Calendario"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "calendario.date_jerarquía": {
-			          "Target": {
-			            "Entity": "calendario.date_jerarquía"
-			          }
-			        },
-			        "calendario.date_jerarquía.me": {
-			          "Target": {
-			            "Entity": "calendario.date_jerarquía.me"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "calendario.date_jerarquía"
-			            },
-			            "Object": {
-			              "Role": "calendario.date_jerarquía.me"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "date_jerarquías_have_me"
-			        }
-			      ]
-			    },
-			    "calendario_date_jerarquía_has_año": {
-			      "Binding": {
-			        "ConceptualEntity": "Calendario"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "calendario.date_jerarquía": {
-			          "Target": {
-			            "Entity": "calendario.date_jerarquía"
-			          }
-			        },
-			        "calendario.date_jerarquía.año": {
-			          "Target": {
-			            "Entity": "calendario.date_jerarquía.año"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "calendario.date_jerarquía"
-			            },
-			            "Object": {
-			              "Role": "calendario.date_jerarquía.año"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "date_jerarquías_have_años"
-			        }
-			      ]
-			    },
-			    "irpf_has_test_data": {
-			      "Binding": {
-			        "ConceptualEntity": "IRPF"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "irpf": {
-			          "Target": {
-			            "Entity": "irpf"
-			          }
-			        },
-			        "test_data": {
-			          "Target": {
-			            "Entity": "test_data"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "irpf"
-			            },
-			            "Object": {
-			              "Role": "test_data"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "irpfs_have_test_data"
-			        }
-			      ]
-			    },
-			    "irpf_has_años_fiscale": {
-			      "Binding": {
-			        "ConceptualEntity": "IRPF"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "irpf": {
-			          "Target": {
-			            "Entity": "irpf"
-			          }
-			        },
-			        "años_fiscale": {
-			          "Target": {
-			            "Entity": "años_fiscale"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "irpf"
-			            },
-			            "Object": {
-			              "Role": "años_fiscale"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "irpfs_have_años_fiscales"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "años_fiscale"
-			            },
-			            "Object": {
-			              "Role": "irpf"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "años_fiscales_have_irpfs"
-			        }
-			      ]
-			    },
-			    "transaccione_has_test_data": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "test_data": {
-			          "Target": {
-			            "Entity": "test_data"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "test_data"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_test_data"
-			        }
-			      ]
-			    },
-			    "transaccione_has_años_fiscale": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "años_fiscale": {
-			          "Target": {
-			            "Entity": "años_fiscale"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "años_fiscale"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_años_fiscales"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "años_fiscale"
-			            },
-			            "Object": {
-			              "Role": "transaccione"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "años_fiscales_have_transacciones"
-			        }
-			      ]
-			    },
-			    "transaccione_has_producto": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "producto": {
-			          "Target": {
-			            "Entity": "producto"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "producto"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_productos"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "producto"
-			            },
-			            "Object": {
-			              "Role": "transaccione"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "productos_have_transacciones"
-			        }
-			      ]
-			    },
-			    "transaccione_has_calendario": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
 			        "calendario": {
 			          "Target": {
 			            "Entity": "calendario"
 			          }
+			        },
+			        "medidas_saldo.hijas__rentabilidad_sobre_aportado": {
+			          "Target": {
+			            "Entity": "medidas_saldo.hijas__rentabilidad_sobre_aportado"
+			          }
 			        }
 			      },
 			      "Phrasings": [
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "transaccione"
+			              "Role": "calendario"
 			            },
 			            "Object": {
-			              "Role": "calendario"
+			              "Role": "medidas_saldo.hijas__rentabilidad_sobre_aportado"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "transacciones_have_calendarios"
+			          "ID": "calendarios_have_hijas__rentabilidad_sobre_aportado"
+			        }
+			      ]
+			    },
+			    "índice_renta_variable_has_medidas_saldo_hijas__beneficio": {
+			      "Binding": {
+			        "ConceptualEntity": "Índice Renta Variable"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "índice_renta_variable": {
+			          "Target": {
+			            "Entity": "índice_renta_variable"
+			          }
 			        },
+			        "medidas_saldo.hijas__beneficio": {
+			          "Target": {
+			            "Entity": "medidas_saldo.hijas__beneficio"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "índice_renta_variable"
+			            },
+			            "Object": {
+			              "Role": "medidas_saldo.hijas__beneficio"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "índice_renta_variables_have_hijas__beneficio"
+			        }
+			      ]
+			    },
+			    "configuración_familia_has_medidas_saldo_hijas__beneficio": {
+			      "Binding": {
+			        "ConceptualEntity": "Configuración Familia"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "configuración_familia": {
+			          "Target": {
+			            "Entity": "configuración_familia"
+			          }
+			        },
+			        "medidas_saldo.hijas__beneficio": {
+			          "Target": {
+			            "Entity": "medidas_saldo.hijas__beneficio"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "configuración_familia"
+			            },
+			            "Object": {
+			              "Role": "medidas_saldo.hijas__beneficio"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "configuración_familias_have_hijas__beneficio"
+			        }
+			      ]
+			    },
+			    "calendario_has_medidas_saldo_hijas__beneficio": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario": {
+			          "Target": {
+			            "Entity": "calendario"
+			          }
+			        },
+			        "medidas_saldo.hijas__beneficio": {
+			          "Target": {
+			            "Entity": "medidas_saldo.hijas__beneficio"
+			          }
+			        }
+			      },
+			      "Phrasings": [
 			        {
 			          "Attribute": {
 			            "Subject": {
 			              "Role": "calendario"
 			            },
 			            "Object": {
-			              "Role": "transaccione"
+			              "Role": "medidas_saldo.hijas__beneficio"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "calendarios_have_transacciones"
+			          "ID": "calendarios_have_hijas__beneficio"
 			        }
 			      ]
 			    },
-			    "saldo_has_test_data": {
+			    "índice_renta_variable_has_medidas_saldo_hijas__saldo": {
+			      "Binding": {
+			        "ConceptualEntity": "Índice Renta Variable"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "índice_renta_variable": {
+			          "Target": {
+			            "Entity": "índice_renta_variable"
+			          }
+			        },
+			        "medidas_saldo.hijas__saldo": {
+			          "Target": {
+			            "Entity": "medidas_saldo.hijas__saldo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "índice_renta_variable"
+			            },
+			            "Object": {
+			              "Role": "medidas_saldo.hijas__saldo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "índice_renta_variables_have_hijas__saldo"
+			        }
+			      ]
+			    },
+			    "configuración_familia_has_medidas_saldo_hijas__saldo": {
+			      "Binding": {
+			        "ConceptualEntity": "Configuración Familia"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "configuración_familia": {
+			          "Target": {
+			            "Entity": "configuración_familia"
+			          }
+			        },
+			        "medidas_saldo.hijas__saldo": {
+			          "Target": {
+			            "Entity": "medidas_saldo.hijas__saldo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "configuración_familia"
+			            },
+			            "Object": {
+			              "Role": "medidas_saldo.hijas__saldo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "configuración_familias_have_hijas__saldo"
+			        }
+			      ]
+			    },
+			    "calendario_has_medidas_saldo_hijas__saldo": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario": {
+			          "Target": {
+			            "Entity": "calendario"
+			          }
+			        },
+			        "medidas_saldo.hijas__saldo": {
+			          "Target": {
+			            "Entity": "medidas_saldo.hijas__saldo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario"
+			            },
+			            "Object": {
+			              "Role": "medidas_saldo.hijas__saldo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendarios_have_hijas__saldo"
+			        }
+			      ]
+			    },
+			    "configuración_familia_has_medidas_saldo_hijas__aportado_neto": {
+			      "Binding": {
+			        "ConceptualEntity": "Configuración Familia"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "configuración_familia": {
+			          "Target": {
+			            "Entity": "configuración_familia"
+			          }
+			        },
+			        "medidas_saldo.hijas__aportado_neto": {
+			          "Target": {
+			            "Entity": "medidas_saldo.hijas__aportado_neto"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "configuración_familia"
+			            },
+			            "Object": {
+			              "Role": "medidas_saldo.hijas__aportado_neto"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "configuración_familias_have_hijas__aportado_neto"
+			        }
+			      ]
+			    },
+			    "calendario_has_medidas_saldo_hijas__aportado_neto": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario": {
+			          "Target": {
+			            "Entity": "calendario"
+			          }
+			        },
+			        "medidas_saldo.hijas__aportado_neto": {
+			          "Target": {
+			            "Entity": "medidas_saldo.hijas__aportado_neto"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario"
+			            },
+			            "Object": {
+			              "Role": "medidas_saldo.hijas__aportado_neto"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendarios_have_hijas__aportado_neto"
+			        }
+			      ]
+			    },
+			    "índice_renta_variable_has_medidas_saldo_hijas__índice_renta_variable": {
+			      "Binding": {
+			        "ConceptualEntity": "Índice Renta Variable"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "índice_renta_variable": {
+			          "Target": {
+			            "Entity": "índice_renta_variable"
+			          }
+			        },
+			        "medidas_saldo.hijas__índice_renta_variable": {
+			          "Target": {
+			            "Entity": "medidas_saldo.hijas__índice_renta_variable"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "índice_renta_variable"
+			            },
+			            "Object": {
+			              "Role": "medidas_saldo.hijas__índice_renta_variable"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "índice_renta_variables_have_hijas__índice_renta_variable"
+			        }
+			      ]
+			    },
+			    "calendario_has_medidas_saldo_hijas__índice_renta_variable": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario": {
+			          "Target": {
+			            "Entity": "calendario"
+			          }
+			        },
+			        "medidas_saldo.hijas__índice_renta_variable": {
+			          "Target": {
+			            "Entity": "medidas_saldo.hijas__índice_renta_variable"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario"
+			            },
+			            "Object": {
+			              "Role": "medidas_saldo.hijas__índice_renta_variable"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendarios_have_hijas__índice_renta_variable"
+			        }
+			      ]
+			    },
+			    "saldo_has_ID__product__fecha": {
 			      "Binding": {
 			        "ConceptualEntity": "Saldo"
 			      },
@@ -9557,9 +10294,9 @@ cultureInfo es-ES
 			            "Entity": "saldo"
 			          }
 			        },
-			        "test_data": {
+			        "saldo.ID__product__fecha": {
 			          "Target": {
-			            "Entity": "test_data"
+			            "Entity": "saldo.ID__product__fecha"
 			          }
 			        }
 			      },
@@ -9570,29 +10307,29 @@ cultureInfo es-ES
 			              "Role": "saldo"
 			            },
 			            "Object": {
-			              "Role": "test_data"
+			              "Role": "saldo.ID__product__fecha"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "saldos_have_test_data"
+			          "ID": "saldos_have_ID__product__fechas"
 			        }
 			      ]
 			    },
-			    "saldo_has_producto": {
+			    "transaccione_has_medidas_transaccione_transacciones__ALERTA__pérdidas_bloqueadas_traspasadas_entre_fondos": {
 			      "Binding": {
-			        "ConceptualEntity": "Saldo"
+			        "ConceptualEntity": "Transacciones"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "saldo": {
+			        "transaccione": {
 			          "Target": {
-			            "Entity": "saldo"
+			            "Entity": "transaccione"
 			          }
 			        },
-			        "producto": {
+			        "medidas_transaccione.transacciones__ALERTA__pérdidas_bloqueadas_traspasadas_entre_fondos": {
 			          "Target": {
-			            "Entity": "producto"
+			            "Entity": "medidas_transaccione.transacciones__ALERTA__pérdidas_bloqueadas_traspasadas_entre_fondos"
 			          }
 			        }
 			      },
@@ -9600,291 +10337,15 @@ cultureInfo es-ES
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "saldo"
+			              "Role": "transaccione"
 			            },
 			            "Object": {
-			              "Role": "producto"
+			              "Role": "medidas_transaccione.transacciones__ALERTA__pérdidas_bloqueadas_traspasadas_entre_fondos"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "saldos_have_productos"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "producto"
-			            },
-			            "Object": {
-			              "Role": "saldo"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "productos_have_saldos"
-			        }
-			      ]
-			    },
-			    "saldo_has_calendario": {
-			      "Binding": {
-			        "ConceptualEntity": "Saldo"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "saldo": {
-			          "Target": {
-			            "Entity": "saldo"
-			          }
-			        },
-			        "calendario": {
-			          "Target": {
-			            "Entity": "calendario"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "saldo"
-			            },
-			            "Object": {
-			              "Role": "calendario"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "saldos_have_calendarios"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "calendario"
-			            },
-			            "Object": {
-			              "Role": "saldo"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "calendarios_have_saldos"
-			        }
-			      ]
-			    },
-			    "movimiento_has_producto": {
-			      "Binding": {
-			        "ConceptualEntity": "Movimientos"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "movimiento": {
-			          "Target": {
-			            "Entity": "movimiento"
-			          }
-			        },
-			        "producto": {
-			          "Target": {
-			            "Entity": "producto"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "movimiento"
-			            },
-			            "Object": {
-			              "Role": "producto"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "movimientos_have_productos"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "producto"
-			            },
-			            "Object": {
-			              "Role": "movimiento"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "productos_have_movimientos"
-			        }
-			      ]
-			    },
-			    "movimiento_has_test_data": {
-			      "Binding": {
-			        "ConceptualEntity": "Movimientos"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "movimiento": {
-			          "Target": {
-			            "Entity": "movimiento"
-			          }
-			        },
-			        "test_data": {
-			          "Target": {
-			            "Entity": "test_data"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "movimiento"
-			            },
-			            "Object": {
-			              "Role": "test_data"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "movimientos_have_test_data"
-			        }
-			      ]
-			    },
-			    "movimiento_has_calendario": {
-			      "Binding": {
-			        "ConceptualEntity": "Movimientos"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "movimiento": {
-			          "Target": {
-			            "Entity": "movimiento"
-			          }
-			        },
-			        "calendario": {
-			          "Target": {
-			            "Entity": "calendario"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "movimiento"
-			            },
-			            "Object": {
-			              "Role": "calendario"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "movimientos_have_calendarios"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "calendario"
-			            },
-			            "Object": {
-			              "Role": "movimiento"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "calendarios_have_movimientos"
-			        }
-			      ]
-			    },
-			    "movimiento_has_tipo_movimiento": {
-			      "Binding": {
-			        "ConceptualEntity": "Movimientos"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "movimiento": {
-			          "Target": {
-			            "Entity": "movimiento"
-			          }
-			        },
-			        "tipo_movimiento": {
-			          "Target": {
-			            "Entity": "tipo_movimiento"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "movimiento"
-			            },
-			            "Object": {
-			              "Role": "tipo_movimiento"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "movimientos_have_tipo_movimientos"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "tipo_movimiento"
-			            },
-			            "Object": {
-			              "Role": "movimiento"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "tipo_movimientos_have_movimientos"
-			        }
-			      ]
-			    },
-			    "IRPF_ahorro_has_años_fiscale": {
-			      "Binding": {
-			        "ConceptualEntity": "IRPF Ahorro"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "IRPF_ahorro": {
-			          "Target": {
-			            "Entity": "IRPF_ahorro"
-			          }
-			        },
-			        "años_fiscale": {
-			          "Target": {
-			            "Entity": "años_fiscale"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "IRPF_ahorro"
-			            },
-			            "Object": {
-			              "Role": "años_fiscale"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "IRPF_ahorros_have_años_fiscales"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "años_fiscale"
-			            },
-			            "Object": {
-			              "Role": "IRPF_ahorro"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "años_fiscales_have_IRPF_ahorros"
+			          "ID": "transacciones_have_transacciones__ALERTA__pérdidas_bloqueadas_traspasadas_entre_fondos"
 			        }
 			      ]
 			    },
@@ -9918,204 +10379,6 @@ cultureInfo es-ES
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "transacciones_have_transacciones__valor_adquisición"
-			        }
-			      ]
-			    },
-			    "transaccione_has_check_no_contemplada": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "transaccione.check_no_contemplada": {
-			          "Target": {
-			            "Entity": "transaccione.check_no_contemplada"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "transaccione.check_no_contemplada"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_check_no_contempladas"
-			        }
-			      ]
-			    },
-			    "transaccione_has_check_no_preclasificada": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "transaccione.check_no_preclasificada": {
-			          "Target": {
-			            "Entity": "transaccione.check_no_preclasificada"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "transaccione.check_no_preclasificada"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_check_no_preclasificadas"
-			        }
-			      ]
-			    },
-			    "transaccione_has_ID_divisa": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "transaccione.ID_divisa": {
-			          "Target": {
-			            "Entity": "transaccione.ID_divisa"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "transaccione.ID_divisa"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_ID_divisas"
-			        }
-			      ]
-			    },
-			    "transaccione_has_PyG_realizada": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "transaccione.PyG_realizada": {
-			          "Target": {
-			            "Entity": "transaccione.PyG_realizada"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "transaccione.PyG_realizada"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_PyG_realizadas"
-			        }
-			      ]
-			    },
-			    "transaccione_has_país_Retención2": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "transaccione.país_Retención2": {
-			          "Target": {
-			            "Entity": "transaccione.país_Retención2"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "transaccione.país_Retención2"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_país_Retención2"
-			        }
-			      ]
-			    },
-			    "transaccione_has_cambio_fijo": {
-			      "Binding": {
-			        "ConceptualEntity": "Transacciones"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "transaccione": {
-			          "Target": {
-			            "Entity": "transaccione"
-			          }
-			        },
-			        "transaccione.cambio_fijo": {
-			          "Target": {
-			            "Entity": "transaccione.cambio_fijo"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "transaccione"
-			            },
-			            "Object": {
-			              "Role": "transaccione.cambio_fijo"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "transacciones_have_cambio_fijos"
 			        }
 			      ]
 			    },
@@ -10215,138 +10478,6 @@ cultureInfo es-ES
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "medidas_IRPFs_have_transacción__IRPF__valor_de_adquisición"
-			        }
-			      ]
-			    },
-			    "saldo_has_ID_divisa": {
-			      "Binding": {
-			        "ConceptualEntity": "Saldo"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "saldo": {
-			          "Target": {
-			            "Entity": "saldo"
-			          }
-			        },
-			        "saldo.ID_divisa": {
-			          "Target": {
-			            "Entity": "saldo.ID_divisa"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "saldo"
-			            },
-			            "Object": {
-			              "Role": "saldo.ID_divisa"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "saldos_have_ID_divisas"
-			        }
-			      ]
-			    },
-			    "saldo_has_dividendo": {
-			      "Binding": {
-			        "ConceptualEntity": "Saldo"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "saldo": {
-			          "Target": {
-			            "Entity": "saldo"
-			          }
-			        },
-			        "saldo.dividendo": {
-			          "Target": {
-			            "Entity": "saldo.dividendo"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "saldo"
-			            },
-			            "Object": {
-			              "Role": "saldo.dividendo"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "saldos_have_dividendos"
-			        }
-			      ]
-			    },
-			    "saldo_has_ingreso": {
-			      "Binding": {
-			        "ConceptualEntity": "Saldo"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "saldo": {
-			          "Target": {
-			            "Entity": "saldo"
-			          }
-			        },
-			        "saldo.ingreso": {
-			          "Target": {
-			            "Entity": "saldo.ingreso"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "saldo"
-			            },
-			            "Object": {
-			              "Role": "saldo.ingreso"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "saldos_have_ingresos"
-			        }
-			      ]
-			    },
-			    "saldo_has_ticker": {
-			      "Binding": {
-			        "ConceptualEntity": "Saldo"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "saldo": {
-			          "Target": {
-			            "Entity": "saldo"
-			          }
-			        },
-			        "saldo.ticker": {
-			          "Target": {
-			            "Entity": "saldo.ticker"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "saldo"
-			            },
-			            "Object": {
-			              "Role": "saldo.ticker"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "saldos_have_tickers"
 			        }
 			      ]
 			    },
@@ -19752,6 +19883,1258 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
+			    "configuración_familia_has_medidas_saldo_hijas__rentabilidad_sobre_aportado": {
+			      "Binding": {
+			        "ConceptualEntity": "Configuración Familia"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "configuración_familia": {
+			          "Target": {
+			            "Entity": "configuración_familia"
+			          }
+			        },
+			        "medidas_saldo.hijas__rentabilidad_sobre_aportado": {
+			          "Target": {
+			            "Entity": "medidas_saldo.hijas__rentabilidad_sobre_aportado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "configuración_familia"
+			            },
+			            "Object": {
+			              "Role": "medidas_saldo.hijas__rentabilidad_sobre_aportado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "configuración_familias_have_hijas__rentabilidad_sobre_aportado"
+			        }
+			      ]
+			    },
+			    "índice_renta_variable_has_medidas_saldo_hijas__rentabilidad_sobre_aportado": {
+			      "Binding": {
+			        "ConceptualEntity": "Índice Renta Variable"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "índice_renta_variable": {
+			          "Target": {
+			            "Entity": "índice_renta_variable"
+			          }
+			        },
+			        "medidas_saldo.hijas__rentabilidad_sobre_aportado": {
+			          "Target": {
+			            "Entity": "medidas_saldo.hijas__rentabilidad_sobre_aportado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "índice_renta_variable"
+			            },
+			            "Object": {
+			              "Role": "medidas_saldo.hijas__rentabilidad_sobre_aportado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "índice_renta_variables_have_hijas__rentabilidad_sobre_aportado"
+			        }
+			      ]
+			    },
+			    "transaccione_has_traspaso__pérdida_bloqueada_trasladada": {
+			      "Binding": {
+			        "ConceptualEntity": "Transacciones"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "transaccione": {
+			          "Target": {
+			            "Entity": "transaccione"
+			          }
+			        },
+			        "transaccione.traspaso__pérdida_bloqueada_trasladada": {
+			          "Target": {
+			            "Entity": "transaccione.traspaso__pérdida_bloqueada_trasladada"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "transaccione"
+			            },
+			            "Object": {
+			              "Role": "transaccione.traspaso__pérdida_bloqueada_trasladada"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "transacciones_have_traspaso__pérdida_bloqueada_trasladadas"
+			        }
+			      ]
+			    },
+			    "configuración_familia_has_nombre": {
+			      "Binding": {
+			        "ConceptualEntity": "Configuración Familia"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "configuración_familia": {
+			          "Target": {
+			            "Entity": "configuración_familia"
+			          }
+			        },
+			        "configuración_familia.nombre": {
+			          "Target": {
+			            "Entity": "configuración_familia.nombre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "configuración_familia"
+			            },
+			            "Object": {
+			              "Role": "configuración_familia.nombre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "configuración_familias_have_nombres"
+			        }
+			      ]
+			    },
+			    "configuración_familia_has_fecha": {
+			      "Binding": {
+			        "ConceptualEntity": "Configuración Familia"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "configuración_familia": {
+			          "Target": {
+			            "Entity": "configuración_familia"
+			          }
+			        },
+			        "configuración_familia.fecha": {
+			          "Target": {
+			            "Entity": "configuración_familia.fecha"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "configuración_familia"
+			            },
+			            "Object": {
+			              "Role": "configuración_familia.fecha"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "configuración_familias_have_fechas"
+			        }
+			      ]
+			    },
+			    "configuración_familia_has_tipo": {
+			      "Binding": {
+			        "ConceptualEntity": "Configuración Familia"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "configuración_familia": {
+			          "Target": {
+			            "Entity": "configuración_familia"
+			          }
+			        },
+			        "configuración_familia.tipo": {
+			          "Target": {
+			            "Entity": "configuración_familia.tipo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "configuración_familia"
+			            },
+			            "Object": {
+			              "Role": "configuración_familia.tipo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "configuración_familias_have_tipos"
+			        }
+			      ]
+			    },
+			    "configuración_familia_has_importe": {
+			      "Binding": {
+			        "ConceptualEntity": "Configuración Familia"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "configuración_familia": {
+			          "Target": {
+			            "Entity": "configuración_familia"
+			          }
+			        },
+			        "configuración_familia.importe": {
+			          "Target": {
+			            "Entity": "configuración_familia.importe"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "configuración_familia"
+			            },
+			            "Object": {
+			              "Role": "configuración_familia.importe"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "configuración_familias_have_importes"
+			        }
+			      ]
+			    },
+			    "configuración_familia_has_importe_firmado": {
+			      "Binding": {
+			        "ConceptualEntity": "Configuración Familia"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "configuración_familia": {
+			          "Target": {
+			            "Entity": "configuración_familia"
+			          }
+			        },
+			        "configuración_familia.importe_firmado": {
+			          "Target": {
+			            "Entity": "configuración_familia.importe_firmado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "configuración_familia"
+			            },
+			            "Object": {
+			              "Role": "configuración_familia.importe_firmado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "configuración_familias_have_importe_firmados"
+			        }
+			      ]
+			    },
+			    "configuración_familia_has_índice_entrada": {
+			      "Binding": {
+			        "ConceptualEntity": "Configuración Familia"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "configuración_familia": {
+			          "Target": {
+			            "Entity": "configuración_familia"
+			          }
+			        },
+			        "configuración_familia.índice_entrada": {
+			          "Target": {
+			            "Entity": "configuración_familia.índice_entrada"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "configuración_familia"
+			            },
+			            "Object": {
+			              "Role": "configuración_familia.índice_entrada"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "configuración_familias_have_índice_entradas"
+			        }
+			      ]
+			    },
+			    "índice_renta_variable_has_fecha_fin": {
+			      "Binding": {
+			        "ConceptualEntity": "Índice Renta Variable"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "índice_renta_variable": {
+			          "Target": {
+			            "Entity": "índice_renta_variable"
+			          }
+			        },
+			        "índice_renta_variable.fecha_fin": {
+			          "Target": {
+			            "Entity": "índice_renta_variable.fecha_fin"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "índice_renta_variable"
+			            },
+			            "Object": {
+			              "Role": "índice_renta_variable.fecha_fin"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "índice_renta_variables_have_fecha_fins"
+			        }
+			      ]
+			    },
+			    "índice_renta_variable_has_fecha_inicio": {
+			      "Binding": {
+			        "ConceptualEntity": "Índice Renta Variable"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "índice_renta_variable": {
+			          "Target": {
+			            "Entity": "índice_renta_variable"
+			          }
+			        },
+			        "índice_renta_variable.fecha_inicio": {
+			          "Target": {
+			            "Entity": "índice_renta_variable.fecha_inicio"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "índice_renta_variable"
+			            },
+			            "Object": {
+			              "Role": "índice_renta_variable.fecha_inicio"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "índice_renta_variables_have_fecha_inicios"
+			        }
+			      ]
+			    },
+			    "índice_renta_variable_has_rentabilidad_me": {
+			      "Binding": {
+			        "ConceptualEntity": "Índice Renta Variable"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "índice_renta_variable": {
+			          "Target": {
+			            "Entity": "índice_renta_variable"
+			          }
+			        },
+			        "índice_renta_variable.rentabilidad_me": {
+			          "Target": {
+			            "Entity": "índice_renta_variable.rentabilidad_me"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "índice_renta_variable"
+			            },
+			            "Object": {
+			              "Role": "índice_renta_variable.rentabilidad_me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "índice_renta_variables_have_rentabilidad_me"
+			        }
+			      ]
+			    },
+			    "índice_renta_variable_has_índice": {
+			      "Binding": {
+			        "ConceptualEntity": "Índice Renta Variable"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "índice_renta_variable": {
+			          "Target": {
+			            "Entity": "índice_renta_variable"
+			          }
+			        },
+			        "índice_renta_variable.índice": {
+			          "Target": {
+			            "Entity": "índice_renta_variable.índice"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "índice_renta_variable"
+			            },
+			            "Object": {
+			              "Role": "índice_renta_variable.índice"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "índice_renta_variables_have_índices"
+			        }
+			      ]
+			    },
+			    "IRPF_ahorro_has_años_fiscale": {
+			      "Binding": {
+			        "ConceptualEntity": "IRPF Ahorro"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "IRPF_ahorro": {
+			          "Target": {
+			            "Entity": "IRPF_ahorro"
+			          }
+			        },
+			        "años_fiscale": {
+			          "Target": {
+			            "Entity": "años_fiscale"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "IRPF_ahorro"
+			            },
+			            "Object": {
+			              "Role": "años_fiscale"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "IRPF_ahorros_have_años_fiscales"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "años_fiscale"
+			            },
+			            "Object": {
+			              "Role": "IRPF_ahorro"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "años_fiscales_have_IRPF_ahorros"
+			        }
+			      ]
+			    },
+			    "movimiento_has_tipo_movimiento": {
+			      "Binding": {
+			        "ConceptualEntity": "Movimientos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "movimiento": {
+			          "Target": {
+			            "Entity": "movimiento"
+			          }
+			        },
+			        "tipo_movimiento": {
+			          "Target": {
+			            "Entity": "tipo_movimiento"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "movimiento"
+			            },
+			            "Object": {
+			              "Role": "tipo_movimiento"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "movimientos_have_tipo_movimientos"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tipo_movimiento"
+			            },
+			            "Object": {
+			              "Role": "movimiento"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tipo_movimientos_have_movimientos"
+			        }
+			      ]
+			    },
+			    "movimiento_has_calendario": {
+			      "Binding": {
+			        "ConceptualEntity": "Movimientos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "movimiento": {
+			          "Target": {
+			            "Entity": "movimiento"
+			          }
+			        },
+			        "calendario": {
+			          "Target": {
+			            "Entity": "calendario"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "movimiento"
+			            },
+			            "Object": {
+			              "Role": "calendario"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "movimientos_have_calendarios"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario"
+			            },
+			            "Object": {
+			              "Role": "movimiento"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendarios_have_movimientos"
+			        }
+			      ]
+			    },
+			    "movimiento_has_test_data": {
+			      "Binding": {
+			        "ConceptualEntity": "Movimientos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "movimiento": {
+			          "Target": {
+			            "Entity": "movimiento"
+			          }
+			        },
+			        "test_data": {
+			          "Target": {
+			            "Entity": "test_data"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "movimiento"
+			            },
+			            "Object": {
+			              "Role": "test_data"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "movimientos_have_test_data"
+			        }
+			      ]
+			    },
+			    "movimiento_has_producto": {
+			      "Binding": {
+			        "ConceptualEntity": "Movimientos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "movimiento": {
+			          "Target": {
+			            "Entity": "movimiento"
+			          }
+			        },
+			        "producto": {
+			          "Target": {
+			            "Entity": "producto"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "movimiento"
+			            },
+			            "Object": {
+			              "Role": "producto"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "movimientos_have_productos"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "producto"
+			            },
+			            "Object": {
+			              "Role": "movimiento"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "productos_have_movimientos"
+			        }
+			      ]
+			    },
+			    "saldo_has_calendario": {
+			      "Binding": {
+			        "ConceptualEntity": "Saldo"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "saldo": {
+			          "Target": {
+			            "Entity": "saldo"
+			          }
+			        },
+			        "calendario": {
+			          "Target": {
+			            "Entity": "calendario"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "saldo"
+			            },
+			            "Object": {
+			              "Role": "calendario"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "saldos_have_calendarios"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario"
+			            },
+			            "Object": {
+			              "Role": "saldo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendarios_have_saldos"
+			        }
+			      ]
+			    },
+			    "saldo_has_producto": {
+			      "Binding": {
+			        "ConceptualEntity": "Saldo"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "saldo": {
+			          "Target": {
+			            "Entity": "saldo"
+			          }
+			        },
+			        "producto": {
+			          "Target": {
+			            "Entity": "producto"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "saldo"
+			            },
+			            "Object": {
+			              "Role": "producto"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "saldos_have_productos"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "producto"
+			            },
+			            "Object": {
+			              "Role": "saldo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "productos_have_saldos"
+			        }
+			      ]
+			    },
+			    "saldo_has_test_data": {
+			      "Binding": {
+			        "ConceptualEntity": "Saldo"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "saldo": {
+			          "Target": {
+			            "Entity": "saldo"
+			          }
+			        },
+			        "test_data": {
+			          "Target": {
+			            "Entity": "test_data"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "saldo"
+			            },
+			            "Object": {
+			              "Role": "test_data"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "saldos_have_test_data"
+			        }
+			      ]
+			    },
+			    "transaccione_has_calendario": {
+			      "Binding": {
+			        "ConceptualEntity": "Transacciones"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "transaccione": {
+			          "Target": {
+			            "Entity": "transaccione"
+			          }
+			        },
+			        "calendario": {
+			          "Target": {
+			            "Entity": "calendario"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "transaccione"
+			            },
+			            "Object": {
+			              "Role": "calendario"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "transacciones_have_calendarios"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario"
+			            },
+			            "Object": {
+			              "Role": "transaccione"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendarios_have_transacciones"
+			        }
+			      ]
+			    },
+			    "transaccione_has_producto": {
+			      "Binding": {
+			        "ConceptualEntity": "Transacciones"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "transaccione": {
+			          "Target": {
+			            "Entity": "transaccione"
+			          }
+			        },
+			        "producto": {
+			          "Target": {
+			            "Entity": "producto"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "transaccione"
+			            },
+			            "Object": {
+			              "Role": "producto"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "transacciones_have_productos"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "producto"
+			            },
+			            "Object": {
+			              "Role": "transaccione"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "productos_have_transacciones"
+			        }
+			      ]
+			    },
+			    "transaccione_has_años_fiscale": {
+			      "Binding": {
+			        "ConceptualEntity": "Transacciones"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "transaccione": {
+			          "Target": {
+			            "Entity": "transaccione"
+			          }
+			        },
+			        "años_fiscale": {
+			          "Target": {
+			            "Entity": "años_fiscale"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "transaccione"
+			            },
+			            "Object": {
+			              "Role": "años_fiscale"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "transacciones_have_años_fiscales"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "años_fiscale"
+			            },
+			            "Object": {
+			              "Role": "transaccione"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "años_fiscales_have_transacciones"
+			        }
+			      ]
+			    },
+			    "transaccione_has_test_data": {
+			      "Binding": {
+			        "ConceptualEntity": "Transacciones"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "transaccione": {
+			          "Target": {
+			            "Entity": "transaccione"
+			          }
+			        },
+			        "test_data": {
+			          "Target": {
+			            "Entity": "test_data"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "transaccione"
+			            },
+			            "Object": {
+			              "Role": "test_data"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "transacciones_have_test_data"
+			        }
+			      ]
+			    },
+			    "irpf_has_años_fiscale": {
+			      "Binding": {
+			        "ConceptualEntity": "IRPF"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "irpf": {
+			          "Target": {
+			            "Entity": "irpf"
+			          }
+			        },
+			        "años_fiscale": {
+			          "Target": {
+			            "Entity": "años_fiscale"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "irpf"
+			            },
+			            "Object": {
+			              "Role": "años_fiscale"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "irpfs_have_años_fiscales"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "años_fiscale"
+			            },
+			            "Object": {
+			              "Role": "irpf"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "años_fiscales_have_irpfs"
+			        }
+			      ]
+			    },
+			    "irpf_has_test_data": {
+			      "Binding": {
+			        "ConceptualEntity": "IRPF"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "irpf": {
+			          "Target": {
+			            "Entity": "irpf"
+			          }
+			        },
+			        "test_data": {
+			          "Target": {
+			            "Entity": "test_data"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "irpf"
+			            },
+			            "Object": {
+			              "Role": "test_data"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "irpfs_have_test_data"
+			        }
+			      ]
+			    },
+			    "calendario_date_jerarquía_has_año": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario.date_jerarquía": {
+			          "Target": {
+			            "Entity": "calendario.date_jerarquía"
+			          }
+			        },
+			        "calendario.date_jerarquía.año": {
+			          "Target": {
+			            "Entity": "calendario.date_jerarquía.año"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.date_jerarquía"
+			            },
+			            "Object": {
+			              "Role": "calendario.date_jerarquía.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "date_jerarquías_have_años"
+			        }
+			      ]
+			    },
+			    "calendario_date_jerarquía_has_me": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario.date_jerarquía": {
+			          "Target": {
+			            "Entity": "calendario.date_jerarquía"
+			          }
+			        },
+			        "calendario.date_jerarquía.me": {
+			          "Target": {
+			            "Entity": "calendario.date_jerarquía.me"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.date_jerarquía"
+			            },
+			            "Object": {
+			              "Role": "calendario.date_jerarquía.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "date_jerarquías_have_me"
+			        }
+			      ]
+			    },
+			    "calendario_date_jerarquía_has_día": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario.date_jerarquía": {
+			          "Target": {
+			            "Entity": "calendario.date_jerarquía"
+			          }
+			        },
+			        "calendario.date_jerarquía.día": {
+			          "Target": {
+			            "Entity": "calendario.date_jerarquía.día"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.date_jerarquía"
+			            },
+			            "Object": {
+			              "Role": "calendario.date_jerarquía.día"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "date_jerarquías_have_días"
+			        }
+			      ]
+			    },
+			    "calendario_date_jerarquía_año_has_calendario_date_jerarquía_me": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario.date_jerarquía.año": {
+			          "Target": {
+			            "Entity": "calendario.date_jerarquía.año"
+			          }
+			        },
+			        "calendario.date_jerarquía.me": {
+			          "Target": {
+			            "Entity": "calendario.date_jerarquía.me"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.date_jerarquía.año"
+			            },
+			            "Object": {
+			              "Role": "calendario.date_jerarquía.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "años_have_me"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.date_jerarquía.me"
+			            },
+			            "Object": {
+			              "Role": "calendario.date_jerarquía.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "me_have_años"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "calendario.date_jerarquía.me"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "calendario.date_jerarquía.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "me_are_in_años"
+			        }
+			      ]
+			    },
+			    "calendario_date_jerarquía_me_has_calendario_date_jerarquía_día": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario.date_jerarquía.me": {
+			          "Target": {
+			            "Entity": "calendario.date_jerarquía.me"
+			          }
+			        },
+			        "calendario.date_jerarquía.día": {
+			          "Target": {
+			            "Entity": "calendario.date_jerarquía.día"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.date_jerarquía.me"
+			            },
+			            "Object": {
+			              "Role": "calendario.date_jerarquía.día"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "me_have_días"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.date_jerarquía.día"
+			            },
+			            "Object": {
+			              "Role": "calendario.date_jerarquía.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "días_have_me"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "calendario.date_jerarquía.día"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "calendario.date_jerarquía.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "días_are_in_me"
+			        }
+			      ]
+			    },
 			    "producto_tipo_producto_has_tipo": {
 			      "Binding": {
 			        "ConceptualEntity": "Productos"
@@ -20244,6 +21627,369 @@ cultureInfo es-ES
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "días_are_in_me1"
+			        }
+			      ]
+			    },
+			    "configuración_familia_fecha_has_jerarquía_de_fecha": {
+			      "Binding": {
+			        "ConceptualEntity": "Configuración Familia"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "configuración_familia.fecha": {
+			          "Target": {
+			            "Entity": "configuración_familia.fecha"
+			          }
+			        },
+			        "configuración_familia.fecha.jerarquía_de_fecha": {
+			          "Target": {
+			            "Entity": "configuración_familia.fecha.jerarquía_de_fecha"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "configuración_familia.fecha"
+			            },
+			            "Object": {
+			              "Role": "configuración_familia.fecha.jerarquía_de_fecha"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fechas_have_jerarquía_de_fechas"
+			        }
+			      ]
+			    },
+			    "configuración_familia_fecha_jerarquía_de_fecha_has_configuración_familia_fecha_año": {
+			      "Binding": {
+			        "ConceptualEntity": "Configuración Familia"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "configuración_familia.fecha.jerarquía_de_fecha": {
+			          "Target": {
+			            "Entity": "configuración_familia.fecha.jerarquía_de_fecha"
+			          }
+			        },
+			        "configuración_familia.fecha.año": {
+			          "Target": {
+			            "Entity": "configuración_familia.fecha.año"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "configuración_familia.fecha.jerarquía_de_fecha"
+			            },
+			            "Object": {
+			              "Role": "configuración_familia.fecha.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "jerarquía_de_fechas_have_años1"
+			        }
+			      ]
+			    },
+			    "configuración_familia_fecha_jerarquía_de_fecha_has_configuración_familia_fecha_trimestre": {
+			      "Binding": {
+			        "ConceptualEntity": "Configuración Familia"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "configuración_familia.fecha.jerarquía_de_fecha": {
+			          "Target": {
+			            "Entity": "configuración_familia.fecha.jerarquía_de_fecha"
+			          }
+			        },
+			        "configuración_familia.fecha.trimestre": {
+			          "Target": {
+			            "Entity": "configuración_familia.fecha.trimestre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "configuración_familia.fecha.jerarquía_de_fecha"
+			            },
+			            "Object": {
+			              "Role": "configuración_familia.fecha.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "jerarquía_de_fechas_have_trimestres1"
+			        }
+			      ]
+			    },
+			    "configuración_familia_fecha_jerarquía_de_fecha_has_configuración_familia_fecha_me": {
+			      "Binding": {
+			        "ConceptualEntity": "Configuración Familia"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "configuración_familia.fecha.jerarquía_de_fecha": {
+			          "Target": {
+			            "Entity": "configuración_familia.fecha.jerarquía_de_fecha"
+			          }
+			        },
+			        "configuración_familia.fecha.me": {
+			          "Target": {
+			            "Entity": "configuración_familia.fecha.me"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "configuración_familia.fecha.jerarquía_de_fecha"
+			            },
+			            "Object": {
+			              "Role": "configuración_familia.fecha.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "jerarquía_de_fechas_have_me1"
+			        }
+			      ]
+			    },
+			    "configuración_familia_fecha_jerarquía_de_fecha_has_configuración_familia_fecha_día": {
+			      "Binding": {
+			        "ConceptualEntity": "Configuración Familia"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "configuración_familia.fecha.jerarquía_de_fecha": {
+			          "Target": {
+			            "Entity": "configuración_familia.fecha.jerarquía_de_fecha"
+			          }
+			        },
+			        "configuración_familia.fecha.día": {
+			          "Target": {
+			            "Entity": "configuración_familia.fecha.día"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "configuración_familia.fecha.jerarquía_de_fecha"
+			            },
+			            "Object": {
+			              "Role": "configuración_familia.fecha.día"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "jerarquía_de_fechas_have_días1"
+			        }
+			      ]
+			    },
+			    "configuración_familia_fecha_año_has_configuración_familia_fecha_trimestre": {
+			      "Binding": {
+			        "ConceptualEntity": "Configuración Familia"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "configuración_familia.fecha.año": {
+			          "Target": {
+			            "Entity": "configuración_familia.fecha.año"
+			          }
+			        },
+			        "configuración_familia.fecha.trimestre": {
+			          "Target": {
+			            "Entity": "configuración_familia.fecha.trimestre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "configuración_familia.fecha.año"
+			            },
+			            "Object": {
+			              "Role": "configuración_familia.fecha.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "años_have_trimestres1"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "configuración_familia.fecha.trimestre"
+			            },
+			            "Object": {
+			              "Role": "configuración_familia.fecha.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_have_años1"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "configuración_familia.fecha.trimestre"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "configuración_familia.fecha.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_are_in_años1"
+			        }
+			      ]
+			    },
+			    "configuración_familia_fecha_trimestre_has_configuración_familia_fecha_me": {
+			      "Binding": {
+			        "ConceptualEntity": "Configuración Familia"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "configuración_familia.fecha.trimestre": {
+			          "Target": {
+			            "Entity": "configuración_familia.fecha.trimestre"
+			          }
+			        },
+			        "configuración_familia.fecha.me": {
+			          "Target": {
+			            "Entity": "configuración_familia.fecha.me"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "configuración_familia.fecha.trimestre"
+			            },
+			            "Object": {
+			              "Role": "configuración_familia.fecha.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_have_me1"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "configuración_familia.fecha.me"
+			            },
+			            "Object": {
+			              "Role": "configuración_familia.fecha.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "me_have_trimestres1"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "configuración_familia.fecha.me"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "configuración_familia.fecha.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "me_are_in_trimestres1"
+			        }
+			      ]
+			    },
+			    "configuración_familia_fecha_me_has_configuración_familia_fecha_día": {
+			      "Binding": {
+			        "ConceptualEntity": "Configuración Familia"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "configuración_familia.fecha.me": {
+			          "Target": {
+			            "Entity": "configuración_familia.fecha.me"
+			          }
+			        },
+			        "configuración_familia.fecha.día": {
+			          "Target": {
+			            "Entity": "configuración_familia.fecha.día"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "configuración_familia.fecha.me"
+			            },
+			            "Object": {
+			              "Role": "configuración_familia.fecha.día"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "me_have_días2"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "configuración_familia.fecha.día"
+			            },
+			            "Object": {
+			              "Role": "configuración_familia.fecha.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "días_have_me2"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "configuración_familia.fecha.día"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "configuración_familia.fecha.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "días_are_in_me2"
 			        }
 			      ]
 			    }

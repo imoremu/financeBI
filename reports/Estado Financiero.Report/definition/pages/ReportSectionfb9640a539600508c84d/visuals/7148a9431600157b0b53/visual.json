@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "7148a9431600157b0b53",
   "position": {
     "x": 330,
@@ -563,6 +563,11 @@
           }
         }
       ]
+    },
+    "syncGroup": {
+      "groupName": "Date1",
+      "fieldChanges": true,
+      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   },

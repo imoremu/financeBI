@@ -240,6 +240,19 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3166.011956208124,
+            "y": 489.98199884032306
+          },
+          "nodeIndex": "Índice Renta Variable",
+          "nodeLineageTag": "1491f571-47bd-43ba-a00a-0dd8ffd92a0d",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "Todas las tablas",
