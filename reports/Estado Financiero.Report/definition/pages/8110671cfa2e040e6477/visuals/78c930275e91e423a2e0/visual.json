@@ -157,7 +157,7 @@
             "labelDisplayUnits": {
               "expr": {
                 "Literal": {
-                  "Value": "1000D"
+                  "Value": "0D"
                 }
               }
             },
@@ -184,6 +184,13 @@
                       "Percent": -0.5
                     }
                   }
+                }
+              }
+            },
+            "roundRange": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -436,7 +443,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Saldo Hija'"
+                  "Value": "'Rentabilidad'"
                 }
               }
             },
