@@ -541,6 +541,16 @@ cultureInfo es-ES
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
+			        },
+			        {
+			          "IRPF Anual Ahorro": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -6366,6 +6376,16 @@ cultureInfo es-ES
 			            },
 			            "Weight": 0.599
 			          }
+			        },
+			        {
+			          "Gastos No Deducibles": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -8806,110 +8826,6 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
-			    "saldo.ticker": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Saldo",
-			          "ConceptualProperty": "Ticker"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "ticker": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "saldo.ingreso": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Saldo",
-			          "ConceptualProperty": "Ingreso"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "ingreso": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "saldo.dividendo": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Saldo",
-			          "ConceptualProperty": "Dividendos"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "dividendo": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "saldo.ID_divisa": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Saldo",
-			          "ConceptualProperty": "ID Divisa"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "ID divisa": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "identification divisa": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.6
-			          }
-			        },
-			        {
-			          "identity divisa": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.6
-			          }
-			        },
-			        {
-			          "identifier divisa": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.6
-			          }
-			        },
-			        {
-			          "credential divisa": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.582
-			          }
-			        }
-			      ]
-			    },
 			    "medidas_IRPF.transacción__IRPF__valor_de_adquisición": {
 			      "Definition": {
 			        "Binding": {
@@ -9069,342 +8985,6 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
-			    "transaccione.cambio_fijo": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Transacciones",
-			          "ConceptualProperty": "Cambio Fijo"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "cambio fijo": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "transaccione.país_Retención2": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Transacciones",
-			          "ConceptualProperty": "País Retención2"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "país Retención2": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "transaccione.PyG_realizada": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Transacciones",
-			          "ConceptualProperty": "PyG realizadas"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "PyG realizada": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "transaccione.ID_divisa": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Transacciones",
-			          "ConceptualProperty": "ID Divisa"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "ID divisa": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "identification divisa": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.6
-			          }
-			        },
-			        {
-			          "identity divisa": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.6
-			          }
-			        },
-			        {
-			          "identifier divisa": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.6
-			          }
-			        },
-			        {
-			          "credential divisa": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.582
-			          }
-			        }
-			      ]
-			    },
-			    "transaccione.check_no_preclasificada": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Transacciones",
-			          "ConceptualProperty": "Check No Preclasificadas"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "check no preclasificada": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "cheque no preclasificada": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.609
-			          }
-			        },
-			        {
-			          "checkup no preclasificada": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.609
-			          }
-			        },
-			        {
-			          "inspection no preclasificada": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.609
-			          }
-			        },
-			        {
-			          "payment no preclasificada": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.609
-			          }
-			        },
-			        {
-			          "test no preclasificada": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.591
-			          }
-			        },
-			        {
-			          "tick no preclasificada": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.591
-			          }
-			        },
-			        {
-			          "bill no preclasificada": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.591
-			          }
-			        },
-			        {
-			          "check number preclasificada": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.591
-			          }
-			        },
-			        {
-			          "safety inspection no preclasificada": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.484
-			          }
-			        },
-			        {
-			          "safety test no preclasificada": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.484
-			          }
-			        }
-			      ]
-			    },
-			    "transaccione.check_no_contemplada": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Transacciones",
-			          "ConceptualProperty": "Check No contempladas"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "check no contemplada": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "cheque no contemplada": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.609
-			          }
-			        },
-			        {
-			          "checkup no contemplada": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.609
-			          }
-			        },
-			        {
-			          "inspection no contemplada": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.609
-			          }
-			        },
-			        {
-			          "payment no contemplada": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.609
-			          }
-			        },
-			        {
-			          "test no contemplada": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.591
-			          }
-			        },
-			        {
-			          "tick no contemplada": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.591
-			          }
-			        },
-			        {
-			          "bill no contemplada": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.591
-			          }
-			        },
-			        {
-			          "check number contemplada": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.591
-			          }
-			        },
-			        {
-			          "safety inspection no contemplada": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.484
-			          }
-			        },
-			        {
-			          "safety test no contemplada": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.484
-			          }
-			        }
-			      ]
-			    },
 			    "medidas_transaccione.transacciones__valor_adquisición": {
 			      "Definition": {
 			        "Binding": {
@@ -9458,6 +9038,27 @@ cultureInfo es-ES
 			          "_transacciones valor adquisición FormatString": {
 			            "State": "Generated",
 			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "medidas_transacciones.transacciones__alerta__pérdidas_bloqueadas_traspasadas_entre_fondos": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas Transacciones",
+			          "ConceptualProperty": "Transacciones - ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ALERTA - Pérdidas Bloqueadas Traspasadas entre Fondos": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]

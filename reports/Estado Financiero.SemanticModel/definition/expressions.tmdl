@@ -1,4 +1,4 @@
-expression Path = "H:\Finanzas.xlsx" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+expression Path = "https://github.com/imoremu/financeBI/raw/refs/heads/main/data/demo/demo_data.xlsx" meta [IsParameterQuery = true, IsParameterQueryRequired = true, Type = type any]
 	lineageTag: a2aa19e7-94ab-40b4-b77d-780b67c32947
 
 	annotation PBI_ResultType = Text
@@ -676,6 +676,13 @@ expression 'Errores en Test Data (2)' =
 		  #"Columnas reordenadas"
 	lineageTag: f2afde19-abed-4b5f-93f2-d69175af2930
 	queryGroup: 'Errores en las consultas: 19/08/2025 20:40:49'
+
+	annotation PBI_NavigationStepName = Navegación
+
+expression 'Project Root' = "C:\SW\Finanzas\financeBI" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 4ba2de25-2333-456e-8cd9-c0b68f27f611
+
+	annotation PBI_ResultType = Text
 
 	annotation PBI_NavigationStepName = Navegación
 

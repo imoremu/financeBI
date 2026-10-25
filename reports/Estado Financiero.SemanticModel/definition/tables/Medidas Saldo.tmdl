@@ -644,6 +644,112 @@ table 'Medidas Saldo'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	/// Índice de rentabilidad time-weighted (TWR) de la cartera de Renta Variable de la familia a la fecha de corte
+	/// (último día del contexto de Calendario). Base 1 antes del primer mes con datos.
+	/// Equivale al valor liquidativo de una participación del "fondo familiar".
+	measure 'Hijas - Índice Renta Variable' = ```
+			VAR _fecha = MAX(Calendario[Date])
+			VAR _fila =
+			    TOPN(
+			        1,
+			        FILTER(ALL('Índice Renta Variable'), 'Índice Renta Variable'[Fecha Fin] >= _fecha),
+			        'Índice Renta Variable'[Fecha Fin], ASC
+			    )
+			VAR _ultima = TOPN(1, ALL('Índice Renta Variable'), 'Índice Renta Variable'[Fecha Fin], DESC)
+			RETURN
+			    IF(
+			        ISBLANK(_fecha),
+			        BLANK(),
+			        IF(
+			            ISEMPTY(_fila),
+			            MAXX(_ultima, 'Índice Renta Variable'[Índice]),   -- posterior al último mes: último índice
+			            MAXX(
+			                _fila,
+			                VAR _ini = 'Índice Renta Variable'[Fecha Inicio]
+			                VAR _fin = 'Índice Renta Variable'[Fecha Fin]
+			                VAR _r = 'Índice Renta Variable'[Rentabilidad Mes]
+			                VAR _frac = MAX(0, MIN(1, DIVIDE(INT(_fecha - _ini) + 1, INT(_fin - _ini) + 1)))
+			                RETURN
+			                    -- índice al cierre del mes anterior, más la parte proporcional del mes en curso
+			                    DIVIDE('Índice Renta Variable'[Índice], 1 + _r) * (1 + _r * _frac)
+			            )
+			        )
+			    )
+			```
+		formatString: #,0.0000
+		displayFolder: Hijas
+		lineageTag: 5244fccf-746b-4256-a6d9-f57e26940ee7
+
+	/// Ingresos menos salidas de cada hija hasta la fecha de corte (acumulado desde el inicio, no solo del periodo).
+	measure 'Hijas - Aportado Neto' = ```
+			VAR _corte = MAX(Calendario[Date])
+			RETURN
+			    IF(
+			        ISBLANK(_corte),
+			        BLANK(),
+			        CALCULATE(
+			            SUM('Configuración Familia'[Importe Firmado]),
+			            'Configuración Familia'[Fecha] <= _corte
+			        )
+			    )
+			```
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		displayFolder: Hijas
+		lineageTag: 5f3cc99f-bc5f-44e6-a0be-c46ad6946859
+
+	/// Valor a la fecha de corte del dinero de cada hija si hubiera estado invertido en la Renta Variable familiar.
+	/// Cada movimiento "compra" (o vende, si es Salida) participaciones al índice del día: Importe x Índice(corte) / Índice(fecha).
+	/// Usar con 'Configuración Familia'[Nombre] en filas/leyenda para ver cada hija.
+	measure 'Hijas - Saldo' = ```
+			VAR _corte = MAX(Calendario[Date])
+			VAR _indice_corte = [Hijas - Índice Renta Variable]
+			RETURN
+			    IF(
+			        ISBLANK(_corte),
+			        BLANK(),
+			        SUMX(
+			            FILTER('Configuración Familia', 'Configuración Familia'[Fecha] <= _corte),
+			            'Configuración Familia'[Importe Firmado]
+			                * DIVIDE(_indice_corte, 'Configuración Familia'[Índice Entrada])
+			        )
+			    )
+			```
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		displayFolder: Hijas
+		lineageTag: 02df0f0e-6010-4ef8-ad58-fe3b6f904c9e
+
+	/// Ganancia / pérdida acumulada hasta la fecha de corte.
+	measure 'Hijas - Beneficio' = ```
+			[Hijas - Saldo] - [Hijas - Aportado Neto]
+			```
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		displayFolder: Hijas
+		lineageTag: cc570670-71a7-44ba-b861-916781ee3420
+
+	/// Beneficio acumulado sobre el aportado neto. Para la rentabilidad de la cartera usar el índice (TWR).
+	measure 'Hijas - Rentabilidad sobre Aportado (%)' = ```
+			DIVIDE([Hijas - Beneficio], [Hijas - Aportado Neto])
+			```
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		displayFolder: Hijas
+		lineageTag: 0150921e-d89c-423e-917c-20c51ca5b67f
+
+	/// Compatibilidad con los gráficos de la página 'Saldo D & E'. Preferible usar [Hijas - Saldo] con Nombre en la leyenda.
+	measure 'Saldo Hija 1' = ```
+			CALCULATE([Hijas - Saldo], 'Configuración Familia'[Nombre] = "Hija 1")
+			```
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		displayFolder: Hijas
+		lineageTag: 89e682ea-6c5d-49c4-b2a1-5233e8ade20b
+
+	/// Compatibilidad con los gráficos de la página 'Saldo D & E'. Preferible usar [Hijas - Saldo] con Nombre en la leyenda.
+	measure 'Saldo Hija 2' = ```
+			CALCULATE([Hijas - Saldo], 'Configuración Familia'[Nombre] = "Hija 2")
+			```
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		displayFolder: Hijas
+		lineageTag: aee3b288-e4e0-4403-992a-6fb5ff79e24a
+
 	partition 'Medidas Saldo-33aeef08-3cdc-4fa0-95f6-080e8879d97f' = m
 		mode: import
 		queryGroup: Saldo

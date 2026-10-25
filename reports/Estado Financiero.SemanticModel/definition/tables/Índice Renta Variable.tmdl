@@ -1,0 +1,86 @@
+/// Índice mensual time-weighted de la cartera de Renta Variable familiar.
+/// Rentabilidad Mes = [Saldo - Incremento Normalizado Saldo Periodo (%)] del mes; Índice = encadenado de (1 + r).
+/// Lo usan las medidas de la carpeta 'Hijas' para valorar sus aportaciones como participaciones del fondo familiar.
+table 'Índice Renta Variable'
+	lineageTag: 1491f571-47bd-43ba-a00a-0dd8ffd92a0d
+
+	column 'Fecha Fin'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 6556c0a8-9ace-40d6-a73e-7a0e3aceeb2c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Fecha Fin]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fecha Inicio'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 5a436c16-e9f4-4973-843f-6894c57dde45
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Fecha Inicio]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Rentabilidad Mes'
+		dataType: double
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: e46f9842-ea49-4f99-90d2-a5844d5e5c00
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Rentabilidad Mes]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Índice'
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: 0ff33c7c-0448-4ba3-b60e-fef028aa763d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Índice]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Índice Renta Variable' = calculated
+		mode: import
+		source = ```
+				VAR _meses =
+				    SELECTCOLUMNS(
+				        FILTER(ALL(Calendario), Calendario[FinDeMes] = 1),
+				        "Fecha Fin", Calendario[Date]
+				    )
+				VAR _rentabilidad =
+				    ADDCOLUMNS(
+				        _meses,
+				        "Fecha Inicio", EOMONTH([Fecha Fin], -1) + 1,
+				        "Rentabilidad Mes",
+				            VAR _fin = [Fecha Fin]
+				            VAR _ini = EOMONTH(_fin, -1) + 1
+				            RETURN
+				                -- Rentabilidad Modified Dietz del mes (medida existente), solo Renta Variable
+				                COALESCE(
+				                    CALCULATE(
+				                        [Saldo - Incremento Normalizado Saldo Periodo (%)],
+				                        REMOVEFILTERS(Calendario),
+				                        DATESBETWEEN(Calendario[Date], _ini, _fin),
+				                        REMOVEFILTERS(Productos),
+				                        Productos[Tipo] = "Renta Variable"
+				                    ),
+				                    0
+				                )
+				    )
+				RETURN
+				    -- Encadenado mensual (TWR): Índice = producto de (1 + r) hasta el mes
+				    ADDCOLUMNS(
+				        _rentabilidad,
+				        "Índice",
+				            VAR _fin = [Fecha Fin]
+				            RETURN PRODUCTX(FILTER(_rentabilidad, [Fecha Fin] <= _fin), 1 + [Rentabilidad Mes])
+				    )
+				```
+
+	annotation PBI_Id = d6abb38cd6624efe977424df7b53d41e
+

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "17088991d6c48eddbe26",
   "position": {
     "x": 610,
@@ -188,43 +188,6 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "103.22438197794891D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "Tipo Movimiento"
-                          }
-                        },
-                        "Property": "TIPO"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Crédito'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
                   "Value": "198.56320169105035D"
                 }
               }
@@ -232,117 +195,6 @@
           },
           "selector": {
             "metadata": "Tipo Movimiento.CLASIFICACIÓN"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "94.8942637666304D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "Tipo Movimiento"
-                          }
-                        },
-                        "Property": "TIPO"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Gasto'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "101.77144406847007D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "Tipo Movimiento"
-                          }
-                        },
-                        "Property": "TIPO"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Ingreso'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "108.39798247093532D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "Tipo Movimiento"
-                          }
-                        },
-                        "Property": "TIPO"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Movimiento'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
           }
         }
       ],

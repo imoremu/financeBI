@@ -404,54 +404,6 @@ table Transacciones
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Cambio Fijo'
-		dataType: string
-		lineageTag: b26ebc41-2596-49ec-85fa-c86d4eb54987
-		summarizeBy: none
-		sourceColumn: Cambio Fijo
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'País Retención2'
-		dataType: string
-		lineageTag: af545d27-655b-4360-8a3f-c0be36c2b107
-		summarizeBy: none
-		sourceColumn: País Retención2
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'PyG realizadas'
-		dataType: string
-		lineageTag: 7ce849b3-6899-48af-85f2-014aa7309666
-		summarizeBy: none
-		sourceColumn: PyG realizadas
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'ID Divisa'
-		dataType: string
-		lineageTag: bfefc128-7734-41d0-92be-b22097318bac
-		summarizeBy: none
-		sourceColumn: ID Divisa
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Check No Preclasificadas'
-		dataType: string
-		lineageTag: 8b446efe-8f71-4481-b23c-61ea54393fa6
-		summarizeBy: none
-		sourceColumn: Check No Preclasificadas
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Check No contempladas'
-		dataType: string
-		lineageTag: 9cd1332a-2d06-452a-9128-d79a8d1c2aed
-		summarizeBy: none
-		sourceColumn: Check No contempladas
-
-		annotation SummarizationSetBy = Automatic
-
 	column 'Traspaso - Pérdida Bloqueada Trasladada'
 		dataType: double
 		lineageTag: 77250ab0-efb0-4593-917f-dcf9bfff20c9
@@ -509,5 +461,5 @@ table Transacciones
 
 	annotation PBI_NavigationStepName = Navegación
 
-	annotation PBI_ResultType = Exception
+	annotation PBI_ResultType = Table
 

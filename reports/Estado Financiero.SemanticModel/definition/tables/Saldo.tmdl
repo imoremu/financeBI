@@ -125,30 +125,6 @@ table Saldo
 
 		annotation SummarizationSetBy = Automatic
 
-	column Ticker
-		dataType: string
-		lineageTag: ab3005a7-3c91-4e91-b22c-2eefc3dcf1b1
-		summarizeBy: none
-		sourceColumn: Ticker
-
-		annotation SummarizationSetBy = Automatic
-
-	column Ingreso
-		dataType: string
-		lineageTag: b8eaf285-fd54-45b9-92d8-e204797dd948
-		summarizeBy: none
-		sourceColumn: Ingreso
-
-		annotation SummarizationSetBy = Automatic
-
-	column Dividendos
-		dataType: string
-		lineageTag: ff94b67b-896e-48d0-a2dc-d26ba9ca8892
-		summarizeBy: none
-		sourceColumn: Dividendos
-
-		annotation SummarizationSetBy = Automatic
-
 	column Divisa
 		dataType: string
 		lineageTag: 14007ae0-2812-4b2a-ab9e-c04cb890d097
@@ -157,11 +133,11 @@ table Saldo
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'ID Divisa'
+	column 'ID - Product - Fecha'
 		dataType: string
-		lineageTag: 9976d3ac-bfce-4133-bcff-efb47d2a6514
+		lineageTag: fd43c92e-0203-4d97-af01-d6c1b5aed1fc
 		summarizeBy: none
-		sourceColumn: ID Divisa
+		sourceColumn: ID - Product - Fecha
 
 		annotation SummarizationSetBy = Automatic
 
@@ -188,7 +164,7 @@ table Saldo
 				    Buffer
 				```
 
-	annotation PBI_ResultType = Table
+	annotation PBI_ResultType = Exception
 
 	annotation PBI_NavigationStepName = Navegación
 

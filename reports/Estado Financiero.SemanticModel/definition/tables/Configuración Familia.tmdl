@@ -1,0 +1,104 @@
+table 'Configuración Familia'
+	lineageTag: 4ba2de25-2333-456e-8cd9-c0b68f27f605
+
+	column Nombre
+		dataType: string
+		lineageTag: 4ba2de25-2333-456e-8cd9-c0b68f27f606
+		summarizeBy: none
+		sourceColumn: Nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fecha
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 4ba2de25-2333-456e-8cd9-c0b68f27f607
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tipo
+		dataType: string
+		lineageTag: 4ba2de25-2333-456e-8cd9-c0b68f27f608
+		summarizeBy: none
+		sourceColumn: Tipo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Importe
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 4ba2de25-2333-456e-8cd9-c0b68f27f609
+		summarizeBy: sum
+		sourceColumn: Importe
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Importe Firmado' = ```
+			SWITCH(
+			    TRIM('Configuración Familia'[Tipo]),
+			    "Ingreso", ABS('Configuración Familia'[Importe]),
+			    "Salida", -ABS('Configuración Familia'[Importe]),
+			    BLANK()   -- Tipo no reconocido: no computa (revisar el JSON)
+			)
+			```
+		formatString: #,0.00
+		lineageTag: bf1be429-b969-4a59-8217-a23cf33a2d54
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Índice TWR de Renta Variable en la fecha del movimiento (precio de "compra" de la participación).
+	column 'Índice Entrada' = ```
+			VAR _fecha = 'Configuración Familia'[Fecha]
+			VAR _fila =
+			    TOPN(
+			        1,
+			        FILTER(ALL('Índice Renta Variable'), 'Índice Renta Variable'[Fecha Fin] >= _fecha),
+			        'Índice Renta Variable'[Fecha Fin], ASC
+			    )
+			VAR _ultima = TOPN(1, ALL('Índice Renta Variable'), 'Índice Renta Variable'[Fecha Fin], DESC)
+			RETURN
+			    IF(
+			        ISBLANK(_fecha),
+			        BLANK(),
+			        IF(
+			            ISEMPTY(_fila),
+			            MAXX(_ultima, 'Índice Renta Variable'[Índice]),   -- posterior al último mes: último índice
+			            MAXX(
+			                _fila,
+			                VAR _ini = 'Índice Renta Variable'[Fecha Inicio]
+			                VAR _fin = 'Índice Renta Variable'[Fecha Fin]
+			                VAR _r = 'Índice Renta Variable'[Rentabilidad Mes]
+			                VAR _frac = MAX(0, MIN(1, DIVIDE(INT(_fecha - _ini) + 1, INT(_fin - _ini) + 1)))
+			                RETURN
+			                    -- índice al cierre del mes anterior, más la parte proporcional del mes en curso
+			                    DIVIDE('Índice Renta Variable'[Índice], 1 + _r) * (1 + _r * _frac)
+			            )
+			        )
+			    )
+			```
+		formatString: #,0.0000
+		lineageTag: ce84ed41-5043-4e08-b739-610d6d7efc8a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Configuración Familia' = m
+		mode: import
+		queryGroup: Saldo
+		source =
+				let
+				    RutaLocal = #"Project Root" & "\data\local\familia.local.json",
+				    RutaEjemplo = #"Project Root" & "\data\local\familia.example.json",
+				    Archivo = try Binary.Buffer(File.Contents(RutaLocal)) otherwise try Binary.Buffer(File.Contents(RutaEjemplo)) otherwise null,
+				    Tabla = if Archivo = null then #table({"Nombre", "Fecha", "Tipo", "Importe"}, {{"Hija 1", #date(2020, 1, 1), "Ingreso", 1000}, {"Hija 1", #date(2022, 1, 1), "Ingreso", 500}, {"Hija 2", #date(2021, 1, 1), "Ingreso", 1000}, {"Hija 2", #date(2022, 1, 1), "Ingreso", 500}}) else Table.FromRecords(Json.Document(Archivo)),
+				    Tipos = Table.TransformColumnTypes(Tabla, {{"Nombre", type text}, {"Fecha", type date}, {"Tipo", type text}, {"Importe", type number}}, "es-ES")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

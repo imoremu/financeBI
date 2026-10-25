@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "fa66fc5b7700dd7f4f82",
   "position": {
     "x": 10.8816120906801,
@@ -386,6 +386,38 @@
                     {
                       "Literal": {
                         "Value": "null"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                }
+              ]
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Renta Variable'"
+                  }
+                }
+              ],
+              "isToggled": true,
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Fondo Inversión'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                },
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Acciones'"
                       }
                     }
                   ],
@@ -1374,271 +1406,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "953ec896a6be1bcceb08",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Productos"
-                  }
-                },
-                "Hierarchy": "Tipo Producto"
-              }
-            },
-            "Level": "Tipo"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "3d7e2c1bbf6d7b370683",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Productos"
-                  }
-                },
-                "Hierarchy": "Tipo Producto"
-              }
-            },
-            "Level": "Subtipo"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "5b4c01f8338745360511",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas Saldo"
-              }
-            },
-            "Property": "Fecha Inicial"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "a067e03b4d03a39f55dc",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas Saldo"
-              }
-            },
-            "Property": "Inversion Total Realizada"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "3a72408786dc5e152ead",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas Saldo"
-              }
-            },
-            "Property": "Inversión Realizada Inicio"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "fcf530675f30c1e5ba84",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas Saldo"
-              }
-            },
-            "Property": "Saldo Fecha Inicio"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "237acefae60d8e858e35",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas Saldo"
-              }
-            },
-            "Property": "Saldo Último"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "9ad4bc00d52657df61ca",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas Saldo"
-              }
-            },
-            "Property": "Capital Invertido Medio"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "ceaa3276431aaf39daf6",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas Saldo"
-              }
-            },
-            "Property": "Saldo - Beneficio Periodo"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "9a1b01e1f7d98b0fe727",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas Saldo"
-              }
-            },
-            "Property": "Saldo - Incremento Normalizado Saldo Periodo (%)"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "1496244a951982d5b403",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas Saldo"
-              }
-            },
-            "Property": "Saldo - Incremento Normalizado Anual (%)"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "cfa00b8f254c73984e17",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas Saldo"
-              }
-            },
-            "Property": "Días Inversion"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "b4c087c25b33003bd9d3",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas Saldo"
-              }
-            },
-            "Property": "Participaciones Actuales"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "2f9603119d1461330188",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas Saldo"
-              }
-            },
-            "Property": "Valor Liquidativo Actual"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "ac51f53139ca3fc7faba",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas Saldo"
-              }
-            },
-            "Property": "Valor Liq. Compra"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "303de9ff68a66ccf62e4",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas Saldo"
-              }
-            },
-            "Property": "Valor Liquidativo Normalizado Compra Periodo"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "12c666bc012d9e40b496",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Productos"
-              }
-            },
-            "Property": "Producto"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "d2afc4e23378a49dc6d0",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas Saldo"
-              }
-            },
-            "Property": "Ingresos Inversion"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

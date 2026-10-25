@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "a89cd8d8fbe937e5eacb",
   "position": {
     "x": 1020,
@@ -701,6 +701,44 @@
             }
           ]
         }
+      },
+      {
+        "name": "cbcac21988f5ad4210ca",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Productos"
+                  }
+                },
+                "Hierarchy": "Tipo Producto"
+              }
+            },
+            "Level": "Tipo"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9f0297b8f18bb250a17b",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Productos"
+                  }
+                },
+                "Hierarchy": "Tipo Producto"
+              }
+            },
+            "Level": "Subtipo"
+          }
+        },
+        "type": "Categorical"
       }
     ]
   }

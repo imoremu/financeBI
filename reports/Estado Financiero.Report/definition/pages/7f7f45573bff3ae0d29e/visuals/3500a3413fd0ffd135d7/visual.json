@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "3500a3413fd0ffd135d7",
   "position": {
     "x": 1021.645885286783,
@@ -693,7 +693,7 @@
         }
       },
       {
-        "name": "4bee313c4d849b1ad63f",
+        "name": "3523fa417559df430ec9",
         "field": {
           "HierarchyLevel": {
             "Expression": {
@@ -712,7 +712,7 @@
         "type": "Categorical"
       },
       {
-        "name": "e7d355c5ae6a48fa3270",
+        "name": "2b08420bf4d7db52a905",
         "field": {
           "HierarchyLevel": {
             "Expression": {

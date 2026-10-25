@@ -1,0 +1,6 @@
+[
+  { "Nombre": "Hija 1", "Fecha": "2020-01-01", "Tipo": "Ingreso", "Importe": 1000 },
+  { "Nombre": "Hija 1", "Fecha": "2022-01-01", "Tipo": "Ingreso", "Importe": 500 },
+  { "Nombre": "Hija 2", "Fecha": "2021-01-01", "Tipo": "Ingreso", "Importe": 1000 },
+  { "Nombre": "Hija 2", "Fecha": "2022-01-01", "Tipo": "Ingreso", "Importe": 500 }
+]

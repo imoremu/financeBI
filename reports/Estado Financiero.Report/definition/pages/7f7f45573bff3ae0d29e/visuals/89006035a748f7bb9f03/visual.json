@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "89006035a748f7bb9f03",
   "position": {
     "x": 9.6,
@@ -838,93 +838,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "baf8aa1eb8dfe0735da3",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Saldo"
-              }
-            },
-            "Property": "Fecha"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "3bd357991d36ef4f2719",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Productos"
-              }
-            },
-            "Property": "Subtipo"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "c2d7956f92e0f422804c",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Productos"
-              }
-            },
-            "Property": "Producto"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "f6c35519caf57e2f060e",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Saldo"
-              }
-            },
-            "Property": "Saldo"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "788e47e4e7d48cd26d44",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Saldo"
-              }
-            },
-            "Property": "Valor liquidativo"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "d8c192f9f23bc04d5c2e",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Saldo"
-              }
-            },
-            "Property": "Participaciones"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

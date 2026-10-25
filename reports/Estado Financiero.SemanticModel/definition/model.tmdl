@@ -37,7 +37,7 @@ queryGroup 'Errores en las consultas: 19/08/2025 20:40:49'
 
 	annotation PBI_QueryGroupOrder = 6
 
-annotation PBI_QueryOrder = ["Saldo","Movimientos","Productos","Transacciones Power Query","Tipo Movimiento","Path","Medidas Movimientos","Especie","Años","Meses","Meses con Datos","Pagos Especie - Origen","Cobros Especie - Origen","Tipo Pago Especie","Tipo Cobro Especie","Pagos Especie","Cobros Especie","Movimientos Origen","Transacciones","Transacciones Agrupadas","Medidas Transacciones","Medidas Saldo","IRPF Ahorro","Medidas IRPF","IRPF","CalcularFIFO","ConsumoFIFO","Pruebas","Path (Prod)","Path (Test)","Path (Dev)","Origen Data File","Test Data","Path (Temp)","Errores en Test Data","Errores en Test Data (2)"]
+annotation PBI_QueryOrder = ["Saldo","Movimientos","Productos","Transacciones Power Query","Tipo Movimiento","Path","Project Root","Medidas Movimientos","Especie","Años","Meses","Meses con Datos","Pagos Especie - Origen","Cobros Especie - Origen","Tipo Pago Especie","Tipo Cobro Especie","Pagos Especie","Cobros Especie","Movimientos Origen","Transacciones","Transacciones Agrupadas","Medidas Transacciones","Medidas Saldo","Configuración Familia","IRPF Ahorro","Medidas IRPF","IRPF","CalcularFIFO","ConsumoFIFO","Pruebas","Path (Prod)","Path (Test)","Path (Dev)","Origen Data File","Test Data","Path (Temp)","Errores en Test Data","Errores en Test Data (2)"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
@@ -62,6 +62,8 @@ ref table 'Test Data'
 ref table DateTableTemplate_c89e3af7-f9f4-492b-8e82-a0927b77cae5
 ref table LocalDateTable_93f1543f-944f-4988-9370-48e3eab51efc
 ref table IRPF
+ref table 'Configuración Familia'
+ref table 'Índice Renta Variable'
 
 ref cultureInfo es-ES
 

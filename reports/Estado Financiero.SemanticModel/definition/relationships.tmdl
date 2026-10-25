@@ -63,3 +63,4 @@ relationship a735c3bd-6312-9736-d7f2-9d2927698690
 	fromColumn: Movimientos.CUENTA
 	toColumn: Productos.Producto
 
+

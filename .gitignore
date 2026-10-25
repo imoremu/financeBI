@@ -8,6 +8,9 @@
 *.pbix
 *.pbit
 
+# Datos personales locales (mantener el ejemplo versionado)
+data/local/familia.local.json
+
 
 *.tmp
 *.cache
